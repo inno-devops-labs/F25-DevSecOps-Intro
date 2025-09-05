@@ -97,7 +97,7 @@ In this lab you will practice:
 
 ---
 
-### Task 2 — PR Template & Checklist (4 pts)
+### Task 2 — PR Template (4 pts)
 
 **Objective:** Standardize submissions so every lab PR has the same sections and checks.
 
@@ -131,7 +131,7 @@ In this lab you will practice:
    * Fill in **Goal / Changes / Testing / Artifacts & Screenshots** and tick the checkboxes.
    * Ensure your screenshots and API snippet are embedded or referenced in `labs/submission1.md`.
 
-#### Acceptance Criteria
+### Acceptance Criteria
 
 * ✅ `labs/submission1.md` exists and includes: image `bkimminich/juice-shop:19.0.0` with release link/date; environment; deployment details; access URL; working health check evidence (screenshot or API snippet); surface snapshot; top 3 risks.
 * ✅ 3–5 **Issues** exist in the repo labeled `backlog` (derived from your triage next actions) and linked from `labs/submission1.md`.
