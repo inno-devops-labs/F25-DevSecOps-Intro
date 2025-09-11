@@ -78,7 +78,7 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
 
 ## Next Actions / Backlog
 
-- [ ] **Issue:** Parameterize product search (SQLi) — [`#1`](<link-to-issue>)
+- [ ] **Issue:** Parameterize product search (SQLi) — [`#1`](https://github.com/Rozanalex/F25-DevSecOps-Intro/issues/1)
   - **Labels:** `security`
   - **Context:** `GET /rest/products/search?q=` is vulnerable to UNION-based SQLi.
   - **Tasks:**
@@ -87,7 +87,7 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
     - Add **negative tests** (failing payloads) to CI.
   - **DoD:** payload `1')) UNION SELECT ...` no longer affects the response; unit/integration tests proving rejection; code reviewed.
 
-- [ ] **Issue:** Mitigate reflected XSS in search — [`#2`](<link-to-issue>)
+- [ ] **Issue:** Mitigate reflected XSS in search — [`#2`](https://github.com/Rozanalex/F25-DevSecOps-Intro/issues/2)
   - **Labels:** `security`
   - **Context:** `/#/search?q=` reflects untrusted input into the DOM.
   - **Tasks:**
@@ -96,7 +96,7 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
     - Add **XSS regression tests** with the PoC payload.
   - **DoD:** PoC `"<iframe src="javascript:alert('xss')">` (URL-encoded) no longer executes; CSP present and logged; tests in CI.
 
-- [ ] **Issue:** Prevent SSTI in Username rendering — [`#3`](<link-to-issue>)
+- [ ] **Issue:** Prevent SSTI in Username rendering — [`#3`](https://github.com/Rozanalex/F25-DevSecOps-Intro/issues/3)
   - **Labels:** `security`
   - **Context:** `a#{7*7}` in **Username** evaluates server-side to `a49`.
   - **Tasks:**
