@@ -36,4 +36,3 @@
 - [#1. Sensitive Data Exposure](https://github.com/flowelx/F25-DevSecOps-Intro/issues/1)
 - [#2. DOM XSS](https://github.com/flowelx/F25-DevSecOps-Intro/issues/2)
 - [#3. Improper Input Validation](https://github.com/flowelx/F25-DevSecOps-Intro/issues/3)
-- [#3](ссылка на issue 3)
