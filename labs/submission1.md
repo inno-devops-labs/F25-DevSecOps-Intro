@@ -32,3 +32,4 @@
 ## Risks Observed (Top 3)
 1) jwt used for login, voulnerabilities could be found
 didn't find anything else
+2) admin email is visible in comments section
