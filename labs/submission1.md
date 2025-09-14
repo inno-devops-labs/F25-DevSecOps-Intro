@@ -16,7 +16,7 @@
 - Network exposure: 127.0.0.1 only. As we run using the command `-p 127.0.0.1:3000:3000`, which makes the resource only local-host accecible. If we used simply `-p 3000:3000`, the app would be reachable from any host in the network
 
 ## Health Check
-- Page load: ![Main page](/static/MainPage.png)
+- Page load: ![Main page](/labs/static/MainPage.png)
 - API check: 
 ```html
 <html>
