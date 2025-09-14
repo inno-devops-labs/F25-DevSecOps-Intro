@@ -52,7 +52,5 @@
 - [#1] Implement input validation for all user inputs
 - [#2] Add security headers (CSP, HSTS) 
 - [#3] Configure proper error handling to prevent information disclosure
-- [#4] Review CORS configuration
-- [#5] Implement client-side security controls
 
 *Note: Issues labeled as `backlog` in the repository*
