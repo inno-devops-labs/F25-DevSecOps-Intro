@@ -22,43 +22,7 @@ In this lab you will practice:
 
 ## Tasks
 
-### Task 1 — Threat Dragon Web Model (6 pts)
-
-**Objective:** Create a diagram-based threat model of your local Juice Shop setup using the web UI at `threatdragon.com`, and extract the top 5 risks.
-
-1. **Folder & files**
-   - Create in your repo:
-     - `labs/lab2/threat-dragon.json` — download/export the JSON model from the web UI.
-     - `labs/lab2/dfd.png` — export your diagram as PNG/SVG.
-     - `labs/lab2/THREATS.md` — markdown summary of your top risks.
-
-2. **Model the deployment (minimum elements)**
-   - **Actors:** User (Browser), Attacker (Internet)
-   - **Components:** Reverse Proxy (optional), Juice Shop Container (`:19.0.0`), Persistent Storage (e.g., container volume), Email/SMS provider (if configured)
-   - **Flows:**
-     - `HTTP 3000/tcp` Browser ↔ Juice Shop (or Browser ↔ Proxy ↔ Juice Shop)
-     - Outbound flows from Juice Shop (Email/SMS API, webhook, etc.)
-     - Persistent storage ↔ Juice Shop
-   - **Trust Boundaries:** Internet ⇢ Host; Host ⇢ Container Network
-
-3. **Use the Threat Dragon web UI**
-   - Go to `threatdragon.com` → New Model (GitHub login required).
-   - Select a repo/branch where models are stored.
-   - Provide metadata: title = “Juice Shop Lab”, owner = your GitHub handle.
-   - Add a diagram: place trust boundaries, actors, components, and flows.
-   - Assign STRIDE categories to each element/flow (via the properties pane).
-   - Run the rule engine and review auto-generated threats.
-   - Triage: keep, edit, or drop threats. Add mitigation notes (e.g., TLS via proxy, authz on sensitive routes, rate limiting).
-
-4. **Write `labs/lab2/THREATS.md`**
-   - **Context:** brief description of your Juice Shop local setup (container, browser, optional proxy).
-   - **Top 5 risks:** one-liners with STRIDE tags (e.g., “Injection [Tampering] — unsanitized input can corrupt DB”).
-
-> Resources: Threat Dragon docs & project page (DFDs, STRIDE, rule engine, desktop/web options).
-
----
-
-### Task 2 — Threagile model & automated report (4 pts)
+### Task 1 — Threagile model & automated report (2 pts)
 
 **Objective:** Use the provided Threagile model to generate a PDF report + diagrams and document the results in `labs/submission2.md`.
 
@@ -88,10 +52,8 @@ What you get in `labs/lab2/`:
 
 3. **Create `labs/submission2.md`**
 
-Include the following sections (use these headings):
+Include the following sections:
 
-- Overview: how you ran Threagile (1–2 lines) and your local setup context.
-- Artifacts: list relative paths you produced (PDF, diagrams, JSON/XLSX).
 - Top 5 Risks (from `labs/lab2/risks.json`): create a table with columns — Severity, Category, Asset, Likelihood, Impact.
   - Ranking: Sort risks by these weights to pick the Top 5:
     - Severity order: critical (5) > elevated (4) > high (3) > medium (2) > low (1)
@@ -100,7 +62,6 @@ Include the following sections (use these headings):
     - Composite score = Severity*100 + Likelihood*10 + Impact. Sort descending; use score to break ties.
   - Practical way:
     - Manual read: open `labs/lab2/risks.json`, scan fields `severity`, `exploitation_likelihood`, `exploitation_impact`, `category`, `most_relevant_technical_asset`, apply the weights above, and pick the top 5.
-- Cross-check vs Threat Dragon: 2 overlaps + 1 difference (one-liners).
 - **Delta Run**: change one thing in the YAML (e.g., set Reverse Proxy → App link to HTTPS), re-run, and paste a before/after of the relevant counts (e.g., unencrypted-communication dropped). Add a one-sentence reason why.
 
 4. **Deliverables**
@@ -108,9 +69,7 @@ Include the following sections (use these headings):
 Commit/push:
 
 - `labs/lab2/threagile-model.yaml`
-- `labs/lab2/report.pdf`
 - `labs/lab2/*diagram*.png` (at least the data-flow diagram)
-- `labs/lab2/risks.json`, `labs/lab2/stats.json` (auto-generated)
 - `labs/submission2.md` (the write-up described above)
 
 5. **Quality checklist (pass/fail hints)**
@@ -122,6 +81,42 @@ Commit/push:
 - Delta Run shows before/after evidence and a short explanation.
 
 > Resources: Threagile site (auto risk rules, diagrams, CI-friendly), CLI usage (Docker examples), sample outputs. ([threagile.io][3], [GitHub][6], [juanvvc.github.io][4])
+---
+
+### Task 2 — Threat Dragon Web Model (4 pts)
+
+**Objective:** Create a diagram-based threat model of your local Juice Shop setup using the web UI at `threatdragon.com`, and extract the top 5 risks.
+
+1. **Use the Threat Dragon web UI**
+   - Go to `threatdragon.com` → New Model (GitHub login required).
+   - Select a repo/branch where models are stored (optional).
+   - Provide metadata: title = “Juice Shop Lab”, owner = your GitHub handle.
+   - Add a diagram: place trust boundaries, actors, components, and flows.
+   - Assign STRIDE categories to each element/flow (via the properties pane).
+   - Run the rule engine and review auto-generated threats.
+   - Triage: keep, edit, or drop threats. Add mitigation notes (e.g., TLS via proxy, authz on sensitive routes, rate limiting).
+
+2. **Model the deployment (minimum elements)**
+   - **Actors:** User (Browser), Attacker (Internet)
+   - **Components:** Reverse Proxy (optional), Juice Shop Container (`:19.0.0`), Persistent Storage (e.g., container volume), Email/SMS provider (if configured)
+   - **Flows:**
+     - `HTTP 3000/tcp` Browser ↔ Juice Shop (or Browser ↔ Proxy ↔ Juice Shop)
+     - Outbound flows from Juice Shop (Email/SMS API, webhook, etc.)
+     - Persistent storage ↔ Juice Shop
+   - **Trust Boundaries:** Internet ⇢ Host; Host ⇢ Container Network
+
+3. **Folder & files**
+   - Create in your repo:
+     - `labs/lab2/threat-dragon.json` — download/export the JSON model from the web UI.
+     - `labs/lab2/dfd.png` — export your diagram as PNG/SVG.
+     - `labs/lab2/THREATS.md` — markdown summary of your top risks.
+
+4. **Write `labs/lab2/THREATS.md`**
+   - **Top 5 risks:** one-liners with STRIDE tags (e.g., “Injection [Tampering] — unsanitized input can corrupt DB”).
+   - Cross-check vs Threagile: 2 overlaps + 1 difference (one-liners).
+
+> Resources: Threat Dragon docs & project page (DFDs, STRIDE, rule engine, desktop/web options).
+
 ---
 
 ### Bonus — GitHub Social Interactions (optional)
@@ -139,22 +134,20 @@ Commit/push:
 * ✅ `labs/lab2/threat-dragon.json` exported and `labs/lab2/dfd.png` exported (diagram shows actors, Juice Shop container, flows, and trust boundaries).
 * ✅ `labs/lab2/THREATS.md` lists **Top 5** STRIDE-tagged risks.
 * ✅ `labs/lab2/threagile-model.yaml` models the same architecture at a reasonable fidelity.
-* ✅ `labs/lab2/report.pdf` exists, and `labs/lab2/*diagram*.png` includes at least the data-flow diagram.
-* ✅ `labs/lab2/risks.json` and `labs/lab2/stats.json` exist.
-* ✅ `labs/submission2.md` includes: Artifacts list, Top 5 risks table, Stats snapshot, 2 overlaps + 1 difference vs Threat Dragon, and a Delta Run with before/after evidence.
-* ✅ (Optional) `labs/lab2/risks.xlsx` present for reviewers.
+* ✅ `labs/lab2/*diagram*.png` includes at least the data-flow diagram.
+* ✅ `labs/submission2.md` includes: Artifacts list, Top 5 risks table, Stats snapshot, 2 overlaps + 1 difference Threagile vs Threat Dragon, and a Delta Run with before/after evidence.
 * ✅ PR from `feature/lab2` → `main` is open with artifacts attached/linked in the description.
 
 ---
 
 ## How to Submit
 
-1. Create `feature/lab2`, commit the new files, push, and open a PR to your fork’s `main`.
+1. Create `feature/lab2`, commit the new files, push, and open a PR.
 2. In the PR description, fill your template sections and include:
 
    ```text
-   - [x] Task 1: Threat Dragon model + THREATS.md
-   - [x] Task 2: Threagile YAML + report + diagrams + submission2.md
+   - [x] Task 1: Threagile YAML + report + diagrams + submission2.md
+   - [x] Task 2: Threat Dragon model + THREATS.md
    ```
 
 ---
