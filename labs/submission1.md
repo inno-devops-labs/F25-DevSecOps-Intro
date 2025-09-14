@@ -49,8 +49,9 @@
 
 ## Follow-up Actions
 
-- [#1] Implement input validation for all user inputs
-- [#2] Add security headers (CSP, HSTS) 
-- [#3] Configure proper error handling to prevent information disclosure
+
+- [#1](https://github.com/username/repo/issues/1) Add security headers (CSP, HSTS) 
+- [#2](https://github.com/username/repo/issues/2) Implement input validation for all user inputs
+- [#3](https://github.com/username/repo/issues/3) Configure proper error handling to prevent information disclosure
 
 *Note: Issues labeled as `backlog` in the repository*
