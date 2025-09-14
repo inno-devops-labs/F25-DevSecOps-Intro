@@ -38,6 +38,6 @@
 - Security headers (quick look — optional): `curl -I http://127.0.0.1:3000` → CSP/HSTS present? notes: no CSP/HSTS headers found
 
 ## Risks Observed (Top 3)
-1) CORS header: `Access-Control-Allow-Origin: *`. The recources are acessible from any domain, malicious sites may use the API data allowing Cross-Site Request Forgery
-2) There is no CSP header - Cross-Site Scripting may be used. Arbitrary JavaScript injection is possible, the website may hand over the keys to the victim’s session, data, and actions
-3) No HSTS header. This allows SSL stripping - downgrading communication from HTTPS to simple HTTP. By adding such header we enforce browser to use only HTTPS and improve the security of user 
+1) [CORS header](https://github.com/TovarishDru/F25-DevSecOps-Intro/issues/2): `Access-Control-Allow-Origin: *`. The recources are acessible from any domain, malicious sites may use the API data allowing Cross-Site Request Forgery
+2) There is no [CSP header](https://github.com/TovarishDru/F25-DevSecOps-Intro/issues/3) - Cross-Site Scripting may be used. Arbitrary JavaScript injection is possible, the website may hand over the keys to the victim’s session, data, and actions
+3) No [HSTS header](https://github.com/TovarishDru/F25-DevSecOps-Intro/issues/4). This allows SSL stripping - downgrading communication from HTTPS to simple HTTP. By adding such header we enforce browser to use only HTTPS and improve the security of user 
