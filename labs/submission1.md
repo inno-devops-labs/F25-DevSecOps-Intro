@@ -45,3 +45,14 @@
 1) Insufficient Input Validation — Forms and search fields lack strong server-side validation, creating clear vectors for injection attacks.
 2) Sensitive Information Disclosure — Detailed error messages (e.g., HTTP 500) and informational headers (e.g., X-Recruiting) expose internal app structure and potential attack surfaces.
 3) Missing Security Hardening Headers — Absence of CSP and HSTS headers increases exposure to client-side attacks like XSS and man-in-the-middle exploits.
+
+
+## Follow-up Actions
+
+- [#1] Implement input validation for all user inputs
+- [#2] Add security headers (CSP, HSTS) 
+- [#3] Configure proper error handling to prevent information disclosure
+- [#4] Review CORS configuration
+- [#5] Implement client-side security controls
+
+*Note: Issues labeled as `backlog` in the repository*
