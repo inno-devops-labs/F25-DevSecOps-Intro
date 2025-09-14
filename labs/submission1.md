@@ -50,8 +50,8 @@
 ## Follow-up Actions
 
 
-- [#1](https://github.com/username/repo/issues/1) Add security headers (CSP, HSTS) 
-- [#2](https://github.com/username/repo/issues/2) Implement input validation for all user inputs
-- [#3](https://github.com/username/repo/issues/3) Configure proper error handling to prevent information disclosure
+- [#1](https://github.com/kolsmer/repo/issues/1) Add security headers (CSP, HSTS) URL: https://github.com/kolsmer/repo/issues/1
+- [#2](https://github.com/kolsmer/repo/issues/2) Implement input validation for all user inputs URL: https://github.com/kolsmer/repo/issues/2
+- [#3](https://github.com/kolsmer/repo/issues/3) Configure proper error handling to prevent information disclosure URL: https://github.com/kolsmer/repo/issues/3
 
 *Note: Issues labeled as `backlog` in the repository*
