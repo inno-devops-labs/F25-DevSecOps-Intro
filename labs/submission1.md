@@ -38,6 +38,6 @@ curl.exe -s http://127.0.0.1:3000/api/Products | more
 
 
 ## Risks Observed (Top 3)
-1) **SQL Injection (SQLi) in Login/Registration.**
-2) **Cross-Site Scripting (XSS) in Search.**
+1) **Return to the previous page works incorrectly (It is possible to get access after an exit)**
+2) **HTTP protocol is unencrypted**
 3) **Missing Security Headers:**
