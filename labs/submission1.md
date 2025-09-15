@@ -16,7 +16,7 @@
 - Network exposure: 127.0.0.1 only [x] Yes  [ ] No  (explain if No)
 
 ## Health Check
-- Page load: 
+- Page load: <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/f4db8c69-cada-42cc-a3b8-09f4559451f0" />
 - API check: {"status":"success","data":[{"id":1,"name":"Apple Juice (1000ml)","description":"The all-time classic.","price":1.99,"deluxePrice":0.99,"image":"apple_juice.jpg","createdAt":"2025-09-14T23:51:40.596Z","updatedAt":"2025-09-14T23:51:40.596Z","deletedAt":null}, ... ]}
 
 ## Surface Snapshot (Triage)
