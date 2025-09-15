@@ -4,7 +4,7 @@ title: OWASP Juice Shop — Local Lab Threat Model
 date: 2025-09-07
 
 author:
-  name: Student Name
+  name: Andrey Torgashinov
   homepage: https://example.edu
 
 management_summary_comment: >
@@ -205,7 +205,7 @@ technical_assets:
       To Reverse Proxy (preferred):
         target: reverse-proxy
         description: "User to reverse proxy (HTTPS 443)."
-        protocol: http
+        protocol: https
         authentication: session-id
         authorization: enduser-identity-propagation
         tags: ["primary"]
