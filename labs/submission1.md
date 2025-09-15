@@ -17,6 +17,8 @@
 
 ## Health Check
 - Page load: attach screenshot of home page (path or embed)
+
+![asset](/assets/lab1/image.png)
 - API check: first 5–10 lines from `curl -s http://127.0.0.1:3000/rest/products | head`
 ```html
 <html>
@@ -31,10 +33,11 @@
 ```
 
 ## Surface Snapshot (Triage)
-- Login/Registration visible: [+] Yes  [ ] No — notes: Login button on the upper left corner
-- Product listing/search present: [+] Yes  [ ] No — notes: The list of products is on the main page, there is a search bar
-- Admin or account area discoverable: [+] Yes  [ ] No — notes: There is no direct link, but there probably is at the direct URL `/administration`
-- Client-side errors in console: [+] Yes  [ ] No — notes: 400 Bad Request
+
+- Login/Registration visible: [+] Yes  [ ] No — notes: Login on the left upper corner.
+- Product listing/search present: [+] Yes  [ ] No — notes: The listing and a search bar on index page.
+- Admin or account area discoverable: [+] Yes  [ ] No — notes: There is no direct link, but there probably is at the direct URL `/administration`.
+- Client-side errors in console: [+] Yes  [ ] No — notes: 400 Bad Request.
 - Security headers (quick look — optional): `curl -I http://127.0.0.1:3000` → CSP/HSTS present? notes: No, because headers undefined
 
 ```
@@ -69,6 +72,6 @@ url: "http://127.0.0.1:3000/api/Addresss/null"
 ```
 
 ## Risks Observed (Top 3)
-1) The application works over **HTTP**, so it allows for a man-in-the-middle attack.
-2) No **Security headers** allows XSS attacks.
-3) Configure proper **error handling** to prevent information disclosure URL
+1) No backend user validation. [Issue](https://github.com/projacktor/F25-DevSecOps-Intro/issues/3)
+2) No **Security headers** allows XSS attacks. [Issue](https://github.com/projacktor/F25-DevSecOps-Intro/issues/2)
+3) No `OPTIONS` requests and CORS policy [Issue](https://github.com/projacktor/F25-DevSecOps-Intro/issues/4)
