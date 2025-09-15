@@ -20,10 +20,10 @@
 - API check: {"status":"success","data":[{"id":1,"name":"Apple Juice (1000ml)","description":"The all-time classic.","price":1.99,"deluxePrice":0.99,"image":"apple_juice.jpg","createdAt":"2025-09-14T23:51:40.596Z","updatedAt":"2025-09-14T23:51:40.596Z","deletedAt":null}, ... ]}
 
 ## Surface Snapshot (Triage)
-- Login/Registration visible: [X] Yes  [ ] No — notes: <...>
-- Product listing/search present: [X] Yes  [ ] No — notes: <...>
-- Admin or account area discoverable: [X] Yes  [ ] No — notes: <...>
-- Client-side errors in console: [ ] Yes  [X] No — notes: <...>
+- Login/Registration visible: [X] Yes  [ ] No — notes: Login and Registration forms are visible on the homepage.
+- Product listing/search present: [X] Yes  [ ] No — notes: Product catalog and search bar are present, API returns product data without login.
+- Admin or account area discoverable: [X] Yes  [ ] No — notes: Account area is accessible after login.
+- Client-side errors in console: [ ] Yes  [X] No — notes: No client-side errors observed in the browser console on homepage load.
 - Security headers (quick look — optional): `curl -I http://127.0.0.1:3000` → CSP/HSTS present? [ ] Yes  [X] No —notes:
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
