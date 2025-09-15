@@ -17,6 +17,7 @@
 
 ## Health Check
 - Page load: attach screenshot of home page (path or embed)
+
 ![asset](/assets/lab1/image.png)
 - API check: first 5–10 lines from `curl -s http://127.0.0.1:3000/rest/products | head`
 ```html
@@ -32,6 +33,7 @@
 ```
 
 ## Surface Snapshot (Triage)
+
 - Login/Registration visible: [+] Yes  [ ] No — notes: Login on the left upper corner.
 - Product listing/search present: [+] Yes  [ ] No — notes: The listing and a search bar on index page.
 - Admin or account area discoverable: [+] Yes  [ ] No — notes: There is no direct link, but there probably is at the direct URL `/administration`.
