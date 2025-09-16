@@ -17,7 +17,6 @@
 
 ## Health Check
 - Page load: attach screenshot of home page (path or embed)
-
 ![asset](/assets/lab1/image.png)
 - API check: first 5–10 lines from `curl -s http://127.0.0.1:3000/rest/products | head`
 ```html
