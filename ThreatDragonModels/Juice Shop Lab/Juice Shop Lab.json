@@ -830,7 +830,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Email provider"
+                "text": "Email Provider"
               },
               "body": {
                 "stroke": "#333333",
@@ -926,7 +926,7 @@
             "id": "78c2dc4c-1717-40eb-a09e-0e912414fe20",
             "data": {
               "type": "tm.Actor",
-              "name": "Email provider",
+              "name": "Email Provider",
               "description": "",
               "isTrustBoundary": false,
               "outOfScope": false,
