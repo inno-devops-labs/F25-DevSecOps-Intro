@@ -32,6 +32,7 @@
 ```
 
 ## Surface Snapshot (Triage)
+
 - Login/Registration visible: [+] Yes  [ ] No — notes: Login on the left upper corner.
 - Product listing/search present: [+] Yes  [ ] No — notes: The listing and a search bar on index page.
 - Admin or account area discoverable: [+] Yes  [ ] No — notes: There is no direct link, but there probably is at the direct URL `/administration`.
