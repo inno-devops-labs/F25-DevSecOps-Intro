@@ -35,6 +35,6 @@
 - Security headers (quick look — optional): `curl -I http://127.0.0.1:3000` → CSP/HSTS present? notes: No, no Content-Security-Policy and Strict-Transport-Security headers
 
 ## Risks Observed (Top 3)
-1) The absence of security headers makes the site vulnerable to XSS attacks.
-2) Using the HTTP protocol, lack of encryption (No CSP, HSTS).
-3) SQL injection
+1) The absence of security headers makes the site vulnerable to XSS attacks: [Issue](https://github.com/ilyalinhnguyen/F25-DevSecOps-Intro/issues/2)
+2) Using the HTTP protocol, lack of encryption (No CSP, HSTS): [Issue](https://github.com/ilyalinhnguyen/F25-DevSecOps-Intro/issues/3)
+3) SQL injection: [Issue](https://github.com/ilyalinhnguyen/F25-DevSecOps-Intro/issues/4)
