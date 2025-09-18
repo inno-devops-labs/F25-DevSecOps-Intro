@@ -24,8 +24,8 @@ Tie-breaking here is impossible to accomplish using the suggested method.
 ## Delta-run
 
 I changed the link from the reverse proxy to the js-app to use HTTPS.
-Expectedly, the "unencrypted-communication" threat went away. Now the top-5
-looks like this:
+Expectedly, the "unencrypted-communication" threat went away because HTTPS is
+an encrypted protocol. Now the top-5 looks like this:
 
 --------------------------------------------------------------------------------------------------------------------
 | **Clarification**   | **Severity** | **Category**                | **Asset**       | **Likelihood** | **Impact** |
@@ -41,3 +41,4 @@ looks like this:
 |                     |  medium      |  cross-site-request-forgery |  juice-shop     |  very-likely   |  low       |
 --------------------------------------------------------------------------------------------------------------------
 
+The 5th place is now occupied by a medium-level threat.
