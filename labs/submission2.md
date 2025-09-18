@@ -1,13 +1,19 @@
 # Lab 2 — Submission
 
 ## Artifacts
-- `labs/lab2/threagile-model.yaml` (without HTTPS delta change applied)
+- `labs/lab2/baseline/threagile-model.yaml` (without HTTPS delta change applied)
+- `labs/lab2/secure/threagile-model.https.yaml` (pulled for 2nd task)
 - `labs/lab2/threagile-model2.yaml` (with HTTPS delta change applied)
-- `labs/lab2/report.pdf` (auto-generated)
-- `labs/lab2/risks.json` and `labs/lab2/stats.json` (after delta run)
-- `labs/lab2/technical-assets.json`
-- `labs/lab2/data-flow-diagram.png` (Diagram)
-- `labs/lab2/data-asset-diagram.png` (Diagram)
+- `labs/lab2/secure/report.pdf` (auto-generated)
+- `labs/lab2/secure/risks.json` and `labs/lab2/secure/stats.json` (after delta run)
+- `labs/lab2/secure/technical-assets.json`
+- `labs/lab2/secure/data-flow-diagram.png` (Diagram)
+- `labs/lab2/secure/data-asset-diagram.png` (Diagram)
+- `labs/lab2/baseline/report.pdf` (auto-generated)
+- `labs/lab2/baseline/risks.json` and `labs/lab2/baseline/stats.json` (after delta run)
+- `labs/lab2/baseline/technical-assets.json`
+- `labs/lab2/baseline/data-flow-diagram.png` (Diagram)
+- `labs/lab2/baseline/data-asset-diagram.png` (Diagram)
 
 ---
 
