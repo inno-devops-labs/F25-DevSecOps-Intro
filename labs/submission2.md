@@ -1,0 +1,80 @@
+# Lab 2 — Submission
+
+## Artifacts
+- `labs/lab2/threagile-model.yaml` (without HTTPS delta change applied)
+- `labs/lab2/threagile-model2.yaml` (with HTTPS delta change applied)
+- `labs/lab2/report.pdf` (auto-generated)
+- `labs/lab2/risks.json` and `labs/lab2/stats.json` (after delta run)
+- `labs/lab2/technical-assets.json`
+- `labs/lab2/data-flow-diagram.png` (Diagram)
+- `labs/lab2/data-asset-diagram.png` (Diagram)
+
+---
+
+## Top 5 Risks (Before Delta Run)
+
+| Severity   | Category                   | Asset        | Likelihood   | Impact | Score |
+|------------|----------------------------|--------------|--------------|--------|-------|
+| Elevated   | Unencrypted Communication  | User Browser | Likely       | High   | 433   |
+| Elevated   | Unencrypted Communication  | User Browser | Likely       | High   | 433   |
+| Elevated   | Unencrypted Communication  | Reverse Proxy| Likely       | Medium | 432   |
+| Elevated   | Missing Authentication     | Juice Shop   | Likely       | Medium | 432   |
+| Elevated   | Cross-Site Scripting (XSS) | Juice Shop   | Likely       | Medium | 432   |
+
+**Notes:**  
+- Composite score formula: Severity mult. 100 + Likelihood mult. 10 + Impact.  
+- Two separate unencrypted communication risks (browser -> app and browser -> proxy) tied for first place.  
+- Authentication and XSS issues remain among the most severe.  
+
+---
+
+## Top 5 Risks (After Delta Run)
+
+| Severity   | Category                   | Asset        | Likelihood   | Impact | Score |
+|------------|----------------------------|--------------|--------------|--------|-------|
+| Elevated   | Unencrypted Communication  | User Browser | Likely       | High   | 433   |
+| Elevated   | Unencrypted Communication  | Reverse Proxy| Likely       | Medium | 432   |
+| Elevated   | Missing Authentication     | Juice Shop   | Likely       | Medium | 432   |
+| Elevated   | Cross-Site Scripting (XSS) | Juice Shop   | Likely       | Medium | 432   |
+| Medium     | Cross-Site Request Forgery | Juice Shop   | Very-Likely  | Low    | 241   |
+
+**Notes:**  
+- After enforcing HTTPS on one flow, the browser -> proxy unencrypted risk was removed.  
+- Top 4 risks remain consistent: unencrypted communication, missing authentication, and XSS.  
+
+---
+
+## Stats Snapshot
+
+**Before Delta Run:**  
+- Elevated: 5  
+- Medium: 12  
+- Low: 5  
+
+**After Delta Run:**  
+- Elevated: 4  
+- Medium: 13  
+- Low: 5  
+
+---
+
+## Delta Run
+
+- Configured communication between Browser and Reverse Proxy to use HTTPS. Medium risks increased by 1, reflecting model recalculation.  
+
+- Enabling HTTPS mitigates critical exposure of credentials/tokens during browser-to-proxy communication. This confirms the positive security impact of encryption even on internal segments.  
+
+---
+
+## Conclusion
+
+The combined results show that OWASP Juice Shop deployment is primarily at risk from insecure communication, missing authentication layers, and classic OWASP Top 10 issues(XSS, CSRF). The delta run demonstrated how a simple architectural change (enabling HTTPS) reduced critical risks.
+
+## Bonus — GitHub Social Interactions
+
+Stars and follows on GitHub help show which projects are trusted and widely used. They also make it easier to build collaboration and visibility in open source and team projects, since people can quickly discover and connect with active contributors. Networking makes a huge profit to the projects impacts in the community.
+
+I have starred the course repository, followed 3 of my classmates, course instructor and 2 TA's. 
+
+---
+
