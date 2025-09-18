@@ -20,3 +20,24 @@ Tie-breaking here is impossible to accomplish using the suggested method.
 --------------------------------------------------------------------------------------------------------------------
 | RevProxy->JuiceShop |  elevated    |  missing-authentication     |  juice-shop     |  likely        |  medium    |
 --------------------------------------------------------------------------------------------------------------------
+
+## Delta-run
+
+I changed the link from the reverse proxy to the js-app to use HTTPS.
+Expectedly, the "unencrypted-communication" threat went away. Now the top-5
+looks like this:
+
+--------------------------------------------------------------------------------------------------------------------
+| **Clarification**   | **Severity** | **Category**                | **Asset**       | **Likelihood** | **Impact** |
+--------------------------------------------------------------------------------------------------------------------
+| Direct-To-App http  |  elevated    |  unencrypted-communication  |  user-browser   |  likely        |  high      |
+--------------------------------------------------------------------------------------------------------------------
+| To-Reverse-Proxy    |  elevated    |  unencrypted-communication  |  user-browser   |  likely        |  high      |
+--------------------------------------------------------------------------------------------------------------------
+|                     |  elevated    |  cross-site-scripting       |  juice-shop     |  likely        |  medium    |
+--------------------------------------------------------------------------------------------------------------------
+| RevProxy->JuiceShop |  elevated    |  missing-authentication     |  juice-shop     |  likely        |  medium    |
+--------------------------------------------------------------------------------------------------------------------
+|                     |  medium      |  cross-site-request-forgery |  juice-shop     |  very-likely   |  low       |
+--------------------------------------------------------------------------------------------------------------------
+
