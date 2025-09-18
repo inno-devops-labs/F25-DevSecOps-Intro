@@ -11,6 +11,8 @@
 
 ---
 
+## Task 1
+
 ## Top 5 Risks (Before Delta Run)
 
 | Severity   | Category                   | Asset        | Likelihood   | Impact | Score |
@@ -70,6 +72,36 @@
 
 The combined results show that OWASP Juice Shop deployment is primarily at risk from insecure communication, missing authentication layers, and classic OWASP Top 10 issues(XSS, CSRF). The delta run demonstrated how a simple architectural change (enabling HTTPS) reduced critical risks.
 
+## Task 2 
+
+| Category | Baseline | Secure | Δ |
+|---|---:|---:|---:|
+| container-baseimage-backdooring | 1 | 1 | 0 |
+| cross-site-request-forgery | 2 | 2 | 0 |
+| cross-site-scripting | 1 | 1 | 0 |
+| missing-authentication | 1 | 1 | 0 |
+| missing-authentication-second-factor | 2 | 2 | 0 |
+| missing-build-infrastructure | 1 | 1 | 0 |
+| missing-hardening | 1 | 2 | 1 |
+| missing-identity-store | 1 | 1 | 0 |
+| missing-vault | 1 | 1 | 0 |
+| missing-waf | 1 | 1 | 0 |
+| server-side-request-forgery | 3 | 2 | -1 |
+| unencrypted-asset | 1 | 1 | 0 |
+| unencrypted-communication | 3 | 0 | -3 |
+| unnecessary-data-transfer | 2 | 2 | 0 |
+| unnecessary-technical-asset | 2 | 2 | 0 |
+
+## Delta Run Summary
+
+- 3 unencrypted-communication risks mitigated (HTTPS enabled).
+
+- 1 SSRF risk reduced (from 3 -> 2).
+
+- 1 missing-hardening risk increased (from 1 -> 2), model flagged new security requirements.
+
+**Total Elevated risks:** 5 -> 4
+
 ## Bonus — GitHub Social Interactions
 
 Stars and follows on GitHub help show which projects are trusted and widely used. They also make it easier to build collaboration and visibility in open source and team projects, since people can quickly discover and connect with active contributors. Networking makes a huge profit to the projects impacts in the community.
@@ -77,4 +109,6 @@ Stars and follows on GitHub help show which projects are trusted and widely used
 I have starred the course repository, followed 3 of my classmates, course instructor and 2 TA's. 
 
 ---
+
+
 
