@@ -161,7 +161,6 @@ technical_assets:
     usage: business
     used_as_client_by_human: true
     out_of_scope: false
-    justification_out_of_scope:
     size: system
     technology: browser
     tags: ["actor", "user"]
@@ -219,7 +218,6 @@ technical_assets:
     usage: business
     used_as_client_by_human: false
     out_of_scope: false
-    justification_out_of_scope:
     size: application
     technology: reverse-proxy
     tags: ["optional", "proxy"]
@@ -264,7 +262,6 @@ technical_assets:
     usage: business
     used_as_client_by_human: false
     out_of_scope: false
-    justification_out_of_scope:
     size: application
     technology: web-server
     tags: ["app", "nodejs"]
@@ -297,7 +294,7 @@ technical_assets:
         authorization: none
         tags: ["egress"]
         vpn: false
-        ip_filtered: false
+        ip_filtered: true    # CHANGED: egress filtering enabled
         readonly: false
         usage: business
         data_assets_sent:
@@ -310,7 +307,6 @@ technical_assets:
     usage: devops
     used_as_client_by_human: false
     out_of_scope: false
-    justification_out_of_scope:
     size: component
     technology: file-server
     tags: ["storage", "volume"]
@@ -414,14 +410,7 @@ shared_runtimes:
       # If the reverse proxy is containerized, include it:
       # - reverse-proxy
 
-# =========================
-# INDIVIDUAL RISK CATEGORIES (optional)
-# =========================
 individual_risk_categories: {}
-
-# =========================
-# RISK TRACKING (optional)
-# =========================
 risk_tracking: {}
 
 # (Optional diagram layout tweaks can be added here)
