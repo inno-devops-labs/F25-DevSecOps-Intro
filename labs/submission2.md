@@ -1,5 +1,3 @@
-# Submission 2 — DevSecOps Lab 2
-
 ## Overview
 Threagile was run locally using the `labs/lab2/baseline/threagile-model.yaml`.  
 Local setup: Kali Linux, Threagile CLI, output generated in `labs/lab2/baseline`.
