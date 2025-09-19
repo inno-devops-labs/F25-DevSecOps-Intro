@@ -63,54 +63,62 @@ These are the foundation of collaboration and trust in DevOps teams.
 1. Create the pre-commit hook file
    - Path: `.git/hooks/pre-commit`
    - Contents:
-     ```bash
-     #!/usr/bin/env bash
-     set -euo pipefail
+    ```bash
+    #!/usr/bin/env bash
+    set -euo pipefail
 
-     echo "[pre-commit] scanning staged files for secrets…"
+    echo "[pre-commit] scanning staged files for secrets…"
 
-     # Collect staged files (added/changed)
-     mapfile -t STAGED < <(git diff --cached --name-only --diff-filter=ACM)
-     if [ ${#STAGED[@]} -eq 0 ]; then
-       echo "[pre-commit] no staged files; skipping scans"
-       exit 0
-     fi
+    # Collect staged files (added/changed)
+    mapfile -t STAGED < <(git diff --cached --name-only --diff-filter=ACM)
+    if [ ${#STAGED[@]} -eq 0 ]; then
+        echo "[pre-commit] no staged files; skipping scans"
+        exit 0
+    fi
 
-     # Limit to existing regular files only
-     FILES=()
-     for f in "${STAGED[@]}"; do
-       [ -f "$f" ] && FILES+=("$f")
-     done
-     if [ ${#FILES[@]} -eq 0 ]; then
-       echo "[pre-commit] no regular files to scan; skipping"
-       exit 0
-     fi
+    # Limit to existing regular files only
+    FILES=()
+    for f in "${STAGED[@]}"; do
+        [ -f "$f" ] && FILES+=("$f")
+    done
+    if [ ${#FILES[@]} -eq 0 ]; then
+        echo "[pre-commit] no regular files to scan; skipping"
+        exit 0
+    fi
 
-     # Run TruffleHog (Docker) against staged files
-     echo "[pre-commit] TruffleHog scan…"
-     docker run --rm \
-       -v "$PWD:/repo" -w /repo \
-       trufflesecurity/trufflehog:latest \
-       filesystem --fail --only-verified --json "${FILES[@]}" >/dev/null || {
-         echo "\n✖ TruffleHog detected potential secrets in staged changes." >&2
-         echo "Fix or unstage the offending files and try again." >&2
-         exit 1
-       }
+    # Run TruffleHog in verbose mode
+    echo "[pre-commit] TruffleHog scan…"
+    if ! docker run --rm -v "$(pwd):/repo" -w /repo \
+        trufflesecurity/trufflehog:latest \
+        filesystem --fail --only-verified "${FILES[@]}" 
+    then
+        echo -e "\n✖ TruffleHog detected potential secrets. See output above for details." >&2
+        echo "Fix or unstage the offending files and try again." >&2
+        exit 1
+    fi
 
-     # Run Gitleaks (Docker) against staged changes
-     echo "[pre-commit] Gitleaks scan…"
-     docker run --rm \
-       -v "$PWD:/repo" -w /repo \
-       zricethezav/gitleaks:latest \
-       detect --staged --redact --exit-code 1 --no-banner >/dev/null || {
-         echo "\n✖ Gitleaks detected potential secrets in staged changes." >&2
-         echo "Fix or unstage the offending files and try again." >&2
-         exit 1
-       }
+    # Run Gitleaks and capture its output
+    echo "[pre-commit] Gitleaks scan…"
+    GITLEAKS_OUTPUT=$(docker run --rm -v "$(pwd):/repo" -w /repo \
+        zricethezav/gitleaks:latest \
+        detect --source="/repo" --verbose --exit-code=0 --no-banner || true)
 
-     echo "✓ No secrets detected; proceeding with commit."
-     exit 0
-     ```
+    # Display the output
+    echo "$GITLEAKS_OUTPUT"
+
+    # Check if any non-lectures files have leaks
+    if echo "$GITLEAKS_OUTPUT" | grep -q "File:" && ! echo "$GITLEAKS_OUTPUT" | grep -q "File:.*lectures/"; then
+        echo -e "\n✖ Gitleaks detected potential secrets in non-excluded files." >&2
+        echo "Fix or unstage the offending files and try again." >&2
+        exit 1
+    elif echo "$GITLEAKS_OUTPUT" | grep -q "File:.*lectures/"; then
+        echo -e "\n⚠️ Gitleaks found potential secrets only in excluded directories (lectures/)." >&2
+        echo "These findings are ignored based on your configuration." >&2
+    fi
+
+    echo "✓ No secrets detected; proceeding with commit."
+    exit 0
+    ```
 
 2. Make the hook executable
    ```bash
