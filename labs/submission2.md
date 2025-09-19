@@ -5,13 +5,14 @@ Local setup: Kali Linux, Threagile CLI, output generated in `labs/lab2/baseline`
 ## Artifacts
 The following files were produced:
 
-- [`labs/lab2/baseline/threagile-model.yaml`]
-- [`labs/lab2/baseline/report.pdf`]
-- [`labs/lab2/baseline/data-flow-diagram.png`]
-- [`labs/lab2/baseline/data-asset-diagram.png`]  
-- [`labs/lab2/baseline/risks.json`]
-- [`labs/lab2/baseline/stats.json`] 
-- [`labs/lab2/baseline/technical-assets.json`]
+- `labs/lab2/baseline/threagile-model.yaml`
+- `labs/lab2/baseline/report.pdf`
+- `labs/lab2/baseline/data-flow-diagram.png`
+- `labs/lab2/baseline/data-asset-diagram.png`
+- `labs/lab2/baseline/risks.json`
+- `labs/lab2/baseline/stats.json`
+- `labs/lab2/baseline/technical-assets.json`
+- `labs/lab2/baseline/trisks.xlsx`
 
 ## Top 5 Risks
 
