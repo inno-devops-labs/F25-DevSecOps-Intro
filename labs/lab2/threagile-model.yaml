@@ -35,10 +35,10 @@ technical_overview:
   images: []
 
 questions:
-  Do you expose port 3000 beyond localhost?: "No"
-  Do you use a reverse proxy with TLS and security headers?: "No"
-  Are outbound notifications (email/webhook) configured?: "No"
-  Is any sensitive data stored in logs or files?: "No"
+  Do you expose port 3000 beyond localhost?: ""
+  Do you use a reverse proxy with TLS and security headers?: ""
+  Are outbound notifications (email/webhook) configured?: ""
+  Is any sensitive data stored in logs or files?: ""
 
 abuse_cases:
   Credential Stuffing / Brute Force: >

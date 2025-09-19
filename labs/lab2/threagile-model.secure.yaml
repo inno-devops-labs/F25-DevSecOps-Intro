@@ -35,10 +35,10 @@ technical_overview:
   images: []
 
 questions:
-  Do you expose port 3000 beyond localhost?: "No"
-  Do you use a reverse proxy with TLS and security headers?: "No"
-  Are outbound notifications (email/webhook) configured?: "No"
-  Is any sensitive data stored in logs or files?: "No"
+  Do you expose port 3000 beyond localhost?: ""
+  Do you use a reverse proxy with TLS and security headers?: ""
+  Are outbound notifications (email/webhook) configured?: ""
+  Is any sensitive data stored in logs or files?: ""
 
 abuse_cases:
   Credential Stuffing / Brute Force: >
@@ -220,7 +220,7 @@ technical_assets:
       Direct To App (no proxy):
         target: juice-shop
         description: "Direct access to app (HTTP 3000)."
-        protocol: http
+        protocol: https
         authentication: session-id
         authorization: enduser-identity-propagation
         tags: ["direct"]
@@ -265,7 +265,7 @@ technical_assets:
       To App:
         target: juice-shop
         description: "Proxy to app (HTTP 3000)."
-        protocol: http
+        protocol: https
         authentication: none
         authorization: none
         tags: []
@@ -351,7 +351,7 @@ technical_assets:
     tags: ["storage","volume"]
     internet: false
     machine: virtual
-    encryption: none
+    encryption: transparent
     owner: Lab Owner
     confidentiality: internal
     integrity: important
