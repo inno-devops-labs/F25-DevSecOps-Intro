@@ -25,6 +25,6 @@
 "| unnecessary-data-transfer | 2 | 2 | 0 |"
 "| unnecessary-technical-asset | 2 | 2 | 0 |"
 
-- **Change made:** включён TLS (`https`) на линках *Browser → App (no proxy)* и *Reverse Proxy → App*; для **Persistent Storage** установлено `encryption: transparent`.
-- **Result:** риски **Unencrypted Communication** исчезли; **Unencrypted Technical Assets** уменьшились за счёт шифрования хранилища; остальные категории без заметных изменений.
-- **Why:** шифрование в транзите и at rest защищает конфиденциальность/целостность трафика и снижает Impact при компрометации носителя.
+- **Change made:** Enabled TLS (`https`) on the links *Browser → App (no proxy)* and *Reverse Proxy → App*; set `encryption: transparent` for **Persistent Storage**.
+- **Result:** The **Unencrypted Communication** risks disappeared; **Unencrypted Technical Assets** decreased due to storage encryption; other categories remained unchanged.
+- **Why:** Encryption in transit and at rest protects confidentiality and integrity of traffic and reduces the impact in case of media co
