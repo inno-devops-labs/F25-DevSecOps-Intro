@@ -1,6 +1,8 @@
 # Threat Modeling
 
-## Top 5 Risks
+## Task 1 — Threagile model & automated report
+
+### Top 5 Risks
 
 | Severity | Category                  | Asset         | Likelihood | Impact | Score |
 | -------- | ------------------------- | ------------- | ---------- | ------ | ----- |
@@ -10,7 +12,7 @@
 | Elevated | Cross-Site Scripting      | Juice Shop    | Likely     | Medium | 432   |
 | Elevated | Unencrypted Communication | Reverse Proxy | Likely     | Medium | 432   |
 
-## Stats Snapshot
+### Stats Snapshot
 
 ```json
 {
@@ -26,7 +28,7 @@
 
 **After switching Reverse Proxy → App to HTTPS:**
 
-## Top 5 risks
+### Top 5 risks
 
 | Severity | Category                   | Asset        | Likelihood  | Impact | Score |
 | -------- | -------------------------- | ------------ | ----------- | ------ | ----- |
@@ -36,7 +38,7 @@
 | Elevated | Missing Authentication     | Juice Shop   | Likely      | Medium | 432   |
 | Medium   | Cross-Site Request Forgery | Juice Shop   | Very Likely | Low    | 241   |
 
-## Stats Snapshot
+### Stats Snapshot
 
 ```json
 {
@@ -60,6 +62,9 @@
 Changing the communication link from HTTP to HTTPS between Reverse Proxy and Juice Shop eliminated one unencrypted communication risk, as the data is now encrypted in transit vetween these internal components.
 
 ---
+## Task 2 — HTTPS Variant & Risk Diff
+
+### Risk Category Delta Table
 
 | Category                             | Baseline | Secure |   Δ |
 | ------------------------------------ | -------: | -----: | --: |
