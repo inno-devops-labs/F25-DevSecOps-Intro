@@ -34,9 +34,9 @@ Composite score(Result column) = Severity*100 + Likelihood*10 + Impact (sort des
 | missing-identity-store | 1 | 1 | 0 |
 | missing-vault | 1 | 1 | 0 |
 | missing-waf | 1 | 1 | 0 |
-| server-side-request-forgery | 3 | 2 | -1 |
-| unencrypted-asset | 1 | 1 | 0 |
-| unencrypted-communication | 3 | 0 | -3 |
+| server-side-request-forgery | 2 | 2 | 0 |
+| unencrypted-asset | 2 | 1 | -1 |
+| unencrypted-communication | 2 | 0 | -2 |
 | unnecessary-data-transfer | 2 | 2 | 0 |
 | unnecessary-technical-asset | 2 | 2 | 0 |
 
@@ -46,6 +46,6 @@ Composite score(Result column) = Severity*100 + Likelihood*10 + Impact (sort des
 
 **Change made:** Enabled HTTPS encryption for all communication links and implemented disk-level encryption for persistent storage.
 
-**Result:** Completely eliminated 3 unencrypted communication risks and reduced server-side request forgery risks by 1, but introduced 1 additional missing hardening risk.
+**Result:** Completely eliminated 2 unencrypted communication risks and reduced unencrypted asset risks by 1, but introduced 1 additional missing hardening risk.
 
-**Why:** Encryption prevents eavesdropping and data interception attacks, but revealed additional hardening requirements for the secured infrastructure.
+**Why:** Encryption effectively prevents eavesdropping attacks on network communications and protects data at rest, but the security improvements revealed additional system hardening requirements.
