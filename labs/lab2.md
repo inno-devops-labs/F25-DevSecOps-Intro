@@ -187,4 +187,3 @@ Commit/push:
 [2]: https://kalilinuxtutorials.com/threagile/?utm_source=chatgpt.com "Threagile : Agile Threat Modeling Toolkit 2020!Kalilinuxtutorials"
 [3]: https://threagile.io/?utm_source=chatgpt.com "Threagile — Agile Threat Modeling Toolkit"
 [4]: https://juanvvc.github.io/securecoding/images/threatmod/threagile/report.pdf?utm_source=chatgpt.com "Threat Model Report: Some Example Application"
-[6]: https://github.com/Threagile/threagile "GitHub - Threagile/threagile: Agile Threat Modeling Toolkit"
