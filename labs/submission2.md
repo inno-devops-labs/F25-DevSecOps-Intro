@@ -1,32 +1,53 @@
-# Submission 2 — Threagile Model & Automated Report
+# Submission 2 — DevSecOps Lab 2
 
 ## Overview
-Threagile was run locally using Docker on Linux. The provided model `labs/lab2/threagile-model.yaml` was used without restructuring, with a small change applied during the Delta Run to switch one communication link to HTTPS.
+Threagile was run locally using the `labs/lab2/baseline/threagile-model.yaml`.  
+Local setup: Ubuntu 22.04, Threagile CLI, output generated in `labs/lab2/baseline`.
 
 ## Artifacts
-The following files were generated in `labs/lab2/`:
+The following files were produced:
 
-- `threagile-model.yaml` — input YAML model  
-- `report.pdf` — full PDF report with diagrams  
-- `data-flow-diagram.png` — data flow diagram  
-- `data-asset-diagram.png` — data asset diagram (additional)  
-- `risks.json` — risk outputs  
-- `stats.json` — statistics snapshot  
+- [`labs/lab2/baseline/threagile-model.yaml`](labs/lab2/baseline/threagile-model.yaml)  
+- [`labs/lab2/baseline/report.pdf`](labs/lab2/baseline/report.pdf)  
+- [`labs/lab2/baseline/data-flow-diagram.png`](labs/lab2/baseline/data-flow-diagram.png) (mandatory)  
+- [`labs/lab2/baseline/data-asset-diagram.png`](labs/lab2/baseline/data-asset-diagram.png) (optional, supplementary)  
+- [`labs/lab2/baseline/risks.json`](labs/lab2/baseline/risks.json)  
+- [`labs/lab2/baseline/stats.json`](labs/lab2/baseline/stats.json)  
+- [`labs/lab2/baseline/technical-assets.json`](labs/lab2/baseline/technical-assets.json) (auxiliary)
 
 ## Top 5 Risks
 
-| Severity  | Category                       | Asset               | Likelihood   | Impact |
-|-----------|--------------------------------|-------------------|-------------|--------|
-| elevated  | unencrypted-communication       | User Browser       | likely      | high   |
-| elevated  | unencrypted-communication       | User Browser       | likely      | high   |
-| elevated  | cross-site-scripting            | Juice Shop         | likely      | medium |
-| elevated  | missing-authentication          | Juice Shop         | likely      | medium |
-| medium    | cross-site-request-forgery      | Juice Shop         | very-likely | low    |
+| Severity  | Category                         | Asset           | Likelihood   | Impact | Composite Score |
+|-----------|---------------------------------|----------------|-------------|--------|----------------|
+| Elevated  | Unencrypted Communication        | Direct To App  | Likely      | High   | 461            |
+| Elevated  | Unencrypted Communication        | To Reverse Proxy| Likely     | High   | 461            |
+| Elevated  | Cross-Site Scripting (XSS)      | Juice Shop     | Likely      | Medium | 434            |
+| Elevated  | Missing Authentication           | Juice Shop     | Likely      | Medium | 434            |
+| Medium    | Container Base Image Backdooring | Juice Shop     | Unlikely    | Medium | 222            |
 
-*Ranking was calculated using the composite score: Severity100 + Likelihood10 + Impact.*
+> Composite score = Severity100 + Likelihood10 + Impact  
+> Weights used:
+> Severity: critical(5)>elevated(4)>high(3)>medium(2)>low(1),
+> Likelihood: very-likely(4)>likely(3)>possible(2)>unlikely(1), I
+> mpact: high(3)>medium(2)>low(1)
+
+## Threat Dragon Comparison
+- **Overlaps:**  
+  1. Unencrypted Communication → Direct To App  
+  2. Missing Authentication → Juice Shop  
+
+- **Difference:**  
+  - Cross-Site Request Forgery (CSRF) via Reverse Proxy → App appears in Threagile but not in Threat Dragon.
+
+## Delta Run
+- **Change:** Updated communication link `Reverse Proxy → App` to HTTPS in `threagile-model.yaml`.  
+- **Before:** 3 unencrypted-communication risks (Direct To App, To Reverse Proxy, Reverse Proxy → App)  
+- **After:** 2 unencrypted-communication risks (Direct To App, To Reverse Proxy)  
+- **Reason:** Switching to HTTPS removed the risk associated with `Reverse Proxy → App`.
 
 ## Stats Snapshot
-From `stats.json`:
-
 ```json
-[{"category":"unencrypted-asset","risk_status":"unchecked","severity":"medium","exploitation_likelihood":"unlikely","exploitation_impact":"medium","title":"\u003cb\u003eUnencrypted Technical Asset\u003c/b\u003e named \u003cb\u003eJuice Shop\u003c/b\u003e","synthetic_id":"unencrypted-asset@juice-shop","most_relevant_data_asset":"","most_relevant_technical_asset":"juice-shop","most_relevant_trust_boundary":"","most_relevant_shared_runtime":"","most_relevant_communication_link":"","data_breach_probability":"improbable","data_breach_technical_assets":["juice-shop"]}
+[{"category":"unencrypted-asset","risk_status":"unchecked","severity":"medium","exploitation_likelihood":"unlikely","exploitation_impact":"medium","title":"\u003cb\u003eUnencrypted Technical Asset\u003c/b\u003e named \u003cb\u003eJuice Shop\u003c/b\u003e","synthetic_id":"unencrypted-asset@juice-shop","most_relevant_data_asset":"","most_relevant_technical_asset":"juice-shop","most_relevant_trust_boundary":"","most_relevant_shared_runtime":"","most_relevant_communication_link":"","data_breach_probability":"improbable","data_breach_technical_assets":["juice-shop"]}, ...]
+```
+## GitHub Social Interaction (Bonus)
+Rationale: Stars and followers help identify popular projects, build community trust, and support collaboration in open-source and team-based projects. They make it easier to discover valuable work and engage with contributors.
