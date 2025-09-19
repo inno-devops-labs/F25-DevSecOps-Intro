@@ -76,8 +76,8 @@ Include:
 
 Copy the baseline model and make exactly these edits:
 
-* **User Browser → communication_links → To Reverse Proxy (preferred)**: set `protocol: https`
-* **User Browser → communication_links**: set `protocol: https`
+* **User Browser → communication_links → Direct to App (no proxy)**: set `protocol: https`
+* **Reverse Proxy → communication_links**: set `protocol: https`
 * **Persistent Storage**: set `encryption: transparent` (to represent disk-level encryption)
 
 Save as: `labs/lab2/threagile-model.secure.yaml`.
