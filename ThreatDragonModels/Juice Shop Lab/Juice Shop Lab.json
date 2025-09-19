@@ -3,7 +3,7 @@
   "summary": {
     "title": "Juice Shop Lab",
     "owner": "KuchukbaevaRegina",
-    "description": "",
+    "description": "Local OWASP Juice Shop container setup with optional reverse proxy and persistent storage.",
     "id": 0
   },
   "detail": {
