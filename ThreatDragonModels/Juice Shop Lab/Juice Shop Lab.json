@@ -3,13 +3,28 @@
   "summary": {
     "title": "Juice Shop Lab",
     "owner": "KuchukbaevaRegina",
-    "description": "Local OWASP Juice Shop container setup with optional reverse proxy and persistent storage.",
+    "description": "Local OWASP Juice Shop deployment in a Docker container. \nUsers connect via browser on port 3000 or through an optional reverse proxy with TLS and security headers. \nThe app may persist logs/files on a host volume and send outbound requests to Email/SMS or webhook providers.",
     "id": 0
   },
   "detail": {
-    "contributors": [],
-    "diagrams": [],
-    "diagramTop": 1,
+    "contributors": [
+      {
+        "name": "KuchukbaevaRegina"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 1,
+        "title": "Juice Shop Data Flow Diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": [],
+        "description": "Data flow diagram showing User, Attacker, Juice Shop container, optional Reverse Proxy, Persistent Storage, and outbound flows to Email/SMS provider or webhook endpoints. Trust boundaries: Internet → Host → Container Network."
+      }
+    ],
+    "diagramTop": 2,
     "reviewer": "",
     "threatTop": 0
   }
