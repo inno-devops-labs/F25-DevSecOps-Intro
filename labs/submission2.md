@@ -2,18 +2,18 @@
 
 ## Overview
 Threagile was run locally using the `labs/lab2/baseline/threagile-model.yaml`.  
-Local setup: Ubuntu 22.04, Threagile CLI, output generated in `labs/lab2/baseline`.
+Local setup: Kali Linux, Threagile CLI, output generated in `labs/lab2/baseline`.
 
 ## Artifacts
 The following files were produced:
 
-- [`labs/lab2/baseline/threagile-model.yaml`](labs/lab2/baseline/threagile-model.yaml)  
-- [`labs/lab2/baseline/report.pdf`](labs/lab2/baseline/report.pdf)  
-- [`labs/lab2/baseline/data-flow-diagram.png`](labs/lab2/baseline/data-flow-diagram.png) (mandatory)  
-- [`labs/lab2/baseline/data-asset-diagram.png`](labs/lab2/baseline/data-asset-diagram.png) (optional, supplementary)  
-- [`labs/lab2/baseline/risks.json`](labs/lab2/baseline/risks.json)  
-- [`labs/lab2/baseline/stats.json`](labs/lab2/baseline/stats.json)  
-- [`labs/lab2/baseline/technical-assets.json`](labs/lab2/baseline/technical-assets.json) (auxiliary)
+- [`labs/lab2/baseline/threagile-model.yaml`]
+- [`labs/lab2/baseline/report.pdf`]
+- [`labs/lab2/baseline/data-flow-diagram.png`]
+- [`labs/lab2/baseline/data-asset-diagram.png`]  
+- [`labs/lab2/baseline/risks.json`]
+- [`labs/lab2/baseline/stats.json`] 
+- [`labs/lab2/baseline/technical-assets.json`]
 
 ## Top 5 Risks
 
