@@ -23,8 +23,8 @@
         "cells": [
           {
             "position": {
-              "x": 230,
-              "y": -450
+              "x": 260,
+              "y": -480
             },
             "size": {
               "width": 112.5,
@@ -42,6 +42,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -125,7 +126,6 @@
               ]
             },
             "id": "f8ddebf2-8eff-4971-a361-f5825bf51da5",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "User (Browser)",
@@ -138,41 +138,28 @@
               "threats": [
                 {
                   "id": "98980d9a-87c7-46b2-a639-220aa1a643fd",
-                  "title": "New STRIDE threat",
+                  "title": "Spoofed user identity",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "An attacker could impersonate a legitimate user by forging session cookies or tokens.",
+                  "mitigation": "Enforce strong authentication (JWT with signatures, session expiry, TLS).",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 1,
                   "score": ""
-                },
-                {
-                  "id": "345de519-f857-43ad-a781-7203875b4fb1",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Repudiation",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 2,
-                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "repudiation": 1
+                "spoofing": 2,
+                "repudiation": 0
               }
             }
           },
           {
             "position": {
               "x": 460,
-              "y": -450
+              "y": -480
             },
             "size": {
               "width": 112.5,
@@ -190,6 +177,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -273,7 +261,6 @@
               ]
             },
             "id": "54d1e5e5-68f6-4e90-b994-64a504e24403",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "Attacker (Internet)",
@@ -286,12 +273,12 @@
               "threats": [
                 {
                   "id": "dfde60b8-0141-4e18-be79-b78600edd0c0",
-                  "title": "New STRIDE threat",
+                  "title": "Malicious attacker activity",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "An attacker could pose as a legitimate client and send crafted requests to exploit the application.",
+                  "mitigation": "Use rate limiting, WAF rules, IP reputation lists, TLS mutual authentication (optional).",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 3,
@@ -299,7 +286,7 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "repudiation": 0
               }
             }
@@ -338,12 +325,12 @@
               "threats": [
                 {
                   "id": "64a533de-47b8-42d8-b7d1-4744693d3773",
-                  "title": "New STRIDE threat",
+                  "title": "Unencrypted traffic tampering",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Data between browser and server could be intercepted or modified if TLS is not enforced.",
+                  "mitigation": "Require HTTPS via reverse proxy, set HSTS headers, block plaintext connections.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 5,
@@ -351,7 +338,7 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -368,16 +355,7 @@
               "cell": "439ec858-5847-4a74-bca5-02768877c370",
               "port": "b0c45bd0-adae-4e60-abfc-8b6794d0a62c"
             },
-            "vertices": [
-              {
-                "x": 260,
-                "y": -260
-              },
-              {
-                "x": 260,
-                "y": -230
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -413,12 +391,12 @@
               "threats": [
                 {
                   "id": "1da22c01-326e-442a-b4de-f756127c6d1a",
-                  "title": "New STRIDE threat",
+                  "title": "Injection and crafted payloads",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Attacker may inject SQL, XSS, or malicious payloads through crafted HTTP requests.",
+                  "mitigation": "Input validation, parameterized queries, sanitization, WAF filters.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 6,
@@ -426,7 +404,7 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -446,9 +424,36 @@
             "vertices": [
               {
                 "x": 516,
-                "y": -220
+                "y": -210
               }
             ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Internet ⇢ Host",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "labels": [
+              "Internet ⇢ Host"
+            ],
+            "id": "b9c9bbda-3023-4a09-a71c-acb5601d9e63",
+            "source": {
+              "x": 20,
+              "y": -310
+            },
+            "target": {
+              "x": 820,
+              "y": -310
+            },
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -484,12 +489,12 @@
               "threats": [
                 {
                   "id": "50fef4d2-8fe3-48de-88ea-f715975a623d",
-                  "title": "New STRIDE threat",
+                  "title": "Unauthorized modification of stored data",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Medium",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Attacker could manipulate or overwrite files/logs in the storage volume.",
+                  "mitigation": "Apply least-privilege access to volumes, use file integrity monitoring, encrypt sensitive data.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 4,
@@ -497,12 +502,12 @@
                 },
                 {
                   "id": "ec4ddf74-254f-440d-9e6b-0d6303bdac8d",
-                  "title": "New STRIDE threat",
+                  "title": "Data leakage from storage",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Sensitive logs or user data could be exposed if volumes are world-readable or misconfigured.",
+                  "mitigation": "Restrict storage access, enforce encryption at rest, audit log access.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 10,
@@ -510,8 +515,8 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 1,
+                "tampering": 2,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
             },
@@ -525,22 +530,9 @@
             },
             "target": {
               "cell": "a1007f42-6aeb-44b8-92a5-b8d85b452c23",
-              "port": "ae93cb35-88f3-4283-aa75-b55af1dfef6a"
+              "port": "a8551c8f-4d94-4308-8a65-50aebb307f0a"
             },
-            "vertices": [
-              {
-                "x": 430,
-                "y": -170
-              },
-              {
-                "x": 540,
-                "y": -210
-              },
-              {
-                "x": 640,
-                "y": -260
-              }
-            ]
+            "vertices": []
           },
           {
             "shape": "trust-boundary-curve",
@@ -560,49 +552,23 @@
             ],
             "id": "ff11fb12-5efb-4868-bbb6-874864db79b8",
             "source": {
-              "x": 20,
-              "y": -180
-            },
-            "target": {
-              "x": 830,
-              "y": -190
-            }
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Internet ⇢ Host",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "labels": [
-              "Internet ⇢ Host"
-            ],
-            "id": "b9c9bbda-3023-4a09-a71c-acb5601d9e63",
-            "source": {
-              "x": 10,
-              "y": -350
+              "x": 30,
+              "y": -90
             },
             "target": {
               "x": 820,
-              "y": -350
+              "y": -90
             },
             "vertices": []
           },
           {
             "position": {
-              "x": 342.5,
-              "y": -140
+              "x": 320,
+              "y": -60
             },
             "size": {
-              "width": 150,
-              "height": 110
+              "width": 200,
+              "height": 140
             },
             "attrs": {
               "text": {
@@ -616,6 +582,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -699,7 +666,6 @@
               ]
             },
             "id": "439ec858-5847-4a74-bca5-02768877c370",
-            "zIndex": 11,
             "data": {
               "type": "tm.Process",
               "name": "Juice Shop Container",
@@ -715,12 +681,12 @@
               "threats": [
                 {
                   "id": "e7e425ce-cac0-48ce-bd64-e837319f7e69",
-                  "title": "New STRIDE threat",
+                  "title": "Denial of Service attack",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Denial of service",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Attacker could overload the container by sending a flood of requests, consuming CPU/memory.",
+                  "mitigation": "Rate limiting, autoscaling, resource quotas in Docker/Kubernetes.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 11,
@@ -732,7 +698,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 2,
                 "elevationOfPrivilege": 0
               }
             }
@@ -740,11 +706,11 @@
           {
             "position": {
               "x": 620,
-              "y": -320
+              "y": -260
             },
             "size": {
-              "width": 120,
-              "height": 60
+              "width": 190,
+              "height": 110
             },
             "attrs": {
               "text": {
@@ -763,6 +729,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -846,7 +813,6 @@
               ]
             },
             "id": "a1007f42-6aeb-44b8-92a5-b8d85b452c23",
-            "zIndex": 12,
             "data": {
               "type": "tm.Store",
               "name": "Persistent Storage (Volume)",
@@ -863,12 +829,12 @@
               "threats": [
                 {
                   "id": "80387c6d-ea9c-44a2-8c96-703cb61b4c3b",
-                  "title": "New STRIDE threat",
+                  "title": "Storage tampering by attacker",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Medium",
                   "type": "Tampering",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Files or logs stored in container volumes may be altered to hide traces or inject backdoors.",
+                  "mitigation": "Enforce filesystem permissions, mount volumes read-only where possible, enable backups.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 14,
@@ -876,11 +842,18 @@
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           }
         ],
@@ -889,6 +862,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 14
+    "threatTop": 15
   }
 }
