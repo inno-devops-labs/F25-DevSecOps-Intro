@@ -1,188 +1,189 @@
-# Lab 2 — Threat Modeling (Threat Dragon + Threagile)
+# Lab 2 — Threat Modeling with Threagile
 
 ![difficulty](https://img.shields.io/badge/difficulty-beginner–intermediate-yellow)
-![topic](https://img.shields.io/badge/topic-Threat%20Modeling%20%26%20Security%20Requirements-blue)
+![topic](https://img.shields.io/badge/topic-Threat%20Modeling%20(Threagile)-blue)
 ![points](https://img.shields.io/badge/points-10-orange)
 
-> **Goal:** Model the **OWASP Juice Shop `bkimminich/juice-shop:19.0.0`** deployment, identify top risks, and produce both a **diagram-first** and an **automation-first** threat model.  
-> **Deliverable:** A PR from `feature/lab2` with a Threat Dragon model + Threagile outputs and a short risk summary.
+> **Goal:** Model the **OWASP Juice Shop `bkimminich/juice-shop:v19.0.0`** deployment and generate an **automation-first** threat model with Threagile.  
+> **Deliverable:** A PR from `feature/lab2` to the course repo with `labs/submission2.md` containing Threagile outputs and risk analysis. Submit the PR link via Moodle.
 
 ---
 
 ## Overview
 
 In this lab you will practice:
+- Creating an **as-code** model with **Threagile** and automatically generating **risk reports + diagrams** from YAML.
+- Making security-relevant model changes and demonstrating how they **impact the risk landscape**.
+- Analyzing threat model outputs and documenting security findings systematically.
 
-* Building a **data flow diagram (DFD)** and capturing threats with **OWASP Threat Dragon** (supports STRIDE and auto-suggests threats via a rule engine).
-* Creating an **as-code** model with **Threagile** to automatically generate a **risk report + diagrams** from YAML (great for CI).
+These skills are essential for automated threat modeling and integrating security analysis into CI/CD pipelines.
 
-> Keep using the Juice Shop from Lab 1 (`:19.0.0`).
+> Keep using the Juice Shop from Lab 1 (`:19.0.0`) as your target application.
 
 ---
 
 ## Tasks
 
-### Task 1 — Threat Dragon Web Model (6 pts)
+### Task 1 — Threagile Baseline Model (6 pts)
 
-**Objective:** Create a diagram-based threat model of your local Juice Shop setup using the web UI at `threatdragon.com`, and extract the top 5 risks.
+**Objective:** Use the provided Threagile model to generate a PDF report + diagrams and analyze the baseline risk posture.
 
-1. **Folder & files**
-   - Create in your repo:
-     - `labs/lab2/threat-dragon.json` — download/export the JSON model from the web UI.
-     - `labs/lab2/dfd.png` — export your diagram as PNG/SVG.
-     - `labs/lab2/THREATS.md` — markdown summary of your top risks.
+#### 1.1: Generate Baseline Threat Model
 
-2. **Model the deployment (minimum elements)**
-   - **Actors:** User (Browser), Attacker (Internet)
-   - **Components:** Reverse Proxy (optional), Juice Shop Container (`:19.0.0`), Persistent Storage (e.g., container volume), Email/SMS provider (if configured)
-   - **Flows:**
-     - `HTTP 3000/tcp` Browser ↔ Juice Shop (or Browser ↔ Proxy ↔ Juice Shop)
-     - Outbound flows from Juice Shop (Email/SMS API, webhook, etc.)
-     - Persistent storage ↔ Juice Shop
-   - **Trust Boundaries:** Internet ⇢ Host; Host ⇢ Container Network
+1. **Setup and Execute Threagile:**
 
-3. **Use the Threat Dragon web UI**
-   - Go to `threatdragon.com` → New Model (GitHub login required).
-   - Select a repo/branch where models are stored.
-   - Provide metadata: title = “Juice Shop Lab”, owner = your GitHub handle.
-   - Add a diagram: place trust boundaries, actors, components, and flows.
-   - Assign STRIDE categories to each element/flow (via the properties pane).
-   - Run the rule engine and review auto-generated threats.
-   - Triage: keep, edit, or drop threats. Add mitigation notes (e.g., TLS via proxy, authz on sensitive routes, rate limiting).
+   ```bash
+   mkdir -p labs/lab2/baseline labs/lab2/secure
+   docker run --rm -v "$(pwd)":/app/work threagile/threagile \
+     -model /app/work/labs/lab2/threagile-model.yaml \
+     -output /app/work/labs/lab2/baseline \
+     -generate-risks-excel=false -generate-tags-excel=false
+   ```
 
-4. **Write `labs/lab2/THREATS.md`**
-   - **Context:** brief description of your Juice Shop local setup (container, browser, optional proxy).
-   - **Top 5 risks:** one-liners with STRIDE tags (e.g., “Injection [Tampering] — unsanitized input can corrupt DB”).
+2. **Verify Generated Outputs:**
 
-> Resources: Threat Dragon docs & project page (DFDs, STRIDE, rule engine, desktop/web options).
+   - `report.pdf` — full PDF report (includes diagrams)
+   - Diagrams: data-flow & data-asset diagrams (PNG)
+   - Risk exports: `risks.json`, `stats.json`, `technical-assets.json`
 
----
+#### 1.2: Risk Analysis and Documentation
 
-### Task 2 — Threagile model & automated report (4 pts)
+1. **Analyze Top 5 Risks:**
 
-**Objective:** Use the provided Threagile model to generate a PDF report + diagrams and document the results in `labs/submission2.md`.
+   Calculate composite scores using these weights:
+   - Severity: critical (5) > elevated (4) > high (3) > medium (2) > low (1)
+   - Likelihood: very-likely (4) > likely (3) > possible (2) > unlikely (1)
+   - Impact: high (3) > medium (2) > low (1)
+   - **Composite score** = `Severity*100 + Likelihood*10 + Impact`
 
-1. **Use the provided YAML**
-
-- `labs/lab2/threagile-model.yaml` is provided. Do not restructure it for this task.
-- You may make a small change for the “Delta Run” step (e.g., switch one link to HTTPS).
-
-2. **Generate outputs (risks + diagrams + PDF)**
-
-Run Threagile against the model and write all artifacts into `lab2`:
-
-  ```bash
-  docker run --rm -it -v "$(pwd)":/app/work threagile/threagile \
-    -verbose \
-    -model /app/work/labs/labs/lab2/threagile-model.yaml \
-    -output /app/work/labs/lab2 \
-    -generate-risks-excel=false \
-    -generate-tags-excel=false
-  ```
-
-What you get in `labs/lab2/`:
-
-- `report.pdf` — full PDF report (includes diagrams) generated by default.
-- Diagrams: data-flow & data-asset diagrams (PNG).
-- Risk outputs: `risks.json` and also `stats.json`, `technical-assets.json`.
-
-3. **Create `labs/submission2.md`**
-
-Include the following sections (use these headings):
-
-- Overview: how you ran Threagile (1–2 lines) and your local setup context.
-- Artifacts: list relative paths you produced (PDF, diagrams, JSON/XLSX).
-- Top 5 Risks (from `labs/lab2/risks.json`): create a table with columns — Severity, Category, Asset, Likelihood, Impact.
-  - Ranking: Sort risks by these weights to pick the Top 5:
-    - Severity order: critical (5) > elevated (4) > high (3) > medium (2) > low (1)
-    - Likelihood order: very-likely (4) > likely (3) > possible (2) > unlikely (1)
-    - Impact order: high (3) > medium (2) > low (1)
-    - Composite score = Severity*100 + Likelihood*10 + Impact. Sort descending; use score to break ties.
-  - Practical way:
-    - Manual read: open `labs/lab2/risks.json`, scan fields `severity`, `exploitation_likelihood`, `exploitation_impact`, `category`, `most_relevant_technical_asset`, apply the weights above, and pick the top 5.
-- Cross-check vs Threat Dragon: 2 overlaps + 1 difference (one-liners).
-- **Delta Run**: change one thing in the YAML (e.g., set Reverse Proxy → App link to HTTPS), re-run, and paste a before/after of the relevant counts (e.g., unencrypted-communication dropped). Add a one-sentence reason why.
-
-4. **Deliverables**
-
-Commit/push:
-
-- `labs/lab2/threagile-model.yaml`
-- `labs/lab2/report.pdf`
-- `labs/lab2/*diagram*.png` (at least the data-flow diagram)
-- `labs/lab2/risks.json`, `labs/lab2/stats.json` (auto-generated)
-- `labs/submission2.md` (the write-up described above)
-
-5. **Quality checklist (pass/fail hints)**
-
-- Report opens and diagrams render.
-- Top 5 risks table present and legible; ties broken sensibly.
-- Stats snapshot included (from `stats.json`).
-- Clear overlap/difference vs Threat Dragon.
-- Delta Run shows before/after evidence and a short explanation.
-
-> Resources: Threagile site (auto risk rules, diagrams, CI-friendly), CLI usage (Docker examples), sample outputs. ([threagile.io][3], [GitHub][6], [juanvvc.github.io][4])
----
-
-### Bonus — GitHub Social Interactions (optional)
-
-**Objective**: Explore GitHub’s social features and how they support collaboration.
-
-1. Star the course repository.  
-2. Follow your professor, TAs, and at least 3 classmates.
-3. In `labs/submission2.md`, add 1–2 sentences on why stars/follows matter in open source and team projects.
+In `labs/submission2.md`, document:
+- **Top 5 Risks** table with Severity, Category, Asset, Likelihood, Impact
+- Risk ranking methodology and composite score calculations
+- Analysis of critical security concerns identified
+- Screenshots or references to generated diagrams
 
 ---
 
-### Acceptance Criteria
+### Task 2 — HTTPS Variant & Risk Comparison (4 pts)
 
-* ✅ `labs/lab2/threat-dragon.json` exported and `labs/lab2/dfd.png` exported (diagram shows actors, Juice Shop container, flows, and trust boundaries).
-* ✅ `labs/lab2/THREATS.md` lists **Top 5** STRIDE-tagged risks.
-* ✅ `labs/lab2/threagile-model.yaml` models the same architecture at a reasonable fidelity.
-* ✅ `labs/lab2/report.pdf` exists, and `labs/lab2/*diagram*.png` includes at least the data-flow diagram.
-* ✅ `labs/lab2/risks.json` and `labs/lab2/stats.json` exist.
-* ✅ `labs/submission2.md` includes: Artifacts list, Top 5 risks table, Stats snapshot, 2 overlaps + 1 difference vs Threat Dragon, and a Delta Run with before/after evidence.
-* ✅ (Optional) `labs/lab2/risks.xlsx` present for reviewers.
-* ✅ PR from `feature/lab2` → `main` is open with artifacts attached/linked in the description.
+**Objective:** Create a secure variant of the model and demonstrate how security controls affect the threat landscape.
+
+#### 2.1: Create Secure Model Variant
+
+1. **Modify Security Controls:**
+
+   Copy the baseline model and make these specific changes:
+   - **User Browser → communication_links → Direct to App**: set `protocol: https`
+   - **Reverse Proxy → communication_links**: set `protocol: https`
+   - **Persistent Storage**: set `encryption: transparent`
+   - Save as: `labs/lab2/threagile-model.secure.yaml`
+
+#### 2.2: Generate Secure Variant Analysis
+
+1. **Execute Secure Model Analysis:**
+
+   ```bash
+   docker run --rm -v "$(pwd)":/app/work threagile/threagile \
+     -model /app/work/labs/lab2/threagile-model.secure.yaml \
+     -output /app/work/labs/lab2/secure \
+     -generate-risks-excel=false -generate-tags-excel=false
+   ```
+
+2. **Generate Risk Comparison:**
+
+   ```bash
+   jq -n \
+     --slurpfile b labs/lab2/baseline/risks.json \
+     --slurpfile s labs/lab2/secure/risks.json '
+   def tally(x):
+   (x | group_by(.category) | map({ (.[0].category): length }) | add) // {};
+   (tally($b[0])) as $B |
+   (tally($s[0])) as $S |
+   (($B + $S) | keys | sort) as $cats |
+   [
+   "| Category | Baseline | Secure | Δ |",
+   "|---|---:|---:|---:|"
+   ] + (
+   $cats | map(
+   "| " + . + " | " +
+   (($B[.] // 0) | tostring) + " | " +
+   (($S[.] // 0) | tostring) + " | " +
+   (((($S[.] // 0) - ($B[.] // 0))) | tostring) + " |"
+   )
+   ) | .[]'
+   ```
+
+In `labs/submission2.md`, document:
+- **Risk Category Delta Table** (Baseline vs Secure vs Δ)
+- **Delta Run Explanation** covering:
+  - Specific changes made to the model
+  - Observed results in risk categories
+  - Analysis of why these changes reduced/modified risks
+- Comparison of diagrams between baseline and secure variants
+
+---
+
+## Acceptance Criteria
+
+- ✅ Branch `feature/lab2` exists with commits for each task.
+- ✅ File `labs/submission2.md` contains required analysis for Tasks 1-2.
+- ✅ Threagile baseline and secure models successfully generated.
+- ✅ Both `labs/lab2/baseline/` and `labs/lab2/secure/` folders contain complete outputs.
+- ✅ Top 5 risks analysis and risk category delta comparison documented.
+- ✅ PR from `feature/lab2` → **course repo main branch** is open.
+- ✅ PR link submitted via Moodle before the deadline.
 
 ---
 
 ## How to Submit
 
-1. Create `feature/lab2`, commit the new files, push, and open a PR to your fork’s `main`.
-2. In the PR description, fill your template sections and include:
+1. Create a branch for this lab and push it to your fork:
+
+   ```bash
+   git switch -c feature/lab2
+   # create labs/submission2.md with your findings
+   git add labs/submission2.md labs/lab2/
+   git commit -m "docs: add lab2 submission"
+   git push -u origin feature/lab2
+   ```
+
+2. Open a PR from your fork's `feature/lab2` branch → **course repository's main branch**.
+
+3. In the PR description, include:
 
    ```text
-   - [x] Task 1: Threat Dragon model + THREATS.md
-   - [x] Task 2: Threagile YAML + report + diagrams + submission2.md
+   - [x] Task 1 done
+   - [x] Task 2 done
    ```
+
+4. **Copy the PR URL** and submit it via **Moodle before the deadline**.
 
 ---
 
 ## Rubric (10 pts)
 
-| Criterion                                                          | Points |
-| ------------------------------------------------------------------ | -----: |
-| Task 1 — Threat Dragon DFD + **Top 5** risks in `THREATS.md`       |  **6** |
-| Task 2 — Threagile YAML + generated report/diagrams + submission2  |  **4** |
-| **Total**                                                          | **10** |
+| Criterion                                                    | Points |
+| ------------------------------------------------------------ | -----: |
+| Task 1 — Threagile baseline model + risk analysis           |  **6** |
+| Task 2 — HTTPS variant + risk comparison analysis           |  **4** |
+| **Total**                                                    | **10** |
 
 ---
 
-## Hints
+## Guidelines
 
-> 🧭 **Model the lab reality.** Use exactly the architecture you’re running from Lab 1 (localhost, optional proxy).
-> 🧠 **Threat Dragon tip:** Start with STRIDE per **flow** first (S/T/I for auth, R/E for data tampering/DoS), then per **asset**. The tool’s rule engine can suggest threats you can triage. ([OWASP][5])
-> ⚙️ **Threagile flags:** You can generate a stub (`-create-stub-model`), list enums (`-list-types`), and run analysis with `-model ... -output ...`; it emits report/DFDs and risk exports—handy for CI. ([Go Packages][1], [Kali Linux Tutorials][2])
-> 📑 **Keep it short:** One-page summaries beat walls of text—use bullets and link the artifacts.
-> 🔁 **Consistent IDs:** Use the same risk names/IDs across both tasks where they overlap—this helps later when we create CI gates and dashboards.
+- Use clear Markdown headers to organize sections in `submission2.md`.
+- Include both command outputs and written analysis for each task.
+- Document threat modeling process and security findings systematically.
+- Ensure all generated artifacts are properly committed to the repository.
 
----
+> **Threat Modeling Notes**  
+> 1. Model exactly the architecture you're running from Lab 1 (localhost deployment).  
+> 2. Use consistent asset/link names between baseline and secure models for accurate diffs.  
+> 3. Focus on actionable security insights rather than comprehensive risk catalogs.
 
-[1]: https://pkg.go.dev/github.com/threagile/threagile?utm_source=chatgpt.com "threagile command - github.com/threagile/threagile - Go ... - Go Packages"
-[2]: https://kalilinuxtutorials.com/threagile/?utm_source=chatgpt.com "Threagile : Agile Threat Modeling Toolkit 2020!Kalilinuxtutorials"
-[3]: https://threagile.io/?utm_source=chatgpt.com "Threagile — Agile Threat Modeling Toolkit"
-[4]: https://juanvvc.github.io/securecoding/images/threatmod/threagile/report.pdf?utm_source=chatgpt.com "Threat Model Report: Some Example Application"
-[5]: https://owasp.org/www-project-threat-dragon/?utm_source=chatgpt.com "OWASP Threat Dragon"
-[6]: https://github.com/Threagile/threagile "GitHub - Threagile/threagile: Agile Threat Modeling Toolkit"
-[7]: https://github.com/Threagile/threagile/blob/master/demo/example/threagile.yaml "threagile/demo/example/threagile.yaml at master - GitHub"
+> **Technical Tips**  
+> 1. Verify report PDFs open correctly and diagrams render properly.  
+> 2. Use the provided jq command exactly as shown for consistent delta tables.  
+> 3. Keep explanations concise—one-page summaries are more valuable than detailed reports.  
+> 4. Check that Threagile Docker container has proper file permissions for output generation.
