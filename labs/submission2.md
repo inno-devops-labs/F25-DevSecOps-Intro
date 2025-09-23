@@ -4,11 +4,8 @@
 
 # Submission 2 — Threagile Threat Model (OWASP Juice Shop v19.0.0)
 
-**Author:** `<Your Name>` • `<Group>` • `<email@innopolis.university>`
-**Repo Branch:** `feature/lab2`
-**Target App:** OWASP Juice Shop — `bkimminich/juice-shop:v19.0.0` (local, `127.0.0.1:3000`)
-**Tooling:** Threagile (Docker image), `jq`
-
+---
+Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
 ---
 
 ## 1) Baseline Threat Model
@@ -150,7 +147,7 @@ Enabling **TLS in transit** eliminated *Unencrypted Communication Channel* findi
 ### Environment
 
 - Host OS: Arch - 257.4-1-arch
-- Docker: Docker version 28.2.2, build e6534b4
+- Docker: Docker version 28.2.2, build e6534b4yy
 * Juice Shop: `v19.0.0` @ `127.0.0.1:3000` (per Lab-1)
 
 ---
