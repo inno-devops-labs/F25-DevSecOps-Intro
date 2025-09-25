@@ -16,3 +16,7 @@
 ## Analysis
 
 Commit signing is critical in DevSecOps because it creates a cryptographic chain of trust from developer identity through CI/CD to production, ensuring only authenticated, untampered changes can flow through automated pipelines
+
+## Verification badge
+
+![Verification badge](/labs/lab3/image_3.png)
