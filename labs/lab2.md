@@ -182,8 +182,13 @@ In `labs/submission2.md`, document:
 > 2. Use consistent asset/link names between baseline and secure models for accurate diffs.  
 > 3. Focus on actionable security insights rather than comprehensive risk catalogs.
 
+[1]: https://pkg.go.dev/github.com/threagile/threagile?utm_source=chatgpt.com "threagile command - github.com/threagile/threagile - Go Packages"
+[2]: https://kalilinuxtutorials.com/threagile/?utm_source=chatgpt.com "Threagile : Agile Threat Modeling Toolkit 2020!Kalilinuxtutorials"
+[3]: https://threagile.io/?utm_source=chatgpt.com "Threagile — Agile Threat Modeling Toolkit"
+[4]: https://juanvvc.github.io/securecoding/images/threatmod/threagile/report.pdf?utm_source=chatgpt.com "Threat Model Report: Some Example Application"
 > **Technical Tips**  
 > 1. Verify report PDFs open correctly and diagrams render properly.  
 > 2. Use the provided jq command exactly as shown for consistent delta tables.  
 > 3. Keep explanations concise—one-page summaries are more valuable than detailed reports.  
 > 4. Check that Threagile Docker container has proper file permissions for output generation.
+> 
