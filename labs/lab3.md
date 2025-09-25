@@ -88,51 +88,102 @@ In `labs/submission3.md`, document:
    # Collect staged files (added/changed)
    mapfile -t STAGED < <(git diff --cached --name-only --diff-filter=ACM)
    if [ ${#STAGED[@]} -eq 0 ]; then
-       echo "[pre-commit] no staged files; skipping scans"
-       exit 0
+      echo "[pre-commit] no staged files; skipping scans"
+      exit 0
    fi
 
-   # Limit to existing regular files only
    FILES=()
    for f in "${STAGED[@]}"; do
-       [ -f "$f" ] && FILES+=("$f")
+      [ -f "$f" ] && FILES+=("$f")
    done
    if [ ${#FILES[@]} -eq 0 ]; then
-       echo "[pre-commit] no regular files to scan; skipping"
-       exit 0
+      echo "[pre-commit] no regular files to scan; skipping"
+      exit 0
    fi
 
-   # Run TruffleHog in verbose mode
-   echo "[pre-commit] TruffleHog scan…"
-   if ! docker run --rm -v "$(pwd):/repo" -w /repo \
-       trufflesecurity/trufflehog:latest \
-       filesystem --fail --only-verified "${FILES[@]}" 
-   then
-       echo -e "\n✖ TruffleHog detected potential secrets. See output above for details." >&2
-       echo "Fix or unstage the offending files and try again." >&2
-       exit 1
+   echo "[pre-commit] Files to scan: ${FILES[*]}"
+
+   NON_LECTURES_FILES=()
+   LECTURES_FILES=()
+   for f in "${FILES[@]}"; do
+      if [[ "$f" == lectures/* ]]; then
+         LECTURES_FILES+=("$f")
+      else
+         NON_LECTURES_FILES+=("$f")
+      fi
+   done
+
+   echo "[pre-commit] Non-lectures files: ${NON_LECTURES_FILES[*]:-none}"
+   echo "[pre-commit] Lectures files: ${LECTURES_FILES[*]:-none}"
+
+   TRUFFLEHOG_FOUND_SECRETS=false
+   if [ ${#NON_LECTURES_FILES[@]} -gt 0 ]; then
+      echo "[pre-commit] TruffleHog scan on non-lectures files…"
+      
+      set +e
+      TRUFFLEHOG_OUTPUT=$(docker run --rm -v "$(pwd):/repo" -w /repo \
+         trufflesecurity/trufflehog:latest \
+         filesystem "${NON_LECTURES_FILES[@]}" 2>&1)
+      TRUFFLEHOG_EXIT_CODE=$?
+      set -e    
+      echo "$TRUFFLEHOG_OUTPUT"
+      
+      if [ $TRUFFLEHOG_EXIT_CODE -ne 0 ]; then
+         echo "[pre-commit] ✖ TruffleHog detected potential secrets in non-lectures files"
+         TRUFFLEHOG_FOUND_SECRETS=true
+      else
+         echo "[pre-commit] ✓ TruffleHog found no secrets in non-lectures files"
+      fi
+   else
+      echo "[pre-commit] Skipping TruffleHog (only lectures files staged)"
    fi
 
-   # Run Gitleaks and capture its output
-   echo "[pre-commit] Gitleaks scan…"
-   GITLEAKS_OUTPUT=$(docker run --rm -v "$(pwd):/repo" -w /repo \
-       zricethezav/gitleaks:latest \
-       detect --source="/repo" --verbose --exit-code=0 --no-banner || true)
+   echo "[pre-commit] Gitleaks scan on staged files…"
+   GITLEAKS_FOUND_SECRETS=false
+   GITLEAKS_FOUND_IN_LECTURES=false
 
-   # Display the output
-   echo "$GITLEAKS_OUTPUT"
+   for file in "${FILES[@]}"; do
+      echo "[pre-commit] Scanning $file with Gitleaks..."
+      
+      # Scan individual file with Gitleaks
+      GITLEAKS_RESULT=$(docker run --rm -v "$(pwd):/repo" -w /repo \
+         zricethezav/gitleaks:latest \
+         detect --source="$file" --no-git --verbose --exit-code=0 --no-banner 2>&1 || true)
+      
+      if [ -n "$GITLEAKS_RESULT" ] && echo "$GITLEAKS_RESULT" | grep -q -E "(Finding:|WRN leaks found)"; then
+         echo "Gitleaks found secrets in $file:"
+         echo "$GITLEAKS_RESULT"
+         echo "---"
+         
+         # Check if this is a lectures file
+         if [[ "$file" == lectures/* ]]; then
+               echo "⚠️ Secrets found in lectures directory - allowing as educational content"
+               GITLEAKS_FOUND_IN_LECTURES=true
+         else
+               echo "✖ Secrets found in non-excluded file: $file"
+               GITLEAKS_FOUND_SECRETS=true
+         fi
+      else
+         echo "[pre-commit] No secrets found in $file"
+      fi
+   done
 
-   # Check if any non-lectures files have leaks
-   if echo "$GITLEAKS_OUTPUT" | grep -q "File:" && ! echo "$GITLEAKS_OUTPUT" | grep -q "File:.*lectures/"; then
-       echo -e "\n✖ Gitleaks detected potential secrets in non-excluded files." >&2
-       echo "Fix or unstage the offending files and try again." >&2
-       exit 1
-   elif echo "$GITLEAKS_OUTPUT" | grep -q "File:.*lectures/"; then
-       echo -e "\n⚠️ Gitleaks found potential secrets only in excluded directories (lectures/)." >&2
-       echo "These findings are ignored based on your configuration." >&2
+   echo ""
+   echo "[pre-commit] === SCAN SUMMARY ==="
+   echo "TruffleHog found secrets in non-lectures files: $TRUFFLEHOG_FOUND_SECRETS"
+   echo "Gitleaks found secrets in non-lectures files: $GITLEAKS_FOUND_SECRETS"
+   echo "Gitleaks found secrets in lectures files: $GITLEAKS_FOUND_IN_LECTURES"
+   echo ""
+
+   if [ "$TRUFFLEHOG_FOUND_SECRETS" = true ] || [ "$GITLEAKS_FOUND_SECRETS" = true ]; then
+      echo -e "✖ COMMIT BLOCKED: Secrets detected in non-excluded files." >&2
+      echo "Fix or unstage the offending files and try again." >&2
+      exit 1
+   elif [ "$GITLEAKS_FOUND_IN_LECTURES" = true ]; then
+      echo "⚠️ Secrets found only in lectures directory (educational content) - allowing commit."
    fi
 
-   echo "✓ No secrets detected; proceeding with commit."
+   echo "✓ No secrets detected in non-excluded files; proceeding with commit."
    exit 0
    ```
 
