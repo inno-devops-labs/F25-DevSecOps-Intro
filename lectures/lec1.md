@@ -834,7 +834,7 @@ open(os.path.join(allowed_dir, filename)).read()
 
 ```python
 # ❌ Insecure: hardcoded secret
-API_KEY = "mysecretapikey123"  # anyone with source code gets this
+ # anyone with source code gets this
 ```
 
 ### 💻 Secure Fix
