@@ -8,3 +8,15 @@ Signing commits using SSH or GPG provides:
 - Verified label on GitHub - increases trust in the code and its origin.
 
 GitHub keeps the signature verification forever, even if the key is later revoked or expires. SSH signature is easier to set up and can use an existing key.
+
+
+
+
+
+
+Verified commit:
+![](lab3/image%20copy.png)
+
+Discovering secrets:
+
+![](lab3/image.png)
