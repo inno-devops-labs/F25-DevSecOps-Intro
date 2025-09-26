@@ -29,7 +29,7 @@ Commit signing is critical in DevSecOps workflows because:
 ### 4. Verification
 The commit is signed and verified on GitHub:
 - Verified badge is displayed next to the commit in the repository.
-https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/image.png
+https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/ScreenshotVerified.png
 
 ## Task 2 — Pre-commit Secret Scanning
 
@@ -39,3 +39,10 @@ https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/
 ```bash
 chmod +x .git/hooks/pre-commit
 ```
+- Configured to scan staged files using Dockerized TruffleHog and Gitleaks.
+- Non-lectures files are strictly checked; lectures directory is excluded for educational content.
+
+## 2. Evidence of Secret Detection
+- Test secret added to test_secret.txt
+- Commit attempt blocked:
+https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/image.png
