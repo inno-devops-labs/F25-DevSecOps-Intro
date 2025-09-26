@@ -18,3 +18,4 @@ Commit signing enforces trusted provenance of changes, enabling policy gates (e.
 
 ### Verification
 Add a signed commit and verify the "Verified" badge on GitHub.
+![asset](/assets/lab3/git-verify-commit.png)
