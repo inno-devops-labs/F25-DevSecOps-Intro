@@ -20,3 +20,31 @@ Commit signing is critical in DevSecOps because it creates a cryptographic chain
 ## Verification badge
 
 ![Verification badge](/labs/lab3/image_3.png)
+
+## Pre-commit hook setup process and configuration
+
+**Hook creation:**
+
+![Hook creation](/labs/lab3/image_4.png)
+
+**Hook configuration:**
+
+![Hook configuration](/labs/lab3/image_5.png)
+
+**Hook chmod:**
+
+![Hook chmod](/labs/lab3/image_6.png)
+
+## Evidence of successful secret detection blocking commits
+
+**Commit blocked by hook:**
+
+![Commit blocked by hook](/labs/lab3/image_7.png)
+
+**Commit approved by hook:**
+
+![Commit approved by hook](/labs/lab3/image_8.png)
+
+## Analysis of how automated secret scanning prevents security incidents
+
+Early detection removes credentials before they are commited and pushed to production, closing common intrusion paths that lead to data breaches.
