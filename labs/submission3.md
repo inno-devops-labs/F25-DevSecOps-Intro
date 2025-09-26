@@ -25,8 +25,34 @@ Commit signing is essential in DevSecOps because it enforces code provenance and
 
 ### 4. Verification: "Verified" Badge on GitHub
 
-
+<img src="Screenshot_3.png" width="1000">
 
 ## Task 2: Pre-commit Secret Scanning
+
+### 1. Pre-commit Hook Setup and Configuration
+
+A pre-commit hook was added to `.git/hooks/pre-commit` to automatically scan staged files for secrets using. The script blocks commits if secrets are found outside the lectures directory.
+
+### 2. Evidence of Successful Secret Detection Blocking Commits
+
+A test secret was added to a file and staged. When attempting to commit, the hook detected the secret and blocked the commit:
+
+<img src="Screenshot_4.png" width="1000">
+
+After removing the secret, the commit was allowed:
+
+<img src="Screenshot_5.png" width="1000">
+
+
+
+### 3. Test Results: Blocked and Successful Commits
+
+- Blocked commit: Secret detected, commit prevented.
+- Successful commit: No secrets detected, commit allowed.
+
+### 4. Analysis: How Automated Secret Scanning Prevents Security Incidents
+
+Automated secret scanning in pre-commit hooks helps prevent accidental exposure of sensitive information. This reduces the risk of data breaches, unauthorized access, and supply chain attacks, making it a crucial part of secure development workflows.
+
 
 
