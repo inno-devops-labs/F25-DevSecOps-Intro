@@ -52,41 +52,59 @@ Commit signing is critical because:
 ### Pre-commit hook setup process and configuration
 ```
 $ vim .git/hooks/pre-commit
-$ echo "AWS_ACCESS_KEY_ID=LoLLoLLoL" > labs/lab3/text.txt
+$ vim labs/lab3/test.txt
+$ vim labs/lab3/.env
+$ vim docker-compose.yml
 $ git add .
-$ git commit -S -m "checks: open secret"
-
-
+$ git commit -S -m "checks: open secret, 11 try"
 ```
 ### Evidence of successful secret detection blocking commits
 
 ```
-$ git commit -S -m "checks: open secret"
+$ git commit -S -m "checks: open secret, 11 try"
 [pre-commit] scanning staged files for secrets…
-[pre-commit] Files to scan: labs/image.png labs/lab3/text.txt labs/submission3.md
-[pre-commit] Non-lectures files: labs/image.png labs/lab3/text.txt labs/submission3.md
+[pre-commit] Files to scan: labs/lab3/.env
+[pre-commit] Non-lectures files: labs/lab3/.env
 [pre-commit] Lectures files: none
 [pre-commit] TruffleHog scan on non-lectures files…
-Unable to find image 'trufflesecurity/trufflehog:latest' locally
-docker: Error response from daemon: Get "https://registry-1.docker.io/v2/": dial tcp: lookup registry-1.docker.io on 127.0.0.53:53: read udp 127.0.0.1:45289->127.0.0.53:53: i/o timeout
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
 
-Run 'docker run --help' for more information
-[pre-commit] ✖ TruffleHog detected potential secrets in non-lectures files
+2025-09-26T19:17:18Z	info-0	trufflehog	running source	{"source_manager_worker_id": "k22nY", "with_units": true}
+Found unverified result 🐷🔑❓
+Verification issue: lookup db.example.com on 172.19.0.2:53: no such host
+Detector Type: Postgres
+Decoder Type: PLAIN
+Raw result: ...
+Sslmode: <unset>
+File: labs/lab3/.env
+Line: 5
+
+2025-09-26T19:17:27Z	info-0	trufflehog	finished scanning	{"chunks": 1, "bytes": 336, "verified_secrets": 0, "unverified_secrets": 1, "scan_duration": "10.01785939s", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":4,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":14450}}
+[pre-commit] ✓ TruffleHog found no secrets in non-lectures files
 [pre-commit] Gitleaks scan on staged files…
-[pre-commit] Scanning labs/image.png with Gitleaks...
-[pre-commit] No secrets found in labs/image.png
-[pre-commit] Scanning labs/lab3/text.txt with Gitleaks...
-[pre-commit] No secrets found in labs/lab3/text.txt
-[pre-commit] Scanning labs/submission3.md with Gitleaks...
-[pre-commit] No secrets found in labs/submission3.md
+[pre-commit] Scanning labs/lab3/.env with Gitleaks...
+Gitleaks found secrets in labs/lab3/.env:
+Finding:     ...
+Secret:      ...
+RuleID:      stripe-access-token
+Entropy:     4.039248
+File:        labs/lab3/.env
+Line:        6
+Fingerprint: ...
+
+7:17PM INF scanned ~336 bytes (336 bytes) in 50.9ms
+7:17PM WRN leaks found: 1
+---
+✖ Secrets found in non-excluded file: labs/lab3/.env
 
 [pre-commit] === SCAN SUMMARY ===
-TruffleHog found secrets in non-lectures files: true
-Gitleaks found secrets in non-lectures files: false
+TruffleHog found secrets in non-lectures files: false
+Gitleaks found secrets in non-lectures files: true
 Gitleaks found secrets in lectures files: false
 
 ✖ COMMIT BLOCKED: Secrets detected in non-excluded files.
 Fix or unstage the offending files and try again.
+
 ```
 
 ### Test results showing both blocked and successful commits
@@ -145,7 +163,72 @@ Gitleaks found secrets in lectures files: false
 
 ✖ COMMIT BLOCKED: Secrets detected in non-excluded files.
 Fix or unstage the offending files and try again.
+
+$ rm labs/lab3/test.txt
+$ rm labs/lab3/.env
+$ rm docker-compose.yml
+$ git commit -S -m "checks: no secret"
+[pre-commit] scanning staged files for secrets…
+[pre-commit] no staged files; skipping scans
+[feature/lab3 5eb7c7c] checks: no secret
+ 3 files changed, 11 deletions(-)
+ delete mode 100644 docker-compose.yml
+ delete mode 100644 labs/lab3/.env
+ delete mode 100644 labs/lab3/test.txt
+$ vim labs/lab3/test.txt
+$ git commit -S -m "checks: no secret, extra file"
+[pre-commit] scanning staged files for secrets…
+[pre-commit] Files to scan: labs/lab3/test.txt labs/submission3.md
+[pre-commit] Non-lectures files: labs/lab3/test.txt labs/submission3.md
+[pre-commit] Lectures files: none
+[pre-commit] TruffleHog scan on non-lectures files…
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
+
+2025-09-26T19:23:59Z	info-0	trufflehog	running source	{"source_manager_worker_id": "LKfSr", "with_units": true}
+Found unverified result 🐷🔑❓
+Verification issue: lookup db.example.com on 172.19.0.2:53: no such host
+Detector Type: Postgres
+Decoder Type: PLAIN
+Raw result: ...
+Sslmode: <unset>
+File: labs/submission3.md
+Line: 77
+
+2025-09-26T19:24:05Z	info-0	trufflehog	finished scanning	{"chunks": 2, "bytes": 7647, "verified_secrets": 0, "unverified_secrets": 1, "scan_duration": "5.908860573s", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":2,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":6281}}
+[pre-commit] ✓ TruffleHog found no secrets in non-lectures files
+[pre-commit] Gitleaks scan on staged files…
+[pre-commit] Scanning labs/lab3/test.txt with Gitleaks...
+[pre-commit] No secrets found in labs/lab3/test.txt
+[pre-commit] Scanning labs/submission3.md with Gitleaks...
+Gitleaks found secrets in labs/submission3.md:
+7:24PM INF scanned ~7645 bytes (7.64 KB) in 64.9ms
+7:24PM WRN leaks found: 2
+Finding:     ...inding:     ...
+Secret:      ...
+RuleID:      stripe-access-token
+Entropy:     4.039248
+File:        labs/submission3.md
+Line:        87
+Fingerprint: labs/submission3.md:stripe-access-token:87
+
+Finding:     Secret:      ...
+Secret:      ...
+RuleID:      stripe-access-token
+Entropy:     4.039248
+File:        labs/submission3.md
+Line:        88
+Fingerprint: ...
+---
+✖ Secrets found in non-excluded file: labs/submission3.md
+
+[pre-commit] === SCAN SUMMARY ===
+TruffleHog found secrets in non-lectures files: false
+Gitleaks found secrets in non-lectures files: true
+Gitleaks found secrets in lectures files: false
+
+✖ COMMIT BLOCKED: Secrets detected in non-excluded files.
+Fix or unstage the offending files and try again.
 ```
- - I need to delete secret from labs/submission3.md
+I need to remove secrets from submission3.md file.
 ```
 
