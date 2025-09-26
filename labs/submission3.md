@@ -19,14 +19,16 @@ git config --global gpg.format ssh
 ```
 - Public signing key added to GitHub Signing Keys.
 
-## 3. Analysis: Importance in DevSecOps
+### 3. Analysis: Importance in DevSecOps
 Commit signing is critical in DevSecOps workflows because:
 - It ensures that all changes are traceable to verified developers.
 - Protects the software supply chain from malicious code injection.
 - Provides auditability for compliance and security reviews.
 - Encourages secure development practices across teams.
 
-## 4. Verification
+### 4. Verification
 The commit is signed and verified on GitHub:
 - Verified badge is displayed next to the commit in the repository.
 https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/image.png
+
+## Task 2 — Pre-commit Secret Scanning
