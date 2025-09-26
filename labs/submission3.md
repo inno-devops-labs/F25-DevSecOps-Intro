@@ -41,3 +41,29 @@ unauthorized access to the repository.
 
 ## Screenshots
 ![Verified commit](/labs/submission3/verified.png)
+
+# Task 2
+
+## Pre-commit hook setup process and configuration
+Pasted the provided script into `/.git/hooks/pre-commit`.
+Set the execute permission.
+
+## Evidence of successful secret detection blocking commits
+See next section.
+
+## Test results showing both blocked and successful commits
+Indeed, the key gets detected in the /labs directory and the commit is aborted:
+
+![Key found](/labs/submission3/keyfound.png)
+
+When I remove the key, the commit is successful:
+
+![No key](/labs/submission3/nokey.png)
+
+## Analysis of how automated secret scanning prevents security incidents
+
+Once the secret is committed by accident, it is difficult to remove it, and it
+may have already been noticed by attackers. Automated secret scanning prevents
+such incidents.
+
+
