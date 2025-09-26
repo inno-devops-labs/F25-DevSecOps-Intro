@@ -2314,3 +2314,4 @@ flowchart TD
 ---
 
 ---
+\nNote: Verified pre-commit hook behavior on lectures-only change.
