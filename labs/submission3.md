@@ -45,4 +45,16 @@ chmod +x .git/hooks/pre-commit
 ## 2. Evidence of Secret Detection
 - Test secret added to test_secret.txt
 - Commit attempt blocked:
-https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/image.png
+https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/ScreenshotCommitBlocked.png
+- After removing the test secret, commit succeeded:
+https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/ScreenshotCommitNotBloked.png
+
+### 3. Test Results
+| Scenario                                | Result                     |
+| --------------------------------------- | -------------------------- |
+| Commit with secret in non-lectures file | Blocked by pre-commit hook |
+| Commit without secret                   | Successfully committed     |
+
+### 4. Analysis
+Automated secret scanning prevents accidental exposure of sensitive information in version control.
+It enforces security best practices by blocking commits that contain secrets, reducing risk of breaches in collaborative projects.
