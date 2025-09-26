@@ -34,11 +34,10 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzC5rm0B2NSqDWbpTMsvtsV2rhIMoELLbtlJebChC0q
 ## Analysis: "Why is commit signing critical in DevSecOps workflows?"        
 
 Signed commits are impossible to forge. Therefore, attackers cannot push
-malicious code to production if the repository's CI/CD is configured to reject
-unverified commits. This is critical: if there is no such configuration,
+malicious code to production if the repository's branches are configured to
+reject unverified commits. This is critical: if there is no such configuration,
 arbitrary code could be pushed and then probably executed if someone gets
 unauthorized access to the repository.
 
 ## Screenshots
-TODO
-
+![Verified commit](/labs/submission3/verified.png)
