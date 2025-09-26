@@ -231,4 +231,34 @@ Fix or unstage the offending files and try again.
 ```
 I need to remove secrets from submission3.md file.
 ```
+lord@EmptyThrone:~/DevSexOps$ git add .
+lord@EmptyThrone:~/DevSexOps$ git commit -S -m "checks: no secret, change submission file"
+[pre-commit] scanning staged files for secrets…
+[pre-commit] Files to scan: labs/lab3/test.txt labs/submission3.md
+[pre-commit] Non-lectures files: labs/lab3/test.txt labs/submission3.md
+[pre-commit] Lectures files: none
+[pre-commit] TruffleHog scan on non-lectures files…
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
 
+2025-09-26T19:31:54Z	info-0	trufflehog	running source	{"source_manager_worker_id": "x5KxR", "with_units": true}
+2025-09-26T19:31:54Z	info-0	trufflehog	finished scanning	{"chunks": 2, "bytes": 9709, "verified_secrets": 0, "unverified_secrets": 0, "scan_duration": "4.871744ms", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":0,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":0}}
+[pre-commit] ✓ TruffleHog found no secrets in non-lectures files
+[pre-commit] Gitleaks scan on staged files…
+[pre-commit] Scanning labs/lab3/test.txt with Gitleaks...
+[pre-commit] No secrets found in labs/lab3/test.txt
+[pre-commit] Scanning labs/submission3.md with Gitleaks...
+[pre-commit] No secrets found in labs/submission3.md
+
+[pre-commit] === SCAN SUMMARY ===
+TruffleHog found secrets in non-lectures files: false
+Gitleaks found secrets in non-lectures files: false
+Gitleaks found secrets in lectures files: false
+
+✓ No secrets detected in non-excluded files; proceeding with commit.
+[feature/lab3 1d166c3] checks: no secret, change submission file
+ 2 files changed, 105 insertions(+), 21 deletions(-)
+ create mode 100644 labs/lab3/test.txt
+```
+### Analysis of how automated secret scanning prevents security incidents
+
+Automated secret scanning stops sensitive data like API keys or passwords from being committed to Git. This prevents accidental leaks into repositories, where attackers could exploit them. By detecting issues early, it reduces security risks and enforces safer development practices.
