@@ -1,0 +1,2 @@
+# Task 1
+This is mainly done to confirm that the commit was made by the author. It's easy to change the authorship information in unsigned commits. Additionally, it guarantees that the commit hasn't been modified.
