@@ -38,21 +38,19 @@ Steps:
 
 Output excerpt:
 ```text
-[pre-commit] scanning staged files for secrets…
-[pre-commit] Files to scan: tmp/secret-test.txt
-[pre-commit] Non-lectures files: tmp/secret-test.txt
-[pre-commit] TruffleHog scan on non-lectures files…
-.git/hooks/pre-commit: line 43: docker: command not found
-[pre-commit] ✖ TruffleHog detected potential secrets in non-lectures files
-...
-[pre-commit] === SCAN SUMMARY ===
-TruffleHog found secrets in non-lectures files: true
-Gitleaks found secrets in non-lectures files: false
-Gitleaks found secrets in lectures files: false
-✖ COMMIT BLOCKED: Secrets detected in non-excluded files.
-```
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
 
-Note: On this workstation Docker was not available in PATH, which caused the TruffleHog container invocation to fail; the hook correctly treated this as a failing scan and blocked the commit, preventing a risky commit from proceeding.
+2025-09-26T14:26:19Z    info-0  trufflehog      running source  {"source_manager_worker_id": "EDqae", "with_units": true}
+Found unverified result 🐷🔑❓
+Detector Type: SlackWebhook
+Decoder Type: BASE64
+Raw result: here was a secret
+Rotation_guide: https://howtorotate.com/docs/tutorials/slack-webhook/
+File: tmp/secret-test.txt
+Line: 8
+
+2025-09-26T14:26:20Z    info-0  trufflehog      finished scanning       {"chunks": 2, "bytes": 5353, "verified_secrets": 0, "unverified_secrets": 1, "scan_duration": "979.983192ms", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":6,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":4308}}
+```
 
 ### Evidence: successful commit (no secrets / lectures-only)
 Steps:
@@ -62,17 +60,28 @@ Steps:
 Output excerpt:
 ```text
 [pre-commit] scanning staged files for secrets…
-[pre-commit] Files to scan: lectures/lec4.md
-[pre-commit] Non-lectures files: none
-[pre-commit] Lectures files: lectures/lec4.md
-[pre-commit] Skipping TruffleHog (only lectures files staged)
-[pre-commit] Scanning lectures/lec4.md with Gitleaks...
-[pre-commit] No secrets found in lectures/lec4.md
+[pre-commit] Files to scan: tmp/secret-test.txt
+[pre-commit] Non-lectures files: tmp/secret-test.txt
+[pre-commit] Lectures files: none
+[pre-commit] TruffleHog scan on non-lectures files…
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
+
+2025-09-26T14:23:23Z    info-0  trufflehog      running source  {"source_manager_worker_id": "v8FVn", "with_units": true}
+2025-09-26T14:23:23Z    info-0  trufflehog      finished scanning       {"chunks": 1, "bytes": 46, "verified_secrets": 0, "unverified_secrets": 0, "scan_duration": "1.022307ms", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":0,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":0}}
+[pre-commit] ✓ TruffleHog found no secrets in non-lectures files
+[pre-commit] Gitleaks scan on staged files…
+[pre-commit] Scanning tmp/secret-test.txt with Gitleaks...
+.git/hooks/pre-commit: line 70: [: missing `]'
+.git/hooks/pre-commit: line 71: -n: command not found
+[pre-commit] No secrets found in tmp/secret-test.txt
+
 [pre-commit] === SCAN SUMMARY ===
 TruffleHog found secrets in non-lectures files: false
 Gitleaks found secrets in non-lectures files: false
 Gitleaks found secrets in lectures files: false
+
 ✓ No secrets detected in non-excluded files; proceeding with commit.
+.git/hooks/pre-commit: line 105: exit: 0:: numeric argument required
 ```
 
 ### Analysis: Why automated secret scanning matters
