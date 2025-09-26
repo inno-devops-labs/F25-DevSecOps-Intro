@@ -4,7 +4,7 @@
 ![topic](https://img.shields.io/badge/topic-Secure%20Git-blue)
 ![points](https://img.shields.io/badge/points-10-orange)
 
-> **Goal:** Practice secure Git fundamentals: signed commits, pre-commit secret scanning, and standardized PRs.  
+> **Goal:** Practice secure Git fundamentals: signed commits and pre-commit secret scanning.  
 > **Deliverable:** A PR from `feature/lab3` to the course repo with `labs/submission3.md` containing secure Git practices implementation. Submit the PR link via Moodle.
 
 ---
@@ -14,7 +14,6 @@
 In this lab you will practice:
 - Verifying commit authenticity with **SSH commit signing**.
 - Preventing secrets exposure with **pre-commit scanning** (TruffleHog + Gitleaks).
-- Standardizing collaboration with **PR templates & checklists**.
 
 These skills are fundamental for maintaining secure development workflows and preventing security incidents in collaborative environments.
 
@@ -70,7 +69,7 @@ In `labs/submission3.md`, document:
 
 ---
 
-### Task 2 — Pre-commit Secret Scanning (4 pts)
+### Task 2 — Pre-commit Secret Scanning (5 pts)
 
 **Objective:** Add a local Git pre-commit hook that scans staged changes for secrets using Dockerized TruffleHog and Gitleaks.
 
@@ -209,59 +208,13 @@ In `labs/submission3.md`, document:
 
 ---
 
-### Task 3 — PR Template & Checklist (1 pt)
-
-**Objective:** Standardize pull requests with a reusable template for consistent collaboration workflows.
-
-#### 3.1: Create PR Template
-
-1. **Template Setup:**
-
-   ```bash
-   # Path: .github/pull_request_template.md
-   # Commit message: docs: add PR template
-   ```
-
-2. **Template Options:**
-
-   - **Option A (discover):** Find a concise PR template from a reputable open-source project and adapt it
-   - **Option B (write your own):** Create template with these sections and 3-item checklist:
-     - Sections: **Goal**, **Changes**, **Testing**
-     - Checklist: clear title, docs updated if needed, no secrets/large temp files
-   - Keep it short and practical (≤ 30 lines)
-
-#### 3.2: Verify Template Application
-
-1. **Create Lab Branch and PR:**
-
-   ```bash
-   git checkout -b feature/lab3
-   git add labs/submission3.md
-   git commit -m "docs: add lab3 submission stub"
-   git push -u origin feature/lab3
-   ```
-
-2. **Template Verification:**
-
-   - Open PR and verify description auto-fills with sections & checklist
-   - Fill in *Goal / Changes / Testing* and tick checkboxes
-
-In `labs/submission3.md`, document:
-- PR template creation and setup process
-- Evidence of template auto-filling functionality
-- Analysis of how standardized templates improve code review workflows
-
-> ⚠️ **One-time bootstrap:** GitHub loads PR templates from the **default branch of your fork (`main`)**. Add the template to `main` first, then open your lab PR from `feature/lab3`.
-
----
-
 ## Acceptance Criteria
 
 - ✅ Branch `feature/lab3` exists with commits for each task.
-- ✅ File `labs/submission3.md` contains required analysis for Tasks 1-3.
+- ✅ File `labs/submission3.md` contains required analysis for both tasks.
 - ✅ At least one commit shows **"Verified"** (signed via SSH) on GitHub.
 - ✅ Local `.git/hooks/pre-commit` runs TruffleHog and Gitleaks via Docker and blocks secrets.
-- ✅ File `.github/pull_request_template.md` exists on the **main** branch.
+
 - ✅ PR from `feature/lab3` → **course repo main branch** is open.
 - ✅ PR link submitted via Moodle before the deadline.
 
@@ -286,7 +239,6 @@ In `labs/submission3.md`, document:
    ```text
    - [x] Task 1 done
    - [x] Task 2 done
-   - [x] Task 3 done
    ```
 
 4. **Copy the PR URL** and submit it via **Moodle before the deadline**.
@@ -298,8 +250,7 @@ In `labs/submission3.md`, document:
 | Criterion                                        | Points |
 | ------------------------------------------------ | -----: |
 | Task 1 — SSH commit signing setup + analysis    |  **5** |
-| Task 2 — Pre-commit secrets scanning setup      |  **4** |
-| Task 3 — PR template & checklist implementation |  **1** |
+| Task 2 — Pre-commit secrets scanning setup      |  **5** |
 | **Total**                                        | **10** |
 
 ---
@@ -318,6 +269,5 @@ In `labs/submission3.md`, document:
 
 > **Technical Requirements**  
 > 1. Docker Desktop/Engine must be running for secret scanning tools.  
-> 2. Confirm PR template path is `.github/pull_request_template.md` **on `main`**.  
-> 3. Re-open PR description after adding template if it didn't auto-fill.  
-> 4. Keep templates concise—reviewers prefer short, actionable checklists.
+> 2. Ensure all commits are properly signed for verification on GitHub.  
+> 3. Test pre-commit hooks with various file types and content.
