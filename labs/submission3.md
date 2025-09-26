@@ -26,4 +26,4 @@ In DevSecOps, security is integrated into every stage of the software developmen
 Overall, signed commits strengthen the security posture and integrity of the development process.
 
 Verified commit:
-![](lab3/commit.png)
+![](lab3/image.png)
