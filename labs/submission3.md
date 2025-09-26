@@ -32,3 +32,10 @@ The commit is signed and verified on GitHub:
 https://github.com/KuchukbaevaRegina/F25-DevSecOps-Intro/blob/feature/lab3/labs/image.png
 
 ## Task 2 — Pre-commit Secret Scanning
+
+### 1. Pre-commit Hook Setup
+- Hook file created at `.git/hooks/pre-commit`
+- Hook made executable:
+```bash
+chmod +x .git/hooks/pre-commit
+```
