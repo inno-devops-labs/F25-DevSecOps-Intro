@@ -5,8 +5,8 @@
 ![points](https://img.shields.io/badge/points-10-orange)
 
 
-> **Goal:** Practice secure Git fundamentals: signed commits and pre-commit secret scanning.  
 
+> **Goal:** Practice secure Git fundamentals: signed commits and pre-commit secret scanning.  
 > **Deliverable:** A PR from `feature/lab3` to the course repo with `labs/submission3.md` containing secure Git practices implementation. Submit the PR link via Moodle.
 
 ---
@@ -102,17 +102,20 @@ In `labs/submission3.md`, document:
       exit 0
    fi
 
-   # Run TruffleHog in verbose mode
-   echo "[pre-commit] TruffleHog scan…"
-   if ! docker run --rm -v "$(pwd):/repo" -w /repo \
-       trufflesecurity/trufflehog:latest \
-       filesystem --fail --only-verified "${FILES[@]}"
-   then
-       echo -e "\n✖ TruffleHog detected potential secrets. See output above for details." >&2
-       echo "Fix or unstage the offending files and try again." >&2
-       exit 1
+   echo "[pre-commit] Files to scan: ${FILES[*]}"
+
+   NON_LECTURES_FILES=()
+   LECTURES_FILES=()
+   for f in "${FILES[@]}"; do
+      if [[ "$f" == lectures/* ]]; then
+         LECTURES_FILES+=("$f")
+      else
+         NON_LECTURES_FILES+=("$f")
+      fi
+   done
 
    echo "[pre-commit] Non-lectures files: ${NON_LECTURES_FILES[*]:-none}"
+   echo "[pre-commit] Lectures files: ${LECTURES_FILES[*]:-none}"
 
    TRUFFLEHOG_FOUND_SECRETS=false
    if [ ${#NON_LECTURES_FILES[@]} -gt 0 ]; then
@@ -134,7 +137,6 @@ In `labs/submission3.md`, document:
       fi
    else
       echo "[pre-commit] Skipping TruffleHog (only lectures files staged)"
-
    fi
 
    echo "[pre-commit] Gitleaks scan on staged files…"
@@ -267,8 +269,9 @@ In `labs/submission3.md`, document:
 > 2. Verify `gpg.format` is set to `ssh` for proper signing configuration.
 > 3. Test pre-commit hooks thoroughly with both legitimate and test secret content.
 
-> **Technical Requirements**
-> 1. Docker Desktop/Engine must be running for secret scanning tools.
-> 2. Confirm PR template path is `.github/pull_request_template.md` **on `main`**.
-> 3. Re-open PR description after adding template if it didn't auto-fill.
-> 4. Keep templates concise—reviewers prefer short, actionable checklists.
+
+> **Technical Requirements**  
+> 1. Docker Desktop/Engine must be running for secret scanning tools.  
+> 2. Ensure all commits are properly signed for verification on GitHub.  
+> 3. Test pre-commit hooks with various file types and content.
+
