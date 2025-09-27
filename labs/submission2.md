@@ -154,4 +154,3 @@ Enabling **TLS in transit** eliminated *Unencrypted Communication Channel* findi
 * Juice Shop: `v19.0.0` @ `127.0.0.1:3000` (per Lab-1)
 
 ---
-

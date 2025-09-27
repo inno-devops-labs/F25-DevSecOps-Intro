@@ -4,7 +4,7 @@
 ![topic](https://img.shields.io/badge/topic-Threat%20Modeling%20(Threagile)-blue)
 ![points](https://img.shields.io/badge/points-10-orange)
 
-> **Goal:** Model the **OWASP Juice Shop `bkimminich/juice-shop:v19.0.0`** deployment and generate an **automation-first** threat model with Threagile.  
+> **Goal:** Model the **OWASP Juice Shop `bkimminich/juice-shop:v19.0.0`** deployment and generate an **automation-first** threat model with Threagile.
 > **Deliverable:** A PR from `feature/lab2` to the course repo with `labs/submission2.md` containing Threagile outputs and risk analysis. Submit the PR link via Moodle.
 
 ---
@@ -177,13 +177,13 @@ In `labs/submission2.md`, document:
 - Document threat modeling process and security findings systematically.
 - Ensure all generated artifacts are properly committed to the repository.
 
-> **Threat Modeling Notes**  
-> 1. Model exactly the architecture you're running from Lab 1 (localhost deployment).  
-> 2. Use consistent asset/link names between baseline and secure models for accurate diffs.  
+> **Threat Modeling Notes**
+> 1. Model exactly the architecture you're running from Lab 1 (localhost deployment).
+> 2. Use consistent asset/link names between baseline and secure models for accurate diffs.
 > 3. Focus on actionable security insights rather than comprehensive risk catalogs.
 
-> **Technical Tips**  
-> 1. Verify report PDFs open correctly and diagrams render properly.  
-> 2. Use the provided jq command exactly as shown for consistent delta tables.  
-> 3. Keep explanations concise—one-page summaries are more valuable than detailed reports.  
+> **Technical Tips**
+> 1. Verify report PDFs open correctly and diagrams render properly.
+> 2. Use the provided jq command exactly as shown for consistent delta tables.
+> 3. Keep explanations concise—one-page summaries are more valuable than detailed reports.
 > 4. Check that Threagile Docker container has proper file permissions for output generation.

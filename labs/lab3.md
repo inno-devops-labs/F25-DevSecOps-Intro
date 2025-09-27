@@ -4,7 +4,7 @@
 ![topic](https://img.shields.io/badge/topic-Secure%20Git-blue)
 ![points](https://img.shields.io/badge/points-10-orange)
 
-> **Goal:** Practice secure Git fundamentals: signed commits, pre-commit secret scanning, and standardized PRs.  
+> **Goal:** Practice secure Git fundamentals: signed commits, pre-commit secret scanning, and standardized PRs.
 > **Deliverable:** A PR from `feature/lab3` to the course repo with `labs/submission3.md` containing secure Git practices implementation. Submit the PR link via Moodle.
 
 ---
@@ -106,7 +106,7 @@ In `labs/submission3.md`, document:
    echo "[pre-commit] TruffleHog scan…"
    if ! docker run --rm -v "$(pwd):/repo" -w /repo \
        trufflesecurity/trufflehog:latest \
-       filesystem --fail --only-verified "${FILES[@]}" 
+       filesystem --fail --only-verified "${FILES[@]}"
    then
        echo -e "\n✖ TruffleHog detected potential secrets. See output above for details." >&2
        echo "Fix or unstage the offending files and try again." >&2
@@ -260,13 +260,13 @@ In `labs/submission3.md`, document:
 - Document security configurations and testing procedures thoroughly.
 - Demonstrate both successful and blocked operations for secret scanning.
 
-> **Security Configuration Notes**  
-> 1. Ensure the email on your commits matches your GitHub account for proper verification.  
-> 2. Verify `gpg.format` is set to `ssh` for proper signing configuration.  
+> **Security Configuration Notes**
+> 1. Ensure the email on your commits matches your GitHub account for proper verification.
+> 2. Verify `gpg.format` is set to `ssh` for proper signing configuration.
 > 3. Test pre-commit hooks thoroughly with both legitimate and test secret content.
 
-> **Technical Requirements**  
-> 1. Docker Desktop/Engine must be running for secret scanning tools.  
-> 2. Confirm PR template path is `.github/pull_request_template.md` **on `main`**.  
-> 3. Re-open PR description after adding template if it didn't auto-fill.  
+> **Technical Requirements**
+> 1. Docker Desktop/Engine must be running for secret scanning tools.
+> 2. Confirm PR template path is `.github/pull_request_template.md` **on `main`**.
+> 3. Re-open PR description after adding template if it didn't auto-fill.
 > 4. Keep templates concise—reviewers prefer short, actionable checklists.

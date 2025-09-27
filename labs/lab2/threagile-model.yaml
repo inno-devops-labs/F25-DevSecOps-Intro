@@ -1,6 +1,6 @@
 threagile_version: 1.0.0
 
-title: OWASP Juice Shop — Local Lab Threat Model  
+title: OWASP Juice Shop — Local Lab Threat Model
 date: 2025-09-18
 
 author:
@@ -8,17 +8,17 @@ author:
   homepage: https://example.edu
 
 management_summary_comment: >
-  Threat model for a local OWASP Juice Shop setup. Users access the app  
-  either directly via HTTP on port 3000 or through an optional reverse proxy that  
-  terminates TLS and adds security headers. The app runs in a container  
-  and writes data to a host-mounted volume (for database, uploads, logs).  
+  Threat model for a local OWASP Juice Shop setup. Users access the app
+  either directly via HTTP on port 3000 or through an optional reverse proxy that
+  terminates TLS and adds security headers. The app runs in a container
+  and writes data to a host-mounted volume (for database, uploads, logs).
   Optional outbound notifications (e.g., a challenge-solution WebHook) can be configured for integrations.
 
 business_criticality: important  # archive, operational, important, critical, mission-critical
 
 business_overview:
   description: >
-    Training environment for DevSecOps. This model covers a deliberately vulnerable  
+    Training environment for DevSecOps. This model covers a deliberately vulnerable
     web application (OWASP Juice Shop) running locally in a Docker container. The focus is on a minimal architecture, STRIDE threat analysis, and actionable mitigations for the identified risks.
 
   images:

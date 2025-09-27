@@ -25,7 +25,7 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
 ```html
 <html>
   <head>
-    <meta charset='utf-8'> 
+    <meta charset='utf-8'>
     <title>Error: Unexpected path: /rest/products</title>
     <style>* {
   margin: 0;
@@ -45,9 +45,9 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
 ## Risks Observed (Top 3)
 1) **SQL Injection (UNION-based) — /rest/products/search**
    - **Endpoint/Field:** `GET /rest/products/search?q=<term>`
-   - **Payload (worked):**  
+   - **Payload (worked):**
      `1')) UNION SELECT 1,2,3,4,5,6,7,8,sqlite_version();--`
-   - **Evidence:** server returns fields populated from the injected `UNION SELECT` including `sqlite_version()` 
+   - **Evidence:** server returns fields populated from the injected `UNION SELECT` including `sqlite_version()`
    ![sqli](/labs/assets/sqli.png)
    - **Impact:** Extraction/manipulation of database data; schema enumeration; potential pivoting to full compromise.
    - **Likelihood:** High (no auth required; trivial payload).
@@ -56,10 +56,10 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
 
 2) **Reflected XSS — /#/search**
    - **Endpoint/Field:** Client-side search page `/#/search?q=<term>`
-   - **Payload (worked):**  
-     `"<iframe src="javascript:alert(\xss\)">`  
+   - **Payload (worked):**
+     `"<iframe src="javascript:alert(\xss\)">`
      (URL-encoded in PoC)
-   - **Evidence:** JavaScript `alert('xss')` executes on page load 
+   - **Evidence:** JavaScript `alert('xss')` executes on page load
    ![xss](/labs/assets/xss.png)
    - **Impact:** Session/token theft, UI phishing, actions performed in victim’s context.
    - **Likelihood:** medium (reachable anonymously; simple payload).
@@ -69,7 +69,7 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
 3) **Server-Side Template Injection (SSTI) — /profile (Username)**
    - **Endpoint/Field:** `/profile` → **Username**
    - **Payload (worked):** `a#{7*7}`
-   - **Evidence:** Rendered value evaluates to `a49`, confirming expression execution in the template engine 
+   - **Evidence:** Rendered value evaluates to `a49`, confirming expression execution in the template engine
    ![SSTI](/labs/assets/SSTI.png)
    - **Impact:** Depending on engine: template sandbox escape, reading sensitive data, possible remote code execution.
    - **Likelihood:** Medium–High (requires authenticated user; easy to reproduce).
@@ -105,5 +105,3 @@ Alexander Rozanov / CBS-02 / al.rozanov@innopolis.university
     - Enforce **allow-list** for Username (length + safe chars).
     - Add tests with `a#{7*7}` and similar probes.
   - **DoD:** `a#{7*7}` rendered literally; tests pass; code review completed.
-
-

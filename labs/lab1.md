@@ -191,13 +191,13 @@ In `labs/submission1.md`, document:
 - Document deployment process and security observations.
 - Ensure screenshots and evidence demonstrate working setup.
 
-> **Security Notes**  
-> 1. Always bind to `127.0.0.1` to avoid exposing the app beyond localhost.  
-> 2. Pin specific Docker image versions for reproducibility.  
+> **Security Notes**
+> 1. Always bind to `127.0.0.1` to avoid exposing the app beyond localhost.
+> 2. Pin specific Docker image versions for reproducibility.
 > 3. Never commit application source code—only lab artifacts and reports.
 
-> **Deployment Tips**  
-> 1. Check GitHub Releases page for specific version dates and notes.  
-> 2. Verify API endpoints respond before completing triage report.  
-> 3. Document all observed security issues in the triage template.  
+> **Deployment Tips**
+> 1. Check GitHub Releases page for specific version dates and notes.
+> 2. Verify API endpoints respond before completing triage report.
+> 3. Document all observed security issues in the triage template.
 > 4. Keep deployment commands simple and well-documented.

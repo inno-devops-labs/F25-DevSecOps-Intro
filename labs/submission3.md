@@ -111,7 +111,7 @@ jobs:
 - **Signature check:** output of `git log --show-signature -1` with `Good "git signed ssh signature"`.
 - **Blocked commit:** pre‑commit log showing Gitleaks/TruffleHog findings.
 - **Passed commit:** pre‑commit log where all hooks are `Passed`.
-- (Optional) Badge in README:  
+- (Optional) Badge in README:
   `![secret-scan](https://github.com/<owner>/<repo>/actions/workflows/secret-scan.yml/badge.svg)`
 
 ---

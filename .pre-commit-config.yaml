@@ -1,0 +1,21 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: gitleaks-system
+        name: gitleaks (local binary)
+        entry: ./.git-tools/gitleaks protect --staged --verbose --redact
+        language: system
+        pass_filenames: false
+
+      - id: trufflehog-system
+        name: trufflehog (local binary)
+        entry: ./.git-tools/trufflehog filesystem --fail --no-update --since-commit HEAD~1 .
+        language: system
+        pass_filenames: false
