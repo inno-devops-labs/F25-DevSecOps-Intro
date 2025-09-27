@@ -32,3 +32,148 @@ true
 DevSecOps is a worklow, when we try integrate security in each step of development lifecycle.  
 So, the commits is an inseparable part of development and to provide more reliable workflow is crutial to sign commits. First of all to prevent fake commits and change of commits from the third parties. 
 Also it is good for CI/CD pipeline, becuase it also part of development and we want to make it secure. So, the adding the rule to allow only signed commits will give us guarantee that only our team could publish code to production. 
+
+4. Screenshoot of badge
+![pic](/assets/verified.png)
+
+# Task 2
+## Precommit hook setup
+Firsty I created the file ```.git/hooks/pre-commit``` with hooks and add there content, provided in lab.  
+Also I run command ```chmod +x .git/hooks/pre-commit``` to make a file executable. Also I open the Docker, because this script use a docker containers, which will not opened without docker.   
+
+## Evidence of successful secret detection blocking commits
+Afterall I tested this configuration on my testkey 
+```
+echo 'AWS_SECRET_ACCESS_KEY="wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"' > bad.txt
+git add bad.txt 
+git commit -S -m "test: should be blocked"  
+``` 
+but commit passed.  
+As I read in Internet- this secret is a popular educational secret, which could be ignored by such programs. Then I tried to commit GH secret and pair of keys with AWC and they was blocked:  
+(I removed keys, because they will blocked by Gitleaks and didn't allow me to commit this file)
+```
+marinalavrova@MacBook-Pro-Marina F25-DevSecOps-Intro % cat > bad.txt <<'EOF'
+AWS_ACCESS_KEY_ID=...
+AWS_SECRET_ACCESS_KEY=...
+EOF
+
+marinalavrova@MacBook-Pro-Marina F25-DevSecOps-Intro % git add bad.txt
+git commit -S -m "test: should be blocked"
+```
+```
+[pre-commit] scanning staged files for secrets…
+[pre-commit] Files to scan: bad.txt
+[pre-commit] Non-lectures files: bad.txt
+[pre-commit] Lectures files: none
+[pre-commit] TruffleHog scan on non-lectures files…
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
+
+2025-09-27T08:43:41Z    info-0  trufflehog      running source  {"source_manager_worker_id": "Uqx2z", "with_units": true}
+2025-09-27T08:43:41Z    info-0  trufflehog      finished scanning       {"chunks": 1, "bytes": 101, "verified_secrets": 0, "unverified_secrets": 0, "scan_duration": "1.803417ms", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":0,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":0}}
+[pre-commit] ✓ TruffleHog found no secrets in non-lectures files
+[pre-commit] Gitleaks scan on staged files…
+[pre-commit] Scanning bad.txt with Gitleaks...
+Gitleaks found secrets in bad.txt:
+Finding:     AWS_SECRET_ACCESS_KEY=...
+Secret:      ...
+RuleID:      generic-api-key
+Entropy:     5.182838
+File:        bad.txt
+Line:        2
+Fingerprint: bad.txt:generic-api-key:2
+
+8:43AM INF scanned ~101 bytes (101 bytes) in 30.9ms
+8:43AM WRN leaks found: 1
+---
+✖ Secrets found in non-excluded file: bad.txt
+
+[pre-commit] === SCAN SUMMARY ===
+TruffleHog found secrets in non-lectures files: false
+Gitleaks found secrets in non-lectures files: true
+Gitleaks found secrets in lectures files: false
+
+✖ COMMIT BLOCKED: Secrets detected in non-excluded files.
+Fix or unstage the offending files and try again.
+```
+## Test results of blocked and passed commit
+
+First example of blocked is below, here also gh token key
+```
+echo 'ghp_...' > bad.txt
+git add bad.txt
+git commit -S -m "test: must be blocked"
+```
+```
+[pre-commit] scanning staged files for secrets…
+[pre-commit] Files to scan: bad.txt
+[pre-commit] Non-lectures files: bad.txt
+[pre-commit] Lectures files: none
+[pre-commit] TruffleHog scan on non-lectures files…
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
+
+2025-09-27T08:31:02Z    info-0  trufflehog      running source  {"source_manager_worker_id": "3r8sN", "with_units": true}
+2025-09-27T08:31:02Z    info-0  trufflehog      finished scanning       {"chunks": 1, "bytes": 41, "verified_secrets": 0, "unverified_secrets": 0, "scan_duration": "951.930709ms", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":1,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":947}}
+[pre-commit] ✓ TruffleHog found no secrets in non-lectures files
+[pre-commit] Gitleaks scan on staged files…
+[pre-commit] Scanning bad.txt with Gitleaks...
+Gitleaks found secrets in bad.txt:
+Finding:     ghp_...
+Secret:      ghp_...
+RuleID:      github-pat
+Entropy:     4.246439
+File:        bad.txt
+Line:        1
+Fingerprint: bad.txt:github-pat:1
+
+8:31AM INF scanned ~41 bytes (41 bytes) in 29.4ms
+8:31AM WRN leaks found: 1
+---
+✖ Secrets found in non-excluded file: bad.txt
+
+[pre-commit] === SCAN SUMMARY ===
+TruffleHog found secrets in non-lectures files: false
+Gitleaks found secrets in non-lectures files: true
+Gitleaks found secrets in lectures files: false
+
+✖ COMMIT BLOCKED: Secrets detected in non-excluded files.
+Fix or unstage the offending files and try again.
+```
+
+And a commit without secrets  passed
+```
+marinalavrova@MacBook-Pro-Marina F25-DevSecOps-Intro % echo 'hello' > good.txt
+git add good.txt                            
+git commit -S -m "feat: clean commit passes"
+```
+```
+[pre-commit] scanning staged files for secrets…
+[pre-commit] Files to scan: good.txt
+[pre-commit] Non-lectures files: good.txt
+[pre-commit] Lectures files: none
+[pre-commit] TruffleHog scan on non-lectures files…
+🐷🔑🐷  TruffleHog. Unearth your secrets. 🐷🔑🐷
+
+2025-09-27T08:59:47Z    info-0  trufflehog      running source  {"source_manager_worker_id": "hTIZ3", "with_units": true}
+2025-09-27T08:59:47Z    info-0  trufflehog      finished scanning       {"chunks": 1, "bytes": 6, "verified_secrets": 0, "unverified_secrets": 0, "scan_duration": "1.57125ms", "trufflehog_version": "3.90.8", "verification_caching": {"Hits":0,"Misses":0,"HitsWasted":0,"AttemptsSaved":0,"VerificationTimeSpentMS":0}}
+[pre-commit] ✓ TruffleHog found no secrets in non-lectures files
+[pre-commit] Gitleaks scan on staged files…
+[pre-commit] Scanning good.txt with Gitleaks...
+[pre-commit] No secrets found in good.txt
+
+[pre-commit] === SCAN SUMMARY ===
+TruffleHog found secrets in non-lectures files: false
+Gitleaks found secrets in non-lectures files: false
+Gitleaks found secrets in lectures files: false
+
+✓ No secrets detected in non-excluded files; proceeding with commit.
+[features/lab3 c0e9c90] feat: clean commit passes
+ 1 file changed, 1 insertion(+)
+marinalavrova@MacBook-Pro-Marina F25-DevSecOps-Intro % 
+ ```
+
+
+## Analysis of how automated secret scanning prevents security incidents
+
+Automated precommit scanner reduce risk of leakage of secret keys of early stages of development before the appearing commits in the history of Git and push to repository. It is good because it help to prevent:
+- Accidential leaks: accidential publication of keys to the open/inner repository.
+- Supply chain risks: the secrets sometimes could be added in artifacts during CI/CD pipeline from old, even deleted locally commits. So if you even once commit your secret to github - your keys in risk.
