@@ -64,32 +64,32 @@ flowchart LR
     subgraph "🌍 Internet Zone"
         Dev[👨‍💻 Developers]
     end
-    
+
     subgraph "🔐 SCM Zone"
         Git[📂 Git Repository]
     end
-    
+
     subgraph "⚙️ Build Zone"
         Agent[🔧 Build Agent]
         Tests[🧪 Test Suite]
     end
-    
+
     subgraph "📦 Artifact Zone"
         Registry[🗄️ Artifact Registry]
     end
-    
+
     subgraph "🎯 Deployment Zone"
         Staging[🧪 Staging]
         Prod[🌍 Production]
     end
-    
+
     Dev -->|HTTPS + Auth| Git
     Git -->|Webhook| Agent
     Agent --> Tests
     Tests -->|Success| Registry
     Registry --> Staging
     Staging -->|Approval| Prod
-    
+
     %% Trust boundaries
     classDef boundary stroke:#ff4444,stroke-width:3px,stroke-dasharray: 5 5
 ```
@@ -124,7 +124,7 @@ quadrantChart
     quadrant-2 Cloud Enterprise
     quadrant-3 Simple Cloud
     quadrant-4 Complex Self-Hosted
-    
+
     GitHub Actions: [0.3, 0.8]
     GitLab CI: [0.6, 0.5]
     Jenkins: [0.8, 0.2]
@@ -161,14 +161,14 @@ flowchart TD
     Pipeline -->|Use| Creds[🔑 Production Credentials]
     Pipeline -->|Control| Infra[🏗️ Build Infrastructure]
     Pipeline -->|Poison| Artifacts[📦 Build Artifacts]
-    
+
     Source --> Theft[🕵️ IP Theft]
     Creds --> Lateral[↗️ Lateral Movement]
     Infra --> Mining[⛏️ Crypto Mining]
     Artifacts --> Supply[🦠 Supply Chain Attack]
-    
+
     Supply --> Customers[👥 End Users Compromised]
-    
+
     classDef attack fill:#ffebee,stroke:#d32f2f,stroke-width:2px
     class Attacker,Theft,Lateral,Mining,Supply,Customers attack
 ```
@@ -270,13 +270,13 @@ flowchart LR
     AuthZ -->|Permitted?| Resource[📂 CI/CD Resource]
     AuthN -->|❌ Invalid| Deny[🚫 Access Denied]
     AuthZ -->|❌ No Permission| Deny
-    
+
     subgraph "Identity Providers"
         SSO[🌐 SSO/OIDC]
         AD[🏢 Active Directory]
         Cloud[☁️ Cloud Identity]
     end
-    
+
     User -.-> SSO
     User -.-> AD
     User -.-> Cloud
@@ -309,26 +309,26 @@ graph TD
         Ops1[👩‍🔧 Carol - DevOps]
         Audit1[👩‍💼 Diana - Auditor]
     end
-    
+
     subgraph "🎭 Roles"
         ViewerRole[👀 Pipeline Viewer]
-        DevRole[🔧 Pipeline Developer] 
+        DevRole[🔧 Pipeline Developer]
         AdminRole[👑 Pipeline Admin]
         AuditorRole[📊 Auditor]
     end
-    
+
     subgraph "🔐 Permissions"
         ReadPerm[📖 Read Pipelines]
         WritePerm[✏️ Write Pipelines]
         DeployPerm[🚀 Deploy]
         AdminPerm[⚙️ Admin Access]
     end
-    
+
     Dev1 --> ViewerRole
     Dev2 --> DevRole
     Ops1 --> AdminRole
     Audit1 --> AuditorRole
-    
+
     ViewerRole --> ReadPerm
     DevRole --> ReadPerm
     DevRole --> WritePerm
@@ -363,17 +363,17 @@ flowchart TD
         Pipeline1[🔧 Build Pipeline] -->|Hardcoded Token| Git[📂 Git Repo]
         Pipeline1 -->|Shared Creds| Cloud[☁️ Cloud Services]
     end
-    
+
     subgraph "✅ Secure Approach"
         Pipeline2[🔧 Build Pipeline] -->|Request| Vault[🔐 Credential Vault]
         Vault -->|Short-lived Token| Pipeline2
         Pipeline2 -->|Authenticated| Git2[📂 Git Repo]
         Pipeline2 -->|Workload Identity| Cloud2[☁️ Cloud Services]
     end
-    
+
     classDef insecure fill:#ffebee,stroke:#d32f2f
     classDef secure fill:#e8f5e8,stroke:#2e7d32
-    
+
     class Pipeline1,Git,Cloud insecure
     class Pipeline2,Vault,Git2,Cloud2 secure
 ```
@@ -401,14 +401,14 @@ sequenceDiagram
     participant User as 👤 User
     participant CICD as 🔧 CI/CD System
     participant MFA as 📱 MFA Provider
-    
+
     User->>CICD: 1. Username + Password
     CICD->>User: 2. MFA Challenge Required
     User->>MFA: 3. Generate OTP/Approve Push
     MFA->>User: 4. OTP Code/Approval
     User->>CICD: 5. Submit MFA Code
     CICD->>User: 6. ✅ Access Granted
-    
+
     Note over User,CICD: Without valid MFA:<br/>❌ Access Denied
 ```
 
@@ -446,16 +446,16 @@ flowchart TD
         DevA[👨‍💻 Developer A] -->|Admin Access| AllRepos[📂 All Repositories]
         ServiceA[🤖 Service Account] -->|Full Access| AllEnvs[🌍 All Environments]
     end
-    
+
     subgraph "✅ Least Privilege (Good)"
         DevB[👨‍💻 Developer B] -->|Read/Write| TeamRepos[📂 Team Repositories Only]
         ServiceB[🤖 Build Service] -->|Deploy Only| StagingEnv[🧪 Staging Environment]
         ServiceC[🤖 Deploy Service] -->|Deploy Only| ProdEnv[🏭 Production Environment]
     end
-    
+
     classDef bad fill:#ffebee,stroke:#d32f2f
     classDef good fill:#e8f5e8,stroke:#2e7d32
-    
+
     class DevA,ServiceA,AllRepos,AllEnvs bad
     class DevB,ServiceB,ServiceC,TeamRepos,StagingEnv,ProdEnv good
 ```
@@ -473,7 +473,7 @@ team_permissions:
 team_permissions:
   frontend_devs:
     role: write  # Appropriate for development
-    repositories: 
+    repositories:
       - "web-app"
       - "ui-components"
   backend_devs:
@@ -512,7 +512,7 @@ flowchart TD
         Internal1 --> Secrets1[🔑 Secrets]
         Pipeline1 -.->|Trusted Network| Secrets1
     end
-    
+
     subgraph "🕸️ Zero-Trust Security"
         Internet2[🌍 Internet] --> Gateway[🛡️ Zero-Trust Gateway]
         Gateway -->|Verify Identity| Pipeline2[🔧 CI/CD Pipeline]
@@ -520,10 +520,10 @@ flowchart TD
         Pipeline2 -->|Authenticate| Vault[🔐 Secure Vault]
         Pipeline2 -->|Monitor| Logs[📊 Security Logs]
     end
-    
+
     classDef traditional fill:#fff3e0,stroke:#f57c00
     classDef zerotrust fill:#e8f5e8,stroke:#2e7d32
-    
+
     class Internet1,Internal1,Pipeline1,Secrets1 traditional
     class Internet2,Gateway,Pipeline2,Vault,Logs zerotrust
 ```
@@ -539,12 +539,12 @@ pipeline_security:
     location_restrictions:
       - "corporate_office"
       - "approved_vpn"
-  
+
   access_controls:
     session_timeout: 2h
     re_authentication_interval: 30min
     privilege_escalation: just_in_time
-  
+
   monitoring:
     behavioral_analytics: enabled
     anomaly_detection: enabled
@@ -581,17 +581,17 @@ flowchart LR
         Admin1[👨‍💻 Admin] -->|Manual Config| Jenkins1[🔧 Jenkins Server]
         Admin1 -->|SSH + GUI| Jenkins1
     end
-    
+
     subgraph "Infrastructure-as-Code"
         Dev[👨‍💻 Developer] -->|Git Commit| Repo[📂 IaC Repository]
         Repo -->|Automated| Terraform[🏗️ Terraform]
         Terraform -->|Provision| Jenkins2[🔧 Jenkins Infrastructure]
         Terraform -->|Configure| Security[🛡️ Security Policies]
     end
-    
+
     classDef traditional fill:#fff3e0,stroke:#f57c00
     classDef iac fill:#e8f5e8,stroke:#2e7d32
-    
+
     class Admin1,Jenkins1 traditional
     class Dev,Repo,Terraform,Jenkins2,Security iac
 ```
@@ -624,17 +624,17 @@ flowchart TD
         Config1 -->|Downloads| Script1[🌐 External Script]
         Config1 -->|Executes| Command1[💻 Shell Command with User Input]
     end
-    
+
     subgraph "✅ Secure Pipeline Config"
         Config2[📄 Pipeline YAML] -->|References| Vault[🔐 Secret Vault]
         Config2 -->|Uses Approved| Library[📚 Trusted Script Library]
         Config2 -->|Sanitizes| Input[🧹 Validated Input]
         Review[👥 Code Review] --> Config2
     end
-    
+
     classDef insecure fill:#ffebee,stroke:#d32f2f
     classDef secure fill:#e8f5e8,stroke:#2e7d32
-    
+
     class Config1,Secret1,Script1,Command1 insecure
     class Config2,Vault,Library,Input,Review secure
 ```
@@ -668,18 +668,18 @@ flowchart TD
         Build2[🔧 Build Job B] --> Container2[📦 Container B]
         Build3[🔧 Build Job C] --> VM[🖥️ Virtual Machine]
     end
-    
+
     subgraph "🛡️ Security Boundaries"
         Container1 -.->|Isolated| Network1[🌐 Network Namespace]
         Container2 -.->|Isolated| Network2[🌐 Network Namespace]
         VM -.->|Isolated| Hypervisor[🏗️ Hypervisor Layer]
     end
-    
+
     subgraph "🔒 Shared Resources"
         Registry[📚 Artifact Registry]
         Secrets[🔑 Secret Store]
     end
-    
+
     Container1 -->|Controlled Access| Registry
     Container2 -->|Controlled Access| Registry
     VM -->|Controlled Access| Secrets
@@ -712,14 +712,14 @@ sequenceDiagram
     participant Repo as 📂 Repository
     participant Pipeline as 🔧 CI/CD Pipeline
     participant Secrets as 🔑 Secret Store
-    
+
     Attacker->>Repo: 1. Submit malicious PR
     Note over Repo: Pipeline config modified<br/>to steal secrets
     Repo->>Pipeline: 2. Trigger automated build
     Pipeline->>Pipeline: 3. Execute malicious commands
     Pipeline->>Secrets: 4. Access and exfiltrate secrets
     Pipeline->>Attacker: 5. Send stolen credentials
-    
+
     Note over Attacker,Secrets: Prevention: Code review<br/>+ Branch protection<br/>+ Runtime monitoring
 ```
 
@@ -753,35 +753,35 @@ flowchart TD
         WebHook[🪝 Webhook Receiver]
         API[🔌 Public API]
     end
-    
+
     subgraph "🔧 Build Zone"
         Agent1[🏗️ Build Agent 1]
         Agent2[🏗️ Build Agent 2]
         Scanner[🔍 Security Scanner]
     end
-    
+
     subgraph "📦 Artifact Zone"
         Registry[🗄️ Artifact Registry]
         Cache[💾 Build Cache]
     end
-    
+
     subgraph "🏭 Production Zone"
         Staging[🧪 Staging Environment]
         Production[🌟 Production Environment]
     end
-    
+
     WebHook -->|HTTPS| Agent1
     API -->|Authenticated| Agent2
     Agent1 -->|Push Artifacts| Registry
     Agent2 -->|Security Scan| Scanner
     Registry -->|Deploy| Staging
     Staging -->|Approved| Production
-    
+
     classDef dmz fill:#fff3e0,stroke:#f57c00
     classDef build fill:#e3f2fd,stroke:#1976d2
     classDef artifact fill:#f3e5f5,stroke:#7b1fa2
     classDef prod fill:#e8f5e8,stroke:#388e3c
-    
+
     class WebHook,API dmz
     class Agent1,Agent2,Scanner build
     class Registry,Cache artifact
@@ -818,19 +818,19 @@ flowchart LR
         Test[🧪 Security Tests]
         Sign[✍️ Artifact Signing]
     end
-    
+
     subgraph "📦 Secure Artifact Storage"
         Registry[🗄️ Private Registry]
         Scan[🔍 Vulnerability Scanner]
         Policy[📋 Retention Policy]
     end
-    
+
     subgraph "🚀 Deployment"
         Stage[🧪 Staging Deploy]
         Prod[🌟 Production Deploy]
         Verify[✅ Signature Verification]
     end
-    
+
     Build --> Test
     Test --> Sign
     Sign --> Registry
@@ -839,11 +839,11 @@ flowchart LR
     Registry --> Stage
     Stage --> Verify
     Verify --> Prod
-    
+
     classDef build fill:#e3f2fd,stroke:#1976d2
     classDef storage fill:#f3e5f5,stroke:#7b1fa2
     classDef deploy fill:#e8f5e8,stroke:#388e3c
-    
+
     class Build,Test,Sign build
     class Registry,Scan,Policy storage
     class Stage,Prod,Verify deploy
@@ -882,29 +882,29 @@ flowchart TD
         BadMount[📁 Host Path Mount /var/run/docker.sock]
         BadNetwork[🌐 Full Network Access]
     end
-    
+
     subgraph "✅ Secure Container Build"
         GoodImage[🐳 Distroless + Non-root User]
         ReadOnly[📁 Read-only Filesystem]
         NetworkPolicy[🔒 Restricted Network Policy]
         Scanner[🔍 Image Vulnerability Scanner]
     end
-    
+
     subgraph "🛡️ Security Controls"
         PodSecurity[📋 Pod Security Standards]
         Falco[👁️ Runtime Monitoring]
         Cosign[✍️ Image Signing]
     end
-    
+
     GoodImage --> Scanner
     Scanner --> PodSecurity
     PodSecurity --> Falco
     Falco --> Cosign
-    
+
     classDef insecure fill:#ffebee,stroke:#d32f2f
     classDef secure fill:#e8f5e8,stroke:#2e7d32
     classDef controls fill:#e3f2fd,stroke:#1976d2
-    
+
     class BadImage,BadMount,BadNetwork insecure
     class GoodImage,ReadOnly,NetworkPolicy,Scanner secure
     class PodSecurity,Falco,Cosign controls
@@ -938,10 +938,10 @@ flowchart TD
     subgraph "⚠️ Uncontrolled Resources"
         Pipeline1[🔧 Build Pipeline] --> Unlimited[♾️ No Limits]
         Unlimited --> CPUSpike[💻 CPU 100%]
-        Unlimited --> MemoryLeak[🧠 Memory Overflow] 
+        Unlimited --> MemoryLeak[🧠 Memory Overflow]
         Unlimited --> DiskFull[💾 Disk Space Full]
     end
-    
+
     subgraph "✅ Controlled Resources"
         Pipeline2[🔧 Build Pipeline] --> Limits[📊 Resource Limits]
         Limits --> CPULimit[💻 CPU: 2 cores max]
@@ -949,21 +949,21 @@ flowchart TD
         Limits --> TimeoutLimit[⏰ Timeout: 30min max]
         Monitor[📈 Resource Monitor] --> Alerts[🚨 Usage Alerts]
     end
-    
+
     subgraph "🛡️ Protection Mechanisms"
         Kubernetes[☸️ K8s Resource Quotas]
         Docker[🐳 Container Limits]
         Cloud[☁️ Cloud Service Quotas]
     end
-    
+
     Limits --> Kubernetes
     Limits --> Docker
     Limits --> Cloud
-    
+
     classDef uncontrolled fill:#ffebee,stroke:#d32f2f
     classDef controlled fill:#e8f5e8,stroke:#2e7d32
     classDef protection fill:#e3f2fd,stroke:#1976d2
-    
+
     class Pipeline1,Unlimited,CPUSpike,MemoryLeak,DiskFull uncontrolled
     class Pipeline2,Limits,CPULimit,MemoryLimit,TimeoutLimit,Monitor,Alerts controlled
     class Kubernetes,Docker,Cloud protection
@@ -1000,20 +1000,20 @@ flowchart LR
         Dependencies[📚 Dependencies]
         Build[⚙️ Build System]
     end
-    
+
     subgraph "📦 Secure Packaging"
         Scan[🔍 Security Scan]
         Package[📦 Package Creation]
         Metadata[📋 Metadata Addition]
         Tag[🏷️ Immutable Tagging]
     end
-    
+
     subgraph "✅ Verification"
         Checksum[🔢 Checksum Generation]
         Signature[✍️ Digital Signature]
         Registry[🗄️ Secure Registry]
     end
-    
+
     Source --> Build
     Dependencies --> Build
     Build --> Scan
@@ -1023,11 +1023,11 @@ flowchart LR
     Tag --> Checksum
     Checksum --> Signature
     Signature --> Registry
-    
+
     classDef build fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef package fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef verify fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Source,Dependencies,Build build
     class Scan,Package,Metadata,Tag package
     class Checksum,Signature,Registry verify
@@ -1062,7 +1062,7 @@ sequenceDiagram
     participant HSM as 🔐 HSM/Key Vault
     participant Registry as 🗄️ Artifact Registry
     participant Deploy as 🚀 Deployment
-    
+
     Developer->>Pipeline: 1. Commit Code
     Pipeline->>Pipeline: 2. Build Artifact
     Pipeline->>HSM: 3. Request Signing Key
@@ -1076,7 +1076,7 @@ sequenceDiagram
     else Invalid Signature
         Deploy->>Deploy: 9. ❌ Reject Deployment
     end
-    
+
     classDef default fill:#f9f,stroke:#333,stroke-width:2px,color:#2c3e50
 ```
 
@@ -1109,20 +1109,20 @@ flowchart TD
         Lib2[📚 Library B v2.5]
         OS[🐧 Base OS Image]
     end
-    
+
     subgraph "🔍 SBOM Generation"
         Scanner[🕵️ SBOM Scanner]
         Analysis[🔬 Dependency Analysis]
         Format[📋 Format Generation]
     end
-    
+
     subgraph "📄 SBOM Output"
         CycloneDX[🌀 CycloneDX Format]
         SPDX[📄 SPDX Format]
         Vulnerabilities[⚠️ Vulnerability Data]
         Licenses[⚖️ License Information]
     end
-    
+
     App --> Scanner
     Lib1 --> Scanner
     Lib2 --> Scanner
@@ -1133,11 +1133,11 @@ flowchart TD
     Format --> SPDX
     Format --> Vulnerabilities
     Format --> Licenses
-    
+
     classDef artifact fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef generation fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef output fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class App,Lib1,Lib2,OS artifact
     class Scanner,Analysis,Format generation
     class CycloneDX,SPDX,Vulnerabilities,Licenses output
@@ -1172,20 +1172,20 @@ flowchart LR
         Sign[✍️ Sign with Cosign]
         Identity[🆔 OIDC Identity]
     end
-    
+
     subgraph "📦 Registry"
         Image[🐳 Container Image]
         Signature[🔏 Digital Signature]
         Transparency[📋 Transparency Log]
     end
-    
+
     subgraph "🚀 Deploy & Verify"
         Pull[📥 Pull Image]
         Verify[🔍 Verify Signature]
         Deploy[🌟 Deploy if Valid]
         Reject[❌ Reject if Invalid]
     end
-    
+
     Build --> Sign
     Identity --> Sign
     Sign --> Image
@@ -1195,12 +1195,12 @@ flowchart LR
     Pull --> Verify
     Verify --> Deploy
     Verify --> Reject
-    
+
     classDef build fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef registry fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef deploy fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
     classDef reject fill:#ffebee,stroke:#d32f2f,color:#2c3e50
-    
+
     class Build,Sign,Identity build
     class Image,Signature,Transparency registry
     class Pull,Verify,Deploy deploy
@@ -1237,39 +1237,39 @@ flowchart TD
         Deps1[📚 Dependencies pinned]
         Env1[🏗️ Build Environment]
     end
-    
+
     subgraph "🏭 Build Process"
         Build1[⚙️ Official Build]
         Build2[⚙️ Independent Build]
         Controls[🎯 Reproducibility Controls]
     end
-    
+
     subgraph "📦 Artifacts"
         Artifact1[📦 Official Artifact<br/>Hash: abc123]
         Artifact2[📦 Independent Artifact<br/>Hash: abc123]
         Match[✅ Identical Artifacts]
     end
-    
+
     Source1 --> Build1
     Deps1 --> Build1
     Env1 --> Build1
-    
+
     Source1 --> Build2
     Deps1 --> Build2
     Env1 --> Build2
-    
+
     Controls --> Build1
     Controls --> Build2
-    
+
     Build1 --> Artifact1
     Build2 --> Artifact2
     Artifact1 --> Match
     Artifact2 --> Match
-    
+
     classDef input fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef build fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef artifact fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Source1,Deps1,Env1 input
     class Build1,Build2,Controls build
     class Artifact1,Artifact2,Match artifact
@@ -1306,41 +1306,41 @@ flowchart LR
         Hash2[🔢 SHA-512 Hash]
         Manifest[📋 Checksum Manifest]
     end
-    
+
     subgraph "🗄️ Storage & Distribution"
         Registry[📚 Artifact Registry]
         CDN[🌐 Content Distribution]
         Mirror[🪞 Mirror Sites]
     end
-    
+
     subgraph "✅ Verification Process"
         Download[📥 Download Artifact]
         Calculate[🧮 Calculate Hash]
         Compare[⚖️ Compare Hashes]
         Result[✅ Verify Integrity]
     end
-    
+
     Artifact --> Hash1
     Artifact --> Hash2
     Hash1 --> Manifest
     Hash2 --> Manifest
-    
+
     Artifact --> Registry
     Manifest --> Registry
     Registry --> CDN
     Registry --> Mirror
-    
+
     CDN --> Download
     Mirror --> Download
     Download --> Calculate
     Registry --> Compare
     Calculate --> Compare
     Compare --> Result
-    
+
     classDef creation fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef storage fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef verify fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Artifact,Hash1,Hash2,Manifest creation
     class Registry,CDN,Mirror storage
     class Download,Calculate,Compare,Result verify
@@ -1381,35 +1381,35 @@ flowchart TD
         Environment[🏗️ Build Environment<br/>OS, Tools, Config]
         Time[⏰ Temporal Data<br/>Timestamps, Duration]
     end
-    
+
     subgraph "📋 Attestation Creation"
         Collect[🔄 Collect Metadata]
         Format[📝 SLSA Format]
         Sign[✍️ Sign Attestation]
     end
-    
+
     subgraph "🌐 Transparency & Storage"
         Rekor[📋 Rekor Log<br/>Immutable Record]
         Registry[🗄️ Artifact Registry<br/>Linked Attestation]
         Consumer[👥 Consumers<br/>Verification & Trust]
     end
-    
+
     Actor --> Collect
     Source --> Collect
     Environment --> Collect
     Time --> Collect
-    
+
     Collect --> Format
     Format --> Sign
     Sign --> Rekor
     Sign --> Registry
     Registry --> Consumer
     Rekor --> Consumer
-    
+
     classDef collection fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef attestation fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef transparency fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Actor,Source,Environment,Time collection
     class Collect,Format,Sign attestation
     class Rekor,Registry,Consumer transparency
@@ -1446,19 +1446,19 @@ flowchart LR
         Build[🔨 Build Process]
         Tests[🧪 Automated Tests]
     end
-    
+
     subgraph "🚦 Quality Gates"
         Gate1[🎯 Coverage Gate<br/>≥80% Required]
         Gate2[🐛 Bug Gate<br/>0 Critical Issues]
         Gate3[🔒 Security Gate<br/>No High CVEs]
         Gate4[👥 Manual Approval<br/>Production Ready]
     end
-    
+
     subgraph "🚀 Deployment"
         Staging[🧪 Staging Deploy]
         Production[🌟 Production Deploy]
     end
-    
+
     Code --> Build
     Build --> Tests
     Tests --> Gate1
@@ -1471,11 +1471,11 @@ flowchart LR
     Gate4 -->|✅ Approved| Staging
     Gate4 -->|❌ Rejected| Code
     Staging --> Production
-    
+
     classDef dev fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef gate fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef deploy fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Code,Build,Tests dev
     class Gate1,Gate2,Gate3,Gate4 gate
     class Staging,Production deploy
@@ -1509,33 +1509,33 @@ flowchart TD
         Performance[⚡ Performance Tests<br/>Load Time, Memory Usage]
         Functional[🧪 Functional Tests<br/>Unit, Integration, E2E]
     end
-    
+
     subgraph "🔒 Security Gates (Security-Focused)"
         Vulnerabilities[🔍 Vulnerability Scans<br/>SAST, DAST, SCA Results]
         Secrets[🔑 Secret Detection<br/>API Keys, Credentials]
         Compliance[📋 Policy Compliance<br/>SOX, HIPAA, PCI-DSS]
         Integrity[🏷️ Artifact Integrity<br/>Signatures, Checksums]
     end
-    
+
     subgraph "🌍 Environment-Specific Thresholds"
         Dev[🟢 Development<br/>Lenient, Educational]
         Stage[🟡 Staging<br/>Moderate, Balanced]
         Prod[🔴 Production<br/>Strict, Zero Tolerance]
     end
-    
+
     QualityMetrics --> Dev
     Performance --> Dev
     Functional --> Stage
-    
+
     Vulnerabilities --> Stage
     Secrets --> Prod
     Compliance --> Prod
     Integrity --> Prod
-    
+
     classDef quality fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef security fill:#ffebee,stroke:#d32f2f,color:#2c3e50
     classDef environment fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
-    
+
     class QualityMetrics,Performance,Functional quality
     class Vulnerabilities,Secrets,Compliance,Integrity security
     class Dev,Stage,Prod environment
@@ -1572,7 +1572,7 @@ flowchart LR
         Commit[📝 Code Commit]
         PR[🔀 Pull Request]
     end
-    
+
     subgraph "🔄 Automated Security Pipeline"
         PreCommit[🪝 Pre-commit Hooks<br/>Secrets, Linting]
         SAST[🔍 SAST Scan<br/>Code Vulnerabilities]
@@ -1580,14 +1580,14 @@ flowchart LR
         DAST[🌐 DAST Scan<br/>Running App]
         IaC[🏗️ IaC Scan<br/>Infrastructure]
     end
-    
+
     subgraph "📊 Results & Actions"
         Dashboard[📈 Security Dashboard]
         Alerts[🚨 Automated Alerts]
         Block[🛑 Block Deployment]
         Approve[✅ Approve & Deploy]
     end
-    
+
     Developer --> PreCommit
     PreCommit --> Commit
     Commit --> PR
@@ -1595,20 +1595,20 @@ flowchart LR
     SAST --> SCA
     SCA --> DAST
     DAST --> IaC
-    
+
     SAST --> Dashboard
     SCA --> Dashboard
     DAST --> Alerts
     IaC --> Dashboard
-    
+
     Dashboard --> Block
     Dashboard --> Approve
     Alerts --> Block
-    
+
     classDef dev fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef security fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef results fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Developer,Commit,PR dev
     class PreCommit,SAST,SCA,DAST,IaC security
     class Dashboard,Alerts,Block,Approve results
@@ -1648,49 +1648,49 @@ flowchart TD
         DevTeam[👨‍💻 Development Team]
         PolicyRepo[📂 Policy Repository]
     end
-    
+
     subgraph "🔧 Policy Engine"
         OPA[🔧 Open Policy Agent]
         Sentinel[🏛️ HashiCorp Sentinel]
         CloudPolicy[☁️ Cloud Native Policies]
     end
-    
+
     subgraph "🚀 Enforcement Points"
         PreDeploy[🔍 Pre-deployment Check]
         Runtime[⚡ Runtime Validation]
         Compliance[📋 Compliance Audit]
     end
-    
+
     subgraph "📊 Monitoring & Feedback"
         Violations[⚠️ Policy Violations]
         Reports[📈 Compliance Reports]
         Improvement[🔄 Policy Refinement]
     end
-    
+
     SecurityTeam --> PolicyRepo
     DevTeam --> PolicyRepo
     PolicyRepo --> OPA
     PolicyRepo --> Sentinel
     PolicyRepo --> CloudPolicy
-    
+
     OPA --> PreDeploy
     Sentinel --> PreDeploy
     CloudPolicy --> Runtime
-    
+
     PreDeploy --> Violations
     Runtime --> Violations
     Runtime --> Compliance
-    
+
     Violations --> Reports
     Compliance --> Reports
     Reports --> Improvement
     Improvement --> PolicyRepo
-    
+
     classDef definition fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef engine fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef enforcement fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef monitoring fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class SecurityTeam,DevTeam,PolicyRepo definition
     class OPA,Sentinel,CloudPolicy engine
     class PreDeploy,Runtime,Compliance enforcement
@@ -1729,45 +1729,45 @@ flowchart TD
         SecretScan[🔑 Secret Detection]
         ComplianceScan[📋 Compliance Check]
     end
-    
+
     subgraph "📊 Policy Evaluation"
         Critical[🔴 Critical Issues<br/>CVSS ≥ 9.0]
         High[🟡 High Issues<br/>CVSS 7.0-8.9]
         Medium[🟢 Medium Issues<br/>CVSS 4.0-6.9]
         Low[⚪ Low Issues<br/>CVSS < 4.0]
     end
-    
+
     subgraph "🎯 Decision Logic"
         ProdBranch[🔴 Production Branch<br/>Strict Enforcement]
         FeatureBranch[🟡 Feature Branch<br/>Moderate Enforcement]
         DevBranch[🟢 Dev Branch<br/>Lenient Enforcement]
     end
-    
+
     subgraph "🚦 Build Actions"
         Break[🛑 Break Build<br/>Block Deployment]
         Warn[⚠️ Warning Only<br/>Continue with Alert]
         Pass[✅ Pass<br/>Continue Normally]
     end
-    
+
     CodeScan --> Critical
     DepScan --> High
     SecretScan --> Critical
     ComplianceScan --> High
-    
+
     Critical --> ProdBranch
     High --> FeatureBranch
     Medium --> DevBranch
     Low --> DevBranch
-    
+
     ProdBranch --> Break
     FeatureBranch --> Warn
     DevBranch --> Pass
-    
+
     classDef scanning fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef policy fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef decision fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef action fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class CodeScan,DepScan,SecretScan,ComplianceScan scanning
     class Critical,High,Medium,Low policy
     class ProdBranch,FeatureBranch,DevBranch decision
@@ -1808,37 +1808,37 @@ flowchart LR
         Coverage[🔍 Security Coverage<br/>Target: > 80%]
         Debt[🏃‍♂️ Security Debt<br/>Target: Decreasing]
     end
-    
+
     subgraph "📊 Lagging Indicators (Outcome)"
         Escaped[🐛 Escaped Defects<br/>Target: < 5%]
         Incidents[🚨 Security Incidents<br/>Target: 0 critical]
         VulnAge[⏰ Vulnerability Age<br/>Target: < 30 days]
         Downtime[💰 Security Downtime<br/>Target: < 0.1%]
     end
-    
+
     subgraph "⚙️ Operational Metrics"
         ScanFreq[🔄 Scan Frequency<br/>Every commit]
         BreakRate[🛑 Build Break Rate<br/>5-10% target]
         Engagement[👥 Developer Engagement<br/>Training completion]
         Compliance[🏆 Policy Compliance<br/>>98% target]
     end
-    
+
     subgraph "📈 Performance Tiers"
         HighPerf[🏆 High Performers<br/>MTTF < 24h, >95% detection]
         AvgPerf[📊 Average Performers<br/>MTTF 1-7d, 80-95% detection]
         LowPerf[📉 Low Performers<br/>MTTF > 7d, <80% detection]
     end
-    
+
     MTTF --> HighPerf
     DetectionRate --> HighPerf
     Coverage --> AvgPerf
     Debt --> LowPerf
-    
+
     classDef leading fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef lagging fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef operational fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef performance fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class MTTF,DetectionRate,Coverage,Debt leading
     class Escaped,Incidents,VulnAge,Downtime lagging
     class ScanFreq,BreakRate,Engagement,Compliance operational
@@ -1874,44 +1874,44 @@ flowchart TD
     subgraph "🖥️ Your Application"
         App[💻 Main Application Code]
     end
-    
+
     subgraph "📚 Direct Dependencies"
         Lib1[📦 Web Framework v2.1]
         Lib2[📦 Database Driver v1.5]
         Lib3[📦 JSON Parser v3.2]
     end
-    
+
     subgraph "🔗 Transitive Dependencies"
         Trans1[📦 HTTP Client v1.8]
         Trans2[📦 Crypto Library v2.0]
         Trans3[📦 XML Parser v1.2]
         Trans4[📦 Logging Framework v1.9]
     end
-    
+
     subgraph "⚠️ Security Risks"
         Vuln1[🐛 Known CVE in XML Parser]
         Vuln2[🦠 Malicious Code in HTTP Client]
         Vuln3[⏰ Outdated Crypto Library]
     end
-    
+
     App --> Lib1
     App --> Lib2
     App --> Lib3
-    
+
     Lib1 --> Trans1
     Lib1 --> Trans2
     Lib2 --> Trans3
     Lib3 --> Trans4
-    
+
     Trans1 --> Vuln2
     Trans2 --> Vuln3
     Trans3 --> Vuln1
-    
+
     classDef app fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef direct fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef transitive fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef risk fill:#ffebee,stroke:#d32f2f,color:#2c3e50
-    
+
     class App app
     class Lib1,Lib2,Lib3 direct
     class Trans1,Trans2,Trans3,Trans4 transitive
@@ -1950,38 +1950,38 @@ flowchart LR
         ManifestFiles[📋 Dependency Manifests<br/>package.json, pom.xml, requirements.txt]
         LockFiles[🔒 Lock Files<br/>package-lock.json, Pipfile.lock]
     end
-    
+
     subgraph "🔍 SCA Analysis Engine"
         Scanner[🕵️ Component Scanner]
         CVEDatabase[🗄️ CVE Database<br/>NVD, OSV, GitHub Advisory]
         LicenseDB[⚖️ License Database<br/>SPDX, OSI Approved]
         RiskEngine[📊 Risk Assessment Engine]
     end
-    
+
     subgraph "📊 SCA Outputs"
         Inventory[📋 Component Inventory<br/>SBOM Generation]
         Vulnerabilities[🐛 Vulnerability Report<br/>CVSS Scores, Exploitability]
         Licenses[⚖️ License Compliance<br/>Obligations, Conflicts]
         Recommendations[💡 Remediation Guidance<br/>Updates, Alternatives]
     end
-    
+
     Code --> Scanner
     ManifestFiles --> Scanner
     LockFiles --> Scanner
-    
+
     Scanner --> CVEDatabase
     Scanner --> LicenseDB
     Scanner --> RiskEngine
-    
+
     RiskEngine --> Inventory
     CVEDatabase --> Vulnerabilities
     LicenseDB --> Licenses
     RiskEngine --> Recommendations
-    
+
     classDef code fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef analysis fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef output fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Code,ManifestFiles,LockFiles code
     class Scanner,CVEDatabase,LicenseDB,RiskEngine analysis
     class Inventory,Vulnerabilities,Licenses,Recommendations output
@@ -2019,52 +2019,52 @@ flowchart TD
         Components[📚 Component List<br/>Name, Version, Location]
         Fingerprint[🔍 Component Fingerprinting<br/>Hashes, Metadata]
     end
-    
+
     subgraph "🗄️ Vulnerability Databases"
         NVD[🏛️ NVD Database<br/>Official CVE Data]
         OSV[🔒 OSV Database<br/>Open Source Focus]
         GitHub[🐙 GitHub Advisory<br/>Platform Specific]
         Commercial[🏢 Commercial Feeds<br/>Enhanced Intelligence]
     end
-    
+
     subgraph "📊 Risk Assessment"
         CVSS[📈 CVSS Scoring<br/>0.1-10.0 Scale]
         Exploitability[🔥 Exploit Availability<br/>Public PoCs, Active Use]
         Reachability[🎯 Code Reachability<br/>Is Vulnerable Code Used?]
         Context[🌍 Environmental Context<br/>Exposure, Data Sensitivity]
     end
-    
+
     subgraph "🚨 Actionable Results"
         Critical[🔴 Critical Issues<br/>Immediate Action]
         High[🟠 High Priority<br/>Fix Soon]
         Medium[🟡 Medium Priority<br/>Plan Remediation]
         Low[🟢 Low Priority<br/>Fix When Convenient]
     end
-    
+
     App --> Components
     Components --> Fingerprint
-    
+
     Fingerprint --> NVD
     Fingerprint --> OSV
     Fingerprint --> GitHub
     Fingerprint --> Commercial
-    
+
     NVD --> CVSS
     OSV --> Exploitability
     GitHub --> Reachability
     Commercial --> Context
-    
+
     CVSS --> Critical
     Exploitability --> Critical
     Reachability --> High
     Context --> Medium
     CVSS --> Low
-    
+
     classDef identification fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef database fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef assessment fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef results fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class App,Components,Fingerprint identification
     class NVD,OSV,GitHub,Commercial database
     class CVSS,Exploitability,Reachability,Context assessment
@@ -2105,50 +2105,50 @@ flowchart LR
         LicenseDetection[🔍 License Detection<br/>Source Code, Metadata]
         LicenseDB[🗄️ License Database<br/>SPDX, OSI, Custom]
     end
-    
+
     subgraph "📋 License Categories"
         Permissive[🆓 Permissive<br/>MIT, Apache 2.0, BSD]
         Copyleft[🔄 Copyleft<br/>GPL v2/v3, AGPL]
         Commercial[🏢 Commercial<br/>Proprietary, Paid]
         Unknown[❓ Unknown<br/>Unidentified, Custom]
     end
-    
+
     subgraph "⚖️ Policy Engine"
         OrgPolicy[🏛️ Organizational Policy<br/>Approved, Restricted, Banned]
         RiskAssessment[📊 Risk Assessment<br/>Legal, Commercial Impact]
         ConflictDetection[⚠️ Conflict Detection<br/>License Incompatibilities]
     end
-    
+
     subgraph "📊 Compliance Results"
         Approved[✅ Approved<br/>Policy Compliant]
         Review[👥 Manual Review<br/>Requires Legal Input]
         Violation[🚫 Policy Violation<br/>Must Remove/Replace]
         Report[📝 Compliance Report<br/>Legal Documentation]
     end
-    
+
     Dependencies --> LicenseDetection
     LicenseDetection --> LicenseDB
-    
+
     LicenseDB --> Permissive
     LicenseDB --> Copyleft
     LicenseDB --> Commercial
     LicenseDB --> Unknown
-    
+
     Permissive --> OrgPolicy
     Copyleft --> RiskAssessment
     Commercial --> ConflictDetection
     Unknown --> RiskAssessment
-    
+
     OrgPolicy --> Approved
     RiskAssessment --> Review
     ConflictDetection --> Violation
     OrgPolicy --> Report
-    
+
     classDef analysis fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef categories fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef policy fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef results fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Dependencies,LicenseDetection,LicenseDB analysis
     class Permissive,Copyleft,Commercial,Unknown categories
     class OrgPolicy,RiskAssessment,ConflictDetection policy
@@ -2188,47 +2188,47 @@ flowchart TD
         Scanner[🔍 Dependency Scanner<br/>Current Components]
         RiskAssess[📊 Risk Assessment<br/>CVSS + Context]
     end
-    
+
     subgraph "🤖 Update Automation"
         UpdateBot[🤖 Update Bot<br/>Dependabot, Renovate]
         VersionAnalysis[📈 Version Analysis<br/>Patch, Minor, Major]
         PRCreation[🔀 Pull Request Creation<br/>Automated Updates]
     end
-    
+
     subgraph "🛡️ Safety Checks"
         AutoTests[🧪 Automated Tests<br/>Unit, Integration, Security]
         PolicyCheck[📋 Policy Validation<br/>License, Security Rules]
         StagingDeploy[🎭 Staging Deployment<br/>Real-world Testing]
     end
-    
+
     subgraph "🚀 Deployment Decision"
         LowRisk[🟢 Low Risk<br/>Auto-merge Patches]
         MediumRisk[🟡 Medium Risk<br/>Review Required]
         HighRisk[🔴 High Risk<br/>Manual Testing]
         Emergency[🚨 Emergency<br/>Critical Security]
     end
-    
+
     CVEMonitor --> Scanner
     Scanner --> RiskAssess
     RiskAssess --> UpdateBot
-    
+
     UpdateBot --> VersionAnalysis
     VersionAnalysis --> PRCreation
     PRCreation --> AutoTests
-    
+
     AutoTests --> PolicyCheck
     PolicyCheck --> StagingDeploy
-    
+
     StagingDeploy --> LowRisk
     StagingDeploy --> MediumRisk
     StagingDeploy --> HighRisk
     RiskAssess --> Emergency
-    
+
     classDef detection fill:#e3f2fd,stroke:#1976d2,color:#2c3e50
     classDef automation fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef safety fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef decision fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class CVEMonitor,Scanner,RiskAssess detection
     class UpdateBot,VersionAnalysis,PRCreation automation
     class AutoTests,PolicyCheck,StagingDeploy safety
@@ -2266,45 +2266,45 @@ flowchart TD
         Typosquat[🔤 Typosquatting<br/>lodash → lodahs, reqeusts]
         AutoScan[🤖 Automated Scanning<br/>Monitor for internal names]
     end
-    
+
     subgraph "📦 Package Repositories"
         Private[🔐 Private Repository<br/>internal-package v1.0]
         Public[🌍 Public Repository<br/>npm, PyPI, Maven Central]
         Malicious[☠️ Malicious Packages<br/>Higher versions, Similar names]
     end
-    
+
     subgraph "🛡️ Prevention Controls"
         Scoping[🏗️ Package Scoping<br/>@company/package-name]
         RepoConfig[⚙️ Repository Configuration<br/>Private first, blocked public]
         Pinning[📌 Version Pinning<br/>Exact versions, checksums]
         Monitoring[🔍 Package Monitoring<br/>Unauthorized installation alerts]
     end
-    
+
     subgraph "🔧 Technical Implementation"
         NPM[📦 npm: .npmrc config<br/>Registry priority, scoping]
         Python[🐍 Python: pip.conf<br/>Trusted hosts, index order]
         Maven[☕ Maven: settings.xml<br/>Repository mirroring]
         NuGet[🔷 NuGet: NuGet.Config<br/>Package source mapping]
     end
-    
+
     Confusion --> Public
     Typosquat --> Malicious
     AutoScan --> Malicious
-    
+
     Private --> Scoping
     Public --> RepoConfig
     Malicious --> Pinning
-    
+
     Scoping --> NPM
     RepoConfig --> Python
     Pinning --> Maven
     Monitoring --> NuGet
-    
+
     classDef attack fill:#ffebee,stroke:#d32f2f,color:#2c3e50
     classDef repository fill:#f3e5f5,stroke:#7b1fa2,color:#2c3e50
     classDef prevention fill:#fff3e0,stroke:#f57c00,color:#2c3e50
     classDef implementation fill:#e8f5e8,stroke:#388e3c,color:#2c3e50
-    
+
     class Confusion,Typosquat,AutoScan attack
     class Private,Public,Malicious repository
     class Scoping,RepoConfig,Pinning,Monitoring prevention

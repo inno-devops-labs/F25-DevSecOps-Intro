@@ -4,6 +4,8 @@
 ![topic](https://img.shields.io/badge/topic-Secure%20Git-blue)
 ![points](https://img.shields.io/badge/points-10-orange)
 
+
+
 > **Goal:** Practice secure Git fundamentals: signed commits and pre-commit secret scanning.  
 > **Deliverable:** A PR from `feature/lab3` to the course repo with `labs/submission3.md` containing secure Git practices implementation. Submit the PR link via Moodle.
 
@@ -262,12 +264,14 @@ In `labs/submission3.md`, document:
 - Document security configurations and testing procedures thoroughly.
 - Demonstrate both successful and blocked operations for secret scanning.
 
-> **Security Configuration Notes**  
-> 1. Ensure the email on your commits matches your GitHub account for proper verification.  
-> 2. Verify `gpg.format` is set to `ssh` for proper signing configuration.  
+> **Security Configuration Notes**
+> 1. Ensure the email on your commits matches your GitHub account for proper verification.
+> 2. Verify `gpg.format` is set to `ssh` for proper signing configuration.
 > 3. Test pre-commit hooks thoroughly with both legitimate and test secret content.
+
 
 > **Technical Requirements**  
 > 1. Docker Desktop/Engine must be running for secret scanning tools.  
 > 2. Ensure all commits are properly signed for verification on GitHub.  
 > 3. Test pre-commit hooks with various file types and content.
+
