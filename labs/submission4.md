@@ -50,7 +50,7 @@ number 1 because it is still not fixed; to remedy it, the developers would have 
 invest much time to remove the dependency.
 
 | Number     | Package      | Description                                                                                            | Remediation: Upgrade to     |
-| ---------- | -----------  | ------------------------------------------------------------------------------------------------------ | --------------------------- |
+| ---------- | ------------ | ------------------------------------------------------------------------------------------------------ | --------------------------- |
 | 1          | marsdb       | Command Injection in marsdb                                                                            | (No fix)                    |
 | 2          | vm2          | vm2 Sandbox Escape vulnerability                                                                       | 3.9.18                      |
 | 3          | jsonwebtoken | Verification Bypass in jsonwebtoken                                                                    | 4.2.2                       |
@@ -106,3 +106,45 @@ Trivy has found 4 secrets: 2 (HIGH) asymmetric private keys in
 2 (MEDIUM) JWT-tokens in
 `/juice-shop/frontend/src/app/app.guard.spec.ts` and
 `/juice-shop/frontend/src/app/last-login-ip/last-login-ip.component.spec.ts`.
+
+# Task 3
+
+### Accuracy Analysis
+
+1126 dependencies overlap in the reports, which is 98.1% of the number of
+dependencies found by at least one of the tools (1148). Therefore, any of the
+tools may be used without the other.
+
+Only 13 CVEs were reported by both tools, which is 9.9% of the number of CVEs
+found by at least one of the tools (131). Therefore, to catch more
+vulnerabilities, it is necessary to use both programs.
+
+### Tool Strengths and Weaknesses
+
+**Strengths:**
+
+| Syft+Grype                               | Trivy                     |
+| ---------------------------------------- | ------------------------- |
+| Provides known fixes for vulnerabilities | Is an integrated solution |
+|                                          | Reports license severity  |
+|                                          | Scans for secrets         |
+
+The weaknesses of each toolchain are that they don't have the other one's
+strengths.
+
+### Use Case Recommendations
+
+Trivy:
+- Scanning for secrets
+
+Syft+Grype:
+- Main focus is on vulnerability scanning and fast patching
+
+Overall, based on my limited experience, I found the two toolchains very
+similar.
+
+### Integration Considerations
+
+As has been shown in the lab, both toolchains are very script-friendly since
+they can be ran from the shell with docker, and they output json reports which
+are easily parseable. Both are suitable for CI/CD pipelines.
