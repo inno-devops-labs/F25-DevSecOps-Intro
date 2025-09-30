@@ -214,7 +214,6 @@ In `labs/submission3.md`, document:
 - ✅ File `labs/submission3.md` contains required analysis for both tasks.
 - ✅ At least one commit shows **"Verified"** (signed via SSH) on GitHub.
 - ✅ Local `.git/hooks/pre-commit` runs TruffleHog and Gitleaks via Docker and blocks secrets.
-
 - ✅ PR from `feature/lab3` → **course repo main branch** is open.
 - ✅ PR link submitted via Moodle before the deadline.
 
@@ -270,4 +269,3 @@ In `labs/submission3.md`, document:
 > **Technical Requirements**  
 > 1. Docker Desktop/Engine must be running for secret scanning tools.  
 > 2. Ensure all commits are properly signed for verification on GitHub.  
-> 3. Test pre-commit hooks with various file types and content.
