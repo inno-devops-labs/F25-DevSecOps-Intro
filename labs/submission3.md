@@ -20,3 +20,15 @@ Signing with ssh guarantees:
  - Integrity – the commit content cannot be changed without breaking the signature.
  - Trust – collaborators and CI/CD systems can automatically confirm the commit really came from you and wasn’t tampered with in transit.
 
+Why is commit signing critical in DevSecOps workflows?:
+ - Compliance & auditability – organizations can enforce policies (e.g., “only signed commits allowed on main”) to meet security and regulatory requirements.
+ - Supply chain security – signed commits form the foundation of a trusted pipeline, ensuring that artifacts deployed to production can be traced back to verified source commits.
+
+Screenshot of verification badge:
+![img.png](assets/img2.png)
+
+
+### Task 2
+
+![img.png](assets/img3.png)
+![img.png](assets/img4.png)
