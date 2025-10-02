@@ -19,3 +19,4 @@ Signing with ssh guarantees:
  - Authenticity: only the holder of the private key could have created the commit.
  - Integrity – the commit content cannot be changed without breaking the signature.
  - Trust – collaborators and CI/CD systems can automatically confirm the commit really came from you and wasn’t tampered with in transit.
+
