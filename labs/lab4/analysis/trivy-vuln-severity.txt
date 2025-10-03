@@ -1,0 +1,4 @@
+      8 CRITICAL
+     23 HIGH
+     16 LOW
+     23 MEDIUM
