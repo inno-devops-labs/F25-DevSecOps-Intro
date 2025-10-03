@@ -117,3 +117,55 @@ Here are the top 5 nastiest vulnerabilities I found:
 - No obvious configuration issues
 
 **Bottom line:** The RSA keys are just part of the demo setup, but in a real application this would be a critical finding. Good reminder to always scan for secrets before deploying.
+
+## Task 3 — Toolchain Comparison: Syft+Grype vs Trivy All-in-One
+
+### Accuracy Analysis
+
+**Package Detection Overlap:**
+- Common packages detected by both tools: ~1,511 packages
+- Syft-only packages: ~223 additional npm packages  
+- Trivy-only packages: ~15 unique findings
+- **Accuracy verdict:** Syft finds about 13% more packages overall
+
+**Vulnerability Detection Results:**
+- Grype found 45 unique CVEs using Syft's SBOM
+- Trivy found 52 unique CVEs scanning directly
+- Common CVEs between tools: 38 overlapping findings
+- **Coverage verdict:** Trivy caught 15% more vulnerabilities
+
+### Tool Strengths and Weaknesses
+
+**Syft + Grype Approach:**
+- **Strengths:** More thorough dependency discovery, better license detection, specialized tools do their jobs well
+- **Weaknesses:** Two-step process, requires more setup, slower overall workflow
+- **Best for:** Compliance-heavy environments where you need detailed SBOMs and license tracking
+
+**Trivy All-in-One:**
+- **Strengths:** Faster workflow, finds more vulnerabilities, includes secrets scanning, single tool to maintain
+- **Weaknesses:** Less detailed dependency metadata, weaker license detection, less customizable
+- **Best for:** DevOps teams who want quick security feedback in CI/CD pipelines
+
+### Use Case Recommendations
+
+**Choose Syft+Grype when:**
+- You need regulatory compliance (SBOM requirements)
+- License management is critical for your organization
+- You want the most complete dependency inventory
+- You have time for a more thorough analysis process
+
+**Choose Trivy when:**
+- You want fast security feedback in CI/CD
+- Vulnerability detection is your main priority  
+- You need an all-in-one tool that's easy to maintain
+- You want to catch secrets and misconfigurations too
+
+### Integration Considerations
+
+**For CI/CD pipelines:** Trivy wins hands down - single command, faster execution, built-in fail conditions.
+
+**For security teams:** Syft+Grype provides better audit trails and detailed metadata for investigation.
+
+**For compliance:** Syft+Grype is better suited for regulatory requirements that demand comprehensive SBOMs.
+
+**Bottom line:** If you're just getting started with supply chain security, go with Trivy. It's simpler and catches the important stuff. If you need enterprise-grade compliance and detailed analysis, invest in the Syft+Grype toolchain.
