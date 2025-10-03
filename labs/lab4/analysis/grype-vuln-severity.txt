@@ -1,0 +1,5 @@
+      8 Critical
+     21 High
+      1 Low
+     23 Medium
+     12 Negligible

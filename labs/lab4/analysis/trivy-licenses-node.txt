@@ -1,0 +1,18 @@
+      1 0BSD
+     12 Apache-2.0
+      5 BlueOak-1.0.0
+     12 BSD-2-Clause
+      1 (BSD-2-Clause OR MIT OR Apache-2.0)
+     14 BSD-3-Clause
+      1 GPL-2.0-only
+    143 ISC
+     19 LGPL-3.0-only
+    878 MIT
+      2 (MIT OR Apache-2.0)
+      1 (MIT OR WTFPL)
+      2 MIT/X11
+      2 MPL-2.0
+      2 Unlicense
+      1 WTFPL
+      1 WTFPL OR ISC
+      1 (WTFPL OR MIT)
