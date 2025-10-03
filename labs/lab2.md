@@ -78,7 +78,9 @@ In `labs/submission2.md`, document:
    - **Persistent Storage**: set `encryption: transparent`
    - Save as: `labs/lab2/threagile-model.secure.yaml`
 
-#### 2.2: Generate Secure Variant Analysis
+* **User Browser → communication_links → Direct to App (no proxy)**: set `protocol: https`
+* **Reverse Proxy → communication_links**: set `protocol: https`
+* **Persistent Storage**: set `encryption: transparent` (to represent disk-level encryption)
 
 1. **Execute Secure Model Analysis:**
 
