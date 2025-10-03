@@ -1,6 +1,6 @@
-# Lab 4 Submission — SBOM Generation & Software Composition Analysis
+# Lab 4
 
-## Task 1 — SBOM Generation with Syft and Trivy
+## Task 1
 
 ### Package Type Distribution Comparison
 
@@ -50,7 +50,7 @@ Syft discovered about 100 more npm packages than Trivy, while both tools identif
 
 From my perspective as a cybersecurity employee, the Trivy is better since it automatically shows connected vulnarabilities which more crucial for AppSec eng.
 
-## Task 2 — Software Composition Analysis with Grype and Trivy
+## Task 2
 
 ### SCA Tool Comparison
 
@@ -66,7 +66,7 @@ From my perspective as a cybersecurity employee, the Trivy is better since it au
 - Slightly different vulnerability database coverage
 - Better integration since it does everything in one go
 
-**The verdict:** Both tools found similar critical vulnerabilities, but Trivy caught a few more because it scans the actual container layers, not just the SBOM. For day-to-day security work, Trivy's all-in-one approach is more practical.
+**Verdict:** Both tools found similar critical vulnerabilities, but Trivy caught a few more because it scans the actual container layers, not just the SBOM. For day-to-day security work, Trivy's all-in-one approach is more practical.
 
 ### Critical Vulnerabilities Analysis
 
@@ -87,7 +87,7 @@ Here are the top 5 nastiest vulnerabilities I found:
 5. **CVE-2022-46175 in json5** - High severity
    - *Fix:* Update to version 2.2.2 or later
 
-**Reality check:** Most of these are in npm dependencies that pile up quickly in Node.js projects. The good news is they're mostly in dev dependencies, but still worth fixing to keep the security team happy.
+Most of these are in npm dependencies that pile up quickly in Node.js projects. The good news is they're mostly in dev dependencies, but still worth fixing to keep the security team happy.
 
 ### License Compliance Assessment
 
@@ -116,9 +116,9 @@ Here are the top 5 nastiest vulnerabilities I found:
 - Some unnecessary packages installed in base image
 - No obvious configuration issues
 
-**Bottom line:** The RSA keys are just part of the demo setup, but in a real application this would be a critical finding. Good reminder to always scan for secrets before deploying.
+The RSA keys are just part of the demo setup, but in a real application this would be a critical finding. Good reminder to always scan for secrets before deploying.
 
-## Task 3 — Toolchain Comparison: Syft+Grype vs Trivy All-in-One
+## Task 3
 
 ### Accuracy Analysis
 
@@ -136,7 +136,7 @@ Here are the top 5 nastiest vulnerabilities I found:
 
 ### Tool Strengths and Weaknesses
 
-**Syft + Grype Approach:**
+**Syft + Grype:**
 - **Strengths:** More thorough dependency discovery, better license detection, specialized tools do their jobs well
 - **Weaknesses:** Two-step process, requires more setup, slower overall workflow
 - **Best for:** Compliance-heavy environments where you need detailed SBOMs and license tracking
@@ -152,12 +152,10 @@ Here are the top 5 nastiest vulnerabilities I found:
 - You need regulatory compliance (SBOM requirements)
 - License management is critical for your organization
 - You want the most complete dependency inventory
-- You have time for a more thorough analysis process
 
 **Choose Trivy when:**
 - You want fast security feedback in CI/CD
 - Vulnerability detection is your main priority  
-- You need an all-in-one tool that's easy to maintain
 - You want to catch secrets and misconfigurations too
 
 ### Integration Considerations
