@@ -68,8 +68,8 @@ These skills are essential for DevSecOps integration and security testing automa
    ```
 
 In `labs/submission5.md`, document:
-- **SAST Tool Effectiveness** - Semgrep's detection capabilities
-- **Critical Vulnerability Analysis** - 5 SAST findings with file locations
+- **SAST Tool Effectiveness** - Semgrep's detection capabilities and coverage
+- **Critical Vulnerability Analysis** - 5 key SAST findings with file locations and severity levels
 
 ---
 
@@ -151,9 +151,9 @@ In `labs/submission5.md`, document:
 
 
 In `labs/submission5.md`, document:
-- **Tool Comparison** - effectiveness of ZAP vs Nuclei vs Nikto vs SQLmap
-- **Tool Strengths** - what each tool excels at detecting
-- **DAST Findings** - explain at least 1 finding from each tools
+- **Tool Comparison** - effectiveness comparison of ZAP vs Nuclei vs Nikto vs SQLmap
+- **Tool Strengths** - what each tool excels at detecting in practice
+- **DAST Findings** - explain at least 1 significant finding from each tool
 
 ---
 
@@ -183,8 +183,8 @@ In `labs/submission5.md`, document:
 
 
 In `labs/submission5.md`, document:
-- **SAST vs DAST Findings** - unique discoveries from each approach, describe obvious diff
-- **Integrated Security Recommendations** - how to use both approaches effectively
+- **SAST vs DAST Findings** - unique discoveries from each approach with clear differences explained
+- **Integrated Security Recommendations** - how to use both approaches effectively in a DevSecOps pipeline
 
 ---
 
@@ -241,20 +241,44 @@ In `labs/submission5.md`, document:
 ## Guidelines
 
 - Use clear Markdown headers to organize sections in `submission5.md`.
-- Document all commands used and any issues encountered with different tools.
+- Include evidence from tool outputs to support your analysis.
 - Focus on practical insights about when to use each tool in a DevSecOps workflow.
 - Provide actionable security recommendations based on findings.
 
-> **Tool Comparison**  
-> 1. **ZAP**: Comprehensive web application scanner with integrated reporting  
-> 2. **Nuclei**: Fast template-based vulnerability scanner  
-> 3. **Nikto**: Web server vulnerability scanner  
-> 4. **SQLmap**: Specialized SQL injection testing tool  
-> 5. **Semgrep**: Static analysis for code-level vulnerability detection
+<details>
+<summary>Tool Comparison Reference</summary>
 
-> **Tool Selection Guidelines**  
-> 1. **ZAP**: Best for comprehensive web app testing  
-> 2. **Nuclei**: Fast scanning with community templates  
-> 3. **Nikto**: Web server specific vulnerabilities  
-> 4. **SQLmap**: SQL injection focused testing  
-> 5. **Semgrep**: Code-level security analysis
+**SAST Tool:**
+- **Semgrep**: Static code analysis using pattern-based security rulesets
+
+**DAST Tools:**
+- **ZAP**: Comprehensive web application scanner with integrated reporting
+- **Nuclei**: Fast template-based vulnerability scanner with community templates
+- **Nikto**: Web server vulnerability scanner for server misconfigurations
+- **SQLmap**: Specialized SQL injection testing tool
+
+**Tool Selection in DevSecOps:**
+- **Semgrep**: Early in development pipeline (pre-commit, PR checks)
+- **ZAP**: Staging/QA environment for comprehensive web app testing
+- **Nuclei**: Quick scans for known CVEs in any environment
+- **Nikto**: Web server security assessment during deployment
+- **SQLmap**: Targeted SQL injection testing when SAST/DAST indicate database issues
+
+</details>
+
+<details>
+<summary>Expected Vulnerability Categories</summary>
+
+**SAST typically finds:**
+- Hardcoded credentials and API keys in source code
+- Insecure cryptographic usage patterns
+- Code-level injection vulnerabilities (SQL, command, etc.)
+- Path traversal and insecure file handling
+
+**DAST typically finds:**
+- Authentication and session management issues
+- Runtime configuration problems (security headers, SSL/TLS)
+- XSS, CSRF, and other runtime exploitation vectors
+- Information disclosure through HTTP responses
+
+</details>
