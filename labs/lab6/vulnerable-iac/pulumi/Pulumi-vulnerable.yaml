@@ -1,0 +1,279 @@
+#
+# Vulnerable Pulumi YAML Configuration for Lab 6
+# This file contains intentional security issues for educational purposes
+# DO NOT use this code in production!
+#
+# KICS Documentation: https://docs.kics.io
+# Pulumi YAML Queries: https://docs.kics.io/latest/queries/pulumi-queries/
+#
+
+name: vulnerable-pulumi-lab6
+runtime: yaml
+description: Intentionally vulnerable Pulumi infrastructure for Lab 6 - DO NOT USE IN PRODUCTION!
+
+variables:
+  # SECURITY ISSUE #1 - Hardcoded database password
+  dbPassword: "SuperSecret123!"
+  
+  # SECURITY ISSUE #2 - Hardcoded API key
+  apiKey: "sk_live_1234567890abcdef"
+  
+  awsRegion: "us-east-1"
+
+resources:
+  # SECURITY ISSUE #3 - Public S3 bucket
+  publicBucket:
+    type: aws:s3:Bucket
+    properties:
+      bucket: my-public-bucket-pulumi-yaml
+      acl: public-read  # Public access!
+      tags:
+        Name: "Public Bucket"
+        # Missing required tags: Environment, Owner, CostCenter
+  
+  # SECURITY ISSUE #4 - S3 bucket without encryption
+  unencryptedBucket:
+    type: aws:s3:Bucket
+    properties:
+      bucket: my-unencrypted-bucket-pulumi-yaml
+      acl: private
+      versioning:
+        enabled: false  # Versioning disabled
+      tags:
+        Name: "Unencrypted Bucket"
+      # No serverSideEncryptionConfiguration!
+  
+  # SECURITY ISSUE #5 - Security group allowing all traffic from anywhere
+  allowAllSg:
+    type: aws:ec2:SecurityGroup
+    properties:
+      name: allow-all-sg-yaml
+      description: "Allow all inbound traffic"
+      vpcId: vpc-12345678
+      ingress:
+        - description: "Allow all traffic"
+          fromPort: 0
+          toPort: 65535
+          protocol: "-1"  # All protocols
+          cidrBlocks:
+            - "0.0.0.0/0"  # From anywhere!
+      egress:
+        - fromPort: 0
+          toPort: 0
+          protocol: "-1"
+          cidrBlocks:
+            - "0.0.0.0/0"
+      tags:
+        Name: "Allow All Security Group"
+  
+  # SECURITY ISSUE #6 - SSH and RDP open to the world
+  sshOpenSg:
+    type: aws:ec2:SecurityGroup
+    properties:
+      name: ssh-open-sg-yaml
+      description: "SSH and RDP from anywhere"
+      vpcId: vpc-12345678
+      ingress:
+        - description: "SSH from anywhere"
+          fromPort: 22
+          toPort: 22
+          protocol: tcp
+          cidrBlocks:
+            - "0.0.0.0/0"  # SSH from anywhere!
+        - description: "RDP from anywhere"
+          fromPort: 3389
+          toPort: 3389
+          protocol: tcp
+          cidrBlocks:
+            - "0.0.0.0/0"  # RDP from anywhere!
+      tags:
+        Name: "SSH Open"
+  
+  # SECURITY ISSUE #7 & #8 - Unencrypted and publicly accessible RDS instance
+  unencryptedDb:
+    type: aws:rds:Instance
+    properties:
+      identifier: mydb-unencrypted-pulumi-yaml
+      engine: postgres
+      engineVersion: "13.7"
+      instanceClass: db.t3.micro
+      allocatedStorage: 20
+      username: admin
+      password: ${dbPassword}  # Using hardcoded password!
+      storageEncrypted: false  # SECURITY ISSUE #7 - No encryption!
+      publiclyAccessible: true  # SECURITY ISSUE #8 - Public access!
+      skipFinalSnapshot: true
+      backupRetentionPeriod: 0  # SECURITY ISSUE #9 - No backups!
+      deletionProtection: false  # SECURITY ISSUE #10
+      vpcSecurityGroupIds:
+        - ${allowAllSg.id}
+      tags:
+        Name: "Unencrypted Database"
+  
+  # SECURITY ISSUE #11 - IAM policy with wildcard permissions
+  adminPolicy:
+    type: aws:iam:Policy
+    properties:
+      name: admin-policy-yaml
+      description: "Policy with wildcard permissions"
+      policy:
+        fn::toJSON:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action: "*"  # Wildcard action!
+              Resource: "*"  # Wildcard resource!
+  
+  # SECURITY ISSUE #12 - IAM role with overly permissive S3 access
+  appRole:
+    type: aws:iam:Role
+    properties:
+      name: app-role-yaml
+      assumeRolePolicy:
+        fn::toJSON:
+          Version: "2012-10-17"
+          Statement:
+            - Action: sts:AssumeRole
+              Effect: Allow
+              Principal:
+                Service: ec2.amazonaws.com
+  
+  s3FullAccessPolicy:
+    type: aws:iam:RolePolicy
+    properties:
+      name: s3-full-access-yaml
+      role: ${appRole.id}
+      policy:
+        fn::toJSON:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action: "s3:*"  # Full S3 access!
+              Resource: "*"  # All resources!
+  
+  # SECURITY ISSUE #13 & #14 - EC2 instance without encryption and secrets in user data
+  unencryptedInstance:
+    type: aws:ec2:Instance
+    properties:
+      ami: ami-0c55b159cbfafe1f0
+      instanceType: t2.micro
+      vpcSecurityGroupIds:
+        - ${sshOpenSg.id}
+      userData:
+        fn::toJSON:
+          - "#!/bin/bash"
+          - "echo 'DB_PASSWORD=${dbPassword}' > /etc/app/config"  # Password in user data!
+          - "echo 'API_KEY=${apiKey}' >> /etc/app/config"
+      tags:
+        Name: "Unencrypted Instance"
+      # No root block device encryption specified!
+  
+  # SECURITY ISSUE #16 - Lambda function with overly permissive IAM role
+  lambdaRole:
+    type: aws:iam:Role
+    properties:
+      name: lambda-role-yaml
+      assumeRolePolicy:
+        fn::toJSON:
+          Version: "2012-10-17"
+          Statement:
+            - Action: sts:AssumeRole
+              Effect: Allow
+              Principal:
+                Service: lambda.amazonaws.com
+  
+  lambdaPolicy:
+    type: aws:iam:RolePolicy
+    properties:
+      name: lambda-policy-yaml
+      role: ${lambdaRole.id}
+      policy:
+        fn::toJSON:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - "s3:*"
+                - "dynamodb:*"
+                - "rds:*"
+                - "ec2:*"
+              Resource: "*"
+  
+  # SECURITY ISSUE #17 & #18 - DynamoDB table without encryption or PITR
+  unencryptedTable:
+    type: aws:dynamodb:Table
+    properties:
+      name: my-table-pulumi-yaml
+      attributes:
+        - name: id
+          type: S
+      hashKey: id
+      billingMode: PAY_PER_REQUEST
+      pointInTimeRecovery:
+        enabled: false  # SECURITY ISSUE #18 - No PITR
+      tags:
+        Name: "Unencrypted Table"
+      # No serverSideEncryption specified! SECURITY ISSUE #17
+  
+  # SECURITY ISSUE #19 - EBS volume without encryption
+  unencryptedVolume:
+    type: aws:ebs:Volume
+    properties:
+      availabilityZone: us-east-1a
+      size: 10
+      encrypted: false  # No encryption!
+      tags:
+        Name: "Unencrypted Volume"
+  
+  # SECURITY ISSUE #20 - CloudWatch log group without retention or KMS encryption
+  logGroup:
+    type: aws:cloudwatch:LogGroup
+    properties:
+      name: /aws/app/logs-yaml
+      retentionInDays: 0  # Logs never expire - cost and compliance issue
+      # No kmsKeyId specified - no encryption!
+  
+  # SECURITY ISSUE #21 - EKS cluster without encryption
+  eksCluster:
+    type: aws:eks:Cluster
+    properties:
+      name: vulnerable-eks-yaml
+      roleArn: ${appRole.arn}
+      vpcConfig:
+        subnetIds:
+          - subnet-12345678
+          - subnet-87654321
+        endpointPublicAccess: true  # Public access enabled
+        publicAccessCidrs:
+          - "0.0.0.0/0"  # Accessible from anywhere!
+      # No encryptionConfig specified!
+
+# SECURITY ISSUE #15 - Exposing secrets in outputs (not marked as secret)
+outputs:
+  bucketName:
+    value: ${publicBucket.id}
+  
+  dbEndpoint:
+    value: ${unencryptedDb.endpoint}
+  
+  # These outputs expose sensitive data!
+  dbPassword:
+    value: ${dbPassword}
+  
+  apiKey:
+    value: ${apiKey}
+  
+  region:
+    value: ${awsRegion}
+
+# Configuration with default secret values - SECURITY ISSUE
+config:
+  aws:region:
+    default: us-east-1
+  
+  # Should not have defaults for sensitive values!
+  db_password:
+    default: "DefaultPass123!"
+  
+  api_key:
+    default: "sk_default_key"
