@@ -51,3 +51,34 @@
 3. Reverse password lookup enables the attacker to acquire the password of any user if the credentials storage (hashes) is leaked or a JWT token (regardless of expiration date) is stolen, and the password is weak
 	- [Corresponding GitHub issue](https://github.com/DmitriyProkopyev/F25-DevSecOps-Intro/issues/3)
 
+___
+
+# PR Template Setup
+
+PR markdown template was created according to the lab specifications:
+
+```markdown
+## Goal
+
+
+## Changes
+
+
+## Testing
+
+
+## Artifacts & Screenshots
+
+
+## Checklist
+- [ ] Clear title provided
+- [ ] Documentation updated if needed
+- [ ] No secrets or large temporary files included
+```
+
+To verify the template, a pull request from the fork's `feature/lab1` branch to the fork's `main` branch was created. As expected, the template was autofilled:
+
+![](https://i.ibb.co/84RFNFvH/Pasted-image-20251009183204.png)
+
+> PR templates enhance the development teams ability to follow the established guidelines and rules for contributing changes to the codebase. Due to this effect the team lead / tech lead will have a greater control over the development process and thus a greater ability to deliver the expected results.
+
