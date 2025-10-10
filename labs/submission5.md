@@ -31,23 +31,23 @@ SQLmap: 1
 
 ## Tool Strengths
 
-1) ZAP. Shows good results at automated end-to-end testing. Scans a broad variaty of OWASP vulnerabilities, provies deteiled description
+1) **ZAP**. Shows good results at automated end-to-end testing. Scans a broad variaty of OWASP vulnerabilities, provies deteiled description
 
-2) Nuclei. Fast template-driven tool to scan common vulnerabilities like exposed exposed .env files. High speed makes it good for CI/CD pipelines or for cases where the scanning of multiple targets is needed
+2) **Nuclei**. Fast template-driven tool to scan common vulnerabilities like exposed exposed .env files. High speed makes it good for CI/CD pipelines or for cases where the scanning of multiple targets is needed
 
-3) Nikto. Runs comprehensive tests against targets to identify exposed content, version-specific flaws, and risky HTTP options. Good for constant scanning on the server side
+3) **Nikto**. Runs comprehensive tests against targets to identify exposed content, version-specific flaws, and risky HTTP options. Good for constant scanning on the server side
 
-4) SQLmap. Looks for SQL injection points, traverses endpoints. Good for DB hardening and security
+4) **SQLmap**. Looks for SQL injection points, traverses endpoints. Good for DB hardening and security
 
 ## DAST Findings
 
-1) ZAP: backup file exposure. The file `http://localhost:3000/ftp/quarantine` is available by the URL. The vulnerability allows attacker to access backups of the app from several enpoints
+1) **ZAP**: backup file exposure. The file `http://localhost:3000/ftp/quarantine` is available by the URL. The vulnerability allows attacker to access backups of the app from several enpoints
 
-2) Nuclei: path traversal. Via unsafely passing user input to `res.sendFile` allows arbitrary file reads outside the intended directories
+2) **Nuclei**: path traversal. Via unsafely passing user input to `res.sendFile` allows arbitrary file reads outside the intended directories
 
-3) Nikto: directory exposure. `/ftp/` appears directly accessible and was highlighted both from robots.txt and direct probing
+3) **Nikto**: directory exposure. `/ftp/` appears directly accessible and was highlighted both from robots.txt and direct probing
 
-4) SQLmap: sql injection risk. The scan indicates SQL injection risk on the search endpoint GET `http://localhost:3000/rest/products/search`, parameter q
+4) **SQLmap**: sql injection risk. The scan indicates SQL injection risk on the search endpoint GET `http://localhost:3000/rest/products/search`, parameter q
 
 ## SAST vs DAST Findings
 
