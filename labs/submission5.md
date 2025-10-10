@@ -72,7 +72,7 @@
 **Risk:** Medium-High - Client-side code execution, session hijacking
 **Recommendation:** Use proper HTML encoding, Content Security Policy, sanitization libraries
 
-## Task 2 — Dynamic Application Security Testing with Multiple Tools (5 pts)
+## Task 2
 
 ### Tool Comparison
 
@@ -178,4 +178,139 @@
 1. **Continuous Integration:** Nuclei for fast template-based scanning
 2. **Pre-Production:** ZAP for comprehensive web application testing
 3. **Infrastructure Assessment:** Nikto for server configuration validation
-4. **Penetration Testing:** SQLmap for deep database security assessment
+4. **Penetration Testing:** SQLmap for database security assessment
+
+## Task 3
+
+### SAST vs DAST Findings
+
+**Quantitative Analysis:**
+- **SAST (Semgrep):** 25 vulnerabilities detected in source code
+- **DAST Tools Combined:** 86 findings across runtime testing
+  - ZAP: 15 web application vulnerabilities
+  - Nuclei: 28 template-based detections
+  - Nikto: 28 server configuration issues
+  - SQLmap: 1 confirmed SQL injection with exploitation proof
+
+**Unique SAST Discoveries:**
+1. **Code-Level Vulnerabilities:** Semgrep identified hardcoded JWT secrets, eval() usage, and unsafe string concatenation that DAST tools cannot detect from external testing
+2. **Development Anti-Patterns:** Found insecure coding patterns in challenge files and static codefixes that represent intentional vulnerabilities
+3. **Template Security Issues:** Detected unquoted HTML attributes in Angular templates that could lead to XSS
+4. **Backend Logic Flaws:** Identified multiple Sequelize ORM injection points that require source code analysis
+
+**Unique DAST Discoveries:**
+1. **Runtime Configuration Issues:** DAST tools found CORS misconfigurations, missing security headers, and server information disclosure that don't exist in source code
+2. **Backup File Exposure:** ZAP discovered accessible backup files (`quarantine - Copy`) that represent deployment security issues
+3. **HTTP-Level Vulnerabilities:** Nikto found ETag information leakage and exposed directory listings not visible in static analysis
+4. **Exploitation Validation:** SQLmap provided actual exploitation proof of SQL injection vulnerabilities with working payloads
+
+**Complementary Coverage Analysis:**
+- **SAST Strength:** Deep source code analysis revealing logic flaws and coding vulnerabilities
+- **DAST Strength:** Runtime behavior analysis revealing configuration and deployment issues
+- **Overlap Area:** SQL injection detected by both approaches with different detail levels
+  - SAST: Identified vulnerable code patterns and locations
+  - DAST: Confirmed exploitability with actual attack payloads
+
+**Coverage Gaps Identified:**
+- **SAST Limitations:** Cannot detect runtime configuration issues, deployment-specific vulnerabilities, or business logic flaws requiring user interaction
+- **DAST Limitations:** Cannot analyze internal code logic, detect unused vulnerable code paths, or identify issues in unlinked functionality
+
+### Integrated Security Recommendations
+
+#### DevSecOps Pipeline Integration Strategy
+
+**Phase 1: Development (SAST-First Approach)**
+```yaml
+Pre-Commit Stage:
+- Tool: Semgrep with security-audit ruleset
+- Trigger: Every code commit
+- Action: Block commits with ERROR-level findings
+- Focus: Prevent vulnerable code from entering repository
+
+Pull Request Stage:
+- Tool: Semgrep with comprehensive rule sets
+- Trigger: PR creation/updates
+- Action: Automated security review comments
+- Focus: Educational feedback for developers
+```
+
+**Phase 2: Continuous Integration (Fast DAST)**
+```yaml
+CI Pipeline Stage:
+- Tool: Nuclei with community templates
+- Trigger: Branch builds and merges
+- Action: Fail build on HIGH severity findings
+- Focus: Known CVE detection and quick security validation
+
+Infrastructure Validation:
+- Tool: Nikto for server configuration
+- Trigger: Infrastructure changes
+- Action: Report configuration security issues
+- Focus: Server hardening and information disclosure prevention
+```
+
+**Phase 3: Pre-Production (Comprehensive DAST)**
+```yaml
+Staging Environment:
+- Tool: OWASP ZAP full scan
+- Trigger: Release candidate deployment
+- Action: Comprehensive security assessment
+- Focus: OWASP Top 10 validation and business logic testing
+
+Specialized Testing:
+- Tool: SQLmap for database interactions
+- Trigger: Database schema changes or new endpoints
+- Action: Deep SQL injection testing
+- Focus: Database security validation
+```
+
+#### Tool Orchestration Workflow
+
+**Recommended Integration Sequence:**
+1. **Developer Workstation:** Semgrep IDE plugins for real-time feedback
+2. **Git Hooks:** Pre-commit Semgrep scan with fail-fast on critical issues
+3. **CI/CD Pipeline:** 
+   - Fast Nuclei scan (< 5 minutes)
+   - Parallel Nikto configuration check
+   - Conditional SQLmap testing for database endpoints
+4. **Staging Deployment:** Comprehensive ZAP scan with full crawling
+5. **Production Monitoring:** Continuous security monitoring integration
+
+#### Risk-Based Tool Selection Matrix
+
+| Vulnerability Type | Primary Tool | Secondary Tool | Pipeline Stage |
+|-------------------|--------------|----------------|----------------|
+| SQL Injection | Semgrep | SQLmap | Development → Staging |
+| XSS/Code Injection | Semgrep | ZAP | Development → Pre-prod |
+| Authentication/Authorization | ZAP | Manual Testing | Staging |
+| Configuration Issues | Nikto | ZAP | Infrastructure |
+| Known CVEs | Nuclei | Manual Research | CI/CD |
+| Business Logic | Manual Testing | ZAP | Pre-production |
+
+#### Security Metrics and KPIs
+
+**SAST Metrics:**
+- Vulnerability detection rate in development
+- Time to fix critical issues (< 24h target)
+- False positive rate monitoring
+- Developer security training effectiveness
+
+**DAST Metrics:**
+- Runtime vulnerability discovery rate
+- Configuration drift detection
+- Penetration testing validation rate
+- Production security incident correlation
+
+#### Continuous Improvement Process
+
+**Feedback Loop Implementation:**
+1. **Production Incidents → SAST Rules:** Update Semgrep rules based on production vulnerabilities
+2. **DAST Findings → Development Training:** Use runtime discoveries for developer education
+3. **Tool Correlation Analysis:** Monthly review of SAST/DAST overlap and gaps
+4. **Rule Tuning:** Continuous refinement based on false positive rates
+
+**Security Culture Integration:**
+- Weekly security meetings reviewing tool findings
+- Integration of security findings into sprint planning
+
+
