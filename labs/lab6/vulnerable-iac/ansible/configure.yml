@@ -1,0 +1,140 @@
+---
+# Vulnerable Configuration Playbook for Lab 6
+
+- name: Configure web servers (VULNERABLE)
+  hosts: all
+  become: true
+  gather_facts: yes
+  
+  vars:
+    # SECURITY ISSUE #20 - Plaintext secrets
+    ssl_private_key: |
+      -----BEGIN PRIVATE KEY-----
+      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7VJTUt...
+      -----END PRIVATE KEY-----
+    
+    admin_password: "Admin123!"
+  
+  tasks:
+    # SECURITY ISSUE #21 - No SELinux or AppArmor
+    - name: Disable SELinux
+      selinux:
+        state: disabled
+      when: ansible_os_family == "RedHat"
+    
+    # SECURITY ISSUE #22 - Permissive sudo configuration
+    - name: Configure sudo for app user
+      lineinfile:
+        path: /etc/sudoers
+        line: 'appuser ALL=(ALL) NOPASSWD: ALL'
+        validate: '/usr/sbin/visudo -cf %s'
+      # Allowing passwordless sudo for all commands!
+    
+    # SECURITY ISSUE #23 - Weak SSH configuration
+    - name: Configure SSH
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "{{ item.regexp }}"
+        line: "{{ item.line }}"
+      loop:
+        - { regexp: '^PermitRootLogin', line: 'PermitRootLogin yes' }  # Should be 'no'!
+        - { regexp: '^PasswordAuthentication', line: 'PasswordAuthentication yes' }  # Should be 'no'!
+        - { regexp: '^PermitEmptyPasswords', line: 'PermitEmptyPasswords yes' }  # Should be 'no'!
+      notify: restart sshd
+    
+    # SECURITY ISSUE #24 - Installing unnecessary packages
+    - name: Install all development tools
+      apt:
+        name:
+          - build-essential
+          - gcc
+          - g++
+          - gdb
+          - strace
+          - tcpdump
+        state: present
+      # Development tools on production server!
+    
+    # SECURITY ISSUE #25 - Exposing application on all interfaces
+    - name: Configure application to listen on all interfaces
+      lineinfile:
+        path: /etc/myapp/config.yml
+        regexp: '^listen:'
+        line: 'listen: 0.0.0.0:8080'
+      # Should bind to specific interface or localhost
+    
+    # SECURITY ISSUE #26 - Logging sensitive information
+    - name: Log database connection
+      lineinfile:
+        path: /var/log/myapp/app.log
+        line: "Database connection: postgresql://admin:{{ admin_password }}@localhost/myapp"
+        create: yes
+      # Logging password in plaintext!
+    
+    # SECURITY ISSUE #27 - Using vars_prompt without no_log
+    - name: Set API credentials
+      command: echo "API_KEY={{ api_key }}" >> /etc/environment
+      # Credentials in command output
+    
+    # SECURITY ISSUE #28 - Insecure temp file handling
+    - name: Create temporary file
+      shell: echo "{{ admin_password }}" > /tmp/password.txt
+      # Password in temp file with predictable name!
+    
+    # SECURITY ISSUE #29 - No timeout for long-running tasks
+    - name: Wait for service
+      wait_for:
+        port: 8080
+        delay: 10
+        timeout: 0  # Wait forever!
+    
+    # SECURITY ISSUE #30 - Using assert without proper error handling
+    - name: Check configuration
+      assert:
+        that:
+          - ansible_os_family == "Debian"
+        fail_msg: "Unsupported OS"
+      # Exposing system information in error
+    
+    # SECURITY ISSUE #31 - Fetching files without encryption
+    - name: Backup configuration
+      fetch:
+        src: /etc/myapp/config.env
+        dest: /backups/
+        flat: yes
+      # Transferring sensitive config in plaintext!
+    
+    # SECURITY ISSUE #32 - Using raw module
+    - name: Execute raw command
+      raw: iptables -F  # Flush all firewall rules!
+      # Should use proper firewall modules
+    
+    # SECURITY ISSUE #33 - No checksum validation for templates
+    - name: Deploy configuration template
+      template:
+        src: app.conf.j2
+        dest: /etc/nginx/sites-available/app.conf
+        mode: '0644'
+      # No backup, no validation before deployment
+      notify: reload nginx
+    
+    # SECURITY ISSUE #34 - Authorized_key with wrong permissions
+    - name: Add authorized key
+      authorized_key:
+        user: root
+        key: "{{ lookup('file', '/tmp/id_rsa.pub') }}"
+        state: present
+      # Adding key for root user!
+  
+  handlers:
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+      # No validation of sshd config before restart!
+    
+    - name: reload nginx
+      service:
+        name: nginx
+        state: reloaded
+      # No config test before reload!
