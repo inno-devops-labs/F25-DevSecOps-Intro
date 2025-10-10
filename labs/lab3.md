@@ -12,10 +12,9 @@
 ## Overview
 
 In this lab you will practice:
-- Verifying commit authenticity with **SSH commit signing**.
-- Preventing secrets exposure with **pre-commit scanning** (TruffleHog + Gitleaks).
-
-These skills are fundamental for maintaining secure development workflows and preventing security incidents in collaborative environments.
+- Verifying commit authenticity with **SSH commit signing**
+- Preventing secrets exposure with **pre-commit scanning** (TruffleHog + Gitleaks)
+- Implementing automated security controls in development workflows
 
 ---
 
@@ -23,15 +22,13 @@ These skills are fundamental for maintaining secure development workflows and pr
 
 ### Task 1 — SSH Commit Signature Verification (5 pts)
 
-**Objective:** Understand the importance of signed commits and set up SSH commit signature verification.
+**Objective:** Configure SSH commit signing to verify commit authenticity and integrity.
 
 #### 1.1: Research Commit Signing Benefits
 
-1. **Study Commit Signing Importance:**
-
-   Research why commit signing is crucial for verifying the integrity and authenticity of commits using these resources:
-   - [GitHub Docs on SSH Commit Verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)
-   - [Atlassian Guide to SSH and Git](https://confluence.atlassian.com/bitbucketserver/sign-commits-and-tags-with-ssh-keys-1305971205.html)
+Study why commit signing is crucial for verifying the integrity and authenticity of commits:
+- [GitHub Docs on SSH Commit Verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)
+- [Atlassian Guide to SSH and Git](https://confluence.atlassian.com/bitbucketserver/sign-commits-and-tags-with-ssh-keys-1305971205.html)
 
 #### 1.2: Configure SSH Commit Signing
 
@@ -43,7 +40,7 @@ These skills are fundamental for maintaining secure development workflows and pr
 
 2. **Use Existing SSH Key (Option B):**
 
-   - Use an existing SSH key and add it to GitHub
+   Use an existing SSH key and add it to GitHub
 
 3. **Configure Git for SSH Signing:**
 
@@ -55,11 +52,9 @@ These skills are fundamental for maintaining secure development workflows and pr
 
 #### 1.3: Create Signed Commit
 
-1. **Make a Signed Commit:**
-
-   ```sh
-   git commit -S -m "docs: add commit signing summary"
-   ```
+```sh
+git commit -S -m "docs: add commit signing summary"
+```
 
 In `labs/submission3.md`, document:
 - Summary explaining the benefits of signing commits for security
@@ -71,7 +66,7 @@ In `labs/submission3.md`, document:
 
 ### Task 2 — Pre-commit Secret Scanning (5 pts)
 
-**Objective:** Add a local Git pre-commit hook that scans staged changes for secrets using Dockerized TruffleHog and Gitleaks.
+**Objective:** Implement local Git pre-commit hook that scans staged changes for secrets using Dockerized TruffleHog and Gitleaks.
 
 #### 2.1: Create Pre-commit Hook
 
@@ -144,7 +139,6 @@ In `labs/submission3.md`, document:
    for file in "${FILES[@]}"; do
       echo "[pre-commit] Scanning $file with Gitleaks..."
       
-      # Scan individual file with Gitleaks
       GITLEAKS_RESULT=$(docker run --rm -v "$(pwd):/repo" -w /repo \
          zricethezav/gitleaks:latest \
          detect --source="$file" --no-git --verbose --exit-code=0 --no-banner 2>&1 || true)
@@ -154,7 +148,6 @@ In `labs/submission3.md`, document:
          echo "$GITLEAKS_RESULT"
          echo "---"
          
-         # Check if this is a lectures file
          if [[ "$file" == lectures/* ]]; then
                echo "⚠️ Secrets found in lectures directory - allowing as educational content"
                GITLEAKS_FOUND_IN_LECTURES=true
@@ -194,28 +187,16 @@ In `labs/submission3.md`, document:
 
 #### 2.2: Test Secret Detection
 
-1. **Verify Hook Functionality:**
-
-   - Add a test secret (e.g., fake AWS key) to a file and stage it
-   - Attempt to commit - should be blocked by TruffleHog or Gitleaks
-   - Remove/redact the secret, then commit again to confirm success
+Verify hook functionality:
+- Add a test secret (e.g., fake AWS key) to a file and stage it
+- Attempt to commit - should be blocked by TruffleHog or Gitleaks
+- Remove/redact the secret, then commit again to confirm success
 
 In `labs/submission3.md`, document:
 - Pre-commit hook setup process and configuration
 - Evidence of successful secret detection blocking commits
 - Test results showing both blocked and successful commits
 - Analysis of how automated secret scanning prevents security incidents
-
----
-
-## Acceptance Criteria
-
-- ✅ Branch `feature/lab3` exists with commits for each task.
-- ✅ File `labs/submission3.md` contains required analysis for both tasks.
-- ✅ At least one commit shows **"Verified"** (signed via SSH) on GitHub.
-- ✅ Local `.git/hooks/pre-commit` runs TruffleHog and Gitleaks via Docker and blocks secrets.
-- ✅ PR from `feature/lab3` → **course repo main branch** is open.
-- ✅ PR link submitted via Moodle before the deadline.
 
 ---
 
@@ -236,11 +217,22 @@ In `labs/submission3.md`, document:
 3. In the PR description, include:
 
    ```text
-   - [x] Task 1 done
-   - [x] Task 2 done
+   - [x] Task 1 done — SSH commit signing setup
+   - [x] Task 2 done — Pre-commit secrets scanning setup
    ```
 
 4. **Copy the PR URL** and submit it via **Moodle before the deadline**.
+
+---
+
+## Acceptance Criteria
+
+- ✅ Branch `feature/lab3` exists with commits for each task
+- ✅ File `labs/submission3.md` contains required analysis for both tasks
+- ✅ At least one commit shows **"Verified"** (signed via SSH) on GitHub
+- ✅ Local `.git/hooks/pre-commit` runs TruffleHog and Gitleaks via Docker and blocks secrets
+- ✅ PR from `feature/lab3` → **course repo main branch** is open
+- ✅ PR link submitted via Moodle before the deadline
 
 ---
 
@@ -256,16 +248,18 @@ In `labs/submission3.md`, document:
 
 ## Guidelines
 
-- Use clear Markdown headers to organize sections in `submission3.md`.
-- Include both command outputs and written analysis for each task.
-- Document security configurations and testing procedures thoroughly.
-- Demonstrate both successful and blocked operations for secret scanning.
+- Use clear Markdown headers to organize sections in `submission3.md`
+- Include both command outputs and written analysis for each task
+- Document security configurations and testing procedures thoroughly
+- Demonstrate both successful and blocked operations for secret scanning
 
-> **Security Configuration Notes**  
-> 1. Ensure the email on your commits matches your GitHub account for proper verification.  
-> 2. Verify `gpg.format` is set to `ssh` for proper signing configuration.  
-> 3. Test pre-commit hooks thoroughly with both legitimate and test secret content.
+<details>
+<summary>Security Configuration Notes</summary>
 
-> **Technical Requirements**  
-> 1. Docker Desktop/Engine must be running for secret scanning tools.  
-> 2. Ensure all commits are properly signed for verification on GitHub.  
+- Ensure the email on your commits matches your GitHub account for proper verification
+- Verify `gpg.format` is set to `ssh` for proper signing configuration
+- Test pre-commit hooks thoroughly with both legitimate and test secret content
+- Docker Desktop/Engine must be running for secret scanning tools
+- Ensure all commits are properly signed for verification on GitHub
+
+</details>
