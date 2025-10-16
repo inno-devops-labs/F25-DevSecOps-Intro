@@ -1,0 +1,12 @@
+name: vulnerable-pulumi-lab6
+runtime: python
+description: Intentionally vulnerable Pulumi infrastructure for Lab 6 - DO NOT USE IN PRODUCTION!
+
+config:
+  # SECURITY ISSUE #21 - Default config values with secrets
+  aws:region:
+    default: us-east-1
+  db_password:
+    default: "DefaultPass123!"  # Should not have default for passwords!
+  api_key:
+    default: "sk_default_key"  # Should not have default for secrets!

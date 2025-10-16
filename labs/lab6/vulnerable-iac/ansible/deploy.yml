@@ -1,0 +1,128 @@
+---
+# Vulnerable Ansible Playbook for Lab 6
+# This file contains intentional security issues for educational purposes
+# DO NOT use this playbook in production!
+
+- name: Deploy web application (VULNERABLE)
+  hosts: webservers
+  become: yes
+  
+  vars:
+    # SECURITY ISSUE #1 - Hardcoded password in playbook!
+    db_password: "SuperSecret123!"
+    # SECURITY ISSUE #2 - Hardcoded API key!
+    api_key: "sk_live_1234567890abcdef"
+    # SECURITY ISSUE #3 - Database connection string with credentials
+    db_connection: "postgresql://admin:password123@db.example.com:5432/myapp"
+  
+  tasks:
+    # SECURITY ISSUE #4 - Using shell instead of proper module
+    - name: Install packages with shell
+      shell: apt-get install -y nginx mysql-client
+      # Should use apt module instead
+    
+    # SECURITY ISSUE #5 - Command with hardcoded password visible in logs
+    - name: Set database password
+      command: mysql -u root -p{{ db_password }} -e "CREATE DATABASE myapp;"
+      # Missing no_log: true - password will appear in logs!
+    
+    # SECURITY ISSUE #6 - File with overly permissive permissions
+    - name: Create config file
+      copy:
+        content: |
+          DB_PASSWORD={{ db_password }}
+          API_KEY={{ api_key }}
+        dest: /etc/myapp/config.env
+        mode: '0777'  # World readable/writable!
+        owner: root
+        group: root
+    
+    # SECURITY ISSUE #7 - SSH key with wrong permissions
+    - name: Deploy SSH key
+      copy:
+        src: files/id_rsa
+        dest: /root/.ssh/id_rsa
+        mode: '0644'  # Should be 0600!
+        owner: root
+        group: root
+    
+    # SECURITY ISSUE #8 - Running command as root without necessity
+    - name: Create application directory
+      command: mkdir -p /var/www/myapp
+      become: yes
+      become_user: root
+      # Should use file module and run as regular user
+    
+    # SECURITY ISSUE #9 - Disabling firewall
+    - name: Disable firewall
+      service:
+        name: ufw
+        state: stopped
+        enabled: no
+      # Should never disable firewall!
+    
+    # SECURITY ISSUE #10 - Downloading and executing script without verification
+    - name: Download and run setup script
+      shell: curl http://example.com/setup.sh | bash
+      # No HTTPS, no checksum verification!
+    
+    # SECURITY ISSUE #11 - Git clone with hardcoded credentials in URL
+    - name: Clone repository
+      git:
+        repo: 'https://username:password@github.com/company/repo.git'
+        dest: /var/www/myapp
+        # Credentials in URL!
+    
+    # SECURITY ISSUE #12 - Ignoring errors
+    - name: Run database migration
+      command: /usr/local/bin/migrate
+      ignore_errors: yes
+      # Should not ignore errors for critical tasks
+    
+    # SECURITY ISSUE #13 - Using deprecated bare variables
+    - name: Create user
+      user:
+        name: "{{ username }}"  # Variable not defined, will fail
+        password: "{{ password | password_hash('sha512') }}"
+        # Password operation without no_log!
+    
+    # SECURITY ISSUE #14 - Debug statement exposing secrets
+    - name: Debug configuration
+      debug:
+        msg: "Database: {{ db_connection }}, API Key: {{ api_key }}"
+      # Exposing secrets in debug output!
+    
+    # SECURITY ISSUE #15 - Using latest version (non-deterministic)
+    - name: Install application
+      apt:
+        name: myapp
+        state: latest  # Should pin specific version
+        update_cache: yes
+    
+    # SECURITY ISSUE #16 - No validation of downloaded files
+    - name: Download application
+      get_url:
+        url: http://example.com/app.tar.gz  # HTTP not HTTPS!
+        dest: /tmp/app.tar.gz
+        # No checksum validation!
+        mode: '0777'
+    
+    # SECURITY ISSUE #17 - Running with shell expansion
+    - name: Process files
+      shell: rm -rf {{ user_input }}/*
+      # Shell injection risk if user_input is not sanitized!
+    
+    # SECURITY ISSUE #18 - Synchronous password in task name
+    - name: Set password to SuperSecret123!
+      # Task name exposes password!
+      user:
+        name: appuser
+        password: "{{ 'SuperSecret123!' | password_hash('sha512') }}"
+  
+  handlers:
+    # SECURITY ISSUE #19 - Handler without proper service check
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+      # No validation that nginx is properly configured before restart
