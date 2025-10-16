@@ -1,0 +1,6 @@
+tfsec:
+53
+checkov:
+4
+terrascan:
+3

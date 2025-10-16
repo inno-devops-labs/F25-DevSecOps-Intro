@@ -1,0 +1,8 @@
+{
+  "CRITICAL": 0,
+  "HIGH": 8,
+  "INFO": 0,
+  "LOW": 1,
+  "MEDIUM": 0,
+  "TRACE": 0
+}
