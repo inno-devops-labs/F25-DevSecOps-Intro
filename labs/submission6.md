@@ -1,7 +1,5 @@
 ## Task 1
 
-- **Tool Strengths** - What each tool excels at detecting
-
 ### Terraform Tool Comparison
 
 | Tool      | # of findings | # of HIGH/CRITICAL findings |
@@ -60,4 +58,17 @@ Below are the queries performed on the config file.
 - **Terrascan**: Terraform compliance issues
 - **KICS**: Pulumi vulnerabilities
 
+## Task 2
 
+- **Ansible Security Issues** - Key security problems identified by KICS
+- **Best Practice Violations** - Explain at least 3 violations and their security impact
+- **KICS Ansible Queries** - Evaluate the types of security checks KICS performs
+- **Remediation Steps** - How to fix the identified issues
+
+### Ansible Security Issues
+
+The main issues are hardcoded passwords in URLs and weak passwords.
+
+### Best Practice Violations
+### KICS Ansible Queries
+### Remediation Steps
