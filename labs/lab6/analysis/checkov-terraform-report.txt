@@ -1,0 +1,2151 @@
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.484 
+
+terraform scan results:
+
+Passed checks: 48, Failed checks: 78, Skipped checks: 0
+
+Check: CKV_AWS_354: "Ensure RDS Performance Insights are encrypted using KMS CMKs"
+	PASSED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+Check: CKV_AWS_250: "Ensure that RDS PostgreSQL instances use a non vulnerable version with the log_fdw extension (https://aws.amazon.com/security/security-bulletins/AWS-2022-004/)"
+	PASSED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+Check: CKV_AWS_388: "Ensure AWS Aurora PostgreSQL is not exposed to local file read vulnerability"
+	PASSED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+Check: CKV_AWS_211: "Ensure RDS uses a modern CaCert"
+	PASSED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+Check: CKV_AWS_354: "Ensure RDS Performance Insights are encrypted using KMS CMKs"
+	PASSED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+Check: CKV_AWS_16: "Ensure all data stored in the RDS is securely encrypted at rest"
+	PASSED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+Check: CKV_AWS_388: "Ensure AWS Aurora PostgreSQL is not exposed to local file read vulnerability"
+	PASSED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+Check: CKV_AWS_17: "Ensure all data stored in RDS is not publicly accessible"
+	PASSED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+Check: CKV_AWS_133: "Ensure that RDS instances has backup policy"
+	PASSED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+Check: CKV_AWS_211: "Ensure RDS uses a modern CaCert"
+	PASSED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: aws_iam_role.app_role
+	File: /iam.tf:22-37
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: aws_iam_role.app_role
+	File: /iam.tf:22-37
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: aws_iam_role.app_role
+	File: /iam.tf:22-37
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+Check: CKV_AWS_348: "Ensure IAM root user does not have Access keys"
+	PASSED for resource: aws_iam_access_key.service_key
+	File: /iam.tf:88-90
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+	PASSED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+	PASSED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+Check: CKV_AWS_277: "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group.ssh_open
+	File: /security_groups.tf:31-62
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	PASSED for resource: aws_security_group.ssh_open
+	File: /security_groups.tf:31-62
+Check: CKV_AWS_277: "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group.database_exposed
+	File: /security_groups.tf:65-92
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	PASSED for resource: aws_security_group.database_exposed
+	File: /security_groups.tf:65-92
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	PASSED for resource: aws_security_group.database_exposed
+	File: /security_groups.tf:65-92
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	PASSED for resource: aws_security_group.database_exposed
+	File: /security_groups.tf:65-92
+Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+	PASSED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+	PASSED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+Check: CKV2_AWS_22: "Ensure an IAM User does not have access to the console"
+	PASSED for resource: aws_iam_user.service_account
+	File: /iam.tf:58-65
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
+	PASSED for resource: aws_security_group.database_exposed
+	File: /security_groups.tf:65-92
+Check: CKV2_AWS_16: "Ensure that Auto Scaling is enabled on your DynamoDB tables"
+	PASSED for resource: aws_dynamodb_table.unencrypted_table
+	File: /database.tf:72-92
+Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+	PASSED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+	PASSED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+	PASSED for resource: aws_iam_role.app_role
+	File: /iam.tf:22-37
+Check: CKV2_AWS_69: "Ensure AWS RDS database instance configured with encryption in transit"
+	PASSED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+Check: CKV2_AWS_69: "Ensure AWS RDS database instance configured with encryption in transit"
+	PASSED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+	PASSED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+Check: CKV_AWS_293: "Ensure that AWS database instances have deletion protection enabled"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_161: "Ensure RDS database has IAM authentication enabled"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_353: "Ensure that RDS instances have performance insights enabled"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_129: "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_118: "Ensure that enhanced monitoring is enabled for Amazon RDS instances"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_16: "Ensure all data stored in the RDS is securely encrypted at rest"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_226: "Ensure DB instance gets all minor upgrades automatically"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_157: "Ensure that RDS instances have Multi-AZ enabled"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_17: "Ensure all data stored in RDS is not publicly accessible"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_133: "Ensure that RDS instances has backup policy"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_293: "Ensure that AWS database instances have deletion protection enabled"
+	FAILED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+
+		40 | resource "aws_db_instance" "weak_db" {
+		41 |   identifier           = "mydb-weak"
+		42 |   engine               = "mysql"
+		43 |   engine_version       = "5.7.38"  # Old version with known vulnerabilities
+		44 |   instance_class       = "db.t3.micro"
+		45 |   allocated_storage    = 20
+		46 |   
+		47 |   username = "root"  # Using default admin username
+		48 |   password = "password123"  # Weak password!
+		49 |   
+		50 |   storage_encrypted = true
+		51 |   kms_key_id        = ""  # Empty KMS key - using default key
+		52 |   
+		53 |   publicly_accessible = false
+		54 |   
+		55 |   # Multi-AZ disabled
+		56 |   multi_az = false  # SECURITY ISSUE #14 - No high availability
+		57 |   
+		58 |   # Auto minor version upgrade disabled
+		59 |   auto_minor_version_upgrade = false  # SECURITY ISSUE #15
+		60 |   
+		61 |   # No performance insights
+		62 |   performance_insights_enabled = false
+		63 |   
+		64 |   skip_final_snapshot = true
+		65 |   
+		66 |   tags = {
+		67 |     Name = "Weak Database"
+		68 |   }
+		69 | }
+
+Check: CKV_AWS_161: "Ensure RDS database has IAM authentication enabled"
+	FAILED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+
+		40 | resource "aws_db_instance" "weak_db" {
+		41 |   identifier           = "mydb-weak"
+		42 |   engine               = "mysql"
+		43 |   engine_version       = "5.7.38"  # Old version with known vulnerabilities
+		44 |   instance_class       = "db.t3.micro"
+		45 |   allocated_storage    = 20
+		46 |   
+		47 |   username = "root"  # Using default admin username
+		48 |   password = "password123"  # Weak password!
+		49 |   
+		50 |   storage_encrypted = true
+		51 |   kms_key_id        = ""  # Empty KMS key - using default key
+		52 |   
+		53 |   publicly_accessible = false
+		54 |   
+		55 |   # Multi-AZ disabled
+		56 |   multi_az = false  # SECURITY ISSUE #14 - No high availability
+		57 |   
+		58 |   # Auto minor version upgrade disabled
+		59 |   auto_minor_version_upgrade = false  # SECURITY ISSUE #15
+		60 |   
+		61 |   # No performance insights
+		62 |   performance_insights_enabled = false
+		63 |   
+		64 |   skip_final_snapshot = true
+		65 |   
+		66 |   tags = {
+		67 |     Name = "Weak Database"
+		68 |   }
+		69 | }
+
+Check: CKV_AWS_129: "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled"
+	FAILED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+
+		40 | resource "aws_db_instance" "weak_db" {
+		41 |   identifier           = "mydb-weak"
+		42 |   engine               = "mysql"
+		43 |   engine_version       = "5.7.38"  # Old version with known vulnerabilities
+		44 |   instance_class       = "db.t3.micro"
+		45 |   allocated_storage    = 20
+		46 |   
+		47 |   username = "root"  # Using default admin username
+		48 |   password = "password123"  # Weak password!
+		49 |   
+		50 |   storage_encrypted = true
+		51 |   kms_key_id        = ""  # Empty KMS key - using default key
+		52 |   
+		53 |   publicly_accessible = false
+		54 |   
+		55 |   # Multi-AZ disabled
+		56 |   multi_az = false  # SECURITY ISSUE #14 - No high availability
+		57 |   
+		58 |   # Auto minor version upgrade disabled
+		59 |   auto_minor_version_upgrade = false  # SECURITY ISSUE #15
+		60 |   
+		61 |   # No performance insights
+		62 |   performance_insights_enabled = false
+		63 |   
+		64 |   skip_final_snapshot = true
+		65 |   
+		66 |   tags = {
+		67 |     Name = "Weak Database"
+		68 |   }
+		69 | }
+
+Check: CKV_AWS_118: "Ensure that enhanced monitoring is enabled for Amazon RDS instances"
+	FAILED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+
+		40 | resource "aws_db_instance" "weak_db" {
+		41 |   identifier           = "mydb-weak"
+		42 |   engine               = "mysql"
+		43 |   engine_version       = "5.7.38"  # Old version with known vulnerabilities
+		44 |   instance_class       = "db.t3.micro"
+		45 |   allocated_storage    = 20
+		46 |   
+		47 |   username = "root"  # Using default admin username
+		48 |   password = "password123"  # Weak password!
+		49 |   
+		50 |   storage_encrypted = true
+		51 |   kms_key_id        = ""  # Empty KMS key - using default key
+		52 |   
+		53 |   publicly_accessible = false
+		54 |   
+		55 |   # Multi-AZ disabled
+		56 |   multi_az = false  # SECURITY ISSUE #14 - No high availability
+		57 |   
+		58 |   # Auto minor version upgrade disabled
+		59 |   auto_minor_version_upgrade = false  # SECURITY ISSUE #15
+		60 |   
+		61 |   # No performance insights
+		62 |   performance_insights_enabled = false
+		63 |   
+		64 |   skip_final_snapshot = true
+		65 |   
+		66 |   tags = {
+		67 |     Name = "Weak Database"
+		68 |   }
+		69 | }
+
+Check: CKV_AWS_226: "Ensure DB instance gets all minor upgrades automatically"
+	FAILED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+
+		40 | resource "aws_db_instance" "weak_db" {
+		41 |   identifier           = "mydb-weak"
+		42 |   engine               = "mysql"
+		43 |   engine_version       = "5.7.38"  # Old version with known vulnerabilities
+		44 |   instance_class       = "db.t3.micro"
+		45 |   allocated_storage    = 20
+		46 |   
+		47 |   username = "root"  # Using default admin username
+		48 |   password = "password123"  # Weak password!
+		49 |   
+		50 |   storage_encrypted = true
+		51 |   kms_key_id        = ""  # Empty KMS key - using default key
+		52 |   
+		53 |   publicly_accessible = false
+		54 |   
+		55 |   # Multi-AZ disabled
+		56 |   multi_az = false  # SECURITY ISSUE #14 - No high availability
+		57 |   
+		58 |   # Auto minor version upgrade disabled
+		59 |   auto_minor_version_upgrade = false  # SECURITY ISSUE #15
+		60 |   
+		61 |   # No performance insights
+		62 |   performance_insights_enabled = false
+		63 |   
+		64 |   skip_final_snapshot = true
+		65 |   
+		66 |   tags = {
+		67 |     Name = "Weak Database"
+		68 |   }
+		69 | }
+
+Check: CKV_AWS_157: "Ensure that RDS instances have Multi-AZ enabled"
+	FAILED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+
+		40 | resource "aws_db_instance" "weak_db" {
+		41 |   identifier           = "mydb-weak"
+		42 |   engine               = "mysql"
+		43 |   engine_version       = "5.7.38"  # Old version with known vulnerabilities
+		44 |   instance_class       = "db.t3.micro"
+		45 |   allocated_storage    = 20
+		46 |   
+		47 |   username = "root"  # Using default admin username
+		48 |   password = "password123"  # Weak password!
+		49 |   
+		50 |   storage_encrypted = true
+		51 |   kms_key_id        = ""  # Empty KMS key - using default key
+		52 |   
+		53 |   publicly_accessible = false
+		54 |   
+		55 |   # Multi-AZ disabled
+		56 |   multi_az = false  # SECURITY ISSUE #14 - No high availability
+		57 |   
+		58 |   # Auto minor version upgrade disabled
+		59 |   auto_minor_version_upgrade = false  # SECURITY ISSUE #15
+		60 |   
+		61 |   # No performance insights
+		62 |   performance_insights_enabled = false
+		63 |   
+		64 |   skip_final_snapshot = true
+		65 |   
+		66 |   tags = {
+		67 |     Name = "Weak Database"
+		68 |   }
+		69 | }
+
+Check: CKV_AWS_119: "Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK"
+	FAILED for resource: aws_dynamodb_table.unencrypted_table
+	File: /database.tf:72-92
+
+		72 | resource "aws_dynamodb_table" "unencrypted_table" {
+		73 |   name           = "my-table"
+		74 |   billing_mode   = "PAY_PER_REQUEST"
+		75 |   hash_key       = "id"
+		76 | 
+		77 |   attribute {
+		78 |     name = "id"
+		79 |     type = "S"
+		80 |   }
+		81 | 
+		82 |   # No server_side_encryption configuration!
+		83 |   
+		84 |   # No point-in-time recovery
+		85 |   point_in_time_recovery {
+		86 |     enabled = false  # SECURITY ISSUE #17
+		87 |   }
+		88 | 
+		89 |   tags = {
+		90 |     Name = "Unencrypted DynamoDB Table"
+		91 |   }
+		92 | }
+
+Check: CKV_AWS_28: "Ensure DynamoDB point in time recovery (backup) is enabled"
+	FAILED for resource: aws_dynamodb_table.unencrypted_table
+	File: /database.tf:72-92
+
+		72 | resource "aws_dynamodb_table" "unencrypted_table" {
+		73 |   name           = "my-table"
+		74 |   billing_mode   = "PAY_PER_REQUEST"
+		75 |   hash_key       = "id"
+		76 | 
+		77 |   attribute {
+		78 |     name = "id"
+		79 |     type = "S"
+		80 |   }
+		81 | 
+		82 |   # No server_side_encryption configuration!
+		83 |   
+		84 |   # No point-in-time recovery
+		85 |   point_in_time_recovery {
+		86 |     enabled = false  # SECURITY ISSUE #17
+		87 |   }
+		88 | 
+		89 |   tags = {
+		90 |     Name = "Unencrypted DynamoDB Table"
+		91 |   }
+		92 | }
+
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	FAILED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+
+		39 | resource "aws_iam_role_policy" "s3_full_access" {
+		40 |   name = "s3-full-access"
+		41 |   role = aws_iam_role.app_role.id
+		42 | 
+		43 |   policy = jsonencode({
+		44 |     Version = "2012-10-17"
+		45 |     Statement = [
+		46 |       {
+		47 |         Effect = "Allow"
+		48 |         Action = [
+		49 |           "s3:*"  # All S3 actions!
+		50 |         ]
+		51 |         Resource = "*"  # On all buckets!
+		52 |       }
+		53 |     ]
+		54 |   })
+		55 | }
+
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	FAILED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+
+		39 | resource "aws_iam_role_policy" "s3_full_access" {
+		40 |   name = "s3-full-access"
+		41 |   role = aws_iam_role.app_role.id
+		42 | 
+		43 |   policy = jsonencode({
+		44 |     Version = "2012-10-17"
+		45 |     Statement = [
+		46 |       {
+		47 |         Effect = "Allow"
+		48 |         Action = [
+		49 |           "s3:*"  # All S3 actions!
+		50 |         ]
+		51 |         Resource = "*"  # On all buckets!
+		52 |       }
+		53 |     ]
+		54 |   })
+		55 | }
+
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	FAILED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+
+		39 | resource "aws_iam_role_policy" "s3_full_access" {
+		40 |   name = "s3-full-access"
+		41 |   role = aws_iam_role.app_role.id
+		42 | 
+		43 |   policy = jsonencode({
+		44 |     Version = "2012-10-17"
+		45 |     Statement = [
+		46 |       {
+		47 |         Effect = "Allow"
+		48 |         Action = [
+		49 |           "s3:*"  # All S3 actions!
+		50 |         ]
+		51 |         Resource = "*"  # On all buckets!
+		52 |       }
+		53 |     ]
+		54 |   })
+		55 | }
+
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	FAILED for resource: aws_iam_role_policy.s3_full_access
+	File: /iam.tf:39-55
+
+		39 | resource "aws_iam_role_policy" "s3_full_access" {
+		40 |   name = "s3-full-access"
+		41 |   role = aws_iam_role.app_role.id
+		42 | 
+		43 |   policy = jsonencode({
+		44 |     Version = "2012-10-17"
+		45 |     Statement = [
+		46 |       {
+		47 |         Effect = "Allow"
+		48 |         Action = [
+		49 |           "s3:*"  # All S3 actions!
+		50 |         ]
+		51 |         Resource = "*"  # On all buckets!
+		52 |       }
+		53 |     ]
+		54 |   })
+		55 | }
+
+Check: CKV_AWS_273: "Ensure access is controlled through SSO and not AWS IAM defined users"
+	FAILED for resource: aws_iam_user.service_account
+	File: /iam.tf:58-65
+
+		58 | resource "aws_iam_user" "service_account" {
+		59 |   name = "service-account"
+		60 |   path = "/system/"
+		61 | 
+		62 |   tags = {
+		63 |     Name = "Service Account"
+		64 |   }
+		65 | }
+
+Check: CKV_AWS_40: "Ensure IAM policies are attached only to groups or roles (Reducing access management complexity may in-turn reduce opportunity for a principal to inadvertently receive or retain excessive privileges.)"
+	FAILED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+
+		67 | resource "aws_iam_user_policy" "service_policy" {
+		68 |   name = "service-inline-policy"
+		69 |   user = aws_iam_user.service_account.name
+		70 | 
+		71 |   policy = jsonencode({
+		72 |     Version = "2012-10-17"
+		73 |     Statement = [
+		74 |       {
+		75 |         Effect = "Allow"
+		76 |         Action = [
+		77 |           "ec2:*",  # Full EC2 access
+		78 |           "s3:*",   # Full S3 access
+		79 |           "rds:*"   # Full RDS access
+		80 |         ]
+		81 |         Resource = "*"
+		82 |       }
+		83 |     ]
+		84 |   })
+		85 | }
+
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	FAILED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+
+		67 | resource "aws_iam_user_policy" "service_policy" {
+		68 |   name = "service-inline-policy"
+		69 |   user = aws_iam_user.service_account.name
+		70 | 
+		71 |   policy = jsonencode({
+		72 |     Version = "2012-10-17"
+		73 |     Statement = [
+		74 |       {
+		75 |         Effect = "Allow"
+		76 |         Action = [
+		77 |           "ec2:*",  # Full EC2 access
+		78 |           "s3:*",   # Full S3 access
+		79 |           "rds:*"   # Full RDS access
+		80 |         ]
+		81 |         Resource = "*"
+		82 |       }
+		83 |     ]
+		84 |   })
+		85 | }
+
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	FAILED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+
+		67 | resource "aws_iam_user_policy" "service_policy" {
+		68 |   name = "service-inline-policy"
+		69 |   user = aws_iam_user.service_account.name
+		70 | 
+		71 |   policy = jsonencode({
+		72 |     Version = "2012-10-17"
+		73 |     Statement = [
+		74 |       {
+		75 |         Effect = "Allow"
+		76 |         Action = [
+		77 |           "ec2:*",  # Full EC2 access
+		78 |           "s3:*",   # Full S3 access
+		79 |           "rds:*"   # Full RDS access
+		80 |         ]
+		81 |         Resource = "*"
+		82 |       }
+		83 |     ]
+		84 |   })
+		85 | }
+
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	FAILED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+
+		67 | resource "aws_iam_user_policy" "service_policy" {
+		68 |   name = "service-inline-policy"
+		69 |   user = aws_iam_user.service_account.name
+		70 | 
+		71 |   policy = jsonencode({
+		72 |     Version = "2012-10-17"
+		73 |     Statement = [
+		74 |       {
+		75 |         Effect = "Allow"
+		76 |         Action = [
+		77 |           "ec2:*",  # Full EC2 access
+		78 |           "s3:*",   # Full S3 access
+		79 |           "rds:*"   # Full RDS access
+		80 |         ]
+		81 |         Resource = "*"
+		82 |       }
+		83 |     ]
+		84 |   })
+		85 | }
+
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	FAILED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+
+		67 | resource "aws_iam_user_policy" "service_policy" {
+		68 |   name = "service-inline-policy"
+		69 |   user = aws_iam_user.service_account.name
+		70 | 
+		71 |   policy = jsonencode({
+		72 |     Version = "2012-10-17"
+		73 |     Statement = [
+		74 |       {
+		75 |         Effect = "Allow"
+		76 |         Action = [
+		77 |           "ec2:*",  # Full EC2 access
+		78 |           "s3:*",   # Full S3 access
+		79 |           "rds:*"   # Full RDS access
+		80 |         ]
+		81 |         Resource = "*"
+		82 |       }
+		83 |     ]
+		84 |   })
+		85 | }
+
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	FAILED for resource: aws_iam_user_policy.service_policy
+	File: /iam.tf:67-85
+
+		67 | resource "aws_iam_user_policy" "service_policy" {
+		68 |   name = "service-inline-policy"
+		69 |   user = aws_iam_user.service_account.name
+		70 | 
+		71 |   policy = jsonencode({
+		72 |     Version = "2012-10-17"
+		73 |     Statement = [
+		74 |       {
+		75 |         Effect = "Allow"
+		76 |         Action = [
+		77 |           "ec2:*",  # Full EC2 access
+		78 |           "s3:*",   # Full S3 access
+		79 |           "rds:*"   # Full RDS access
+		80 |         ]
+		81 |         Resource = "*"
+		82 |       }
+		83 |     ]
+		84 |   })
+		85 | }
+
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	FAILED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+
+		104 | resource "aws_iam_policy" "privilege_escalation" {
+		105 |   name        = "potential-privilege-escalation"
+		106 |   description = "Policy that allows privilege escalation"
+		107 | 
+		108 |   policy = jsonencode({
+		109 |     Version = "2012-10-17"
+		110 |     Statement = [
+		111 |       {
+		112 |         Effect = "Allow"
+		113 |         Action = [
+		114 |           "iam:CreatePolicy",
+		115 |           "iam:CreateUser",
+		116 |           "iam:AttachUserPolicy",
+		117 |           "iam:AttachRolePolicy",
+		118 |           "iam:PutUserPolicy",
+		119 |           "iam:PutRolePolicy"
+		120 |         ]
+		121 |         Resource = "*"
+		122 |       }
+		123 |     ]
+		124 |   })
+		125 | }
+
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	FAILED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+
+		104 | resource "aws_iam_policy" "privilege_escalation" {
+		105 |   name        = "potential-privilege-escalation"
+		106 |   description = "Policy that allows privilege escalation"
+		107 | 
+		108 |   policy = jsonencode({
+		109 |     Version = "2012-10-17"
+		110 |     Statement = [
+		111 |       {
+		112 |         Effect = "Allow"
+		113 |         Action = [
+		114 |           "iam:CreatePolicy",
+		115 |           "iam:CreateUser",
+		116 |           "iam:AttachUserPolicy",
+		117 |           "iam:AttachRolePolicy",
+		118 |           "iam:PutUserPolicy",
+		119 |           "iam:PutRolePolicy"
+		120 |         ]
+		121 |         Resource = "*"
+		122 |       }
+		123 |     ]
+		124 |   })
+		125 | }
+
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	FAILED for resource: aws_iam_policy.privilege_escalation
+	File: /iam.tf:104-125
+
+		104 | resource "aws_iam_policy" "privilege_escalation" {
+		105 |   name        = "potential-privilege-escalation"
+		106 |   description = "Policy that allows privilege escalation"
+		107 | 
+		108 |   policy = jsonencode({
+		109 |     Version = "2012-10-17"
+		110 |     Statement = [
+		111 |       {
+		112 |         Effect = "Allow"
+		113 |         Action = [
+		114 |           "iam:CreatePolicy",
+		115 |           "iam:CreateUser",
+		116 |           "iam:AttachUserPolicy",
+		117 |           "iam:AttachRolePolicy",
+		118 |           "iam:PutUserPolicy",
+		119 |           "iam:PutRolePolicy"
+		120 |         ]
+		121 |         Resource = "*"
+		122 |       }
+		123 |     ]
+		124 |   })
+		125 | }
+
+Check: CKV_AWS_54: "Ensure S3 bucket has block public policy enabled"
+	FAILED for resource: aws_s3_bucket_public_access_block.bad_config
+	File: /main.tf:36-43
+
+		36 | resource "aws_s3_bucket_public_access_block" "bad_config" {
+		37 |   bucket = aws_s3_bucket.public_data.id
+		38 | 
+		39 |   block_public_acls       = false  # Should be true
+		40 |   block_public_policy     = false  # Should be true
+		41 |   ignore_public_acls      = false  # Should be true
+		42 |   restrict_public_buckets = false  # Should be true
+		43 | }
+
+Check: CKV_AWS_55: "Ensure S3 bucket has ignore public ACLs enabled"
+	FAILED for resource: aws_s3_bucket_public_access_block.bad_config
+	File: /main.tf:36-43
+
+		36 | resource "aws_s3_bucket_public_access_block" "bad_config" {
+		37 |   bucket = aws_s3_bucket.public_data.id
+		38 | 
+		39 |   block_public_acls       = false  # Should be true
+		40 |   block_public_policy     = false  # Should be true
+		41 |   ignore_public_acls      = false  # Should be true
+		42 |   restrict_public_buckets = false  # Should be true
+		43 | }
+
+Check: CKV_AWS_56: "Ensure S3 bucket has 'restrict_public_buckets' enabled"
+	FAILED for resource: aws_s3_bucket_public_access_block.bad_config
+	File: /main.tf:36-43
+
+		36 | resource "aws_s3_bucket_public_access_block" "bad_config" {
+		37 |   bucket = aws_s3_bucket.public_data.id
+		38 | 
+		39 |   block_public_acls       = false  # Should be true
+		40 |   block_public_policy     = false  # Should be true
+		41 |   ignore_public_acls      = false  # Should be true
+		42 |   restrict_public_buckets = false  # Should be true
+		43 | }
+
+Check: CKV_AWS_53: "Ensure S3 bucket has block public ACLS enabled"
+	FAILED for resource: aws_s3_bucket_public_access_block.bad_config
+	File: /main.tf:36-43
+
+		36 | resource "aws_s3_bucket_public_access_block" "bad_config" {
+		37 |   bucket = aws_s3_bucket.public_data.id
+		38 | 
+		39 |   block_public_acls       = false  # Should be true
+		40 |   block_public_policy     = false  # Should be true
+		41 |   ignore_public_acls      = false  # Should be true
+		42 |   restrict_public_buckets = false  # Should be true
+		43 | }
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	FAILED for resource: aws.default
+	File: /main.tf:5-10
+
+		5  | provider "aws" {
+		6  |   region = "us-east-1"
+		7  |   # Hardcoded credentials - SECURITY ISSUE #1
+		8  |   access_key = "AKIAI**********"
+		9  |   secret_key = "wJalrX**********"
+		10 | }
+
+Check: CKV_AWS_277: "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1"
+	FAILED for resource: aws_security_group.allow_all
+	File: /security_groups.tf:5-28
+
+		5  | resource "aws_security_group" "allow_all" {
+		6  |   name        = "allow-all-traffic"
+		7  |   description = "Allow all inbound traffic from anywhere"
+		8  |   vpc_id      = "vpc-12345678"
+		9  | 
+		10 |   ingress {
+		11 |     description = "Allow all traffic"
+		12 |     from_port   = 0
+		13 |     to_port     = 65535
+		14 |     protocol    = "-1"  # All protocols
+		15 |     cidr_blocks = ["0.0.0.0/0"]  # From anywhere!
+		16 |   }
+		17 | 
+		18 |   egress {
+		19 |     from_port   = 0
+		20 |     to_port     = 0
+		21 |     protocol    = "-1"
+		22 |     cidr_blocks = ["0.0.0.0/0"]
+		23 |   }
+		24 | 
+		25 |   tags = {
+		26 |     Name = "Allow All Security Group"
+		27 |   }
+		28 | }
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	FAILED for resource: aws_security_group.allow_all
+	File: /security_groups.tf:5-28
+
+		5  | resource "aws_security_group" "allow_all" {
+		6  |   name        = "allow-all-traffic"
+		7  |   description = "Allow all inbound traffic from anywhere"
+		8  |   vpc_id      = "vpc-12345678"
+		9  | 
+		10 |   ingress {
+		11 |     description = "Allow all traffic"
+		12 |     from_port   = 0
+		13 |     to_port     = 65535
+		14 |     protocol    = "-1"  # All protocols
+		15 |     cidr_blocks = ["0.0.0.0/0"]  # From anywhere!
+		16 |   }
+		17 | 
+		18 |   egress {
+		19 |     from_port   = 0
+		20 |     to_port     = 0
+		21 |     protocol    = "-1"
+		22 |     cidr_blocks = ["0.0.0.0/0"]
+		23 |   }
+		24 | 
+		25 |   tags = {
+		26 |     Name = "Allow All Security Group"
+		27 |   }
+		28 | }
+
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	FAILED for resource: aws_security_group.allow_all
+	File: /security_groups.tf:5-28
+
+		5  | resource "aws_security_group" "allow_all" {
+		6  |   name        = "allow-all-traffic"
+		7  |   description = "Allow all inbound traffic from anywhere"
+		8  |   vpc_id      = "vpc-12345678"
+		9  | 
+		10 |   ingress {
+		11 |     description = "Allow all traffic"
+		12 |     from_port   = 0
+		13 |     to_port     = 65535
+		14 |     protocol    = "-1"  # All protocols
+		15 |     cidr_blocks = ["0.0.0.0/0"]  # From anywhere!
+		16 |   }
+		17 | 
+		18 |   egress {
+		19 |     from_port   = 0
+		20 |     to_port     = 0
+		21 |     protocol    = "-1"
+		22 |     cidr_blocks = ["0.0.0.0/0"]
+		23 |   }
+		24 | 
+		25 |   tags = {
+		26 |     Name = "Allow All Security Group"
+		27 |   }
+		28 | }
+
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	FAILED for resource: aws_security_group.allow_all
+	File: /security_groups.tf:5-28
+
+		5  | resource "aws_security_group" "allow_all" {
+		6  |   name        = "allow-all-traffic"
+		7  |   description = "Allow all inbound traffic from anywhere"
+		8  |   vpc_id      = "vpc-12345678"
+		9  | 
+		10 |   ingress {
+		11 |     description = "Allow all traffic"
+		12 |     from_port   = 0
+		13 |     to_port     = 65535
+		14 |     protocol    = "-1"  # All protocols
+		15 |     cidr_blocks = ["0.0.0.0/0"]  # From anywhere!
+		16 |   }
+		17 | 
+		18 |   egress {
+		19 |     from_port   = 0
+		20 |     to_port     = 0
+		21 |     protocol    = "-1"
+		22 |     cidr_blocks = ["0.0.0.0/0"]
+		23 |   }
+		24 | 
+		25 |   tags = {
+		26 |     Name = "Allow All Security Group"
+		27 |   }
+		28 | }
+
+Check: CKV_AWS_382: "Ensure no security groups allow egress from 0.0.0.0:0 to port -1"
+	FAILED for resource: aws_security_group.allow_all
+	File: /security_groups.tf:5-28
+
+		5  | resource "aws_security_group" "allow_all" {
+		6  |   name        = "allow-all-traffic"
+		7  |   description = "Allow all inbound traffic from anywhere"
+		8  |   vpc_id      = "vpc-12345678"
+		9  | 
+		10 |   ingress {
+		11 |     description = "Allow all traffic"
+		12 |     from_port   = 0
+		13 |     to_port     = 65535
+		14 |     protocol    = "-1"  # All protocols
+		15 |     cidr_blocks = ["0.0.0.0/0"]  # From anywhere!
+		16 |   }
+		17 | 
+		18 |   egress {
+		19 |     from_port   = 0
+		20 |     to_port     = 0
+		21 |     protocol    = "-1"
+		22 |     cidr_blocks = ["0.0.0.0/0"]
+		23 |   }
+		24 | 
+		25 |   tags = {
+		26 |     Name = "Allow All Security Group"
+		27 |   }
+		28 | }
+
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	FAILED for resource: aws_security_group.allow_all
+	File: /security_groups.tf:5-28
+
+		5  | resource "aws_security_group" "allow_all" {
+		6  |   name        = "allow-all-traffic"
+		7  |   description = "Allow all inbound traffic from anywhere"
+		8  |   vpc_id      = "vpc-12345678"
+		9  | 
+		10 |   ingress {
+		11 |     description = "Allow all traffic"
+		12 |     from_port   = 0
+		13 |     to_port     = 65535
+		14 |     protocol    = "-1"  # All protocols
+		15 |     cidr_blocks = ["0.0.0.0/0"]  # From anywhere!
+		16 |   }
+		17 | 
+		18 |   egress {
+		19 |     from_port   = 0
+		20 |     to_port     = 0
+		21 |     protocol    = "-1"
+		22 |     cidr_blocks = ["0.0.0.0/0"]
+		23 |   }
+		24 | 
+		25 |   tags = {
+		26 |     Name = "Allow All Security Group"
+		27 |   }
+		28 | }
+
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	FAILED for resource: aws_security_group.ssh_open
+	File: /security_groups.tf:31-62
+
+		31 | resource "aws_security_group" "ssh_open" {
+		32 |   name        = "ssh-from-anywhere"
+		33 |   description = "SSH access from anywhere"
+		34 |   vpc_id      = "vpc-12345678"
+		35 | 
+		36 |   ingress {
+		37 |     description = "SSH from anywhere"
+		38 |     from_port   = 22
+		39 |     to_port     = 22
+		40 |     protocol    = "tcp"
+		41 |     cidr_blocks = ["0.0.0.0/0"]  # SSH from anywhere!
+		42 |   }
+		43 | 
+		44 |   ingress {
+		45 |     description = "RDP from anywhere"
+		46 |     from_port   = 3389
+		47 |     to_port     = 3389
+		48 |     protocol    = "tcp"
+		49 |     cidr_blocks = ["0.0.0.0/0"]  # RDP from anywhere!
+		50 |   }
+		51 | 
+		52 |   egress {
+		53 |     from_port   = 0
+		54 |     to_port     = 0
+		55 |     protocol    = "-1"
+		56 |     cidr_blocks = ["0.0.0.0/0"]
+		57 |   }
+		58 | 
+		59 |   tags = {
+		60 |     Name = "SSH Open Security Group"
+		61 |   }
+		62 | }
+
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	FAILED for resource: aws_security_group.ssh_open
+	File: /security_groups.tf:31-62
+
+		31 | resource "aws_security_group" "ssh_open" {
+		32 |   name        = "ssh-from-anywhere"
+		33 |   description = "SSH access from anywhere"
+		34 |   vpc_id      = "vpc-12345678"
+		35 | 
+		36 |   ingress {
+		37 |     description = "SSH from anywhere"
+		38 |     from_port   = 22
+		39 |     to_port     = 22
+		40 |     protocol    = "tcp"
+		41 |     cidr_blocks = ["0.0.0.0/0"]  # SSH from anywhere!
+		42 |   }
+		43 | 
+		44 |   ingress {
+		45 |     description = "RDP from anywhere"
+		46 |     from_port   = 3389
+		47 |     to_port     = 3389
+		48 |     protocol    = "tcp"
+		49 |     cidr_blocks = ["0.0.0.0/0"]  # RDP from anywhere!
+		50 |   }
+		51 | 
+		52 |   egress {
+		53 |     from_port   = 0
+		54 |     to_port     = 0
+		55 |     protocol    = "-1"
+		56 |     cidr_blocks = ["0.0.0.0/0"]
+		57 |   }
+		58 | 
+		59 |   tags = {
+		60 |     Name = "SSH Open Security Group"
+		61 |   }
+		62 | }
+
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	FAILED for resource: aws_security_group.ssh_open
+	File: /security_groups.tf:31-62
+
+		31 | resource "aws_security_group" "ssh_open" {
+		32 |   name        = "ssh-from-anywhere"
+		33 |   description = "SSH access from anywhere"
+		34 |   vpc_id      = "vpc-12345678"
+		35 | 
+		36 |   ingress {
+		37 |     description = "SSH from anywhere"
+		38 |     from_port   = 22
+		39 |     to_port     = 22
+		40 |     protocol    = "tcp"
+		41 |     cidr_blocks = ["0.0.0.0/0"]  # SSH from anywhere!
+		42 |   }
+		43 | 
+		44 |   ingress {
+		45 |     description = "RDP from anywhere"
+		46 |     from_port   = 3389
+		47 |     to_port     = 3389
+		48 |     protocol    = "tcp"
+		49 |     cidr_blocks = ["0.0.0.0/0"]  # RDP from anywhere!
+		50 |   }
+		51 | 
+		52 |   egress {
+		53 |     from_port   = 0
+		54 |     to_port     = 0
+		55 |     protocol    = "-1"
+		56 |     cidr_blocks = ["0.0.0.0/0"]
+		57 |   }
+		58 | 
+		59 |   tags = {
+		60 |     Name = "SSH Open Security Group"
+		61 |   }
+		62 | }
+
+Check: CKV_AWS_382: "Ensure no security groups allow egress from 0.0.0.0:0 to port -1"
+	FAILED for resource: aws_security_group.ssh_open
+	File: /security_groups.tf:31-62
+
+		31 | resource "aws_security_group" "ssh_open" {
+		32 |   name        = "ssh-from-anywhere"
+		33 |   description = "SSH access from anywhere"
+		34 |   vpc_id      = "vpc-12345678"
+		35 | 
+		36 |   ingress {
+		37 |     description = "SSH from anywhere"
+		38 |     from_port   = 22
+		39 |     to_port     = 22
+		40 |     protocol    = "tcp"
+		41 |     cidr_blocks = ["0.0.0.0/0"]  # SSH from anywhere!
+		42 |   }
+		43 | 
+		44 |   ingress {
+		45 |     description = "RDP from anywhere"
+		46 |     from_port   = 3389
+		47 |     to_port     = 3389
+		48 |     protocol    = "tcp"
+		49 |     cidr_blocks = ["0.0.0.0/0"]  # RDP from anywhere!
+		50 |   }
+		51 | 
+		52 |   egress {
+		53 |     from_port   = 0
+		54 |     to_port     = 0
+		55 |     protocol    = "-1"
+		56 |     cidr_blocks = ["0.0.0.0/0"]
+		57 |   }
+		58 | 
+		59 |   tags = {
+		60 |     Name = "SSH Open Security Group"
+		61 |   }
+		62 | }
+
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	FAILED for resource: aws_security_group.database_exposed
+	File: /security_groups.tf:65-92
+
+		65 | resource "aws_security_group" "database_exposed" {
+		66 |   name        = "database-public"
+		67 |   description = "Database accessible from internet"
+		68 |   vpc_id      = "vpc-12345678"
+		69 | 
+		70 |   ingress {
+		71 |     description = "MySQL from anywhere"
+		72 |     from_port   = 3306
+		73 |     to_port     = 3306
+		74 |     protocol    = "tcp"
+		75 |     cidr_blocks = ["0.0.0.0/0"]  # Database exposed!
+		76 |   }
+		77 | 
+		78 |   ingress {
+		79 |     description = "PostgreSQL from anywhere"
+		80 |     from_port   = 5432
+		81 |     to_port     = 5432
+		82 |     protocol    = "tcp"
+		83 |     cidr_blocks = ["0.0.0.0/0"]  # Database exposed!
+		84 |   }
+		85 | 
+		86 |   egress {
+		87 |     from_port   = 0
+		88 |     to_port     = 0
+		89 |     protocol    = "-1"
+		90 |     cidr_blocks = ["0.0.0.0/0"]
+		91 |   }
+		92 | }
+
+Check: CKV_AWS_382: "Ensure no security groups allow egress from 0.0.0.0:0 to port -1"
+	FAILED for resource: aws_security_group.database_exposed
+	File: /security_groups.tf:65-92
+
+		65 | resource "aws_security_group" "database_exposed" {
+		66 |   name        = "database-public"
+		67 |   description = "Database accessible from internet"
+		68 |   vpc_id      = "vpc-12345678"
+		69 | 
+		70 |   ingress {
+		71 |     description = "MySQL from anywhere"
+		72 |     from_port   = 3306
+		73 |     to_port     = 3306
+		74 |     protocol    = "tcp"
+		75 |     cidr_blocks = ["0.0.0.0/0"]  # Database exposed!
+		76 |   }
+		77 | 
+		78 |   ingress {
+		79 |     description = "PostgreSQL from anywhere"
+		80 |     from_port   = 5432
+		81 |     to_port     = 5432
+		82 |     protocol    = "tcp"
+		83 |     cidr_blocks = ["0.0.0.0/0"]  # Database exposed!
+		84 |   }
+		85 | 
+		86 |   egress {
+		87 |     from_port   = 0
+		88 |     to_port     = 0
+		89 |     protocol    = "-1"
+		90 |     cidr_blocks = ["0.0.0.0/0"]
+		91 |   }
+		92 | }
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+
+		24 | resource "aws_s3_bucket" "unencrypted_data" {
+		25 |   bucket = "my-unencrypted-bucket-lab6"
+		26 |   acl    = "private"
+		27 |   
+		28 |   # No server_side_encryption_configuration!
+		29 |   
+		30 |   versioning {
+		31 |     enabled = false  # Versioning disabled
+		32 |   }
+		33 | }
+
+Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+	FAILED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+
+		24 | resource "aws_s3_bucket" "unencrypted_data" {
+		25 |   bucket = "my-unencrypted-bucket-lab6"
+		26 |   acl    = "private"
+		27 |   
+		28 |   # No server_side_encryption_configuration!
+		29 |   
+		30 |   versioning {
+		31 |     enabled = false  # Versioning disabled
+		32 |   }
+		33 | }
+
+Check: CKV2_AWS_30: "Ensure Postgres RDS as aws_db_instance has Query Logging enabled"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+	FAILED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+
+		24 | resource "aws_s3_bucket" "unencrypted_data" {
+		25 |   bucket = "my-unencrypted-bucket-lab6"
+		26 |   acl    = "private"
+		27 |   
+		28 |   # No server_side_encryption_configuration!
+		29 |   
+		30 |   versioning {
+		31 |     enabled = false  # Versioning disabled
+		32 |   }
+		33 | }
+
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
+	FAILED for resource: aws_security_group.allow_all
+	File: /security_groups.tf:5-28
+
+		5  | resource "aws_security_group" "allow_all" {
+		6  |   name        = "allow-all-traffic"
+		7  |   description = "Allow all inbound traffic from anywhere"
+		8  |   vpc_id      = "vpc-12345678"
+		9  | 
+		10 |   ingress {
+		11 |     description = "Allow all traffic"
+		12 |     from_port   = 0
+		13 |     to_port     = 65535
+		14 |     protocol    = "-1"  # All protocols
+		15 |     cidr_blocks = ["0.0.0.0/0"]  # From anywhere!
+		16 |   }
+		17 | 
+		18 |   egress {
+		19 |     from_port   = 0
+		20 |     to_port     = 0
+		21 |     protocol    = "-1"
+		22 |     cidr_blocks = ["0.0.0.0/0"]
+		23 |   }
+		24 | 
+		25 |   tags = {
+		26 |     Name = "Allow All Security Group"
+		27 |   }
+		28 | }
+
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
+	FAILED for resource: aws_security_group.ssh_open
+	File: /security_groups.tf:31-62
+
+		31 | resource "aws_security_group" "ssh_open" {
+		32 |   name        = "ssh-from-anywhere"
+		33 |   description = "SSH access from anywhere"
+		34 |   vpc_id      = "vpc-12345678"
+		35 | 
+		36 |   ingress {
+		37 |     description = "SSH from anywhere"
+		38 |     from_port   = 22
+		39 |     to_port     = 22
+		40 |     protocol    = "tcp"
+		41 |     cidr_blocks = ["0.0.0.0/0"]  # SSH from anywhere!
+		42 |   }
+		43 | 
+		44 |   ingress {
+		45 |     description = "RDP from anywhere"
+		46 |     from_port   = 3389
+		47 |     to_port     = 3389
+		48 |     protocol    = "tcp"
+		49 |     cidr_blocks = ["0.0.0.0/0"]  # RDP from anywhere!
+		50 |   }
+		51 | 
+		52 |   egress {
+		53 |     from_port   = 0
+		54 |     to_port     = 0
+		55 |     protocol    = "-1"
+		56 |     cidr_blocks = ["0.0.0.0/0"]
+		57 |   }
+		58 | 
+		59 |   tags = {
+		60 |     Name = "SSH Open Security Group"
+		61 |   }
+		62 | }
+
+Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+	FAILED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+
+		24 | resource "aws_s3_bucket" "unencrypted_data" {
+		25 |   bucket = "my-unencrypted-bucket-lab6"
+		26 |   acl    = "private"
+		27 |   
+		28 |   # No server_side_encryption_configuration!
+		29 |   
+		30 |   versioning {
+		31 |     enabled = false  # Versioning disabled
+		32 |   }
+		33 | }
+
+Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+	FAILED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+
+		24 | resource "aws_s3_bucket" "unencrypted_data" {
+		25 |   bucket = "my-unencrypted-bucket-lab6"
+		26 |   acl    = "private"
+		27 |   
+		28 |   # No server_side_encryption_configuration!
+		29 |   
+		30 |   versioning {
+		31 |     enabled = false  # Versioning disabled
+		32 |   }
+		33 | }
+
+Check: CKV2_AWS_60: "Ensure RDS instance with copy tags to snapshots is enabled"
+	FAILED for resource: aws_db_instance.unencrypted_db
+	File: /database.tf:5-37
+
+		5  | resource "aws_db_instance" "unencrypted_db" {
+		6  |   identifier           = "mydb-unencrypted"
+		7  |   engine               = "postgres"
+		8  |   engine_version       = "13.7"
+		9  |   instance_class       = "db.t3.micro"
+		10 |   allocated_storage    = 20
+		11 |   
+		12 |   username = "admin"
+		13 |   password = "SuperSecretPassword123!"  # SECURITY ISSUE #9 - Hardcoded password!
+		14 |   
+		15 |   storage_encrypted = false  # No encryption!
+		16 |   
+		17 |   publicly_accessible = true  # SECURITY ISSUE #10 - Public access!
+		18 |   
+		19 |   skip_final_snapshot = true
+		20 |   
+		21 |   # No backup configuration
+		22 |   backup_retention_period = 0  # SECURITY ISSUE #11 - No backups!
+		23 |   
+		24 |   # Missing monitoring
+		25 |   enabled_cloudwatch_logs_exports = []
+		26 |   
+		27 |   # No deletion protection
+		28 |   deletion_protection = false  # SECURITY ISSUE #12
+		29 |   
+		30 |   # Using default security group
+		31 |   vpc_security_group_ids = [aws_security_group.database_exposed.id]
+		32 |   
+		33 |   tags = {
+		34 |     Name = "Unencrypted Database"
+		35 |     # Missing required tags
+		36 |   }
+		37 | }
+
+Check: CKV2_AWS_60: "Ensure RDS instance with copy tags to snapshots is enabled"
+	FAILED for resource: aws_db_instance.weak_db
+	File: /database.tf:40-69
+
+		40 | resource "aws_db_instance" "weak_db" {
+		41 |   identifier           = "mydb-weak"
+		42 |   engine               = "mysql"
+		43 |   engine_version       = "5.7.38"  # Old version with known vulnerabilities
+		44 |   instance_class       = "db.t3.micro"
+		45 |   allocated_storage    = 20
+		46 |   
+		47 |   username = "root"  # Using default admin username
+		48 |   password = "password123"  # Weak password!
+		49 |   
+		50 |   storage_encrypted = true
+		51 |   kms_key_id        = ""  # Empty KMS key - using default key
+		52 |   
+		53 |   publicly_accessible = false
+		54 |   
+		55 |   # Multi-AZ disabled
+		56 |   multi_az = false  # SECURITY ISSUE #14 - No high availability
+		57 |   
+		58 |   # Auto minor version upgrade disabled
+		59 |   auto_minor_version_upgrade = false  # SECURITY ISSUE #15
+		60 |   
+		61 |   # No performance insights
+		62 |   performance_insights_enabled = false
+		63 |   
+		64 |   skip_final_snapshot = true
+		65 |   
+		66 |   tags = {
+		67 |     Name = "Weak Database"
+		68 |   }
+		69 | }
+
+Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+	FAILED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+
+		24 | resource "aws_s3_bucket" "unencrypted_data" {
+		25 |   bucket = "my-unencrypted-bucket-lab6"
+		26 |   acl    = "private"
+		27 |   
+		28 |   # No server_side_encryption_configuration!
+		29 |   
+		30 |   versioning {
+		31 |     enabled = false  # Versioning disabled
+		32 |   }
+		33 | }
+
+Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+	FAILED for resource: aws_s3_bucket.unencrypted_data
+	File: /main.tf:24-33
+
+		24 | resource "aws_s3_bucket" "unencrypted_data" {
+		25 |   bucket = "my-unencrypted-bucket-lab6"
+		26 |   acl    = "private"
+		27 |   
+		28 |   # No server_side_encryption_configuration!
+		29 |   
+		30 |   versioning {
+		31 |     enabled = false  # Versioning disabled
+		32 |   }
+		33 | }
+
+Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+	FAILED for resource: aws_s3_bucket.public_data
+	File: /main.tf:13-21
+
+		13 | resource "aws_s3_bucket" "public_data" {
+		14 |   bucket = "my-public-bucket-lab6"
+		15 |   acl    = "public-read"  # Public access enabled!
+		16 | 
+		17 |   tags = {
+		18 |     Name = "Public Data Bucket"
+		19 |     # Missing required tags: Environment, Owner, CostCenter
+		20 |   }
+		21 | }
+
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	FAILED for resource: aws_iam_policy.admin_policy
+	File: /iam.tf:5-19
+
+		5  | resource "aws_iam_policy" "admin_policy" {
+		6  |   name        = "overly-permissive-policy"
+		7  |   description = "Policy with wildcard permissions"
+		8  | 
+		9  |   policy = jsonencode({
+		10 |     Version = "2012-10-17"
+		11 |     Statement = [
+		12 |       {
+		13 |         Effect = "Allow"
+		14 |         Action = "*"  # All actions allowed!
+		15 |         Resource = "*"  # On all resources!
+		16 |       }
+		17 |     ]
+		18 |   })
+		19 | }
+
+

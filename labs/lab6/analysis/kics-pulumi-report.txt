@@ -1,0 +1,47 @@
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL 
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM 
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML                      
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL     
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML  
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML 
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML  
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK    
+                                                                                                            
+                                                                                                                                                                                                                                                                                                                        
+
+
+Scanning with Keeping Infrastructure as Code Secure v2.1.14
+
+
+Preparing Scan Assets: Done                                                                                        
+Executing queries: [---------------------------------------------------] 100.00%
+
+
+
+EC2 Not EBS Optimized, Severity: INFO, Results: 1
+        [1]: ../../src/Pulumi-vulnerable.yaml:157
+DynamoDB Table Point In Time Recovery Disabled, Severity: INFO, Results: 1
+        [1]: ../../src/Pulumi-vulnerable.yaml:213
+RDS DB Instance Publicly Accessible, Severity: MEDIUM, Results: 1
+        [1]: ../../src/Pulumi-vulnerable.yaml:104
+EC2 Instance Monitoring Disabled, Severity: MEDIUM, Results: 1
+        [1]: ../../src/Pulumi-vulnerable.yaml:157
+Passwords And Secrets - Generic Password, Severity: HIGH, Results: 1
+        [1]: ../../src/Pulumi-vulnerable.yaml:16
+DynamoDB Table Not Encrypted, Severity: HIGH, Results: 1
+        [1]: ../../src/Pulumi-vulnerable.yaml:205
+
+Results Summary:
+CRITICAL: 0
+HIGH: 2
+MEDIUM: 2
+LOW: 0
+INFO: 2
+TOTAL: 6
