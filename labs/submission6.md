@@ -153,8 +153,13 @@ KICS provides **comprehensive Ansible security coverage**:
 | **Total Findings** | 53 | 78 | 22 | 15 (Pulumi + Ansible) |
 | **Scan Speed** | Fast | Medium | Fast | Medium |
 | **False Positives** | Very Low | Low | Medium | Low |
-| **Report Quality** | 1 | 2 | 3 | 4 |
+| **Report Quality** | ⭐ | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **Ease of Use** | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐ |
+| **Documentation** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
 | **Platform Support** | Terraform only | Multiple | Multiple | Multiple |
+| **Output Formats** | JSON, text, SARIF | JSON, JUnit, SARIF | JSON, YAML | JSON, HTML, SARIF |
+| **CI/CD Integration** | Easy | Medium | Easy | Medium |
+| **Unique Strengths** | Terraform optimization | Policy library | OPA integration | Multi-language |
 
 ### Vulnerability Category Analysis
 
