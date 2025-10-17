@@ -63,7 +63,7 @@ KICS’s Pulumi support is functional and valuable for many common misconfigurat
 2. **Unencrypted Data at Rest (RDS / DynamoDB)** [tfsec, Terrascan, KICS] — High: Missing `storage_encrypted` or `serverSideEncryption` attributes.
 3. **Open Security Groups (0.0.0.0/0)** [tfsec, Terrascan] — Critical: Ingress/egress open to all IPs or ports.
 4. **Hardcoded Secrets or Passwords in Source Code** [KICS] — Critical: Static secrets detected in Pulumi YAML.
-5. **IAM Policy Wildcards (* Actions or Resources)** [tfsec, Terrascan, Checkov] — High: IAM permissions too broad — enables privilege escalation or resource deletion.
+5. **IAM Policy Wildcards** [tfsec, Terrascan, Checkov] — High: IAM permissions too broad — enables privilege escalation or resource deletion.
 
 ### Tool Strength
 
