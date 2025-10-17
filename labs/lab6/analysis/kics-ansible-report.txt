@@ -1,0 +1,116 @@
+   MLLLLLM             MLLLLLLLLL   LLLLLLL             KLLLLLLLLLLLLLLLL       LLLLLLLLLLLLLLLLLLLLLLL 
+   MMMMMMM           MMMMMMMMMML    MMMMMMMK       LMMMMMMMMMMMMMMMMMMMML   KLMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM         MMMMMMMMML       MMMMMMMK     LMMMMMMMMMMMMMMMMMMMMMML  LMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM      MMMMMMMMMML         MMMMMMMK   LMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM    LMMMMMMMMML           MMMMMMMK  LMMMMMMMMMLLMLLLLLLLLLLLLLL LMMMMMMMLLLLLLLLLLLLLLLLLLLLM 
+   MMMMMMM  MMMMMMMMMLM             MMMMMMMK LMMMMMMMM                    LMMMMMML                      
+   MMMMMMMLMMMMMMMML                MMMMMMMK MMMMMMML                     LMMMMMMMMLLLLLLLLLLLLLMLL     
+   MMMMMMMMMMMMMMMM                 MMMMMMMK MMMMMML                       LMMMMMMMMMMMMMMMMMMMMMMMMML  
+   MMMMMMMMMMMMMMMMMM               MMMMMMMK MMMMMMM                         LMMMMMMMMMMMMMMMMMMMMMMMML 
+   MMMMMMM KLMMMMMMMMML             MMMMMMMK LMMMMMMM                                          MMMMMMMML
+   MMMMMMM    LMMMMMMMMMM           MMMMMMMK LMMMMMMMMLL                                        MMMMMMML
+   MMMMMMM      LMMMMMMMMMLL        MMMMMMMK  LMMMMMMMMMMMMMMMMMMMMMMMMML LLLLLLLLLLLLLLLLLLLLMMMMMMMMMM
+   MMMMMMM        MMMMMMMMMMML      MMMMMMMK   MMMMMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMMMM 
+   MMMMMMM          LLMMMMMMMMML    MMMMMMMK     LLMMMMMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMMMML  
+   MMMMMMM             MMMMMMMMMML  MMMMMMMK         KLMMMMMMMMMMMMMMMMML LMMMMMMMMMMMMMMMMMMMMMMMLK    
+                                                                                                            
+                                                                                                                                                                                                                                                                                                                        
+
+
+Scanning with Keeping Infrastructure as Code Secure v2.1.14
+
+
+Preparing Scan Assets: Done                                                                                        
+Executing queries: [---------------------------------------------------] 100.00%
+
+
+
+Unpinned Package Version, Severity: LOW, Results: 1
+Description: Setting state to latest performs an update and installs additional packages possibly resulting in performance degradation or loss of service
+Platform: Ansible
+CWE: 706
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/ansible-queries/c05e2c20-0a2c-4686-b1f8-5f0a5612d4e8
+
+        [1]: ../../src/deploy.yml:99
+
+                098:         name: myapp
+                099:         state: latest  # Should pin specific version
+                100:         update_cache: yes
+
+
+Passwords And Secrets - Password in URL, Severity: HIGH, Results: 2
+Description: Query to find passwords and secrets in infrastructure code.
+Platform: Common
+CWE: 798
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/common-queries/a88baa34-e2ad-44ea-ad6f-8cac87bc7c71
+
+        [1]: ../../src/deploy.yml:16
+
+                015:     # SECURITY ISSUE #3 - Database connection string with credentials
+                016:     db_connection: <SECRET-MASKED-ON-PURPOSE>:5432/myapp"
+                017:   
+
+
+        [2]: ../../src/deploy.yml:72
+
+                071:       git:
+                072:         repo: <SECRET-MASKED-ON-PURPOSE>/company/repo.git'
+                073:         dest: /var/www/myapp
+
+
+Passwords And Secrets - Generic Password, Severity: HIGH, Results: 6
+Description: Query to find passwords and secrets in infrastructure code.
+Platform: Common
+CWE: 798
+Learn more about this vulnerability: https://docs.kics.io/latest/queries/common-queries/a88baa34-e2ad-44ea-ad6f-8cac87bc7c71
+
+        [1]: ../../src/configure.yml:16
+
+                015:     
+                016:     admin_password: <SECRET-MASKED-ON-PURPOSE>
+                017:   
+
+
+        [2]: ../../src/inventory.ini:19
+
+                018: ansible_become_password=<SECRET-MASKED-ON-PURPOSE>
+                019: db_admin_password=<SECRET-MASKED-ON-PURPOSE>
+                020: api_secret_key=sk_live_abcdef1234567890
+
+
+        [3]: ../../src/inventory.ini:5
+
+                004: [webservers]
+                005: web1.example.com ansible_user=root ansible_password=<SECRET-MASKED-ON-PURPOSE>
+                006: web2.example.com ansible_user=root ansible_ssh_pass=RootPass123!
+
+
+        [4]: ../../src/inventory.ini:10
+
+                009: # SECURITY ISSUE #36 - Using root user and default port
+                010: db1.example.com ansible_user=root ansible_port=22 ansible_password=<SECRET-MASKED-ON-PURPOSE>
+                011: 
+
+
+        [5]: ../../src/deploy.yml:12
+
+                011:     # SECURITY ISSUE #1 - Hardcoded password in playbook!
+                012:     db_password: <SECRET-MASKED-ON-PURPOSE>
+                013:     # SECURITY ISSUE #2 - Hardcoded API key!
+
+
+        [6]: ../../src/inventory.ini:18
+
+                017: # SECURITY ISSUE #38 - Global variables with secrets
+                018: ansible_become_password=<SECRET-MASKED-ON-PURPOSE>
+                019: db_admin_password=<SECRET-MASKED-ON-PURPOSE>
+
+
+
+Results Summary:
+CRITICAL: 0
+HIGH: 8
+MEDIUM: 0
+LOW: 1
+INFO: 0
+TOTAL: 9

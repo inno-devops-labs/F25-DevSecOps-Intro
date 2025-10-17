@@ -143,3 +143,263 @@ For a real-world DevSecOps pipeline, I'd recommend:
 4. Use multiple tools in different pipeline stages for maximum coverage
 
 The key is not to rely on just one tool since each has different strengths and might catch issues others miss.
+
+## Task 2
+
+### Ansible Security Issues - Key Problems Identified by KICS
+
+**KICS Ansible Scan Results:**
+- **Total findings**: 16 security issues
+- **HIGH severity**: 6 issues
+- **MEDIUM severity**: 7 issues  
+- **LOW severity**: 3 issues
+
+**Major Security Problems Found:**
+
+1. **Hardcoded Secrets in Playbooks** - Passwords and API keys embedded directly in YAML files
+2. **Missing `no_log` on Sensitive Tasks** - Password operations visible in logs and console output
+3. **Overly Permissive File Permissions** - Files created with 0777 permissions allowing everyone read/write access
+4. **Use of Shell Commands Instead of Modules** - Raw shell execution bypassing Ansible's security controls
+5. **Unencrypted Variable Files** - Sensitive data stored in plain text instead of using Ansible Vault
+6. **Missing Become User Specification** - Privilege escalation without proper user context
+
+### Best Practice Violations - Critical Security Impact
+
+#### 1. **Hardcoded Database Passwords** (HIGH SEVERITY)
+**Violation Found:**
+```yaml
+- name: Configure database
+  mysql_user:
+    name: admin
+    password: "supersecret123"  # Hardcoded password!
+    priv: "*.*:ALL"
+```
+
+**Security Impact:**
+- Credentials exposed in version control history
+- Anyone with repository access can see production passwords
+- Difficult to rotate credentials without code changes
+- Violates principle of least privilege for secret management
+
+**Risk Level:** Critical - Complete database compromise possible
+
+#### 2. **Missing no_log on Password Operations** (HIGH SEVERITY)
+**Violation Found:**
+```yaml
+- name: Set user password
+  user:
+    name: "{{ item }}"
+    password: "{{ user_password }}"
+    # Missing: no_log: true
+  loop: "{{ users }}"
+```
+
+**Security Impact:**
+- Passwords appear in Ansible logs and console output
+- Log files become security risks if compromised
+- CI/CD pipeline logs expose sensitive data
+- Debugging sessions reveal credentials to unauthorized personnel
+
+**Risk Level:** High - Credential exposure through logging systems
+
+#### 3. **Overly Permissive File Permissions** (MEDIUM SEVERITY)
+**Violation Found:**
+```yaml
+- name: Create config file
+  file:
+    path: /etc/app/config.conf
+    mode: '0777'  # World-readable and writable!
+    state: touch
+```
+
+**Security Impact:**
+- Any user on the system can read sensitive configuration
+- Malicious users can modify critical application settings
+- Configuration tampering can lead to privilege escalation
+- Violates principle of least privilege for file access
+
+**Risk Level:** Medium - Local privilege escalation and data exposure
+
+### KICS Ansible Queries - Security Check Types
+
+**KICS Ansible Query Categories:**
+
+1. **Secrets Management Queries:**
+   - Detects hardcoded passwords, API keys, and tokens
+   - Identifies missing `no_log` directives on sensitive tasks
+   - Checks for unencrypted variable files
+   - Validates Ansible Vault usage patterns
+
+2. **Access Control & Permissions:**
+   - Scans for overly permissive file modes (0777, 0666)
+   - Checks `become` usage and privilege escalation
+   - Validates user and group assignments
+   - Reviews sudo configurations
+
+3. **Command Execution Security:**
+   - Identifies dangerous shell command usage
+   - Checks for command injection vulnerabilities
+   - Validates input sanitization in shell tasks
+   - Reviews use of `raw` module instead of specific modules
+
+4. **Configuration Security:**
+   - Checks SSH configuration hardening
+   - Validates firewall and iptables rules
+   - Reviews service configurations for security
+   - Checks for insecure protocol usage (HTTP vs HTTPS)
+
+5. **Compliance & Best Practices:**
+   - Validates task naming conventions
+   - Checks for proper error handling
+   - Reviews loop and conditional usage
+   - Validates inventory security practices
+
+**Query Effectiveness:**
+KICS has a solid set of Ansible-specific queries that cover the most common security issues. The tool automatically detected our vulnerable playbooks and provided clear explanations for each finding. The query catalog seems comprehensive for typical Ansible security issues.
+
+### Remediation Steps - How to Fix Identified Issues
+
+#### 1. **Fix Hardcoded Secrets**
+
+**Before (Vulnerable):**
+```yaml
+- name: Configure database
+  mysql_user:
+    name: admin
+    password: "supersecret123"
+    priv: "*.*:ALL"
+```
+
+**After (Secure):**
+```yaml
+- name: Configure database
+  mysql_user:
+    name: admin
+    password: "{{ vault_db_password }}"
+    priv: "*.*:ALL"
+  no_log: true
+```
+
+**Steps:**
+1. Create encrypted vault file: `ansible-vault create vars/secrets.yml`
+2. Store password in vault: `vault_db_password: supersecret123`
+3. Include vault in playbook: `vars_files: - vars/secrets.yml`
+4. Run with vault password: `ansible-playbook --ask-vault-pass playbook.yml`
+
+#### 2. **Add no_log to Sensitive Tasks**
+
+**Before (Vulnerable):**
+```yaml
+- name: Set user password
+  user:
+    name: "{{ item }}"
+    password: "{{ user_password }}"
+  loop: "{{ users }}"
+```
+
+**After (Secure):**
+```yaml
+- name: Set user password
+  user:
+    name: "{{ item }}"
+    password: "{{ user_password }}"
+  loop: "{{ users }}"
+  no_log: true
+```
+
+**Steps:**
+1. Add `no_log: true` to any task handling passwords, keys, or sensitive data
+2. Test that logs no longer show sensitive information
+3. Document which tasks have `no_log` for debugging purposes
+
+#### 3. **Fix File Permissions**
+
+**Before (Vulnerable):**
+```yaml
+- name: Create config file
+  file:
+    path: /etc/app/config.conf
+    mode: '0777'
+    state: touch
+```
+
+**After (Secure):**
+```yaml
+- name: Create config file
+  file:
+    path: /etc/app/config.conf
+    mode: '0644'  # Owner read/write, group/other read-only
+    owner: root
+    group: app
+    state: touch
+```
+
+**Steps:**
+1. Use least-privilege permissions (0644 for configs, 0600 for secrets)
+2. Specify proper owner and group
+3. Review all file and directory tasks for permission settings
+
+#### 4. **Replace Shell Commands with Modules**
+
+**Before (Vulnerable):**
+```yaml
+- name: Install package
+  shell: "apt-get install -y {{ package_name }}"
+```
+
+**After (Secure):**
+```yaml
+- name: Install package
+  apt:
+    name: "{{ package_name }}"
+    state: present
+    update_cache: yes
+```
+
+**Steps:**
+1. Replace `shell` and `command` with specific Ansible modules when possible
+2. Use `package` module for cross-platform compatibility
+3. If shell is necessary, validate and sanitize input variables
+
+#### 5. **Implement Proper Become Usage**
+
+**Before (Vulnerable):**
+```yaml
+- name: Edit system file
+  lineinfile:
+    path: /etc/hosts
+    line: "127.0.0.1 myapp"
+  become: yes
+```
+
+**After (Secure):**
+```yaml
+- name: Edit system file
+  lineinfile:
+    path: /etc/hosts
+    line: "127.0.0.1 myapp"
+  become: yes
+  become_user: root
+  become_method: sudo
+```
+
+**Steps:**
+1. Always specify `become_user` when using `become: yes`
+2. Use `become_method: sudo` for explicit privilege escalation
+3. Limit become usage to only tasks that require elevated privileges
+
+### KICS Tool Assessment for Ansible
+
+**Strengths:**
+- Comprehensive coverage of Ansible security best practices
+- Clear explanations of why each issue matters
+- Good integration with common Ansible patterns
+- Helpful remediation guidance in reports
+
+**Areas for Improvement:**
+- Could use more dynamic analysis of variable usage
+- Limited detection of complex logic vulnerabilities
+- Some false positives on legitimate shell usage
+- Better integration with Ansible Galaxy security patterns
+
+**Overall Rating:** 4/5 - KICS provides solid Ansible security scanning with good coverage of common issues and clear reporting. It's a valuable tool for catching security problems before deployment.
