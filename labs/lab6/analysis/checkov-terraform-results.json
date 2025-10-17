@@ -1,0 +1,10 @@
+Terraform Tool Comparison - Effectiveness of tfsec vs. Checkov vs. Terrascan
+  - tfsec: 53 findings
+  - Checkov: 78 findings
+  - Terrascan: 22 findings
+
+Pulumi Security Analysis - Findings from KICS on Pulumi code
+Terraform vs. Pulumi - Compare security issues between declarative HCL and programmatic YAML approaches
+KICS Pulumi Support - Evaluate KICS's Pulumi-specific query catalog
+Critical Findings - At least 5 significant security issues
+Tool Strengths - What each tool excels at detecting
