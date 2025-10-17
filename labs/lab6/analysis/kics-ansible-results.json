@@ -1,0 +1,67 @@
+{
+	"kics_version": "v2.1.14",
+	"files_scanned": 3,
+	"lines_scanned": 22,
+	"files_parsed": 3,
+	"lines_parsed": 22,
+	"lines_ignored": 0,
+	"files_failed_to_scan": 0,
+	"queries_total": 287,
+	"queries_failed_to_execute": 0,
+	"queries_failed_to_compute_similarity_id": 0,
+	"scan_id": "console",
+	"severity_counters": {
+		"CRITICAL": 0,
+		"HIGH": 2,
+		"INFO": 0,
+		"LOW": 0,
+		"MEDIUM": 0,
+		"TRACE": 0
+	},
+	"total_counter": 2,
+	"total_bom_resources": 0,
+	"start": "2025-10-17T20:00:07.744604367Z",
+	"end": "2025-10-17T20:00:11.534914065Z",
+	"paths": [
+		"/src"
+	],
+	"queries": [
+		{
+			"query_name": "Passwords And Secrets - Generic Password",
+			"query_id": "487f4be7-3fd9-4506-a07a-eae252180c08",
+			"query_url": "https://docs.kics.io/latest/secrets/",
+			"severity": "HIGH",
+			"platform": "Common",
+			"cwe": "798",
+			"cloud_provider": "COMMON",
+			"category": "Secret Management",
+			"experimental": false,
+			"description": "Query to find passwords and secrets in infrastructure code.",
+			"description_id": "d69d8a89",
+			"files": [
+				{
+					"file_name": "../../src/inventory.ini",
+					"similarity_id": "7c0b538722ef2809a5355ef90a1a8c2710b4c0d2774a8bcc279418b583235272",
+					"line": 2,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "Hardcoded secret key appears in source"
+				},
+				{
+					"file_name": "../../src/deploy.yml",
+					"similarity_id": "b5e3548e7fce027b59075a81cee3b7ccd6810052611b0c0f645691cdd049a7a4",
+					"line": 5,
+					"issue_type": "RedundantAttribute",
+					"search_key": "",
+					"search_line": 0,
+					"search_value": "",
+					"expected_value": "Hardcoded secret key should not appear in source",
+					"actual_value": "Hardcoded secret key appears in source"
+				}
+			]
+		}
+	]
+}

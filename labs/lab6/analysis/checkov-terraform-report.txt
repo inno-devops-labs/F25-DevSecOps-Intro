@@ -1,0 +1,198 @@
+2025-10-17 19:40:01,884 [MainThread  ] [WARNI]  Failed to get the checkov mappings and guidelines from https://api0.prismacloud.io/bridgecrew/api/v2/guidelines. Skips using BC_* IDs will not work.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/usr/local/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 404, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1061, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connection.py", line 179, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7f09f4c176d0>, 'Connection to api0.prismacloud.io timed out. (connect timeout=3.1)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/checkov/common/bridgecrew/platform_integration.py", line 1273, in get_public_run_config
+    request = self.http.request("GET", self.guidelines_api_url, headers=headers)  # type:ignore[no-untyped-call]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/request.py", line 77, in request
+    return self.request_encode_url(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/request.py", line 99, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/poolmanager.py", line 376, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 830, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 830, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 830, in urlopen
+    return self.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/urllib3/util/retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api0.prismacloud.io', port=443): Max retries exceeded with url: /bridgecrew/api/v2/guidelines (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f09f4c176d0>, 'Connection to api0.prismacloud.io timed out. (connect timeout=3.1)'))
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.2.484 
+
+terraform scan results:
+
+Passed checks: 13, Failed checks: 29, Skipped checks: 0
+
+Check: CKV_AWS_388: "Ensure AWS Aurora PostgreSQL is not exposed to local file read vulnerability"
+	PASSED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_133: "Ensure that RDS instances has backup policy"
+	PASSED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_354: "Ensure RDS Performance Insights are encrypted using KMS CMKs"
+	PASSED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_211: "Ensure RDS uses a modern CaCert"
+	PASSED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: aws.default
+	File: /main.tf:1-3
+Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+	PASSED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV_AWS_25: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389"
+	PASSED for resource: aws_security_group.open_ssh
+	File: /security_groups.tf:1-11
+Check: CKV_AWS_277: "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group.open_ssh
+	File: /security_groups.tf:1-11
+Check: CKV_AWS_260: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80"
+	PASSED for resource: aws_security_group.open_ssh
+	File: /security_groups.tf:1-11
+Check: CKV_AWS_382: "Ensure no security groups allow egress from 0.0.0.0:0 to port -1"
+	PASSED for resource: aws_security_group.open_ssh
+	File: /security_groups.tf:1-11
+Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+	PASSED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV2_AWS_69: "Ensure AWS RDS database instance configured with encryption in transit"
+	PASSED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+	PASSED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV_AWS_293: "Ensure that AWS database instances have deletion protection enabled"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_226: "Ensure DB instance gets all minor upgrades automatically"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_157: "Ensure that RDS instances have Multi-AZ enabled"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_129: "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_16: "Ensure all data stored in the RDS is securely encrypted at rest"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_118: "Ensure that enhanced monitoring is enabled for Amazon RDS instances"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_161: "Ensure RDS database has IAM authentication enabled"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_17: "Ensure all data stored in RDS is not publicly accessible"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource for restrictable actions"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+Check: CKV_AWS_24: "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22"
+	FAILED for resource: aws_security_group.open_ssh
+	File: /security_groups.tf:1-11
+Check: CKV_AWS_23: "Ensure every security group and rule has a description"
+	FAILED for resource: aws_security_group.open_ssh
+	File: /security_groups.tf:1-11
+Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV2_AWS_60: "Ensure RDS instance with copy tags to snapshots is enabled"
+	FAILED for resource: aws_db_instance.vuln
+	File: /database.tf:1-8
+Check: CKV2_AWS_5: "Ensure that Security Groups are attached to another resource"
+	FAILED for resource: aws_security_group.open_ssh
+	File: /security_groups.tf:1-11
+Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+	FAILED for resource: aws_s3_bucket.public
+	File: /main.tf:5-8
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	FAILED for resource: aws_iam_policy.wildcard
+	File: /iam.tf:1-15
+

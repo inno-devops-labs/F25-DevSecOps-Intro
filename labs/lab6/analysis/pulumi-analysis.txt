@@ -1,0 +1,5 @@
+=== Pulumi Security Analysis (KICS) ===
+KICS Pulumi findings: 0
+  HIGH severity: 0
+  MEDIUM severity: 0
+  LOW severity: 0

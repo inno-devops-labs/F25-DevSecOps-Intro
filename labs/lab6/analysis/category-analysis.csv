@@ -1,0 +1,51 @@
+Tool,Category,Count
+"AVD-AWS-0124","Security group rule does not have a description.","LOW"
+"AVD-AWS-0107","Security group rule allows ingress from public internet.","CRITICAL"
+"AVD-AWS-0057","IAM policy document uses wildcarded action '*'","HIGH"
+"AVD-AWS-0057","IAM policy document uses sensitive action '*' on wildcarded resource '*'","HIGH"
+"AVD-AWS-0177","Instance does not have Deletion Protection enabled","MEDIUM"
+"AVD-AWS-0176","Instance does not have IAM Authentication enabled","MEDIUM"
+"AVD-AWS-0133","Instance does not have performance insights enabled.","LOW"
+"AVD-AWS-0180","Instance has Public Access enabled","HIGH"
+"AVD-AWS-0080","Instance does not have storage encryption enabled.","HIGH"
+"AVD-AWS-0082","Instance is exposed publicly.","CRITICAL"
+"AVD-AWS-0077","Instance has very low backup retention period.","MEDIUM"
+"AVD-AWS-0086","No public access block so not blocking public acls","HIGH"
+"AVD-AWS-0087","No public access block so not blocking public policies","HIGH"
+"AVD-AWS-0088","Bucket does not have encryption enabled","HIGH"
+"AVD-AWS-0089","Bucket does not have logging enabled","MEDIUM"
+"AVD-AWS-0090","Bucket does not have versioning enabled","MEDIUM"
+"AVD-AWS-0132","Bucket does not encrypt data with a customer managed key.","HIGH"
+"AVD-AWS-0091","No public access block so not ignoring public acls","HIGH"
+"AVD-AWS-0092","Bucket has a public ACL: 'public-read'.","HIGH"
+"AVD-AWS-0093","No public access block so not restricting public buckets","HIGH"
+"AVD-AWS-0094","Bucket does not have a corresponding public access block.","LOW"
+"CKV_AWS_293","Ensure that AWS database instances have deletion protection enabled",
+"CKV_AWS_226","Ensure DB instance gets all minor upgrades automatically",
+"CKV_AWS_157","Ensure that RDS instances have Multi-AZ enabled",
+"CKV_AWS_129","Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled",
+"CKV_AWS_16","Ensure all data stored in the RDS is securely encrypted at rest",
+"CKV_AWS_118","Ensure that enhanced monitoring is enabled for Amazon RDS instances",
+"CKV_AWS_161","Ensure RDS database has IAM authentication enabled",
+"CKV_AWS_17","Ensure all data stored in RDS is not publicly accessible",
+"CKV_AWS_287","Ensure IAM policies does not allow credentials exposure",
+"CKV_AWS_63","Ensure no IAM policies documents allow ""*"" as a statement's actions",
+"CKV_AWS_62","Ensure IAM policies that allow full ""*-*"" administrative privileges are not created",
+"CKV_AWS_355","Ensure no IAM policies documents allow ""*"" as a statement's resource for restrictable actions",
+"CKV_AWS_290","Ensure IAM policies does not allow write access without constraints",
+"CKV_AWS_289","Ensure IAM policies does not allow permissions management / resource exposure without constraints",
+"CKV_AWS_286","Ensure IAM policies does not allow privilege escalation",
+"CKV_AWS_288","Ensure IAM policies does not allow data exfiltration",
+"CKV_AWS_24","Ensure no security groups allow ingress from 0.0.0.0:0 to port 22",
+"CKV_AWS_23","Ensure every security group and rule has a description",
+"CKV2_AWS_6","Ensure that S3 bucket has a Public Access block",
+"CKV2_AWS_60","Ensure RDS instance with copy tags to snapshots is enabled",
+"CKV2_AWS_5","Ensure that Security Groups are attached to another resource",
+"CKV_AWS_144","Ensure that S3 bucket has cross-region replication enabled",
+"CKV_AWS_21","Ensure all data stored in the S3 bucket have versioning enabled",
+"CKV_AWS_20","S3 Bucket has an ACL defined which allows public READ access.",
+"CKV2_AWS_62","Ensure S3 buckets should have event notifications enabled",
+"CKV_AWS_18","Ensure the S3 bucket has access logging enabled",
+"CKV2_AWS_61","Ensure that an S3 bucket has a lifecycle configuration",
+"CKV_AWS_145","Ensure that S3 buckets are encrypted with KMS by default",
+"CKV2_AWS_40","Ensure AWS IAM policy does not allow full IAM privileges",

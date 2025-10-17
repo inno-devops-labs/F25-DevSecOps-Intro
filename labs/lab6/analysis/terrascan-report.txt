@@ -1,0 +1,98 @@
+2025/10/17 19:43:26 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/aws/versions
+2025-10-17T19:43:27.118Z	[33mwarn[0m	commons/terraform-provider.go:99	failed to fetch latest version for terraform provider, error: provider registry registry.terraform.io does not have a provider named aws
+2025/10/17 19:43:27 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/aws/versions
+2025-10-17T19:43:27.181Z	[33mwarn[0m	commons/terraform-provider.go:99	failed to fetch latest version for terraform provider, error: provider registry registry.terraform.io does not have a provider named aws
+2025/10/17 19:43:27 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/aws/versions
+2025-10-17T19:43:27.243Z	[33mwarn[0m	commons/terraform-provider.go:99	failed to fetch latest version for terraform provider, error: provider registry registry.terraform.io does not have a provider named aws
+2025/10/17 19:43:27 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/aws/versions
+2025-10-17T19:43:27.304Z	[33mwarn[0m	commons/terraform-provider.go:99	failed to fetch latest version for terraform provider, error: provider registry registry.terraform.io does not have a provider named aws
+
+
+
+Violation Details -
+    
+	Description    :	RDS Instance publicly_accessible flag is true
+	File           :	database.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	1
+	Severity       :	HIGH
+	
+	-----------------------------------------------------------------------
+	
+	Description    :	Ensure CloudWatch logging is enabled for AWS DB instances
+	File           :	database.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	1
+	Severity       :	MEDIUM
+	
+	-----------------------------------------------------------------------
+	
+	Description    :	Ensure that your RDS database instances encrypt the underlying storage. Encrypted RDS instances use the industry standard AES-256 encryption algorithm to encrypt data on the server that hosts RDS DB instances. After data is encrypted, RDS handles authentication of access and description of data transparently with minimal impact on performance.
+	File           :	database.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	1
+	Severity       :	HIGH
+	
+	-----------------------------------------------------------------------
+	
+	Description    :	Ensure automated backups are enabled for AWS RDS instances
+	File           :	database.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	1
+	Severity       :	HIGH
+	
+	-----------------------------------------------------------------------
+	
+	Description    :	Security Groups - Unrestricted Specific Ports - (SSH,22)
+	File           :	security_groups.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	1
+	Severity       :	HIGH
+	
+	-----------------------------------------------------------------------
+	
+	Description    :	Ensure that your RDS database has IAM Authentication enabled.
+	File           :	database.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	1
+	Severity       :	MEDIUM
+	
+	-----------------------------------------------------------------------
+	
+	Description    :	Enabling S3 versioning will enable easy recovery from both unintended user actions, like deletes and overwrites
+	File           :	main.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	5
+	Severity       :	HIGH
+	
+	-----------------------------------------------------------------------
+	
+	Description    :	Misconfigured S3 buckets can leak private information to the entire internet or allow unauthorized data tampering / deletion
+	File           :	main.tf
+	Module Name    :	root
+	Plan Root      :	./
+	Line           :	5
+	Severity       :	HIGH
+	
+	-----------------------------------------------------------------------
+	
+
+Scan Summary -
+
+	File/Folder         :	/iac
+	IaC Type            :	terraform
+	Scanned At          :	2025-10-17 19:43:28.325433983 +0000 UTC
+	Policies Validated  :	155
+	Violated Policies   :	8
+	Low                 :	0
+	Medium              :	2
+	High                :	6
+	
+
