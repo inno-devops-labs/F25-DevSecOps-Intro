@@ -67,8 +67,49 @@ Below are the queries performed on the config file.
 
 ### Ansible Security Issues
 
-The main issues are hardcoded passwords in URLs and weak passwords.
+The main issues are unpinned package versions, hardcoded passwords in URLs, and weak passwords.
 
 ### Best Practice Violations
+
+- **Unpinned package version**: susceptible to supply chain attacks by compromised updates.
+- **Passwords in URLs**: the password is visible to anyone with access to the code repo.
+- **Weak passwords**: the passwords are brute-forceable.
+
 ### KICS Ansible Queries
+
+KICS performs static config analysis.
+
 ### Remediation Steps
+
+Fixes:
+- **Unpinned package version**: add the version explicitly.
+- **Passwords in URLs**: store the secrets in a secure (encrypted, private) storage and use `{{ }}` to retrieve them.
+- **Weak passwords**: generate strong random passwords.
+
+## Task 3
+
+### 3.1: Create Comprehensive Tool Comparison
+
+| Criterion             | tfsec          | Checkov    | Terrascan           | KICS             |
+| --------------------- | -------------- | ---------- | ------------------- | ---------------- |
+| **Total Findings**    | 53             | 78         | 22                  | 15               |
+| **Scan Speed**        | Medium         | Slow       | Slow                | Medium           |
+| **False Positives**   | Low            | Low        | Low                 | Low              |
+| **Report Quality**    | ⭐⭐⭐⭐       | ⭐⭐⭐⭐   | ⭐⭐⭐              | ⭐⭐⭐⭐         |
+| **Ease of Use**       | ⭐⭐⭐         | ⭐⭐⭐     | ⭐⭐⭐              | ⭐⭐⭐           |
+| **Documentation**     | ⭐⭐⭐⭐       | ⭐⭐⭐⭐   | ⭐⭐⭐⭐            | ⭐⭐⭐⭐         |
+| **Platform Support**  | Terraform only | Multiple   | Multiple            | Multiple         |
+| **Output Formats**    | JSON, text     | JSON, text | JSON, text          | JSON, text, HTML |
+| **CI/CD Integration** | Easy           | Medium     | Medium              | Medium           |
+| **Unique Strengths**  | Terraform      | Terraform  | Compliance checking | Versatility      |
+
+### 3.2: Vulnerability Category Analysis
+
+| Security Category             | tfsec | Checkov | Terrascan | KICS (Pulumi) | KICS (Ansible) | Best Tool      |
+|------------------             |-------|---------|-----------|---------------|----------------|--------------- |
+| **Encryption Issues**         | 7     | 4       | 2         | 1             | N/A            | tfsec          |
+| **Network Security**          | 8     | 9       | 5         | 0             | 0              | Checkov        |
+| **Secrets Management**        | 0     | 1       | 1         | 1             | 2              | KICS (Ansible) |
+| **IAM/Permissions**           | 12    | 25      | 3         | 0             | 0              | Checkov        |
+| **Access Control**            | 12    | 10      | 3         | 1             | 0              | tfsec          |
+| **Compliance/Best Practices** | 14    | 29      | 8         | 3             | 1              | Checkov        |
