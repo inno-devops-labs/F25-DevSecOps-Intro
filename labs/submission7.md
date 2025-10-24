@@ -102,3 +102,84 @@ Dockle revealed several critical security configuration issues:
 
 The current security posture of this image is concerning for production use due to the root user execution and multiple high-severity vulnerabilities. These issues should be addressed before deploying to any production environment.
 
+## Task 2
+
+### 2.1 Summary Statistics
+
+Based on the CIS Docker Benchmark audit results:
+
+- **PASS:** 19 checks
+- **WARN:** 11 checks  
+- **FAIL:** 0 checks
+- **INFO:** 44 checks
+- **Total Score:** 11 (out of 74 total checks)
+
+### 2.2 Analysis of Warnings
+
+The Docker Bench security audit identified several warning conditions that require attention:
+
+#### Host Configuration Warnings:
+
+**1.1 - Ensure a separate partition for containers has been created**
+- **Current State:** WARN - No separate partition detected for /var/lib/docker
+- **Security Impact:** Without a dedicated partition, container storage shares space with the host filesystem. This can lead to denial of service if containers consume all available disk space, potentially making the entire system unstable.
+
+**1.5 - Ensure auditing is configured for the Docker daemon**
+- **Current State:** WARN - No audit rules found for Docker daemon
+- **Security Impact:** Without auditing, there's no record of Docker daemon activities, making it impossible to detect unauthorized access, configuration changes, or security incidents for forensic analysis.
+
+**1.6-1.10 - Ensure auditing is configured for Docker files and directories**
+- **Current State:** WARN - No audit rules for critical Docker directories (/var/lib/docker, /etc/docker, docker.service, docker.socket, /etc/default/docker)
+- **Security Impact:** Missing audit trails for Docker configuration files and directories means security incidents, unauthorized modifications, or compliance violations cannot be properly tracked or investigated.
+
+#### Docker Daemon Configuration Warnings:
+
+**2.1 - Ensure network traffic is restricted between containers on the default bridge**
+- **Current State:** WARN - Default bridge allows unrestricted inter-container communication
+- **Security Impact:** Containers can communicate freely with each other by default, potentially allowing lateral movement if one container is compromised. This violates network segmentation principles.
+
+**2.8 - Enable user namespace support**
+- **Current State:** WARN - User namespaces not enabled
+- **Security Impact:** Without user namespace remapping, container root users map directly to host root, increasing the risk of container escape attacks and privilege escalation.
+
+**2.11 - Ensure that authorization for Docker client commands is enabled**
+- **Current State:** WARN - No authorization plugin configured
+- **Security Impact:** All users in the docker group have unrestricted access to Docker commands, potentially allowing unauthorized container operations, image pulls, or system access.
+
+**2.12 - Ensure centralized and remote logging is configured**
+- **Current State:** WARN - No centralized logging configuration detected
+- **Security Impact:** Without centralized logging, container logs are stored locally and may be lost if containers are destroyed, making security monitoring and incident response more difficult.
+
+**2.14 - Ensure live restore is enabled**
+- **Current State:** WARN - Live restore not enabled
+- **Security Impact:** When live restore is disabled, Docker daemon restarts cause all running containers to stop, potentially leading to service disruptions and availability issues.
+
+**2.15 - Ensure Userland Proxy is disabled**
+- **Current State:** WARN - Userland proxy not explicitly disabled
+- **Security Impact:** The userland proxy can introduce additional attack surface and performance overhead. Disabling it forces the use of iptables rules, which are generally more secure and efficient.
+
+**2.18 - Ensure containers are restricted from acquiring new privileges**
+- **Current State:** WARN - No default restriction on privilege acquisition
+- **Security Impact:** Containers can acquire new privileges during runtime, potentially allowing privilege escalation attacks where processes gain elevated permissions beyond their initial scope.
+
+#### Container Images Warnings:
+
+**4.5 - Ensure Content trust for Docker is enabled**
+- **Current State:** WARN - Docker Content Trust not enabled
+- **Security Impact:** Without content trust, there's no cryptographic verification of image integrity and publisher identity, making the environment vulnerable to image tampering and supply chain attacks.
+
+**4.6 - Ensure HEALTHCHECK instructions have been added to container images**
+- **Current State:** WARN - Multiple images lack health check instructions
+- **Security Impact:** Without health checks, Docker cannot determine if containers are functioning properly, potentially allowing failed or compromised containers to continue running and serving traffic.
+
+### 2.3 Overall Security Assessment
+
+The audit shows a relatively good baseline security posture with no critical failures, but the 11 warning conditions indicate areas where security could be significantly improved. The warnings primarily focus on:
+
+1. **Monitoring and Auditing:** Lack of comprehensive logging and audit trails
+2. **Network Isolation:** Insufficient container network segmentation
+3. **Privilege Management:** Missing user namespace isolation and privilege restrictions
+4. **Image Security:** Absence of content trust and health monitoring
+
+These warnings represent security gaps that should be addressed in a production environment to achieve a more robust security posture and comply with container security best practices.
+
