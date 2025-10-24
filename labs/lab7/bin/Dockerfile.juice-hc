@@ -1,0 +1,4 @@
+FROM bkimminich/juice-shop:v19.0.0
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=5 \
+  CMD ["/nodejs/bin/node","-e","require('http').get('http://localhost:3000/',res=>process.exit(res.statusCode<400?0:1)).on('error',()=>process.exit(1))"]
