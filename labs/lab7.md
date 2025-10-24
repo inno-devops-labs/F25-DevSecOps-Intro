@@ -219,7 +219,6 @@ docker run -d --name juice-production -p 3003:3000 \
   --cap-drop=ALL \
   --cap-add=NET_BIND_SERVICE \
   --security-opt=no-new-privileges \
-  --security-opt=seccomp=default \
   --memory=512m \
   --memory-swap=512m \
   --cpus=1.0 \
