@@ -58,17 +58,18 @@ The image runs as root by default. Many runtime and daemon security best practic
 ---
 
 ## 4. Deployment Profile Comparison
-
 Three profiles tested: Default, Hardened, Production.
 
-| Profile | Ports | Capabilities | Security Options | Memory | CPU | PIDs Limit | Restart Policy | Status |
-|---------|-------|--------------|-----------------|--------|-----|------------|----------------|--------|
-| Default | 3001  | None         | None            | Unlimited | Unlimited | Unlimited | none | Running |
-| Hardened | 3002 | ALL dropped  | no-new-privileges | 512MB  | 1.0  | Unlimited | none | Running |
-| Production | 3003 | ALL dropped, NET_BIND_SERVICE added | no-new-privileges, seccomp=default | 512MB | 1.0 | 100 | on-failure:3 | Failed to start |
+| Profile    | Ports | Capabilities                  | Security Options           | Memory | CPU | PIDs Limit | Restart Policy   | Status  |
+|------------|-------|-------------------------------|---------------------------|--------|-----|------------|-----------------|---------|
+| Default    | 3001  | None                          | None                      | Unlimited | Unlimited | Unlimited | none            | Running |
+| Hardened   | 3002  | ALL dropped                   | no-new-privileges         | 512MB  | 1.0 | Unlimited | none            | Running |
+| Production | 3003  | ALL dropped                   | no-new-privileges         | 512MB  | 1.0 | 100        | on-failure      | Running |
 
-> Production failed due to missing seccomp profile on host.
-
+> All containers are responding with HTTP 200. Resource usage is within expected limits:
+> - Default: 102.2MiB / 14.96GiB  
+> - Hardened: 92.37MiB / 512MB  
+> - Production: 91.54MiB / 512MB
 ---
 
 ## 5. Security Measure Analysis
