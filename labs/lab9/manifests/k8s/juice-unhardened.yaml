@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juice-unhardened
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: juice }
+  template:
+    metadata:
+      labels: { app: juice }
+    spec:
+      containers:
+        - name: juice
+          image: bkimminich/juice-shop:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: juice-unhardened
+spec:
+  selector: { app: juice }
+  ports:
+    - port: 80
+      targetPort: 3000
+
