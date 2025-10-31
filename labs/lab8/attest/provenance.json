@@ -1,0 +1,21 @@
+{
+  "buildType": "manual/lab8",
+  "builder": { "id": "wsl-ubuntu/manual" },
+  "invocation": {
+    "parameters": {
+      "source": "bkimminich/juice-shop:latest",
+      "registry": "localhost:5000/juice-shop:lab8"
+    },
+    "environment": {
+      "platform": "wsl2-ubuntu",
+      "runner": "user"
+    }
+  },
+  "metadata": {
+    "buildStartedOn": "2025-10-31T14:38:01Z",
+    "buildFinishedOn": "2025-10-31T14:38:01Z"
+  },
+  "materials": [
+    { "uri": "docker://bkimminich/juice-shop:latest", "digest": {} }
+  ]
+}
