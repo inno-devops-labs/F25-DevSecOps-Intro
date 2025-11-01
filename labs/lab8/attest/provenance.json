@@ -1,0 +1,7 @@
+{
+  "_type": "https://slsa.dev/provenance/v1",
+  "buildType": "manual-local-demo",
+  "builder": {"id": "student@local"},
+  "invocation": {"parameters": {"image": "localhost:5000/juice-shop:v19.0.0"}},
+  "metadata": {"buildStartedOn": "2025-11-01T08:40:15Z", "completeness": {"parameters": true}}
+}

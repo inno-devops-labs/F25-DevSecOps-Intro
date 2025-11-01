@@ -4,7 +4,7 @@
 ![topic](https://img.shields.io/badge/topic-SAST%20%26%20DAST-blue)
 ![points](https://img.shields.io/badge/points-10-orange)
 
-> **Goal:** Perform Static Application Security Testing (SAST) using Semgrep and Dynamic Application Security Testing (DAST) using multiple tools (ZAP, Nuclei, Nikto, SQLmap) against OWASP Juice Shop to identify security vulnerabilities and compare tool effectiveness.  
+> **Goal:** Perform Static Application Security Testing (SAST) using Semgrep and Dynamic Application Security Testing (DAST) using multiple tools (ZAP, Nuclei, Nikto, SQLmap) against OWASP Juice Shop to identify security vulnerabilities and compare tool effectiveness.
 > **Deliverable:** A PR from `feature/lab5` to the course repo with `labs/submission5.md` containing SAST findings, DAST results from multiple tools, and security recommendations. Submit the PR link via Moodle.
 
 ---
@@ -12,6 +12,7 @@
 ## Overview
 
 In this lab you will practice:
+
 - Performing **Static Application Security Testing (SAST)** with **Semgrep** using Docker containers
 - Conducting **Dynamic Application Security Testing (DAST)** using multiple specialized tools
 - **Tool comparison analysis** between different DAST tools (ZAP, Nuclei, Nikto, SQLmap)
@@ -68,6 +69,7 @@ These skills are essential for DevSecOps integration and security testing automa
    ```
 
 In `labs/submission5.md`, document:
+
 - **SAST Tool Effectiveness** - Semgrep's detection capabilities and coverage
 - **Critical Vulnerability Analysis** - 5 key SAST findings with file locations and severity levels
 
@@ -106,7 +108,6 @@ In `labs/submission5.md`, document:
      -u http://localhost:3000 \
      -jsonl -o /app/nuclei-results.json
    ```
-
 2. **Nikto Web Server Scan:**
 
    ```bash
@@ -115,7 +116,6 @@ In `labs/submission5.md`, document:
      frapsoft/nikto:latest \
      -h http://localhost:3000 -o /tmp/nikto-results.txt
    ```
-
 3. **SQLmap SQL Injection Test:**
 
    ```bash
@@ -136,21 +136,20 @@ In `labs/submission5.md`, document:
 
    ```bash
    echo "=== DAST Analysis Report ===" > labs/lab5/analysis/dast-analysis.txt
-   
+
    # Count findings from each tool
    zap_count=$(jq '.site[].alerts | length' labs/lab5/zap/zap-report.json 2>/dev/null || echo "0")
    nuclei_count=$(wc -l < labs/lab5/nuclei/nuclei-results.json 2>/dev/null || echo "0")
    nikto_count=$(grep -c "+ " labs/lab5/nikto/nikto-results.txt 2>/dev/null || echo "0")
-   
+
    echo "ZAP findings: $zap_count" >> labs/lab5/analysis/dast-analysis.txt
    echo "Nuclei findings: $nuclei_count" >> labs/lab5/analysis/dast-analysis.txt
    echo "Nikto findings: $nikto_count" >> labs/lab5/analysis/dast-analysis.txt
    echo "SQLmap: Check output directory for results" >> labs/lab5/analysis/dast-analysis.txt
    ```
 
-
-
 In `labs/submission5.md`, document:
+
 - **Tool Comparison** - effectiveness comparison of ZAP vs Nuclei vs Nikto vs SQLmap
 - **Tool Strengths** - what each tool excels at detecting in practice
 - **DAST Findings** - explain at least 1 significant finding from each tool
@@ -167,12 +166,12 @@ In `labs/submission5.md`, document:
 
    ```bash
    echo "=== SAST/DAST Correlation Report ===" > labs/lab5/analysis/correlation.txt
-   
+
    # Count all findings
    sast_count=$(jq '.results | length' labs/lab5/semgrep/semgrep-results.json 2>/dev/null || echo "0")
    zap_count=$(jq '.site[].alerts | length' labs/lab5/zap/zap-report.json 2>/dev/null || echo "0")
    nuclei_count=$(wc -l < labs/lab5/nuclei/nuclei-results.json 2>/dev/null || echo "0")
-   
+
    echo "SAST findings: $sast_count" >> labs/lab5/analysis/correlation.txt
    echo "ZAP findings: $zap_count" >> labs/lab5/analysis/correlation.txt
    echo "Nuclei findings: $nuclei_count" >> labs/lab5/analysis/correlation.txt
@@ -180,9 +179,8 @@ In `labs/submission5.md`, document:
    echo "SQLmap: Check results in sqlmap directory" >> labs/lab5/analysis/correlation.txt
    ```
 
-
-
 In `labs/submission5.md`, document:
+
 - **SAST vs DAST Findings** - unique discoveries from each approach with clear differences explained
 - **Integrated Security Recommendations** - how to use both approaches effectively in a DevSecOps pipeline
 
@@ -212,9 +210,7 @@ In `labs/submission5.md`, document:
    git commit -m "docs: add lab5 submission - SAST/multi-approach DAST security analysis"
    git push -u origin feature/lab5
    ```
-
 2. Open a PR from your fork's `feature/lab5` branch → **course repository's main branch**.
-
 3. In the PR description, include:
 
    ```text
@@ -222,19 +218,18 @@ In `labs/submission5.md`, document:
    - [x] Task 2 done — DAST Analysis (ZAP + Nuclei + Nikto + SQLmap)
    - [x] Task 3 done — SAST/DAST Correlation
    ```
-
 4. **Copy the PR URL** and submit it via **Moodle before the deadline**.
 
 ---
 
 ## Rubric (10 pts)
 
-| Criterion                                                        | Points |
-| ---------------------------------------------------------------- | -----: |
-| Task 1 — SAST with Semgrep + basic analysis                     |  **3** |
+| Criterion                                                            |       Points |
+| -------------------------------------------------------------------- | -----------: |
+| Task 1 — SAST with Semgrep + basic analysis                         |  **3** |
 | Task 2 — DAST analysis (ZAP + Nuclei + Nikto + SQLmap) + comparison |  **5** |
-| Task 3 — SAST/DAST correlation + recommendations               |  **2** |
-| **Total**                                                        | **10** |
+| Task 3 — SAST/DAST correlation + recommendations                    |  **2** |
+| **Total**                                                      | **10** |
 
 ---
 
@@ -249,15 +244,18 @@ In `labs/submission5.md`, document:
 <summary>Tool Comparison Reference</summary>
 
 **SAST Tool:**
+
 - **Semgrep**: Static code analysis using pattern-based security rulesets
 
 **DAST Tools:**
+
 - **ZAP**: Comprehensive web application scanner with integrated reporting
 - **Nuclei**: Fast template-based vulnerability scanner with community templates
 - **Nikto**: Web server vulnerability scanner for server misconfigurations
 - **SQLmap**: Specialized SQL injection testing tool
 
 **Tool Selection in DevSecOps:**
+
 - **Semgrep**: Early in development pipeline (pre-commit, PR checks)
 - **ZAP**: Staging/QA environment for comprehensive web app testing
 - **Nuclei**: Quick scans for known CVEs in any environment
@@ -270,12 +268,14 @@ In `labs/submission5.md`, document:
 <summary>Expected Vulnerability Categories</summary>
 
 **SAST typically finds:**
+
 - Hardcoded credentials and API keys in source code
 - Insecure cryptographic usage patterns
 - Code-level injection vulnerabilities (SQL, command, etc.)
 - Path traversal and insecure file handling
 
 **DAST typically finds:**
+
 - Authentication and session management issues
 - Runtime configuration problems (security headers, SSL/TLS)
 - XSS, CSRF, and other runtime exploitation vectors
