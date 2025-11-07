@@ -934,8 +934,8 @@ else:
 
 ```mermaid
 flowchart TD
-   ATTACK[🧭 MITRE ATT&CK] --> Tactics[📊 Tactics (why?)]
-   ATTACK --> Techniques[🛠️ Techniques (how?)]
+   ATTACK[🧭 MITRE ATT&CK] --> Tactics[📊 Tactics why?]
+   ATTACK --> Techniques[🛠️ Techniques how?]
    ATTACK --> Mitigations[🛡️ Mitigations]
    ATTACK --> Detections[🔎 Detection Methods]
 ```
