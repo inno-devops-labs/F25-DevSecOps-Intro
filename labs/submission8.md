@@ -5,10 +5,10 @@
 - The image `bkimminich/juice-shop:v19.0.0` was pulled and pushed to the local registry `localhost:5000`.
 - Cosign key pair generated (`cosign.key` private, `cosign.pub` public) and used to sign the image.
 - Signature verification succeeded for the original digest:
-Verified OK for localhost:5000/juice-shop@sha256:b029fa83327aa8a3bbcaf161af6269c18c80134942437cb90794233502554e48
+  ```Verified OK for localhost:5000/juice-shop@sha256:b029fa83327aa8a3bbcaf161af6269c18c80134942437cb90794233502554e48```
 - Tamper demonstration: re-tagged `busybox:latest` as `juice-shop:v19.0.0` and pushed. Verification failed for the new digest:
-Error: no signatures found
-- **Explanation:** Signing protects against tag tampering because the signature is bound to the image’s **subject digest**, not the mutable tag. The subject digest is the SHA256 hash of the image manifest, uniquely identifying the exact image content. Any modification (even re-tagging with a different image) will result in a different digest, causing signature verification to fail.
+  ```Error: no signatures found```
+- **Explanation:** Signing protects against tag tampering because the signature is bound to the image’s
 
 ---
 
@@ -21,7 +21,6 @@ Error: no signatures found
   {"payload":"...","signatures":[{"sig":"MEUCIQCwlDxw/..."}]}
   ```
 - **Information contained:** list of all components and dependencies of the image, including versions and licenses. Provides metadata about the software supply chain that was used to build the image.
-
 - **Provenance Attestation:**  
 - Minimal SLSA Provenance v1 predicate created and attached.  
 - Verified successfully:
@@ -29,7 +28,6 @@ Error: no signatures found
   {"payload":"eyJfdHlwZSI6Imh0dHBzOi8v...","signatures":[{"sig":"MEUCIQDb0VnxA/..."}]}
   ```
 - **Information provided:** records build metadata including builder identity, build start time, parameters, and completeness. Enables tracing the origin and process of image creation, enhancing supply chain security.
-
 - **Difference from signatures:** Attestations describe additional metadata and context (SBOM, provenance) beyond cryptographic validation of the image. Signatures verify integrity and authenticity, while attestations provide transparency and traceability.
 
 ---
