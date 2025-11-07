@@ -1,8 +1,0 @@
-=== Comprehensive Tool Comparison ===
-Terraform Scanning Results:
-  - tfsec: 21 findings
-  - Checkov: 29 findings
-  - Terrascan: 8 findings
-
-Pulumi Scanning Results (KICS): 0 findings
-Ansible Scanning Results (KICS): 2 findings

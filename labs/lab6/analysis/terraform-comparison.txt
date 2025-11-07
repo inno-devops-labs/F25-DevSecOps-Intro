@@ -1,4 +1,0 @@
-=== Terraform Security Analysis ===
-tfsec findings: 0
-Checkov findings: null
-Terrascan findings: 0
