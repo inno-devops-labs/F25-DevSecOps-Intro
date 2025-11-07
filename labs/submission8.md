@@ -58,7 +58,7 @@ This means:
 
 ---
 
-## Task 2 — Attestations: SBOM & Provenance
+## Task 2
 
 ### How Attestations Differ from Signatures
 
