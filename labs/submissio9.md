@@ -56,3 +56,77 @@ This arises a WARNING when a process inside a container writes to /usr/local/bin
 - Add allowlist exclusions for known builders or legitimate images to avoid false positives.
 - Decide alert routing (Slack/Email/SIEM) and set severity mapping for this custom rule.
 - Keep evidence lines (above) in the lab PR for grading.
+
+## Task 2: Policy-as-Code with Conftest (Rego)
+
+### Policy violations from unhardened manifest
+
+Based on `conftest-unhardened.txt`, the unhardened manifest fails 8 critical security policies:
+
+**Critical Failures (FAIL):**
+1. **`:latest` tag usage** - Using `bkimminich/juice-shop:latest` creates deployment instability and security risks since "latest" can change unpredictably
+2. **Missing `runAsNonRoot: true`** - Container runs as root (UID 0), violating principle of least privilege and enabling privilege escalation attacks
+3. **Missing `allowPrivilegeEscalation: false`** - Allows processes to gain more privileges than parent, enabling container breakout scenarios
+4. **Missing `readOnlyRootFilesystem: true`** - Writable filesystem enables malware persistence, log tampering, and runtime modifications
+5. **Missing capability drops** - Container retains all Linux capabilities instead of dropping ALL, violating least privilege
+6. **Missing CPU requests/limits** - No resource constraints allow resource exhaustion attacks (CPU starvation, noisy neighbor)
+7. **Missing memory requests/limits** - Unbounded memory usage can crash nodes via OOM conditions
+
+**Warnings (WARN):**
+8. **Missing readiness/liveness probes** - No health checks prevent detection of application failures and proper traffic routing
+
+### Hardening changes in compliant manifest
+
+Comparing `juice-unhardened.yaml` vs `juice-hardened.yaml`, the following security improvements were applied:
+
+**Image Security:**
+- Changed from `bkimminich/juice-shop:latest` → `bkimminich/juice-shop:v19.0.0` (pinned version)
+
+**Security Context Hardening:**
+```yaml
+securityContext:
+  runAsNonRoot: true                    # Forces non-root user execution
+  allowPrivilegeEscalation: false       # Prevents privilege escalation
+  readOnlyRootFilesystem: true          # Makes filesystem immutable
+  capabilities:
+    drop: ["ALL"]                       # Removes all Linux capabilities
+```
+
+**Resource Management:**
+```yaml
+resources:
+  requests: { cpu: "100m", memory: "256Mi" }  # Guaranteed resources
+  limits:   { cpu: "500m", memory: "512Mi" }  # Maximum resource caps
+```
+
+**Health Monitoring:**
+```yaml
+readinessProbe:
+  httpGet: { path: /, port: 3000 }      # Traffic routing decisions
+livenessProbe:
+  httpGet: { path: /, port: 3000 }      # Container restart decisions
+```
+
+**Security Impact:**
+- **Defense in depth**: Multiple security layers prevent single points of failure
+- **Attack surface reduction**: Minimal capabilities and read-only filesystem limit exploitation
+- **Resource isolation**: Prevents resource-based DoS attacks
+- **Operational reliability**: Health checks ensure service availability
+
+### Docker Compose manifest analysis
+
+Based on `conftest-compose.txt`: **All 15 tests passed** with no violations.
+
+The Docker Compose security policy (`compose-security.rego`) enforces:
+
+**Hard Requirements (deny):**
+- Explicit non-root user specification
+- Read-only root filesystem (`read_only: true`)
+- Drop ALL capabilities (`cap_drop: ["ALL"]`)
+
+**Recommendations (warn):**
+- Enable `no-new-privileges` security option
+
+**Result:** The provided Docker Compose manifest properly implements all required security controls, demonstrating that containerized applications can achieve security compliance across both Kubernetes and Docker Compose deployment models.
+
+**Key Insight:** Policy-as-code ensures consistent security baselines regardless of orchestration platform, preventing configuration drift and human error in security-critical settings.
