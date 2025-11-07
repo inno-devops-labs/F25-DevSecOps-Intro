@@ -1,0 +1,3 @@
+[31mFAIL[0m - /project/manifests/compose/juice-compose.yml - main - compose service must not be privileged
+
+[31m3 tests, 2 passed, 0 warnings, 1 failure, 0 exceptions[0m

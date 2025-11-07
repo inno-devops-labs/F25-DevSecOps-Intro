@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: juice
+  template:
+    metadata:
+      labels:
+        app: juice
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      containers:
+      - name: juice
+        image: bkimminich/juice-shop:14.0.0
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"

@@ -1,0 +1,4 @@
+[31mFAIL[0m - /project/manifests/k8s/juice-unhardened.yaml - main - pod must set runAsNonRoot=true
+[31mFAIL[0m - /project/manifests/k8s/juice-unhardened.yaml - main - privileged container is not allowed
+
+[31m3 tests, 1 passed, 0 warnings, 2 failures, 0 exceptions[0m

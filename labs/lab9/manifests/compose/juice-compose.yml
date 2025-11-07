@@ -1,0 +1,4 @@
+services:
+  juice:
+    image: bkimminich/juice-shop:14.0.0
+    privileged: true

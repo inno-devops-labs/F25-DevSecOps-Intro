@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: juice
+  template:
+    metadata:
+      labels:
+        app: juice
+    spec:
+      containers:
+      - name: juice
+        image: bkimminich/juice-shop:14.0.0
+        securityContext:
+          privileged: true
