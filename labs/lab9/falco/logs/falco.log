@@ -1,0 +1,22 @@
+{"hostname":"3a4a353c90dd","output":"2025-11-07T18:10:45.762124050+0000: Notice A shell was spawned in a container with an attached terminal | evt_type=execve user=root user_uid=0 user_loginuid=-1 process=sh proc_exepath=/bin/busybox parent=runc command=sh -lc echo hello-from-shell terminal=34816 exe_flags=EXE_WRITABLE|EXE_LOWER_LAYER container_id=1f2dd9a4e44f container_name=lab9-helper container_image_repository=alpine container_image_tag=3.19 k8s_pod_name=<NA> k8s_ns_name=<NA>","output_fields":{"container.id":"1f2dd9a4e44f","container.image.repository":"alpine","container.image.tag":"3.19","container.name":"lab9-helper","evt.arg.flags":"EXE_WRITABLE|EXE_LOWER_LAYER","evt.time.iso8601":1762539045762124050,"evt.type":"execve","k8s.ns.name":null,"k8s.pod.name":null,"proc.cmdline":"sh -lc echo hello-from-shell","proc.exepath":"/bin/busybox","proc.name":"sh","proc.pname":"runc","proc.tty":34816,"user.loginuid":-1,"user.name":"root","user.uid":0},"priority":"Notice","rule":"Terminal shell in container","source":"syscall","tags":["T1059","container","maturity_stable","mitre_execution","shell"],"time":"2025-11-07T18:10:45.762124050Z"}
+Events detected: 1
+Rule counts by severity:
+   NOTICE: 1
+Triggered rules by rule name:
+   Terminal shell in container: 1
+Events detected: 0
+Rule counts by severity:
+Triggered rules by rule name:
+Events detected: 0
+Rule counts by severity:
+Triggered rules by rule name:
+Events detected: 0
+Rule counts by severity:
+Triggered rules by rule name:
+{"hostname":"3a4a353c90dd","output":"2025-11-07T18:13:09.805143857+0000: Warning Falco Custom: File write in /usr/local/bin (container=lab9-helper user=root file=/usr/local/bin/custom-rule.txt flags=O_LARGEFILE|O_TRUNC|O_CREAT|O_WRONLY|O_F_CREATED|FD_UPPER_LAYER) container_id=1f2dd9a4e44f container_name=lab9-helper container_image_repository=alpine container_image_tag=3.19 k8s_pod_name=<NA> k8s_ns_name=<NA>","output_fields":{"container.id":"1f2dd9a4e44f","container.image.repository":"alpine","container.image.tag":"3.19","container.name":"lab9-helper","evt.arg.flags":"O_LARGEFILE|O_TRUNC|O_CREAT|O_WRONLY|O_F_CREATED|FD_UPPER_LAYER","evt.time.iso8601":1762539189805143857,"fd.name":"/usr/local/bin/custom-rule.txt","k8s.ns.name":null,"k8s.pod.name":null,"user.name":"root"},"priority":"Warning","rule":"Write Binary Under UsrLocalBin","source":"syscall","tags":["compliance","container","drift"],"time":"2025-11-07T18:13:09.805143857Z"}
+Events detected: 1
+Rule counts by severity:
+   WARNING: 1
+Triggered rules by rule name:
+   Write Binary Under UsrLocalBin: 1
+{"hostname":"3a4a353c90dd","output":"2025-11-07T18:13:45.806115586+0000: Warning Falco Custom: File write in /usr/local/bin (container=lab9-helper user=root file=/usr/local/bin/custom-rule.txt flags=O_LARGEFILE|O_TRUNC|O_CREAT|O_WRONLY|FD_UPPER_LAYER) container_id=1f2dd9a4e44f container_name=lab9-helper container_image_repository=alpine container_image_tag=3.19 k8s_pod_name=<NA> k8s_ns_name=<NA>","output_fields":{"container.id":"1f2dd9a4e44f","container.image.repository":"alpine","container.image.tag":"3.19","container.name":"lab9-helper","evt.arg.flags":"O_LARGEFILE|O_TRUNC|O_CREAT|O_WRONLY|FD_UPPER_LAYER","evt.time.iso8601":1762539225806115586,"fd.name":"/usr/local/bin/custom-rule.txt","k8s.ns.name":null,"k8s.pod.name":null,"user.name":"root"},"priority":"Warning","rule":"Write Binary Under UsrLocalBin","source":"syscall","tags":["compliance","container","drift"],"time":"2025-11-07T18:13:45.806115586Z"}
