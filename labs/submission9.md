@@ -56,5 +56,3 @@ These changes directly satisfy the conftest rules by removing root execution, li
 - `conftest-compose.txt` shows all 15 compose checks passed with no denies.
 - The compose policy requires non-root user, read-only root filesystem, and `cap_drop: ["ALL"]`; the manifest meets these requirements.
 - Recommendation: add `no-new-privileges` and maintain image pinning and resource constraints in compose files where supported.
-
-Footer
