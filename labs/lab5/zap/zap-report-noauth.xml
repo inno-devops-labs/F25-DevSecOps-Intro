@@ -1,0 +1,2004 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <@programName>ZAP</@programName>
+  <@version>2.16.1</@version>
+  <@generated>Mon, 29 Sept 2025 13:57:45</@generated>
+  <created>2025-09-29T13:57:45.393340259Z</created>
+  <site>
+    <@name>https://localhost:3000</@name>
+    <@host>localhost</@host>
+    <@port>3000</@port>
+    <@ssl>true</@ssl>
+    <alerts/>
+  </site>
+  <site>
+    <@name>http://localhost:3000</@name>
+    <@host>localhost</@host>
+    <@port>3000</@port>
+    <@ssl>false</@ssl>
+    <alerts>
+      <pluginid>10095</pluginid>
+      <alertRef>10095</alertRef>
+      <alert>Backup File Disclosure</alert>
+      <name>Backup File Disclosure</name>
+      <riskcode>2</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Medium (Medium)</riskdesc>
+      <desc>&lt;p&gt;A backup of the file was disclosed by the web server.&lt;/p&gt;</desc>
+      <instances>
+        <id>143</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy]</otherinfo>
+      </instances>
+      <instances>
+        <id>144</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)]</otherinfo>
+      </instances>
+      <instances>
+        <id>152</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_amd_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_amd_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_amd_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>148</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_arm_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_arm_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_arm_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>156</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_macos_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_macos_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_macos_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>160</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_windows_64.exe.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_windows_64.exe.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_windows_64.exe.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>145</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)]</otherinfo>
+      </instances>
+      <instances>
+        <id>153</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_amd_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_amd_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_amd_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>149</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_arm_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_arm_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_arm_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>157</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_macos_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_macos_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_macos_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>161</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_windows_64.exe.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_windows_64.exe.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_windows_64.exe.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>150</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_amd_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_amd_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_amd_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>147</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_arm_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_arm_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_arm_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>155</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_macos_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_macos_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_macos_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>159</id>
+        <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_windows_64.exe.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_windows_64.exe.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_windows_64.exe.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>134</id>
+        <uri>http://localhost:3000/ftp/quarantine.bac</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.bac</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.bac]</otherinfo>
+      </instances>
+      <instances>
+        <id>133</id>
+        <uri>http://localhost:3000/ftp/quarantine.backup</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.backup</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.backup]</otherinfo>
+      </instances>
+      <instances>
+        <id>132</id>
+        <uri>http://localhost:3000/ftp/quarantine.bak</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.bak</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.bak]</otherinfo>
+      </instances>
+      <instances>
+        <id>137</id>
+        <uri>http://localhost:3000/ftp/quarantine.jar</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.jar</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.jar]</otherinfo>
+      </instances>
+      <instances>
+        <id>138</id>
+        <uri>http://localhost:3000/ftp/quarantine.log</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.log</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.log]</otherinfo>
+      </instances>
+      <instances>
+        <id>141</id>
+        <uri>http://localhost:3000/ftp/quarantine.old</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.old</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.old]</otherinfo>
+      </instances>
+      <instances>
+        <id>139</id>
+        <uri>http://localhost:3000/ftp/quarantine.swp</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.swp</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.swp]</otherinfo>
+      </instances>
+      <instances>
+        <id>136</id>
+        <uri>http://localhost:3000/ftp/quarantine.tar</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.tar</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.tar]</otherinfo>
+      </instances>
+      <instances>
+        <id>135</id>
+        <uri>http://localhost:3000/ftp/quarantine.zip</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.zip</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.zip]</otherinfo>
+      </instances>
+      <instances>
+        <id>142</id>
+        <uri>http://localhost:3000/ftp/quarantine.~bk</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine.~bk</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.~bk]</otherinfo>
+      </instances>
+      <instances>
+        <id>146</id>
+        <uri>http://localhost:3000/ftp/quarantinebackup</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantinebackup</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantinebackup]</otherinfo>
+      </instances>
+      <instances>
+        <id>154</id>
+        <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_amd_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_amd_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_amd_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>151</id>
+        <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_arm_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_arm_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_arm_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>158</id>
+        <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_macos_64.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantinebackup/juicy_malware_macos_64.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_macos_64.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>162</id>
+        <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_windows_64.exe.url</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantinebackup/juicy_malware_windows_64.exe.url</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_windows_64.exe.url]</otherinfo>
+      </instances>
+      <instances>
+        <id>140</id>
+        <uri>http://localhost:3000/ftp/quarantine~</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>http://localhost:3000/ftp/quarantine~</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine~]</otherinfo>
+      </instances>
+      <count>31</count>
+      <solution>&lt;p&gt;Do not edit files in-situ on the web server, and ensure that un-necessary files (including hidden files) are removed from the web server.&lt;/p&gt;</solution>
+      <otherinfo>&lt;p&gt;A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy]&lt;/p&gt;</otherinfo>
+      <reference>&lt;p&gt;https://cwe.mitre.org/data/definitions/530.html&lt;/p&gt;&lt;p&gt;https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.html&lt;/p&gt;</reference>
+      <cweid>530</cweid>
+      <wascid>34</wascid>
+      <sourceid>4885</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10038</pluginid>
+      <alertRef>10038-1</alertRef>
+      <alert>Content Security Policy (CSP) Header Not Set</alert>
+      <name>Content Security Policy (CSP) Header Not Set</name>
+      <riskcode>2</riskcode>
+      <confidence>3</confidence>
+      <riskdesc>Medium (High)</riskdesc>
+      <desc>&lt;p&gt;Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.&lt;/p&gt;</desc>
+      <instances>
+        <id>21</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>0</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>78</id>
+        <uri>http://localhost:3000/ftp</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>71</id>
+        <uri>http://localhost:3000/ftp/coupons_2013.md.bak</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>70</id>
+        <uri>http://localhost:3000/ftp/eastere.gg</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>72</id>
+        <uri>http://localhost:3000/ftp/encrypt.pyc</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>79</id>
+        <uri>http://localhost:3000/ftp/package-lock.json.bak</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>77</id>
+        <uri>http://localhost:3000/ftp/package.json.bak</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>81</id>
+        <uri>http://localhost:3000/ftp/suspicious_errors.yml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>89</id>
+        <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:43:13</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>88</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>23</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <count>12</count>
+      <solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.&lt;/p&gt;</solution>
+      <otherinfo>
+      </otherinfo>
+      <reference>&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP&lt;/p&gt;&lt;p&gt;https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html&lt;/p&gt;&lt;p&gt;https://www.w3.org/TR/CSP/&lt;/p&gt;&lt;p&gt;https://w3c.github.io/webappsec-csp/&lt;/p&gt;&lt;p&gt;https://web.dev/articles/csp&lt;/p&gt;&lt;p&gt;https://caniuse.com/#feat=contentsecuritypolicy&lt;/p&gt;&lt;p&gt;https://content-security-policy.com/&lt;/p&gt;</reference>
+      <cweid>693</cweid>
+      <wascid>15</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10098</pluginid>
+      <alertRef>10098</alertRef>
+      <alert>Cross-Domain Misconfiguration</alert>
+      <name>Cross-Domain Misconfiguration</name>
+      <riskcode>2</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Medium (Medium)</riskdesc>
+      <desc>&lt;p&gt;Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server.&lt;/p&gt;</desc>
+      <instances>
+        <id>24</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>1</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>15</id>
+        <uri>http://localhost:3000/assets/public/favicon_js.ico</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>74</id>
+        <uri>http://localhost:3000/ftp/acquisitions.md</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>73</id>
+        <uri>http://localhost:3000/ftp/eastere.gg</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>75</id>
+        <uri>http://localhost:3000/ftp/incident-support.kdbx</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>60</id>
+        <uri>http://localhost:3000/main.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>20</id>
+        <uri>http://localhost:3000/polyfills.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>12</id>
+        <uri>http://localhost:3000/robots.txt</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>14</id>
+        <uri>http://localhost:3000/runtime.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>26</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>16</id>
+        <uri>http://localhost:3000/styles.css</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <instances>
+        <id>65</id>
+        <uri>http://localhost:3000/vendor.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Access-Control-Allow-Origin: *</evidence>
+        <otherinfo>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</otherinfo>
+      </instances>
+      <count>13</count>
+      <solution>&lt;p&gt;Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).&lt;/p&gt;&lt;p&gt;Configure the &quot;Access-Control-Allow-Origin&quot; HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.&lt;/p&gt;</solution>
+      <otherinfo>&lt;p&gt;The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.&lt;/p&gt;</otherinfo>
+      <reference>&lt;p&gt;https://vulncat.fortify.com/en/detail?category=HTML5&amp;subcategory=Overly%20Permissive%20CORS%20Policy&lt;/p&gt;</reference>
+      <cweid>264</cweid>
+      <wascid>14</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10106</pluginid>
+      <alertRef>10106</alertRef>
+      <alert>HTTP Only Site</alert>
+      <name>HTTP Only Site</name>
+      <riskcode>2</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Medium (Medium)</riskdesc>
+      <desc>&lt;p&gt;The site is only served under HTTP and not HTTPS.&lt;/p&gt;</desc>
+      <instances>
+        <id>163</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>Failed to connect.
+ZAP attempted to connect via: https://localhost:3000</otherinfo>
+      </instances>
+      <count>1</count>
+      <solution>&lt;p&gt;Configure your web or application server to use SSL (https).&lt;/p&gt;</solution>
+      <otherinfo>&lt;p&gt;Failed to connect.&lt;/p&gt;&lt;p&gt;ZAP attempted to connect via: https://localhost:3000&lt;/p&gt;</otherinfo>
+      <reference>&lt;p&gt;https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html&lt;/p&gt;&lt;p&gt;https://letsencrypt.org/&lt;/p&gt;</reference>
+      <cweid>311</cweid>
+      <wascid>4</wascid>
+      <sourceid>7649</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10017</pluginid>
+      <alertRef>10017</alertRef>
+      <alert>Cross-Domain JavaScript Source File Inclusion</alert>
+      <name>Cross-Domain JavaScript Source File Inclusion</name>
+      <riskcode>1</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Low (Medium)</riskdesc>
+      <desc>&lt;p&gt;The page includes one or more script files from a third-party domain.&lt;/p&gt;</desc>
+      <instances>
+        <id>29</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>31</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>2</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>3</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>92</id>
+        <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:43:13</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>95</id>
+        <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:43:13</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>94</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:280:10</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>97</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:280:10</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>93</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:328:13</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>96</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:328:13</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>90</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>91</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>27</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>30</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js</param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <count>14</count>
+      <solution>&lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can&apos;t be controlled by end users of the application.&lt;/p&gt;</solution>
+      <otherinfo>
+      </otherinfo>
+      <reference>
+      </reference>
+      <cweid>829</cweid>
+      <wascid>15</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10110</pluginid>
+      <alertRef>10110</alertRef>
+      <alert>Dangerous JS Functions</alert>
+      <name>Dangerous JS Functions</name>
+      <riskcode>1</riskcode>
+      <confidence>1</confidence>
+      <riskdesc>Low (Low)</riskdesc>
+      <desc>&lt;p&gt;A dangerous JS function seems to be in use that would leave the site vulnerable.&lt;/p&gt;</desc>
+      <instances>
+        <id>63</id>
+        <uri>http://localhost:3000/main.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>bypassSecurityTrustHtml(</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>68</id>
+        <uri>http://localhost:3000/vendor.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>bypassSecurityTrustHtml(</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <count>2</count>
+      <solution>&lt;p&gt;See the references for security advice on the use of these functions.&lt;/p&gt;</solution>
+      <otherinfo>
+      </otherinfo>
+      <reference>&lt;p&gt;https://v17.angular.io/guide/security&lt;/p&gt;</reference>
+      <cweid>749</cweid>
+      <wascid>-1</wascid>
+      <sourceid>21</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10063</pluginid>
+      <alertRef>10063-2</alertRef>
+      <alert>Deprecated Feature Policy Header Set</alert>
+      <name>Deprecated Feature Policy Header Set</name>
+      <riskcode>1</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Low (Medium)</riskdesc>
+      <desc>&lt;p&gt;The header has now been renamed to Permissions-Policy.&lt;/p&gt;</desc>
+      <instances>
+        <id>54</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>9</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>82</id>
+        <uri>http://localhost:3000/ftp/coupons_2013.md.bak</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>85</id>
+        <uri>http://localhost:3000/ftp/eastere.gg</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>84</id>
+        <uri>http://localhost:3000/ftp/encrypt.pyc</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>83</id>
+        <uri>http://localhost:3000/ftp/package.json.bak</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>64</id>
+        <uri>http://localhost:3000/main.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>32</id>
+        <uri>http://localhost:3000/polyfills.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>19</id>
+        <uri>http://localhost:3000/runtime.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>51</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>69</id>
+        <uri>http://localhost:3000/vendor.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Feature-Policy</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <count>11</count>
+      <solution>&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header instead of the Feature-Policy header.&lt;/p&gt;</solution>
+      <otherinfo>
+      </otherinfo>
+      <reference>&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy&lt;/p&gt;&lt;p&gt;https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/&lt;/p&gt;</reference>
+      <cweid>16</cweid>
+      <wascid>15</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>90004</pluginid>
+      <alertRef>90004-2</alertRef>
+      <alert>Insufficient Site Isolation Against Spectre Vulnerability</alert>
+      <name>Insufficient Site Isolation Against Spectre Vulnerability</name>
+      <riskcode>1</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Low (Medium)</riskdesc>
+      <desc>&lt;p&gt;Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don&apos;t explicitly grant the document permission (using CORP or CORS).&lt;/p&gt;</desc>
+      <instances>
+        <id>55</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Embedder-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>10</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Embedder-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>86</id>
+        <uri>http://localhost:3000/ftp</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Embedder-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>100</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Embedder-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>56</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Embedder-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>58</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Opener-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>11</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Opener-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>87</id>
+        <uri>http://localhost:3000/ftp</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Opener-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>101</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Opener-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>57</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>Cross-Origin-Opener-Policy</param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <count>10</count>
+      <solution>&lt;p&gt;Ensure that the application/web server sets the Cross-Origin-Embedder-Policy header appropriately, and that it sets the Cross-Origin-Embedder-Policy header to &apos;require-corp&apos; for documents.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Embedder-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-embedder-policy).&lt;/p&gt;</solution>
+      <otherinfo>
+      </otherinfo>
+      <reference>&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy&lt;/p&gt;</reference>
+      <cweid>693</cweid>
+      <wascid>14</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10096</pluginid>
+      <alertRef>10096</alertRef>
+      <alert>Timestamp Disclosure - Unix</alert>
+      <name>Timestamp Disclosure - Unix</name>
+      <riskcode>1</riskcode>
+      <confidence>1</confidence>
+      <riskdesc>Low (Low)</riskdesc>
+      <desc>&lt;p&gt;A timestamp was disclosed by the application/web server. - Unix&lt;/p&gt;</desc>
+      <instances>
+        <id>38</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>1650485437</evidence>
+        <otherinfo>1650485437, which evaluates to: 2022-04-20 20:10:37.</otherinfo>
+      </instances>
+      <instances>
+        <id>42</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>1981395349</evidence>
+        <otherinfo>1981395349, which evaluates to: 2032-10-14 19:35:49.</otherinfo>
+      </instances>
+      <instances>
+        <id>40</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>2038834951</evidence>
+        <otherinfo>2038834951, which evaluates to: 2034-08-10 15:02:31.</otherinfo>
+      </instances>
+      <instances>
+        <id>5</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>1650485437</evidence>
+        <otherinfo>1650485437, which evaluates to: 2022-04-20 20:10:37.</otherinfo>
+      </instances>
+      <instances>
+        <id>7</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>1981395349</evidence>
+        <otherinfo>1981395349, which evaluates to: 2032-10-14 19:35:49.</otherinfo>
+      </instances>
+      <instances>
+        <id>6</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>2038834951</evidence>
+        <otherinfo>2038834951, which evaluates to: 2034-08-10 15:02:31.</otherinfo>
+      </instances>
+      <instances>
+        <id>44</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>1650485437</evidence>
+        <otherinfo>1650485437, which evaluates to: 2022-04-20 20:10:37.</otherinfo>
+      </instances>
+      <instances>
+        <id>46</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>1981395349</evidence>
+        <otherinfo>1981395349, which evaluates to: 2032-10-14 19:35:49.</otherinfo>
+      </instances>
+      <instances>
+        <id>45</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>2038834951</evidence>
+        <otherinfo>2038834951, which evaluates to: 2034-08-10 15:02:31.</otherinfo>
+      </instances>
+      <count>9</count>
+      <solution>&lt;p&gt;Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.&lt;/p&gt;</solution>
+      <otherinfo>&lt;p&gt;1650485437, which evaluates to: 2022-04-20 20:10:37.&lt;/p&gt;</otherinfo>
+      <reference>&lt;p&gt;https://cwe.mitre.org/data/definitions/200.html&lt;/p&gt;</reference>
+      <cweid>497</cweid>
+      <wascid>13</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10027</pluginid>
+      <alertRef>10027</alertRef>
+      <alert>Information Disclosure - Suspicious Comments</alert>
+      <name>Information Disclosure - Suspicious Comments</name>
+      <riskcode>0</riskcode>
+      <confidence>1</confidence>
+      <riskdesc>Informational (Low)</riskdesc>
+      <desc>&lt;p&gt;The response appears to contain suspicious comments which may help an attacker.&lt;/p&gt;</desc>
+      <instances>
+        <id>61</id>
+        <uri>http://localhost:3000/main.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>query</evidence>
+        <otherinfo>The following pattern was used: \bQUERY\b and was detected in likely comment: &quot;//owasp.org&apos; target=&apos;_blank&apos;&gt;Open Worldwide Application Security Project (OWASP)&lt;/a&gt; and is developed and maintained by voluntee&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+      </instances>
+      <instances>
+        <id>66</id>
+        <uri>http://localhost:3000/vendor.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>Query</evidence>
+        <otherinfo>The following pattern was used: \bQUERY\b and was detected in likely comment: &quot;//www.w3.org/2000/svg&quot; viewBox=&quot;0 0 512 512&quot;&gt;&lt;path d=&quot;M0 256C0 397.4 114.6 512 256 512s256-114.6 256-256S397.4 0 256 0S0 114.6 0&quot;, see evidence field for the suspicious comment/snippet.</otherinfo>
+      </instances>
+      <count>2</count>
+      <solution>&lt;p&gt;Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.&lt;/p&gt;</solution>
+      <otherinfo>&lt;p&gt;The following pattern was used: \bQUERY\b and was detected in likely comment: &quot;//owasp.org&apos; target=&apos;_blank&apos;&gt;Open Worldwide Application Security Project (OWASP)&lt;/a&gt; and is developed and maintained by voluntee&quot;, see evidence field for the suspicious comment/snippet.&lt;/p&gt;</otherinfo>
+      <reference>
+      </reference>
+      <cweid>615</cweid>
+      <wascid>13</wascid>
+      <sourceid>21</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10109</pluginid>
+      <alertRef>10109</alertRef>
+      <alert>Modern Web Application</alert>
+      <name>Modern Web Application</name>
+      <riskcode>0</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Informational (Medium)</riskdesc>
+      <desc>&lt;p&gt;The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.&lt;/p&gt;</desc>
+      <instances>
+        <id>36</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>4</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>105</id>
+        <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:43:13</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>104</id>
+        <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:59:18</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>99</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:280:10</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>106</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:286:9</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>102</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:328:13</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>98</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>103</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:376:14</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>107</id>
+        <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:421:3</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <instances>
+        <id>37</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;</evidence>
+        <otherinfo>No links have been found while there are scripts, which is an indication that this is a modern web application.</otherinfo>
+      </instances>
+      <count>11</count>
+      <solution>&lt;p&gt;This is an informational alert and so no changes are required.&lt;/p&gt;</solution>
+      <otherinfo>&lt;p&gt;No links have been found while there are scripts, which is an indication that this is a modern web application.&lt;/p&gt;</otherinfo>
+      <reference>
+      </reference>
+      <cweid>-1</cweid>
+      <wascid>-1</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10049</pluginid>
+      <alertRef>10049-3</alertRef>
+      <alert>Storable and Cacheable Content</alert>
+      <name>Storable and Cacheable Content</name>
+      <riskcode>0</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Informational (Medium)</riskdesc>
+      <desc>&lt;p&gt;The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where &quot;shared&quot; caching servers such as &quot;proxy&quot; caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.&lt;/p&gt;</desc>
+      <instances>
+        <id>13</id>
+        <uri>http://localhost:3000/robots.txt</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>
+        </evidence>
+        <otherinfo>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</otherinfo>
+      </instances>
+      <count>1</count>
+      <solution>&lt;p&gt;Validate that the response does not contain sensitive, personal or user-specific information. If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:&lt;/p&gt;&lt;p&gt;Cache-Control: no-cache, no-store, must-revalidate, private&lt;/p&gt;&lt;p&gt;Pragma: no-cache&lt;/p&gt;&lt;p&gt;Expires: 0&lt;/p&gt;&lt;p&gt;This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.&lt;/p&gt;</solution>
+      <otherinfo>&lt;p&gt;In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.&lt;/p&gt;</otherinfo>
+      <reference>&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;</reference>
+      <cweid>524</cweid>
+      <wascid>13</wascid>
+      <sourceid>7</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10049</pluginid>
+      <alertRef>10049-2</alertRef>
+      <alert>Storable but Non-Cacheable Content</alert>
+      <name>Storable but Non-Cacheable Content</name>
+      <riskcode>0</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Informational (Medium)</riskdesc>
+      <desc>&lt;p&gt;The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users.&lt;/p&gt;</desc>
+      <instances>
+        <id>47</id>
+        <uri>http://localhost:3000</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>8</id>
+        <uri>http://localhost:3000/</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>17</id>
+        <uri>http://localhost:3000/assets/public/favicon_js.ico</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>76</id>
+        <uri>http://localhost:3000/ftp/acquisitions.md</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>80</id>
+        <uri>http://localhost:3000/ftp/incident-support.kdbx</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>62</id>
+        <uri>http://localhost:3000/main.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>22</id>
+        <uri>http://localhost:3000/polyfills.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>18</id>
+        <uri>http://localhost:3000/runtime.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>49</id>
+        <uri>http://localhost:3000/sitemap.xml</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>59</id>
+        <uri>http://localhost:3000/styles.css</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>67</id>
+        <uri>http://localhost:3000/vendor.js</uri>
+        <method>GET</method>
+        <param>
+        </param>
+        <attack>
+        </attack>
+        <evidence>max-age=0</evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <count>11</count>
+      <solution>
+      </solution>
+      <otherinfo>
+      </otherinfo>
+      <reference>&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;</reference>
+      <cweid>524</cweid>
+      <wascid>13</wascid>
+      <sourceid>10</sourceid>
+    </alerts>
+    <alerts>
+      <pluginid>10104</pluginid>
+      <alertRef>10104</alertRef>
+      <alert>User Agent Fuzzer</alert>
+      <name>User Agent Fuzzer</name>
+      <riskcode>0</riskcode>
+      <confidence>2</confidence>
+      <riskdesc>Informational (Medium)</riskdesc>
+      <desc>&lt;p&gt;Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.&lt;/p&gt;</desc>
+      <instances>
+        <id>112</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>110</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>108</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>114</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>116</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>130</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>128</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>118</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>122</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>126</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>124</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>120</id>
+        <uri>http://localhost:3000/assets</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>msnbot/1.1 (+http://search.msn.com/msnbot.htm)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>113</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>111</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>109</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>115</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>117</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>131</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>129</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>119</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>123</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>127</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>125</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <instances>
+        <id>121</id>
+        <uri>http://localhost:3000/assets/public</uri>
+        <method>GET</method>
+        <param>Header User-Agent</param>
+        <attack>msnbot/1.1 (+http://search.msn.com/msnbot.htm)</attack>
+        <evidence>
+        </evidence>
+        <otherinfo>
+        </otherinfo>
+      </instances>
+      <count>24</count>
+      <solution>
+      </solution>
+      <otherinfo>
+      </otherinfo>
+      <reference>&lt;p&gt;https://owasp.org/wstg&lt;/p&gt;</reference>
+      <cweid>0</cweid>
+      <wascid>0</wascid>
+      <sourceid>1880</sourceid>
+    </alerts>
+  </site>
+  <sequences/>
+</root>
