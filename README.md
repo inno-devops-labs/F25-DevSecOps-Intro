@@ -15,6 +15,8 @@ Through **hands-on labs and focused lectures**, you'll gain experience with secu
 
 **10-module intensive course** with practical labs designed for incremental skill development:
 
+> **Note:** Labs 11-12 are **optional bonus labs** for extra credit. Complete them to boost your grade or explore advanced security hardening techniques!
+
 | Lab | Module                                      | Key Topics & Technologies                                                                 |
 |-----|---------------------------------------------|------------------------------------------------------------------------------------------|
 | 1   | **Foundations & Secure SDLC**               | DevSecOps principles, shift-left culture, OWASP Top 10, secure coding practices           |
@@ -27,6 +29,355 @@ Through **hands-on labs and focused lectures**, you'll gain experience with secu
 | 8   | **Software Supply Chain Security**          | Dependency analysis, SBOM (CycloneDX/SPDX), artifact signing, provenance verification    |
 | 9   | **Monitoring, Compliance & Improvement**    | Security metrics, KPIs (MTTR, vuln age), GDPR/NIST/ISO basics, maturity models          |
 | 10  | **Vulnerability Management & Response**     | Discovery, triage, remediation workflows, CVSS scoring, security testing orchestration    |
+| —   | **🎁 Bonus: Reverse Proxy Hardening**      | Nginx security headers, TLS termination, rate limiting, timeout configuration             |
+| —   | **🎁 Bonus: VM-backed Container Isolation** | Kata Containers, runtime comparison, isolation testing, security/performance tradeoffs    |
+
+---
+
+## 🗒️ Lecture Slide Overview
+
+Index extracted from `lectures/lec*.md`. Each lecture links to its source file and shows an approximate slide count.
+
+<details>
+<summary>📌 Lecture 1 - DevSecOps Foundations & Secure SDLC (48 slides)</summary>
+
+- 📍 Slide 1 – 🌍 What is DevSecOps?
+- 📍 Slide 2 – 🔄 Why Security in DevOps Matters
+- 📍 Slide 3 – 🧑‍🤝‍🧑 DevOps Culture & Security Culture
+- 📍 Slide 4 – 🕰️ The “Shift-Left” Philosophy
+- 📍 Slide 5 – 📊 Industry Reports & Trends
+- 📍 Slide 6 – 🏗️ What is the Secure Software Development Life Cycle (Secure SDLC)?
+- 📍 Slide 7 – 📜 History of SDLC Models
+- 📍 Slide 8 – 🧩 Secure SDLC Phases (Overview)
+- 📍 Slide 9 – ⚖️ Traditional SDLC vs Secure SDLC
+- 📍 Slide 10 – 🧮 Key Standards & Frameworks
+- 📍 Slide 11 – 🏆 Introduction to OWASP
+- 📍 Slide 12 – 📈 Evolution of OWASP Top 10
+- 📍 Slide 13 – 🔥 OWASP Top 10 (2021) Categories
+- 📍 Slide 14 – ⚡ Real Incidents Mapped to OWASP Top 10
+- 📍 Slide 15 – 🌐 What Are Vulnerabilities?
+- 📍 Slide 16 – 💉 SQL Injection (SQLi)
+- 📍 Slide 17 – 📜 Cross-Site Scripting (XSS)
+- 📍 Slide 18 – 🔑 Authentication & Session Vulnerabilities
+- 📍 Slide 19 – 🛑 Cross-Site Request Forgery (CSRF)
+- 📍 Slide 20 – 🗄️ Insecure Deserialization & Logic Bugs
+- 📍 Slide 21 – ☁️ Misconfigurations (Cloud, Servers, Containers)
+- 📍 Slide 22 – 🧩 Case Study Examples for Vulnerabilities
+- 📍 Slide 23 – 🔒 Security as Code
+- 📍 Slide 24 – ⚙️ Security Champions & Roles in Teams
+- 📍 Slide 25 – 🧪 Security by Design
+- 📍 Slide 26 – 🛠️ Tooling Ecosystem Overview (High-Level)
+- 📍 Slide 27 – 📚 Knowledge Sources
+- 📍 Slide 28 – 💻 What is Secure Coding?
+- 📍 Slide 29 – 📐 Secure Coding Guidelines
+- 📍 Slide 30 – 🧑‍💻 Common Coding Mistakes
+- 📍 Slide 31 – 📊 Languages & Secure Coding
+- 📍 Slide 32 – 🔍 Code Review & Pair Programming
+- 📍 Slide 33 – 🧭 What is MITRE ATT\&CK?
+- 📍 Slide 34 – 📊 MITRE ATT\&CK Matrix
+- 📍 Slide 35 – 🛠️ Examples of ATT\&CK Techniques
+- 📍 Slide 36 – 🌐 What is MITRE ATLAS?
+- 📍 Slide 37 – 🤖 AI-Specific Threat Examples
+- 📍 Slide 38 – 🔗 Using ATT\&CK/ATLAS in DevSecOps
+- 📍 Slide 39 – 🏢 Case Study: Equifax Breach (2017)
+- 📍 Slide 40 – ☁️ Case Study: Capital One Breach (2019)
+- 📍 Slide 41 – 🐍 Case Study: Log4Shell (2021)
+- 📍 Slide 42 – 💳 Case Study: Heartbleed (2014)
+- 📍 Slide 43 – 📡 Case Study: SolarWinds (2020)
+- 📍 Slide 44 – 📖 Recommended Books
+- 📍 Slide 45 – 🎓 Certifications & Training
+- 📍 Slide 46 – 🛡️ Maturity Models for DevSecOps
+- 📍 Slide 47 – 📈 KPIs & Metrics for DevSecOps
+- 📍 Slide 48 – 🚀 Future of DevSecOps
+
+</details>
+
+<details>
+<summary>📌 Lecture 2 - Threat Modeling & Security Requirements (30 slides)</summary>
+
+- 📍 Slide 1 – 🧭 What Is Threat Modeling?
+- 📍 Slide 2 – 📈 Why It Matters (Outcomes & Fresh Stats)
+- 📍 Slide 3 – 🏷️ Assets, Threats, Vulnerabilities, Risk (Clear Terms)
+- 📍 Slide 4 – 🧱 Trust Boundaries & 🔐 Data Sensitivity
+- 📍 Slide 5 – 🌐 Attack Surface 101 (What Expands It?)
+- 📍 Slide 6 – 🔁 Where Threat Modeling Fits (SDLC & Agile)
+- 📍 Slide 7 – 🗺️ Data Flow Diagrams (DFDs) Essentials
+- 📍 Slide 8 – 🧭 Scoping & Assumptions
+- 📍 Slide 9 – 🧩 STRIDE Framework Intro
+- 📍 Slide 10 – 🪪 S = Spoofing
+- 📍 Slide 11 – 🧪 T = Tampering
+- 📍 Slide 12 – 🧾 STRIDE Letters in Practice (Setup)
+- 📍 Slide 13 – 🧾 R = Repudiation
+- 📍 Slide 14 – 🔐 I = Information Disclosure
+- 📍 Slide 15 – 🛑 D = Denial of Service (DoS)
+- 📍 Slide 16 – 🧰 E = Elevation of Privilege (EoP)
+- 📍 Slide 17 – 🕵️‍♀️ LINDDUN Overview
+- 📍 Slide 18 – 📚 LINDDUN Methods & Aids
+- 📍 Slide 19 – 🧪 LINDDUN Use Cases
+- 📍 Slide 20 – 🏛️ PASTA Overview
+- 📍 Slide 21 – 🧪 PASTA 7 Stages in Detail
+- 📍 Slide 22 – 📊 PASTA Case Study
+- 📍 Slide 23 – 🚀 VAST Overview
+- 📍 Slide 24 – 🔌 VAST Integrations & Use Cases
+- 📍 Slide 25 – 💹 FAIR Overview
+- 📍 Slide 26 – 🧮 FAIR in Practice
+- 📍 Slide 27 – 🧱 Threagile Overview
+- 📍 Slide 28 – 🧰 Threagile Workflow & Use Cases
+- 📍 Slide 29 – 🐉 OWASP Threat Dragon Overview
+- 📍 Slide 30 – 🧪 Threat Dragon Workflow & Use Cases
+
+</details>
+
+<details>
+<summary>📌 Lecture 3 - Secure Git & Secrets Management (40 slides)</summary>
+
+- 📍 Slide 1 – 🌍 Brief History of Git
+- 📍 Slide 2 – 🔐 Why Git Security is Important
+- 📍 Slide 3 – 🗃️ Version Control System (VCS) Basics Recap
+- 📍 Slide 4 – 🚨 Common Git-Related Security Incidents
+- 📍 Slide 5 – 🧾 Commit Identity Basics
+- 📍 Slide 6 – 🖊️ Signed Commits Explained
+- 📍 Slide 7 – 🔑 PGP/GPG Keys in Git
+- 📍 Slide 8 – 🪪 SSH Signing of Commits
+- 📍 Slide 9 – 🛡️ Verification of Commits in Platforms
+- 📍 Slide 10 – ⚖️ GPG vs SSH Commit Signing
+- 📍 Slide 11 – 🏢 Organizational Enforcement of Signed Commits
+- 📍 Slide 12 – ❌ What Are “Secrets”?
+- 📍 Slide 13 – 🔓 How Secrets Leak into Git Repositories
+- 📍 Slide 14 – 📂 Examples of Leaked Secrets in Public Repos
+- 📍 Slide 15 – 📉 Impact of Secret Leaks
+- 📍 Slide 16 – ⚠️ Why Deleting from Git History Is Not Enough
+- 📍 Slide 17 – 🔍 Manual vs Automated Secret Scanning
+- 📍 Slide 18 – 🛠️ GitGuardian for Secret Scanning
+- 📍 Slide 19 – 🛠️ TruffleHog for Secret Scanning
+- 📍 Slide 20 – 🛠️ Gitleaks for Secret Scanning
+- 📍 Slide 21 – 📦 Built-in Scanners in Git Platforms
+- 📍 Slide 22 – 📊 Stats & Trends of Secret Leaks
+- 📍 Slide 23 – 🧰 History of Secret Storage
+- 📍 Slide 24 – 🔑 Environment Variables for Secrets
+- 📍 Slide 25 – 📜 Config Files & .gitignore
+- 📍 Slide 26 – 🛡️ Secrets Vaulting Tools Overview
+- 📍 Slide 27 – ⚡ Secret Rotation & Lifecycle Management
+- 📍 Slide 28 – 🧩 Integrating Vaults with CI/CD Pipelines
+- 📍 Slide 29 – 🔄 Dynamic vs Static Secrets
+- 📍 Slide 30 – 🧹 Cleaning Git History of Secrets
+- 📍 Slide 31 – 🚦 Pre-Commit Hooks for Preventing Leaks
+- 📍 Slide 32 – 🛠️ Secrets Scanning in CI/CD Pipelines
+- 📍 Slide 33 – 🕸️ Zero-Trust Approach to Git Security
+- 📍 Slide 34 – 🌐 Emerging Trends: P2P & Blockchain Git
+- 📍 Slide 35 – 🔮 Future of Git Security & Secret Management
+- 📍 Slide 36 – 🏢 Case Study: GitHub Token Leaks
+- 📍 Slide 37 – 🚨 Case Study: Supply-Chain Attacks via Repos
+- 📍 Slide 38 – 📘 Industry Standards & Compliance Requirements
+- 📍 Slide 39 – 📝 Best Practices Checklist for Developers
+- 📍 Slide 40 – 🎯 Summary & Hands-On Practice
+
+</details>
+
+<details>
+<summary>📌 Lecture 4 - CI/CD Security & Build Hardening (40 slides)</summary>
+
+- 📍 Slide 1 – 🏗️ What is CI/CD? (Continuous Integration/Continuous Deployment)
+- 📍 Slide 2 – 🔄 Evolution of CI/CD: From Manual Builds to Modern Pipelines
+- 📍 Slide 3 – 🏛️ CI/CD Architecture Components & Trust Boundaries
+- 📍 Slide 4 – ⚙️ Popular CI/CD Platforms Overview (Jenkins, GitHub Actions, GitLab CI, Azure DevOps)
+- 📍 Slide 5 – 🚨 Why CI/CD Pipelines Became High-Value Attack Targets
+- 📍 Slide 6 – 📊 The OWASP Top 10 CI/CD Security Risks (2024)
+- 📍 Slide 7 – 🔗 Supply Chain Attacks via CI/CD: Famous Case Studies
+- 📍 Slide 8 – 🔐 Authentication & Authorization in CI/CD Pipelines
+- 📍 Slide 9 – 🎭 Role-Based Access Control (RBAC) for Pipeline Resources
+- 📍 Slide 10 – 🔑 Service Account Security & Credential Management
+- 📍 Slide 11 – 🛡️ Multi-Factor Authentication (MFA) for Pipeline Access
+- 📍 Slide 12 – ⚖️ Principle of Least Privilege in CI/CD Workflows
+- 📍 Slide 13 – 🕸️ Zero-Trust Approaches to Pipeline Security
+- 📍 Slide 14 – 📋 Infrastructure-as-Code (IaC) for Pipeline Configuration
+- 📍 Slide 15 – 🔒 Securing Pipeline Configuration Files (YAML/JSON Security)
+- 📍 Slide 16 – 🏰 Build Environment Isolation & Sandboxing
+- 📍 Slide 17 – 🚫 Preventing Poisoned Pipeline Execution (PPE) Attacks
+- 📍 Slide 18 – 🌐 Network Segmentation for CI/CD Infrastructure
+- 📍 Slide 19 – 📂 Secure Artifact Storage & Repository Management
+- 📍 Slide 20 – 🧹 Container Security in Build Environments
+- 📍 Slide 21 – ⏱️ Resource Limits & Denial of Service Prevention
+- 📍 Slide 22 – 📦 Secure Artifact Creation & Packaging
+- 📍 Slide 23 – 🔏 Digital Signing & Verification of Build Artifacts
+- 📍 Slide 24 – 📋 Software Bill of Materials (SBOM) Generation
+- 📍 Slide 25 – 🏷️ Container Image Signing with Cosign/Notary
+- 📍 Slide 26 – 🧪 Build Reproducibility & Deterministic Builds
+- 📍 Slide 27 – 🔍 Integrity Checks: Checksums, Hashes, and Verification
+- 📍 Slide 28 – 📊 Artifact Provenance & Supply Chain Transparency
+- 📍 Slide 29 – 🚦 Quality Gates: Definition and Implementation
+- 📍 Slide 30 – 🔒 Security Gates vs. Quality Gates in CI/CD
+- 📍 Slide 31 – ⚡ Automated Security Controls in Pipelines
+- 📍 Slide 32 – 📈 Policy-as-Code for Build Security
+- 📍 Slide 33 – 🛑 Breaking Builds on Security Policy Violations
+- 📍 Slide 34 – 📊 Security Metrics & KPIs for Pipeline Health
+- 📍 Slide 35 – 📚 Third-Party Dependency Security Risks
+- 📍 Slide 36 – 🔍 Software Composition Analysis (SCA) in Build Pipelines
+- 📍 Slide 37 – ⚠️ Vulnerability Scanning of Dependencies
+- 📍 Slide 38 – 📋 License Compliance Scanning & Management
+- 📍 Slide 39 – 🔄 Automated Dependency Updates & Patch Management
+- 📍 Slide 40 – 🕸️ Dependency Confusion & Typosquatting Prevention
+
+</details>
+
+<details>
+<summary>📌 Lecture 5 - Application Security Testing Basics (26 slides)</summary>
+
+- 📍 Slide 1 – 🔍 What is Application Security Testing? (AST Overview)
+- 📍 Slide 2 – 📈 Evolution of Application Security Testing
+- 📍 Slide 3 – 🎯 Types of Security Vulnerabilities We're Testing For
+- 📍 Slide 4 – ⚖️ Static vs. Dynamic vs. Interactive Testing Comparison
+- 📍 Slide 5 – 🧩 The Testing Pyramid for Application Security
+- 📍 Slide 6 – 🔬 Deep Dive into SAST: Definition and Core Concepts
+- 📍 Slide 7 – 🛠️ Popular SAST Tools and Platform Overview
+- 📍 Slide 8 – ⚡ SAST Strengths and Limitations
+- 📍 Slide 9 – 🎯 SAST Implementation Best Practices
+- 📍 Slide 10 – 🔧 Hands-on SAST: Tool Configuration and Output Analysis
+- 📍 Slide 11 – 🌐 Deep Dive into DAST: Black-box Runtime Testing
+- 📍 Slide 12 – 🛠️ Popular DAST Tools and Platform Overview
+- 📍 Slide 13 – ⚡ DAST Strengths and Limitations
+- 📍 Slide 14 – 🎯 DAST Implementation Best Practices
+- 📍 Slide 15 – 🔧 Hands-on DAST: OWASP ZAP Configuration and Testing
+- 📍 Slide 16 – 🧬 Deep Dive into IAST: Runtime Instrumentation Testing
+- 📍 Slide 17 – 🛠️ Popular IAST Tools and Platform Overview
+- 📍 Slide 18 – ⚡ IAST Strengths and Limitations
+- 📍 Slide 19 – 🎯 IAST Implementation Best Practices
+- 📍 Slide 20 – 🔧 Hands-on IAST: Agent-based Testing Setup
+- 📍 Slide 21 – 🚀 Integrating Security Testing into CI/CD Pipelines
+- 📍 Slide 22 – 📊 Tool Orchestration and Security Dashboard Creation
+- 📍 Slide 23 – ⚖️ Balancing Security and Development Velocity
+- 📍 Slide 24 – 🔄 Advanced Integration Patterns and GitOps
+- 📍 Slide 25 – 🌟 Modern Trends and Future of Application Security Testing
+- 📍 Slide 26 – 🎯 Summary & Key Takeaways
+
+</details>
+
+<details>
+<summary>📌 Lecture 6 - Infrastructure-as-Code Security (19 slides)</summary>
+
+- 📍 Slide 1 – 🌍 What is Infrastructure-as-Code (IaC)?
+- 📍 Slide 2 – 🚨 Why IaC Security Matters
+- 📍 Slide 3 – 📊 IaC Tool Landscape Overview
+- 📍 Slide 4 – 🔒 Common IaC Security Risks
+- 📍 Slide 5 – 🧭 IaC in the DevSecOps Pipeline
+- 📍 Slide 6 – 🏗️ Terraform Deep Dive & Security Concerns
+- 📍 Slide 7 – 🔑 Managing Secrets in Terraform
+- 📍 Slide 8 – 🛡️ Terraform Security Best Practices
+- 📍 Slide 9 – 💻 Hands-On: Secure Terraform Workflow
+- 📍 Slide 10 – 🚀 Pulumi Overview & Security Model
+- 📍 Slide 11 – 🧩 Pulumi Policy-as-Code (CrossGuard)
+- 📍 Slide 12 – 💻 Hands-On: Secure Pulumi Deployment
+- 📍 Slide 13 – ⚙️ Ansible Overview & Security Challenges
+- 📍 Slide 14 – 🛡️ Ansible Security Best Practices
+- 📍 Slide 15 – 💻 Hands-On: Secure Ansible Playbook
+- 📍 Slide 16 – 🔍 IaC Security Scanning Tools Deep Dive
+- 📍 Slide 17 – 📋 Policy-as-Code Frameworks
+- 📍 Slide 18 – ☁️ Compliance & Security Standards
+- 📍 Slide 19 – 🎯 Case Studies, Future Trends & Summary
+
+</details>
+
+<details>
+<summary>📌 Lecture 7 - Container & Kubernetes Security (18 slides)</summary>
+
+- 📍 Slide 1 – 🐳 Container Technology Overview & Evolution
+- 📍 Slide 2 – 🏗️ Docker Architecture & Security Model
+- 📍 Slide 3 – 📦 Container Images & Layered Filesystem
+- 📍 Slide 4 – 🔍 Container Image Security Scanning
+- 📍 Slide 5 – 🛡️ Container Runtime Security
+- 📍 Slide 6 – 🔐 Secrets Management in Containers
+- 📍 Slide 7 – 📋 Container Compliance & Hardening
+- 📍 Slide 8 – ☸️ Kubernetes Architecture & Components
+- 📍 Slide 9 – 🔑 Kubernetes Authentication & Authorization
+- 📍 Slide 10 – 🚪 Kubernetes Admission Control & Policies
+- 📍 Slide 11 – 🛡️ Pod Security & Isolation
+- 📍 Slide 12 – 🔒 Kubernetes Secrets & ConfigMaps
+- 📍 Slide 13 – 📊 Kubernetes Auditing & Monitoring
+- 📍 Slide 14 – 🔍 Kubernetes Security Scanning
+- 📍 Slide 15 – 🌐 Kubernetes Network Security
+- 📍 Slide 16 – 🏗️ Secure Kubernetes CI/CD Pipelines
+- 📍 Slide 17 – 🚨 Kubernetes Attack Scenarios & Defense
+- 📍 Slide 18 – 🔮 Future Trends & Security Checklist
+
+</details>
+
+<details>
+<summary>📌 Lecture 8 - Software Supply Chain Security (20 slides)</summary>
+
+- 📍 Slide 1 – 🔗 What is Software Supply Chain Security?
+- 📍 Slide 2 – 💥 Famous Supply Chain Breaches & Incidents
+- 📍 Slide 3 – 🎯 Supply Chain Attack Vectors
+- 📍 Slide 4 – 🛡️ Supply Chain Security Frameworks
+- 📍 Slide 5 – 📊 Supply Chain Security in DevSecOps Pipeline
+- 📍 Slide 6 – 🔍 Software Composition Analysis (SCA) Deep Dive
+- 📍 Slide 7 – 🗂️ Vulnerability Databases & Tracking
+- 📍 Slide 8 – 🛠️ Dependency Management Best Practices
+- 📍 Slide 9 – 💻 Hands-On: Advanced SCA Tools
+- 📍 Slide 10 – 📋 SBOM Formats: SPDX vs CycloneDX Deep Dive
+- 📍 Slide 11 – 🔎 SBOM Consumption & Auditing
+- 📍 Slide 12 – 📊 SBOM Diff Analysis & Change Tracking
+- 📍 Slide 13 – 💻 Hands-On: SBOM-Driven Vulnerability Analysis
+- 📍 Slide 14 – ✍️ Code Signing & Artifact Integrity
+- 📍 Slide 15 – 🔐 Sigstore: Modern Signing Revolution
+- 📍 Slide 16 – 📜 Provenance & Build Attestations
+- 📍 Slide 17 – 💻 Hands-On: Signing & Provenance Verification
+- 📍 Slide 18 – 🎯 SLSA Framework Implementation
+- 📍 Slide 19 – 🔒 Securing the Build Pipeline
+- 📍 Slide 20 – 🚀 Runtime Supply Chain Security
+
+</details>
+
+<details>
+<summary>📌 Lecture 9 - Monitoring, Compliance & Improvement (23 slides)</summary>
+
+- 📍 Slide 1 – 📊 Security Monitoring in DevSecOps
+- 📍 Slide 2 – 🔍 What to Monitor: Logs, Metrics, Traces
+- 📍 Slide 3 – 🛠️ Security Monitoring Tools & Platforms
+- 📍 Slide 4 – 📈 Security Metrics vs Vanity Metrics
+- 📍 Slide 5 – ⏱️ Time-Based KPIs: MTTD, MTTR, MTTA
+- 📍 Slide 6 – 📊 Program Health KPIs
+- 📍 Slide 7 – 💻 Hands-On: Building Security Dashboards
+- 📍 Slide 8 – ⚖️ Compliance Basics for Developers
+- 📍 Slide 9 – 🇪🇺 GDPR Essentials
+- 📍 Slide 10 – 🏛️ NIST Cybersecurity Framework
+- 📍 Slide 11 – 🌐 ISO 27001 Basics
+- 📍 Slide 12 – 💳 Other Key Frameworks (Quick Overview)
+- 📍 Slide 8 – ⚖️ Compliance Basics for Developers
+- 📍 Slide 9 – 🇪🇺 GDPR (General Data Protection Regulation)
+- 📍 Slide 10 – 🏛️ NIST Cybersecurity Framework
+- 📍 Slide 11 – 🌐 ISO 27001 Information Security Management
+- 📍 Slide 12 – 💳 Other Key Frameworks (Overview)
+- 📍 Slide 13 – 🎯 Security Maturity Model Concepts
+- 📍 Slide 14 – 🦅 OWASP SAMM (Software Assurance Maturity Model)
+- 📍 Slide 15 – 📊 BSIMM (Building Security In Maturity Model)
+- 📍 Slide 16 – 🚀 DevSecOps Maturity Assessment
+- 📍 Slide 17 – 🔄 Feedback Loops & Security Improvement
+- 📍 Slide 18 – 🤖 Compliance as Code & Automation
+
+</details>
+
+<details>
+<summary>📌 Lecture 10 - Vulnerability Management & Response (17 slides)</summary>
+
+- 📍 Slide 1 – 🔍 Vulnerability Discovery Methods
+- 📍 Slide 2 – 🛠️ Security Testing Orchestration
+- 📍 Slide 3 – 📊 Centralized Vulnerability Management
+- 📍 Slide 4 – 📊 CVSS Scoring Deep Dive
+- 📍 Slide 5 – ⚡ Advanced Prioritization: EPSS, KEV, SSVC
+- 📍 Slide 6 – 🎯 Risk-Based Prioritization
+- 📍 Slide 7 – 🚨 Triage Workflows & Decisions
+- 📍 Slide 8 – 🔧 Remediation Strategies
+- 📍 Slide 9 – ⏱️ SLA Management & Tracking
+- 📍 Slide 10 – 🔄 Remediation Tracking & Verification
+- 📍 Slide 11 – 💻 Hands-On: Automated Remediation Pipelines
+- 📍 Slide 12 – 📊 Vulnerability Lifecycle Overview
+- 📍 Slide 13 – 📈 Backlog Management & Health
+- 📍 Slide 14 – ⚡ Velocity & Continuous Improvement
+- 📍 Slide 15 – 🔥 Incident Response Framework
+- 📍 Slide 16 – 👥 IR Team Roles & Escalation
+- 📍 Slide 17 – 📚 Blameless Post-Mortems
+
+</details>
 
 ---
 
@@ -170,7 +521,7 @@ flowchart LR
 <details>
 <summary>📋 View All Lab Topics</summary>
 
-**Labs 1-10:**
+**Required Labs (1-10):**
 
 1. **Foundations & Secure SDLC** — DevSecOps principles, OWASP Top 10, shift-left security
 2. **Threat Modeling** — STRIDE analysis, attack surface mapping, risk assessment
@@ -182,6 +533,17 @@ flowchart LR
 8. **Supply Chain** — SBOM generation, dependency analysis, artifact signing
 9. **Monitoring & Compliance** — Security metrics, GDPR/NIST/ISO basics, maturity assessment
 10. **Vulnerability Management** — Discovery, triage, remediation, CVSS scoring
+
+**Bonus Labs (Optional):**
+
+11. **🎁 Nginx Reverse Proxy Hardening** — Security headers (XFO, XCTO, HSTS, CSP), TLS configuration, rate limiting, timeout management
+12. **🎁 Kata Containers Sandboxing** — VM-backed isolation, runtime comparison (runc vs kata), performance analysis, security tradeoffs
+
+> **Bonus Lab Benefits:**
+> - Extra credit toward final grade
+> - Advanced security hardening techniques
+> - Real-world operational security skills
+> - Optional but highly recommended for security professionals
 
 </details>
 
@@ -244,32 +606,39 @@ graph LR
 <details>
 <summary>🎯 Lab Grading Breakdown</summary>
 
-**Each lab (1-10) is worth 10 points:**
+**Each lab (1-10) is worth 8 points:**
 
-* **Perfect Submissions (10/10):**
+* **Perfect Submissions (8/8):**
   - All tasks completed with thorough security analysis
   - Clear documentation and understanding demonstrated
   - Security tools configured and used correctly
   - Submitted on time
   - **Benefit:** Counts toward exam exemption
 
-* **Strong Submissions (8-9/10):**
+* **Strong Submissions (6-7/8):**
   - All tasks completed with minor issues
   - Good security analysis and documentation
   - Minor improvements needed
 
-* **Passing Submissions (6-7/10):**
+* **Passing Submissions (5-6/8):**
   - Core security tasks completed
   - Basic documentation present
   - Some areas need improvement
 
-* **Below Passing (<6/10):**
+* **Below Passing (<5/8):**
   - Incomplete security analysis
   - Insufficient documentation
   - Major gaps in understanding
 
-**Late Submissions:**
-- Maximum score: 6/10
+**Bonus Labs (11-12):**
+- Worth **10 points each**
+- **Maximum 20 bonus points total** (capped to maintain grade scale)
+- **Can replace the exam requirement** if both completed
+- Same quality standards as required labs
+- No penalty for not completing them
+
+**Late Submissions (Required Labs Only):**
+- Maximum score: 5/8
 - Accepted within 1 week after deadline
 - No credit after 1 week
 
@@ -278,21 +647,35 @@ graph LR
 <details>
 <summary>🏆 Exam Exemption Policy</summary>
 
-**Qualify for Exam Exemption by:**
+**Path 1: Exam Exemption (Traditional)**
 
-1. Submitting **all 10 labs on time**
-2. Scoring **10/10 on at least 8 labs**
-3. Minimum average of **9.0/10 across all labs**
+Qualify by:
+1. Submitting **all 10 required labs on time**
+2. Scoring **8/8 on at least 8 required labs**
+3. Minimum average of **7.0/8 across required labs**
 
-**If qualified:**
-- Skip the final exam
-- Receive bonus points toward final grade
-- Guaranteed **A** grade (90-100)
+**Result:** Skip exam, receive full 20 exam points
 
-**Benefits:**
-- Focus on hands-on security learning over memorization
-- Reward consistent, high-quality work
-- Reduce exam stress for top performers
+**Path 2: Bonus Labs Replace Exam**
+
+Complete **both Lab 11 AND Lab 12** with passing scores:
+- No exam requirement
+- Bonus points replace the 20 exam points
+- Must still complete all 10 required labs
+
+**Path 3: Maximum Score Strategy**
+
+Combine all components:
+- Complete 10 required labs (80 pts)
+- Take exam (20 pts)
+- Complete bonus labs (20 pts)
+- Total: 120 pts available (capped at 100 for final grade)
+
+**Important Notes:**
+- **Completing only 10 labs = 80% maximum** (B grade)
+- Need exam OR bonus labs to reach A grade
+- Bonus labs provide safety buffer for required lab scores
+- Late required lab submissions max out at 5/8 points
 
 </details>
 
@@ -302,11 +685,13 @@ graph LR
 
 ### Grade Composition
 
-| Component      | Weight | Details                                |
-|----------------|--------|----------------------------------------|
-| **Labs (1-10)**| 80%    | 10 labs × 8 points each                |
-| **Final Exam** | 20%    | Comprehensive assessment (optional if exempt) |
-| **Total**      | 100%   | Exam exemption available for top performers |
+| Component | Points | Details |
+|-----------|--------|---------|
+| **Required Labs (1-10)** | 80 points | 10 labs × 8 points each (80% of grade) |
+| **Final Exam** | 20 points | Comprehensive assessment OR skip if both bonus labs completed |
+| **Bonus Labs (11-12)** | +20 points max | Lab 11: 10 pts, Lab 12: 10 pts (capped at 20 total) |
+| **Total Base** | 100 points | Required to pass: 60+ points |
+| **Maximum Possible** | 120 points | With bonus labs (capped at 100% for final grade) |
 
 ### Performance Tiers
 
@@ -320,16 +705,36 @@ graph LR
 | **C** | 60-74   | Basic security competency demonstrated, needs reinforcement                 |
 | **D** | 0-59    | Fundamental security gaps, re-attempt required                              |
 
-**Grade Calculation Example:**
-```
-Labs: 8 points × 10 labs = 80 points (80%)
-Exam: 20 points (20%)
-Total: 100 points
+**Grade Calculation Examples:**
 
-Student Example:
-- Labs: 75/80 (93.75%)
-- Exam: 17/20 (85%)
-- Final: 92/100 = A
+**Scenario 1: Standard Path (Labs + Exam)**
+```
+Required Labs: 70/80 points (8 labs at 8pts, 2 at 5pts)
+Exam: 18/20 points
+Total: 88/100 = B+
+```
+
+**Scenario 2: Labs Only (80% Maximum)**
+```
+Required Labs: 80/80 points (perfect scores)
+No Exam: 0/20 points
+Total: 80/100 = B (cannot exceed 80% without exam/bonus)
+```
+
+**Scenario 3: Labs + Bonus (No Exam)**
+```
+Required Labs: 72/80 points
+Bonus Lab 11: 10/10 points
+Bonus Lab 12: 10/10 points
+Total: 92/100 = A (bonus labs replace exam)
+```
+
+**Scenario 4: Maximum Score**
+```
+Required Labs: 80/80 points
+Exam: 20/20 points
+Bonus Labs: 20/20 points
+Total: 120 points → capped at 100/100 = A+ with buffer
 ```
 
 </details>
@@ -338,7 +743,7 @@ Student Example:
 
 ## ✅ Success Path
 
-> **"Complete all 10 labs with ≥6/10 to pass. Perfect lab submissions grant exam exemption. Consistent excellence leads to an A grade."**
+> **"Complete all 10 required labs to earn 80%. Add exam (20%) OR both bonus labs (20%) to reach higher grades. Maximum 120 points available, capped at 100% for final grade."**
 
 <details>
 <summary>💡 Tips for Success</summary>
