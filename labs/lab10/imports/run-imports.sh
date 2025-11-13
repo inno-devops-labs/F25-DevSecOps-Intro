@@ -52,7 +52,12 @@ SCAN_NUCLEI="${SCAN_NUCLEI:-}"
 
 if $have_jq; then
   echo "Discovering importer names from /test_types/ ..."
-  mapfile -t types < <(curl -sS -H "Authorization: Token $DD_TOKEN" "$DD_API/test_types/?limit=2000" | jq -r '.results[].name')
+  # mapfile is a Bash 4+ builtin; macOS ships with Bash 3 which doesn't have it. Use a
+  # POSIX-friendly read loop to populate the 'types' array instead for compatibility.
+  types=()
+  while IFS= read -r t; do
+    types+=("$t")
+  done < <(curl -sS -H "Authorization: Token $DD_TOKEN" "$DD_API/test_types/?limit=2000" | jq -r '.results[].name')
   choose_type() {
     local pat="$1"
     local fallback="$2"
