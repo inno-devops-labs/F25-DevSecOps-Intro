@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Server: nginx/1.29.3
+Date: Thu, 13 Nov 2025 20:20:24 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 75002
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Feature-Policy: payment 'self'
+X-Recruiting: /#/jobs
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Thu, 13 Nov 2025 20:03:55 GMT
+ETag: W/"124fa-19a7ed1461a"
+Vary: Accept-Encoding
+
