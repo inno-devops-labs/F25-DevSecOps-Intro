@@ -1,0 +1,28 @@
+{
+  "template": "dns/dns-rebinding.yaml",
+  "template-url": "https://cloud.projectdiscovery.io/public/dns-rebinding",
+  "template-id": "dns-rebinding",
+  "template-path": "/root/nuclei-templates/dns/dns-rebinding.yaml",
+  "info": {
+    "name": "DNS Rebinding Attack",
+    "author": ["ricardomaia"],
+    "tags": ["redirect", "dns", "network"],
+    "description": "Detects DNS Rebinding attacks by checking if the DNS response contains a private IPv4 or IPv6 address.\n",
+    "reference": [
+      "https://capec.mitre.org/data/definitions/275.html",
+      "https://payatu.com/blog/dns-rebinding/",
+      "https://heimdalsecurity.com/blog/dns-rebinding/"
+    ],
+    "severity": "unknown",
+    "metadata": { "max-request": 2 }
+  },
+  "extractor-name": "IPv4",
+  "type": "dns",
+  "host": "localhost",
+  "matched-at": "localhost",
+  "extracted-results": ["127.0.0.1"],
+  "request": ";; opcode: QUERY, status: NOERROR, id: 34033\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;localhost.\tIN\t A\n",
+  "response": ";; opcode: QUERY, status: NOERROR, id: 34033\n;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;localhost.\tIN\t A\n\n;; ANSWER SECTION:\nlocalhost.\t10800\tIN\tA\t127.0.0.1\n",
+  "timestamp": "2025-10-10T18:09:17.491673496Z",
+  "matcher-status": true
+}
