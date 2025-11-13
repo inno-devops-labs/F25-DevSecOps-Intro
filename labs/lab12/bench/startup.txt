@@ -1,0 +1,9 @@
+=== Startup Time Comparison ===
+runc:
+sudo nerdctl run --rm alpine:3.19 echo "test" 2>&1  0.01s user 0.01s system 1% cpu 1.221 total
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv  0.00s user 0.00s system 0% cpu 1.221 total
+tee -a labs/lab12/bench/startup.txt  0.00s user 0.00s system 0% cpu 1.222 total
+Kata:
+sudo nerdctl run --rm --runtime io.containerd.kata.v2 alpine:3.19 echo "test"  0.00s user 0.01s system 0% cpu 2.522 total
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv  0.00s user 0.00s system 0% cpu 2.522 total
+tee -a labs/lab12/bench/startup.txt  0.00s user 0.00s system 0% cpu 2.523 total
