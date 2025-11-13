@@ -1,6 +1,0 @@
-=== SAST/DAST Correlation Report ===
-SAST findings: 25
-ZAP findings: 15
-Nuclei findings: 28
-Nikto findings: 28
-SQLmap: Check results in sqlmap directory

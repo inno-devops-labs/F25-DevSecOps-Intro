@@ -115,7 +115,7 @@ import_scan() {
 }
 
 # Candidate paths per tool
-zap_file="labs/lab5/zap/zap-report-noauth.json"
+zap_file="labs/lab5/zap/zap-report-noauth.xml"
 semgrep_file="labs/lab5/semgrep/semgrep-results.json"
 trivy_file="labs/lab4/trivy/trivy-vuln-detailed.json"
 nuclei_file="labs/lab5/nuclei/nuclei-results.json"
