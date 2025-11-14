@@ -4,7 +4,14 @@
 [![Exam](https://img.shields.io/badge/Exam-20%25-orange)](#-evaluation-framework)
 [![Hands-On](https://img.shields.io/badge/Focus-Hands--On%20Security-success)](#-lab-based-learning-experience)
 [![Duration](https://img.shields.io/badge/Duration-10%20Modules-lightgrey)](#-course-roadmap)
+[![Labs](https://img.shields.io/badge/Labs-80%25-blue)](#-lab-based-learning-experience)
+[![Exam](https://img.shields.io/badge/Exam-20%25-orange)](#-evaluation-framework)
+[![Hands-On](https://img.shields.io/badge/Focus-Hands--On%20Security-success)](#-lab-based-learning-experience)
+[![Duration](https://img.shields.io/badge/Duration-10%20Modules-lightgrey)](#-course-roadmap)
 
+Welcome to the **Introduction to DevSecOps Course**, where you will learn to **integrate security seamlessly into modern software development and operations**.  
+This course is designed to provide a comprehensive understanding of DevSecOps culture, practices, and tooling for building secure software systems.  
+Through **hands-on labs and focused lectures**, you'll gain experience with secure coding, automated testing, infrastructure-as-code security, container hardening, and vulnerability management — the same approaches used by leading engineering teams worldwide.
 Welcome to the **Introduction to DevSecOps Course**, where you will learn to **integrate security seamlessly into modern software development and operations**.  
 This course is designed to provide a comprehensive understanding of DevSecOps culture, practices, and tooling for building secure software systems.  
 Through **hands-on labs and focused lectures**, you'll gain experience with secure coding, automated testing, infrastructure-as-code security, container hardening, and vulnerability management — the same approaches used by leading engineering teams worldwide.
@@ -13,6 +20,7 @@ Through **hands-on labs and focused lectures**, you'll gain experience with secu
 
 ## 📚 Course Roadmap
 
+**10-module intensive course** with practical labs designed for incremental skill development:
 **10-module intensive course** with practical labs designed for incremental skill development:
 
 | Lab | Module                                      | Key Topics & Technologies                                                                 |
@@ -36,6 +44,120 @@ Through **hands-on labs and focused lectures**, you'll gain experience with secu
 <summary>🌳 View Skill Tree Structure</summary>
 
 ```mermaid
+graph TB
+    ROOT[🔐 DevSecOps Mastery] 
+    
+    %% Foundation Branch
+    ROOT --- FOUND[🏗️ Foundation]
+    FOUND --- A[📚 Lab 1: DevSecOps Intro<br/>• Secure SDLC<br/>• Shift-Left Culture<br/>• OWASP Top 10]
+    FOUND --- B[🎯 Lab 2: Threat Modeling<br/>• STRIDE Analysis<br/>• Attack Surfaces<br/>• Risk Assessment]
+    
+    %% Development Branch  
+    ROOT --- DEV[👨‍💻 Development]
+    DEV --- C[🔐 Lab 3: Secure Git<br/>• Signed Commits<br/>• Secrets Management<br/>• Secure Workflows]
+    DEV --- D[🚀 Lab 4: CI/CD Security<br/>• Secure Pipelines<br/>• Build Hardening<br/>• Quality Gates]
+    
+    %% Testing Branch
+    ROOT --- TEST[🧪 Testing]
+    TEST --- E[🔍 Lab 5: AppSec Testing<br/>• SAST/DAST/SCA<br/>• Tool Integration<br/>• Automated Security]
+    TEST --- J[🎯 Lab 10: Vuln Management<br/>• Discovery & Triage<br/>• CVSS Scoring<br/>• Remediation Workflows]
+    
+    %% Infrastructure Branch
+    ROOT --- INFRA[🏗️ Infrastructure]
+    INFRA --- F[⚙️ Lab 6: IaC Security<br/>• Terraform/Ansible<br/>• Config Scanning<br/>• Policy as Code]
+    INFRA --- G[📦 Lab 7: Container Security<br/>• Docker/K8s Security<br/>• Image Scanning<br/>• Runtime Protection]
+    
+    %% Supply Chain Branch
+    ROOT --- SUPPLY[🔗 Supply Chain]
+    SUPPLY --- H[📋 Lab 8: SBOM & Provenance<br/>• Dependency Analysis<br/>• Artifact Signing<br/>• Supply Chain Security]
+    
+    %% Operations Branch
+    ROOT --- OPS[📊 Operations]
+    OPS --- I[📈 Lab 9: Monitoring & Compliance<br/>• Security Metrics<br/>• GDPR/NIST/ISO<br/>• Maturity Models]
+    
+    %% Styling
+    classDef rootStyle fill:#1a1a1a,stroke:#ffffff,stroke-width:3px,color:#ffffff
+    classDef branchStyle fill:#2c3e50,stroke:#e74c3c,stroke-width:2px,color:#ffffff
+    classDef foundationModule fill:#fdf2e9,stroke:#e67e22,stroke-width:2px,color:#2c3e50
+    classDef devModule fill:#eaf2f8,stroke:#3498db,stroke-width:2px,color:#2c3e50
+    classDef testModule fill:#f4ecf7,stroke:#9b59b6,stroke-width:2px,color:#2c3e50
+    classDef infraModule fill:#e8f8f5,stroke:#16a085,stroke-width:2px,color:#2c3e50
+    classDef supplyModule fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#2c3e50
+    classDef opsModule fill:#fff3cd,stroke:#f1c40f,stroke-width:2px,color:#2c3e50
+    
+    class ROOT rootStyle
+    class FOUND,DEV,TEST,INFRA,SUPPLY,OPS branchStyle
+    class A,B foundationModule
+    class C,D devModule
+    class E,J testModule
+    class F,G infraModule
+    class H supplyModule
+    class I opsModule
+```
+
+</details>
+
+<details>
+<summary>🏗️ View Security Integration Layers</summary>
+
+```mermaid
+flowchart LR
+    subgraph "🔗 Supply Chain & Operations"
+        direction LR
+        H[📋 Lab 8: SBOM & Provenance<br/>Dependency Security]
+        I[📈 Lab 9: Monitoring<br/>Security Metrics]
+    end
+    
+    subgraph "🏗️ Infrastructure Security"
+        direction LR
+        F[⚙️ Lab 6: IaC Security<br/>Config Management]
+        G[📦 Lab 7: Container Security<br/>Runtime Protection]
+    end
+    
+    subgraph "🧪 Security Testing"
+        direction LR
+        E[🔍 Lab 5: AppSec Testing<br/>SAST/DAST/SCA]
+        J[🎯 Lab 10: Vuln Management<br/>Remediation Workflows]
+    end
+    
+    subgraph "👨‍💻 Secure Development"
+        direction LR
+        C[🔐 Lab 3: Secure Git<br/>Secrets & Signing]
+        D[🚀 Lab 4: CI/CD Security<br/>Pipeline Hardening]
+    end
+    
+    subgraph "🏗️ Foundation Layer"
+        direction LR
+        A[📚 Lab 1: DevSecOps<br/>Principles & SDLC]
+        B[🎯 Lab 2: Threat Modeling<br/>Risk Analysis]
+    end
+    
+    A --> C
+    B --> C
+    C --> E
+    D --> E
+    D --> F
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    E --> J
+    J --> I
+    
+    classDef foundation fill:#fdf2e9,stroke:#e67e22,stroke-width:3px,color:#2c3e50
+    classDef development fill:#eaf2f8,stroke:#3498db,stroke-width:3px,color:#2c3e50
+    classDef testing fill:#f4ecf7,stroke:#9b59b6,stroke-width:3px,color:#2c3e50
+    classDef infrastructure fill:#e8f8f5,stroke:#16a085,stroke-width:3px,color:#2c3e50
+    classDef operations fill:#fdedec,stroke:#e74c3c,stroke-width:3px,color:#2c3e50
+    
+    class A,B foundation
+    class C,D development
+    class E,J testing
+    class F,G infrastructure
+    class H,I operations
+```
+
+</details>
 graph TB
     ROOT[🔐 DevSecOps Mastery] 
     
