@@ -72,7 +72,9 @@ Copy the baseline model and make these specific changes:
 - **Persistent Storage**: set `encryption: transparent`
 - Save as: `labs/lab2/threagile-model.secure.yaml`
 
-#### 2.2: Generate Secure Variant Analysis
+* **User Browser → communication_links → Direct to App (no proxy)**: set `protocol: https`
+* **Reverse Proxy → communication_links**: set `protocol: https`
+* **Persistent Storage**: set `encryption: transparent` (to represent disk-level encryption)
 
 ```bash
 docker run --rm -v "$(pwd)":/app/work threagile/threagile \
