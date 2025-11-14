@@ -1,0 +1,1 @@
+Kata Containers containerd shim (Rust): id: io.containerd.kata.v2, version: 3.22.0, commit: 716c55abddaa5fbc604d9ee022b645f9cc7e092f
