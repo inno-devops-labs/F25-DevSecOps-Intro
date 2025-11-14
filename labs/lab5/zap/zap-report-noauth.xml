@@ -1,0 +1,2514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ZAPReport version="2.16.1" generated="Fri, 10 Oct 2025 17:52:49">
+    <created>2025-10-10T17:52:49.528133282Z</created>
+    <site name="http://localhost:3000" host="localhost" port="3000" ssl="false">
+        <alertitem>
+            <pluginid>10095</pluginid>
+            <alertRef>10095</alertRef>
+            <alert>Backup File Disclosure</alert>
+            <name>Backup File Disclosure</name>
+            <riskcode>2</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Medium (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;A backup of the file was disclosed by the web server.&lt;/p&gt;]]></desc>
+            <count>31</count>
+            <solution><![CDATA[&lt;p&gt;Do not edit files in-situ on the web server, and ensure that un-necessary files (including hidden files) are removed from the web server.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[&lt;p&gt;A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy]&lt;/p&gt;]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://cwe.mitre.org/data/definitions/530.html&lt;/p&gt;&lt;p&gt;https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.html&lt;/p&gt;]]></reference>
+            <cweid>530</cweid>
+            <wascid>34</wascid>
+            <sourceid>8411</sourceid>
+            <instances>
+                <instance>
+                    <id>138</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>139</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>150</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_amd_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_amd_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_amd_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>146</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_arm_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_arm_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_linux_arm_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>148</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_macos_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_macos_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_macos_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>147</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_windows_64.exe.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_windows_64.exe.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(2)/juicy_malware_windows_64.exe.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>140</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>154</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_amd_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_amd_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_amd_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>149</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_arm_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_arm_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_linux_arm_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>152</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_macos_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_macos_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_macos_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>151</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_windows_64.exe.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_windows_64.exe.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy%20(3)/juicy_malware_windows_64.exe.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>145</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_amd_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_amd_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_amd_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>142</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_arm_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_arm_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_linux_arm_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>144</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_macos_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_macos_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_macos_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>143</id>
+                    <uri>http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_windows_64.exe.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_windows_64.exe.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantine%20-%20Copy/juicy_malware_windows_64.exe.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>129</id>
+                    <uri>http://localhost:3000/ftp/quarantine.bac</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.bac]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.bac]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>128</id>
+                    <uri>http://localhost:3000/ftp/quarantine.backup</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.backup]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.backup]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>127</id>
+                    <uri>http://localhost:3000/ftp/quarantine.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.bak]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.bak]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>132</id>
+                    <uri>http://localhost:3000/ftp/quarantine.jar</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.jar]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.jar]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>133</id>
+                    <uri>http://localhost:3000/ftp/quarantine.log</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.log]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.log]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>136</id>
+                    <uri>http://localhost:3000/ftp/quarantine.old</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.old]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.old]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>134</id>
+                    <uri>http://localhost:3000/ftp/quarantine.swp</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.swp]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.swp]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>131</id>
+                    <uri>http://localhost:3000/ftp/quarantine.tar</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.tar]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.tar]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>130</id>
+                    <uri>http://localhost:3000/ftp/quarantine.zip</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.zip]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.zip]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>137</id>
+                    <uri>http://localhost:3000/ftp/quarantine.~bk</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine.~bk]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine.~bk]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>141</id>
+                    <uri>http://localhost:3000/ftp/quarantinebackup</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantinebackup]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantinebackup]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>157</id>
+                    <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_amd_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_amd_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_amd_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>153</id>
+                    <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_arm_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_arm_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_linux_arm_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>156</id>
+                    <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_macos_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantinebackup/juicy_malware_macos_64.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_macos_64.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>155</id>
+                    <uri>http://localhost:3000/ftp/quarantinebackup/juicy_malware_windows_64.exe.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantinebackup/juicy_malware_windows_64.exe.url]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url] is available at [http://localhost:3000/ftp/quarantinebackup/juicy_malware_windows_64.exe.url]]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>135</id>
+                    <uri>http://localhost:3000/ftp/quarantine~</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[http://localhost:3000/ftp/quarantine~]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[A backup of [http://localhost:3000/ftp/quarantine] is available at [http://localhost:3000/ftp/quarantine~]]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>40038</pluginid>
+            <alertRef>40038</alertRef>
+            <alert>Bypassing 403</alert>
+            <name>Bypassing 403</name>
+            <riskcode>2</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Medium (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;Bypassing 403 endpoints may be possible, the scan rule sent a payload that caused the response to be accessible (status code 200).&lt;/p&gt;]]></desc>
+            <count>6</count>
+            <solution><![CDATA[]]></solution>
+            <otherinfo><![CDATA[&lt;p&gt;http://localhost:3000/ftp/coupons_2013.md.bak&lt;/p&gt;]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/&lt;/p&gt;&lt;p&gt;https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf&lt;/p&gt;&lt;p&gt;https://seclists.org/fulldisclosure/2011/Oct/273&lt;/p&gt;]]></reference>
+            <cweid>348</cweid>
+            <wascid>0</wascid>
+            <sourceid>11874</sourceid>
+            <instances>
+                <instance>
+                    <id>158</id>
+                    <uri>http://localhost:3000/%2e/ftp/coupons_2013.md.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[/%2e/ftp/coupons_2013.md.bak]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[http://localhost:3000/ftp/coupons_2013.md.bak]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>160</id>
+                    <uri>http://localhost:3000/%2e/ftp/eastere.gg</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[/%2e/ftp/eastere.gg]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[http://localhost:3000/ftp/eastere.gg]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>159</id>
+                    <uri>http://localhost:3000/%2e/ftp/encrypt.pyc</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[/%2e/ftp/encrypt.pyc]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[http://localhost:3000/ftp/encrypt.pyc]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>161</id>
+                    <uri>http://localhost:3000/%2e/ftp/package-lock.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[/%2e/ftp/package-lock.json.bak]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[http://localhost:3000/ftp/package-lock.json.bak]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>162</id>
+                    <uri>http://localhost:3000/%2e/ftp/package.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[/%2e/ftp/package.json.bak]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[http://localhost:3000/ftp/package.json.bak]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>163</id>
+                    <uri>http://localhost:3000/%2e/ftp/suspicious_errors.yml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[/%2e/ftp/suspicious_errors.yml]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[http://localhost:3000/ftp/suspicious_errors.yml]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>40040</pluginid>
+            <alertRef>40040-2</alertRef>
+            <alert>CORS Misconfiguration</alert>
+            <name>CORS Misconfiguration</name>
+            <riskcode>2</riskcode>
+            <confidence>3</confidence>
+            <riskdesc>Medium (High)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;This CORS misconfiguration could allow an attacker to perform AJAX queries to the vulnerable website from a malicious page loaded by the victim&#39;s user agent.&lt;/p&gt;&lt;p&gt;In order to perform authenticated AJAX queries, the server must specify the header &quot;Access-Control-Allow-Credentials: true&quot; and the &quot;Access-Control-Allow-Origin&quot; header must be set to null or the malicious page&#39;s domain. Even if this misconfiguration doesn&#39;t allow authenticated AJAX requests, unauthenticated sensitive content can still be accessed (e.g intranet websites).&lt;/p&gt;&lt;p&gt;A malicious page can belong to a malicious website but also a trusted website with flaws (e.g XSS, support of HTTP without TLS allowing code injection through MITM, etc).&lt;/p&gt;]]></desc>
+            <count>95</count>
+            <solution><![CDATA[&lt;p&gt;If a web resource contains sensitive information, the origin should be properly specified in the Access-Control-Allow-Origin header. Only trusted websites needing this resource should be specified in this header, with the most secured protocol supported.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS&lt;/p&gt;&lt;p&gt;https://portswigger.net/web-security/cors&lt;/p&gt;]]></reference>
+            <cweid>942</cweid>
+            <wascid>14</wascid>
+            <sourceid>11993</sourceid>
+            <instances>
+                <instance>
+                    <id>164</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>165</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>166</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>171</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>167</id>
+                    <uri>http://localhost:3000/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>256</id>
+                    <uri>http://localhost:3000/ftp</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>257</id>
+                    <uri>http://localhost:3000/ftp/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>172</id>
+                    <uri>http://localhost:3000/ftp/acquisitions.md</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>179</id>
+                    <uri>http://localhost:3000/ftp/announcement_encrypted.md</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>169</id>
+                    <uri>http://localhost:3000/ftp/coupons_2013.md.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>170</id>
+                    <uri>http://localhost:3000/ftp/eastere.gg</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>173</id>
+                    <uri>http://localhost:3000/ftp/encrypt.pyc</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>176</id>
+                    <uri>http://localhost:3000/ftp/incident-support.kdbx</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>178</id>
+                    <uri>http://localhost:3000/ftp/legal.md</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>175</id>
+                    <uri>http://localhost:3000/ftp/package-lock.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>177</id>
+                    <uri>http://localhost:3000/ftp/package.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>258</id>
+                    <uri>http://localhost:3000/ftp/quarantine</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>180</id>
+                    <uri>http://localhost:3000/ftp/quarantine/juicy_malware_linux_amd_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>181</id>
+                    <uri>http://localhost:3000/ftp/quarantine/juicy_malware_linux_arm_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>182</id>
+                    <uri>http://localhost:3000/ftp/quarantine/juicy_malware_macos_64.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>174</id>
+                    <uri>http://localhost:3000/ftp/quarantine/juicy_malware_windows_64.exe.url</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>168</id>
+                    <uri>http://localhost:3000/ftp/suspicious_errors.yml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>183</id>
+                    <uri>http://localhost:3000/juice-shop</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>184</id>
+                    <uri>http://localhost:3000/juice-shop/build</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>185</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>186</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>187</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>188</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>189</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>195</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>197</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>190</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>191</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>193</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>194</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>192</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>199</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:43:13</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>196</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:59:18</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>198</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>200</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>202</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>201</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>203</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>204</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>205</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>206</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>207</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>208</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>209</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>210</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>211</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>215</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>212</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>219</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>214</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>217</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>226</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>216</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/assets/public/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>213</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:280:10</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>218</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:286:9</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>220</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:328:13</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>221</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>223</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:376:14</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>224</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:421:3</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>222</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/layer.js:95:5</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>225</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>227</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>228</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>230</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>229</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>231</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>232</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>233</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>234</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>236</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>251</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>243</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>240</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>239</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>255</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>242</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>244</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/assets/public/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>245</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/index.js:145:39</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>246</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>247</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>248</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>249</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>241</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/serve-index/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>252</id>
+                    <uri>http://localhost:3000/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>238</id>
+                    <uri>http://localhost:3000/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>235</id>
+                    <uri>http://localhost:3000/robots.txt</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>237</id>
+                    <uri>http://localhost:3000/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>250</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>253</id>
+                    <uri>http://localhost:3000/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>254</id>
+                    <uri>http://localhost:3000/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[origin: http://0BgxNQLH.com]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10038</pluginid>
+            <alertRef>10038-1</alertRef>
+            <alert>Content Security Policy (CSP) Header Not Set</alert>
+            <name>Content Security Policy (CSP) Header Not Set</name>
+            <riskcode>2</riskcode>
+            <confidence>3</confidence>
+            <riskdesc>Medium (High)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.&lt;/p&gt;]]></desc>
+            <count>11</count>
+            <solution><![CDATA[&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP&lt;/p&gt;&lt;p&gt;https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html&lt;/p&gt;&lt;p&gt;https://www.w3.org/TR/CSP/&lt;/p&gt;&lt;p&gt;https://w3c.github.io/webappsec-csp/&lt;/p&gt;&lt;p&gt;https://web.dev/articles/csp&lt;/p&gt;&lt;p&gt;https://caniuse.com/#feat=contentsecuritypolicy&lt;/p&gt;&lt;p&gt;https://content-security-policy.com/&lt;/p&gt;]]></reference>
+            <cweid>693</cweid>
+            <wascid>15</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>21</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>0</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>84</id>
+                    <uri>http://localhost:3000/ftp</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>77</id>
+                    <uri>http://localhost:3000/ftp/coupons_2013.md.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>71</id>
+                    <uri>http://localhost:3000/ftp/eastere.gg</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>72</id>
+                    <uri>http://localhost:3000/ftp/encrypt.pyc</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>76</id>
+                    <uri>http://localhost:3000/ftp/package-lock.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>74</id>
+                    <uri>http://localhost:3000/ftp/package.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>78</id>
+                    <uri>http://localhost:3000/ftp/suspicious_errors.yml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>87</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>20</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10098</pluginid>
+            <alertRef>10098</alertRef>
+            <alert>Cross-Domain Misconfiguration</alert>
+            <name>Cross-Domain Misconfiguration</name>
+            <riskcode>2</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Medium (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server.&lt;/p&gt;]]></desc>
+            <count>11</count>
+            <solution><![CDATA[&lt;p&gt;Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).&lt;/p&gt;&lt;p&gt;Configure the &quot;Access-Control-Allow-Origin&quot; HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[&lt;p&gt;The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.&lt;/p&gt;]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://vulncat.fortify.com/en/detail?category=HTML5&amp;subcategory=Overly%20Permissive%20CORS%20Policy&lt;/p&gt;]]></reference>
+            <cweid>264</cweid>
+            <wascid>14</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>24</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>1</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>14</id>
+                    <uri>http://localhost:3000/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>70</id>
+                    <uri>http://localhost:3000/ftp/incident-support.kdbx</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>60</id>
+                    <uri>http://localhost:3000/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>56</id>
+                    <uri>http://localhost:3000/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>12</id>
+                    <uri>http://localhost:3000/robots.txt</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>17</id>
+                    <uri>http://localhost:3000/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>23</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>15</id>
+                    <uri>http://localhost:3000/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>65</id>
+                    <uri>http://localhost:3000/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Access-Control-Allow-Origin: *]]></evidence>
+                    <otherinfo><![CDATA[The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10017</pluginid>
+            <alertRef>10017</alertRef>
+            <alert>Cross-Domain JavaScript Source File Inclusion</alert>
+            <name>Cross-Domain JavaScript Source File Inclusion</name>
+            <riskcode>1</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Low (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;The page includes one or more script files from a third-party domain.&lt;/p&gt;]]></desc>
+            <count>10</count>
+            <solution><![CDATA[&lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can&#39;t be controlled by end users of the application.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[]]></reference>
+            <cweid>829</cweid>
+            <wascid>15</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>27</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>29</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>2</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>3</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>90</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:59:18</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>91</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:59:18</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>88</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>89</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>26</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>30</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10110</pluginid>
+            <alertRef>10110</alertRef>
+            <alert>Dangerous JS Functions</alert>
+            <name>Dangerous JS Functions</name>
+            <riskcode>1</riskcode>
+            <confidence>1</confidence>
+            <riskdesc>Low (Low)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;A dangerous JS function seems to be in use that would leave the site vulnerable.&lt;/p&gt;]]></desc>
+            <count>2</count>
+            <solution><![CDATA[&lt;p&gt;See the references for security advice on the use of these functions.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://v17.angular.io/guide/security&lt;/p&gt;]]></reference>
+            <cweid>749</cweid>
+            <wascid>-1</wascid>
+            <sourceid>24</sourceid>
+            <instances>
+                <instance>
+                    <id>63</id>
+                    <uri>http://localhost:3000/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[bypassSecurityTrustHtml(]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>68</id>
+                    <uri>http://localhost:3000/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[bypassSecurityTrustHtml(]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10063</pluginid>
+            <alertRef>10063-2</alertRef>
+            <alert>Deprecated Feature Policy Header Set</alert>
+            <name>Deprecated Feature Policy Header Set</name>
+            <riskcode>1</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Low (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;The header has now been renamed to Permissions-Policy.&lt;/p&gt;]]></desc>
+            <count>13</count>
+            <solution><![CDATA[&lt;p&gt;Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header instead of the Feature-Policy header.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy&lt;/p&gt;&lt;p&gt;https://scotthelme.co.uk/goodbye-feature-policy-and-hello-permissions-policy/&lt;/p&gt;]]></reference>
+            <cweid>16</cweid>
+            <wascid>15</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>45</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>9</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>83</id>
+                    <uri>http://localhost:3000/ftp/coupons_2013.md.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>75</id>
+                    <uri>http://localhost:3000/ftp/eastere.gg</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>80</id>
+                    <uri>http://localhost:3000/ftp/encrypt.pyc</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>81</id>
+                    <uri>http://localhost:3000/ftp/package-lock.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>79</id>
+                    <uri>http://localhost:3000/ftp/package.json.bak</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>82</id>
+                    <uri>http://localhost:3000/ftp/suspicious_errors.yml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>64</id>
+                    <uri>http://localhost:3000/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>58</id>
+                    <uri>http://localhost:3000/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>19</id>
+                    <uri>http://localhost:3000/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>53</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>69</id>
+                    <uri>http://localhost:3000/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Feature-Policy]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>90004</pluginid>
+            <alertRef>90004-2</alertRef>
+            <alert>Insufficient Site Isolation Against Spectre Vulnerability</alert>
+            <name>Insufficient Site Isolation Against Spectre Vulnerability</name>
+            <riskcode>1</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Low (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don&#39;t explicitly grant the document permission (using CORP or CORS).&lt;/p&gt;]]></desc>
+            <count>10</count>
+            <solution><![CDATA[&lt;p&gt;Ensure that the application/web server sets the Cross-Origin-Embedder-Policy header appropriately, and that it sets the Cross-Origin-Embedder-Policy header to &#39;require-corp&#39; for documents.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that supports the Cross-Origin-Embedder-Policy header (https://caniuse.com/mdn-http_headers_cross-origin-embedder-policy).&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy&lt;/p&gt;]]></reference>
+            <cweid>693</cweid>
+            <wascid>14</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>46</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Embedder-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>10</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Embedder-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>85</id>
+                    <uri>http://localhost:3000/ftp</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Embedder-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>93</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Embedder-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>54</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Embedder-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>48</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Opener-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>11</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Opener-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>86</id>
+                    <uri>http://localhost:3000/ftp</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Opener-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>94</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Opener-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>55</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Cross-Origin-Opener-Policy]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10096</pluginid>
+            <alertRef>10096</alertRef>
+            <alert>Timestamp Disclosure - Unix</alert>
+            <name>Timestamp Disclosure - Unix</name>
+            <riskcode>1</riskcode>
+            <confidence>1</confidence>
+            <riskdesc>Low (Low)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;A timestamp was disclosed by the application/web server. - Unix&lt;/p&gt;]]></desc>
+            <count>9</count>
+            <solution><![CDATA[&lt;p&gt;Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[&lt;p&gt;1650485437, which evaluates to: 2022-04-20 20:10:37.&lt;/p&gt;]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://cwe.mitre.org/data/definitions/200.html&lt;/p&gt;]]></reference>
+            <cweid>497</cweid>
+            <wascid>13</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>35</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[1650485437]]></evidence>
+                    <otherinfo><![CDATA[1650485437, which evaluates to: 2022-04-20 20:10:37.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>37</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[1981395349]]></evidence>
+                    <otherinfo><![CDATA[1981395349, which evaluates to: 2032-10-14 19:35:49.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>36</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[2038834951]]></evidence>
+                    <otherinfo><![CDATA[2038834951, which evaluates to: 2034-08-10 15:02:31.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>5</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[1650485437]]></evidence>
+                    <otherinfo><![CDATA[1650485437, which evaluates to: 2022-04-20 20:10:37.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>7</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[1981395349]]></evidence>
+                    <otherinfo><![CDATA[1981395349, which evaluates to: 2032-10-14 19:35:49.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>6</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[2038834951]]></evidence>
+                    <otherinfo><![CDATA[2038834951, which evaluates to: 2034-08-10 15:02:31.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>40</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[1650485437]]></evidence>
+                    <otherinfo><![CDATA[1650485437, which evaluates to: 2022-04-20 20:10:37.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>43</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[1981395349]]></evidence>
+                    <otherinfo><![CDATA[1981395349, which evaluates to: 2032-10-14 19:35:49.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>42</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[2038834951]]></evidence>
+                    <otherinfo><![CDATA[2038834951, which evaluates to: 2034-08-10 15:02:31.]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10027</pluginid>
+            <alertRef>10027</alertRef>
+            <alert>Information Disclosure - Suspicious Comments</alert>
+            <name>Information Disclosure - Suspicious Comments</name>
+            <riskcode>0</riskcode>
+            <confidence>1</confidence>
+            <riskdesc>Informational (Low)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;The response appears to contain suspicious comments which may help an attacker.&lt;/p&gt;]]></desc>
+            <count>2</count>
+            <solution><![CDATA[&lt;p&gt;Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[&lt;p&gt;The following pattern was used: \bQUERY\b and was detected in likely comment: &quot;//owasp.org&#39; target=&#39;_blank&#39;&gt;Open Worldwide Application Security Project (OWASP)&lt;/a&gt; and is developed and maintained by voluntee&quot;, see evidence field for the suspicious comment/snippet.&lt;/p&gt;]]></otherinfo>
+            <reference><![CDATA[]]></reference>
+            <cweid>615</cweid>
+            <wascid>13</wascid>
+            <sourceid>24</sourceid>
+            <instances>
+                <instance>
+                    <id>61</id>
+                    <uri>http://localhost:3000/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[query]]></evidence>
+                    <otherinfo><![CDATA[The following pattern was used: \bQUERY\b and was detected in likely comment: &quot;//owasp.org&#39; target=&#39;_blank&#39;&gt;Open Worldwide Application Security Project (OWASP)&lt;/a&gt; and is developed and maintained by voluntee&quot;, see evidence field for the suspicious comment/snippet.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>66</id>
+                    <uri>http://localhost:3000/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[Query]]></evidence>
+                    <otherinfo><![CDATA[The following pattern was used: \bQUERY\b and was detected in likely comment: &quot;//www.w3.org/2000/svg&quot; viewBox=&quot;0 0 512 512&quot;&gt;&lt;path d=&quot;M0 256C0 397.4 114.6 512 256 512s256-114.6 256-256S397.4 0 256 0S0 114.6 0&quot;, see evidence field for the suspicious comment/snippet.]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10109</pluginid>
+            <alertRef>10109</alertRef>
+            <alert>Modern Web Application</alert>
+            <name>Modern Web Application</name>
+            <riskcode>0</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Informational (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.&lt;/p&gt;]]></desc>
+            <count>12</count>
+            <solution><![CDATA[&lt;p&gt;This is an informational alert and so no changes are required.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[&lt;p&gt;No links have been found while there are scripts, which is an indication that this is a modern web application.&lt;/p&gt;]]></otherinfo>
+            <reference><![CDATA[]]></reference>
+            <cweid>-1</cweid>
+            <wascid>-1</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>32</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>4</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>97</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>95</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/fileServer.js:59:18</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>92</id>
+                    <uri>http://localhost:3000/juice-shop/build/routes/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>99</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:280:10</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>101</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:286:9</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>98</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:328:13</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>102</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:365:14</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>100</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/index.js:421:3</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>96</id>
+                    <uri>http://localhost:3000/juice-shop/node_modules/express/lib/router/layer.js:95:5</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>34</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js&quot;&gt;&lt;/script&gt;]]></evidence>
+                    <otherinfo><![CDATA[No links have been found while there are scripts, which is an indication that this is a modern web application.]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10049</pluginid>
+            <alertRef>10049-3</alertRef>
+            <alert>Storable and Cacheable Content</alert>
+            <name>Storable and Cacheable Content</name>
+            <riskcode>0</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Informational (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where &quot;shared&quot; caching servers such as &quot;proxy&quot; caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.&lt;/p&gt;]]></desc>
+            <count>1</count>
+            <solution><![CDATA[&lt;p&gt;Validate that the response does not contain sensitive, personal or user-specific information. If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:&lt;/p&gt;&lt;p&gt;Cache-Control: no-cache, no-store, must-revalidate, private&lt;/p&gt;&lt;p&gt;Pragma: no-cache&lt;/p&gt;&lt;p&gt;Expires: 0&lt;/p&gt;&lt;p&gt;This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.&lt;/p&gt;]]></solution>
+            <otherinfo><![CDATA[&lt;p&gt;In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.&lt;/p&gt;]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;]]></reference>
+            <cweid>524</cweid>
+            <wascid>13</wascid>
+            <sourceid>7</sourceid>
+            <instances>
+                <instance>
+                    <id>13</id>
+                    <uri>http://localhost:3000/robots.txt</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10049</pluginid>
+            <alertRef>10049-2</alertRef>
+            <alert>Storable but Non-Cacheable Content</alert>
+            <name>Storable but Non-Cacheable Content</name>
+            <riskcode>0</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Informational (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users.&lt;/p&gt;]]></desc>
+            <count>10</count>
+            <solution><![CDATA[]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7234&lt;/p&gt;&lt;p&gt;https://datatracker.ietf.org/doc/html/rfc7231&lt;/p&gt;&lt;p&gt;https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html&lt;/p&gt;]]></reference>
+            <cweid>524</cweid>
+            <wascid>13</wascid>
+            <sourceid>9</sourceid>
+            <instances>
+                <instance>
+                    <id>44</id>
+                    <uri>http://localhost:3000</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>8</id>
+                    <uri>http://localhost:3000/</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>16</id>
+                    <uri>http://localhost:3000/assets/public/favicon_js.ico</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>73</id>
+                    <uri>http://localhost:3000/ftp/acquisitions.md</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>62</id>
+                    <uri>http://localhost:3000/main.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>57</id>
+                    <uri>http://localhost:3000/polyfills.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>18</id>
+                    <uri>http://localhost:3000/runtime.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>51</id>
+                    <uri>http://localhost:3000/sitemap.xml</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>59</id>
+                    <uri>http://localhost:3000/styles.css</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>67</id>
+                    <uri>http://localhost:3000/vendor.js</uri>
+                    <method>GET</method>
+                    <param><![CDATA[]]></param>
+                    <attack><![CDATA[]]></attack>
+                    <evidence><![CDATA[max-age=0]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+        <alertitem>
+            <pluginid>10104</pluginid>
+            <alertRef>10104</alertRef>
+            <alert>User Agent Fuzzer</alert>
+            <name>User Agent Fuzzer</name>
+            <riskcode>0</riskcode>
+            <confidence>2</confidence>
+            <riskdesc>Informational (Medium)</riskdesc>
+            <desc><![CDATA[&lt;p&gt;Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.&lt;/p&gt;]]></desc>
+            <count>24</count>
+            <solution><![CDATA[]]></solution>
+            <otherinfo><![CDATA[]]></otherinfo>
+            <reference><![CDATA[&lt;p&gt;https://owasp.org/wstg&lt;/p&gt;]]></reference>
+            <cweid>0</cweid>
+            <wascid>0</wascid>
+            <sourceid>5851</sourceid>
+            <instances>
+                <instance>
+                    <id>107</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>105</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>103</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>110</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>112</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>126</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>124</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>114</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>118</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>122</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>120</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>116</id>
+                    <uri>http://localhost:3000/assets</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[msnbot/1.1 (+http://search.msn.com/msnbot.htm)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>108</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>106</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>104</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>109</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>111</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>125</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>123</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/91.0]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>113</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>117</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>121</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A366 Safari/600.1.4]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>119</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7A341 Safari/528.16]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+                <instance>
+                    <id>115</id>
+                    <uri>http://localhost:3000/assets/public</uri>
+                    <method>GET</method>
+                    <param><![CDATA[Header User-Agent]]></param>
+                    <attack><![CDATA[msnbot/1.1 (+http://search.msn.com/msnbot.htm)]]></attack>
+                    <evidence><![CDATA[]]></evidence>
+                    <otherinfo><![CDATA[]]></otherinfo>
+                </instance>
+            </instances>
+        </alertitem>
+    </site>
+</ZAPReport>
