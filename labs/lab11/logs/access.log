@@ -1,0 +1,37 @@
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "\x15\x03\x03\x00\x02\x02F" 400 150 "-" "-" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "\x15\x03\x03\x00\x02\x02F" 400 150 "-" "-" rt=0.001 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "HEAD / HTTP/1.1" 308 0 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "HEAD / HTTP/2.0" 200 0 "-" "curl/8.5.0" rt=0.015 uct=0.002 urt=0.014
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.043 uct=0.002 urt=0.043
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.023 uct=0.002 urt=0.024
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.026 uct=0.002 urt=0.027
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.023 uct=0.001 urt=0.023
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.017 uct=0.001 urt=0.018
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.035 uct=0.001 urt=0.035
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:10 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:11 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:40 +0000] "\x15\x03\x03\x00\x02\x02F" 400 150 "-" "-" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:40 +0000] "HEAD / HTTP/1.1" 308 0 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [14/Nov/2025:13:57:40 +0000] "HEAD / HTTP/2.0" 200 0 "-" "curl/8.5.0" rt=0.007 uct=0.001 urt=0.007
