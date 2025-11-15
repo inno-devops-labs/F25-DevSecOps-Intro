@@ -1,0 +1,4 @@
+PASS=0
+WARN=0
+FAIL=0
+INFO=0

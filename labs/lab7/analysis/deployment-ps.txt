@@ -1,0 +1,5 @@
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS                     PORTS                                         NAMES
+5e1139557501   bkimminich/juice-shop:v19.0.0   "/nodejs/bin/node /j…"   31 seconds ago   Up 31 seconds              0.0.0.0:3002->3000/tcp, [::]:3002->3000/tcp   juice-hardened
+feeae5cb1cf1   bkimminich/juice-shop:v19.0.0   "/nodejs/bin/node /j…"   37 seconds ago   Up 37 seconds              0.0.0.0:3001->3000/tcp, [::]:3001->3000/tcp   juice-default
+6d5ef4aa2e35   bkimminich/juice-shop:v19.0.0   "/nodejs/bin/node /j…"   2 weeks ago      Exited (0) 28 hours ago                                                  juice-shop-lab5
+17fc7cc3163d   bkimminich/juice-shop:v19.0.0   "/nodejs/bin/node /j…"   6 weeks ago      Exited (137) 2 weeks ago                                                 juice-shop
