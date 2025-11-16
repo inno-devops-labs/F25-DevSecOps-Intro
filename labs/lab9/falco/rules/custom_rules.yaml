@@ -1,0 +1,11 @@
+# labs/lab9/falco/rules/custom_rules.yaml
+- macro: lab9_target_container
+  condition: container.name = "lab9-helper"
+
+- rule: Lab9 — Write under /etc in lab container
+  desc: Detect writes under /etc inside lab9-helper container
+  condition: lab9_target_container and open_write and fd.name startswith "/etc/"
+  output: >
+    Lab9 Falco: write under /etc (user=%user.name container=%container.name file=%fd.name proc=%proc.name evt=%evt.type)
+  priority: NOTICE
+  tags: [lab9, demo]

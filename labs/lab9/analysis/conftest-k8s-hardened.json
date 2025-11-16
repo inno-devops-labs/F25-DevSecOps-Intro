@@ -1,0 +1,12 @@
+[
+	{
+		"filename": "/project/labs/lab9/manifests/k8s/juice-hardened.yaml",
+		"namespace": "k8s.security",
+		"successes": 22
+	},
+	{
+		"filename": "/project/labs/lab9/manifests/k8s/juice-hardened.yaml",
+		"namespace": "compose.security",
+		"successes": 8
+	}
+]
