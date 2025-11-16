@@ -1,0 +1,12 @@
+[
+	{
+		"filename": "/project/labs/lab9/manifests/compose/juice-compose.yml",
+		"namespace": "compose.security",
+		"successes": 4
+	},
+	{
+		"filename": "/project/labs/lab9/manifests/compose/juice-compose.yml",
+		"namespace": "k8s.security",
+		"successes": 11
+	}
+]

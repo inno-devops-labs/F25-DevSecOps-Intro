@@ -1,0 +1,76 @@
+[
+	{
+		"filename": "/project/labs/lab9/manifests/k8s/juice-unhardened.yaml",
+		"namespace": "compose.security",
+		"successes": 8
+	},
+	{
+		"filename": "/project/labs/lab9/manifests/k8s/juice-unhardened.yaml",
+		"namespace": "k8s.security",
+		"successes": 12,
+		"warnings": [
+			{
+				"msg": "container \"juice\" should define livenessProbe",
+				"metadata": {
+					"query": "data.k8s.security.warn"
+				}
+			},
+			{
+				"msg": "container \"juice\" should define readinessProbe",
+				"metadata": {
+					"query": "data.k8s.security.warn"
+				}
+			}
+		],
+		"failures": [
+			{
+				"msg": "container \"juice\" missing resources.limits.cpu",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			},
+			{
+				"msg": "container \"juice\" missing resources.limits.memory",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			},
+			{
+				"msg": "container \"juice\" missing resources.requests.cpu",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			},
+			{
+				"msg": "container \"juice\" missing resources.requests.memory",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			},
+			{
+				"msg": "container \"juice\" must set allowPrivilegeEscalation: false",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			},
+			{
+				"msg": "container \"juice\" must set readOnlyRootFilesystem: true",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			},
+			{
+				"msg": "container \"juice\" must set runAsNonRoot: true",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			},
+			{
+				"msg": "container \"juice\" uses disallowed :latest tag",
+				"metadata": {
+					"query": "data.k8s.security.deny"
+				}
+			}
+		]
+	}
+]
