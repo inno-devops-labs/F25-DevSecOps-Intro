@@ -1,0 +1,8 @@
+=== Package Detection & CVE Overlap ===
+Common packages: 0
+Syft-only packages: 1139
+Trivy-only packages: 1135
+
+CVEs (Grype): 58
+CVEs (Trivy): 62
+Common CVEs: 15
