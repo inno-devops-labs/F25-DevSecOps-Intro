@@ -1,0 +1,87 @@
+172.18.0.1 - - [21/Nov/2025:12:18:06 +0000] "GET / HTTP/1.1" 308 164 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:21:16 +0000] "HEAD / HTTP/1.1" 308 0 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:21:29 +0000] "HEAD / HTTP/2.0" 200 0 "-" "curl/8.5.0" rt=0.007 uct=0.000 urt=0.007
+172.18.0.1 - - [21/Nov/2025:12:23:36 +0000] "HEAD / HTTP/2.0" 200 0 "-" "curl/8.5.0" rt=0.002 uct=0.000 urt=0.002
+172.18.0.1 - - [21/Nov/2025:12:23:41 +0000] "HEAD / HTTP/1.1" 308 0 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:25:54 +0000] "GET / HTTP/1.1" 200 75002 "-" "TLS tester from https://testssl.sh/" rt=0.003 uct=0.000 urt=0.003
+172.18.0.1 - - [21/Nov/2025:12:26:15 +0000] "GET / HTTP/1.1" 200 75002 "-" "TLS tester from https://testssl.sh/" rt=0.002 uct=0.001 urt=0.003
+172.18.0.1 - - [21/Nov/2025:12:26:16 +0000] "GET / HTTP/1.1" 200 75002 "-" "TLS tester from https://testssl.sh/" rt=0.002 uct=0.000 urt=0.002
+172.18.0.1 - - [21/Nov/2025:12:26:22 +0000] "GET / HTTP/1.1" 200 75002 "https://google.com/" "TLS tester from https://testssl.sh/" rt=0.002 uct=0.001 urt=0.003
+172.18.0.1 - - [21/Nov/2025:12:26:44 +0000] "HEAD / HTTP/1.1" 308 0 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:26:44 +0000] "HEAD / HTTP/2.0" 200 0 "-" "curl/8.5.0" rt=0.001 uct=0.000 urt=0.001
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.019 uct=0.001 urt=0.020
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.008 uct=0.000 urt=0.008
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.007 uct=0.001 urt=0.007
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.007 uct=0.000 urt=0.007
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.006 uct=0.000 urt=0.006
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.008 uct=0.000 urt=0.008
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:12:26:56 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+45.135.193.9 - - [21/Nov/2025:13:03:18 +0000] "GET http://ip-api.com/json/ HTTP/1.1" 308 164 "-" "Go-http-client/1.1" rt=0.000 uct=- urt=-
+193.142.147.209 - - [21/Nov/2025:13:06:45 +0000] "GET /cgi-bin/luci/;stok=/locale HTTP/1.1" 308 164 "-" "-" rt=0.000 uct=- urt=-
+193.142.147.209 - - [21/Nov/2025:13:06:45 +0000] "GET /cgi-bin/luci/;stok=/locale HTTP/1.1" 200 75002 "http://51.250.111.212:8080/cgi-bin/luci/;stok=/locale" "-" rt=0.010 uct=0.001 urt=0.010
+79.124.40.174 - - [21/Nov/2025:13:30:19 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.003 uct=0.000 urt=0.002
+79.124.40.174 - - [21/Nov/2025:13:36:43 +0000] "POST /Autodiscover/Autodiscover.xml HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.221 uct=0.001 urt=0.009
+79.124.40.174 - - [21/Nov/2025:13:40:46 +0000] "POST /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.209 uct=0.001 urt=0.008
+79.124.40.174 - - [21/Nov/2025:13:44:54 +0000] "GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.208 uct=0.001 urt=0.008
+79.124.40.174 - - [21/Nov/2025:13:52:41 +0000] "GET /?XDEBUG_SESSION_START=phpstorm HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.003 uct=0.000 urt=0.003
+79.124.40.174 - - [21/Nov/2025:13:58:14 +0000] "GET /console/ HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.007 uct=0.001 urt=0.008
+79.124.40.174 - - [21/Nov/2025:14:05:16 +0000] "GET /_ignition/execute-solution HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.009 uct=0.000 urt=0.008
+66.132.153.52 - - [21/Nov/2025:14:13:49 +0000] "GET / HTTP/1.1" 308 164 "-" "-" rt=0.000 uct=- urt=-
+66.132.153.52 - - [21/Nov/2025:14:13:53 +0000] "GET / HTTP/1.1" 308 164 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.000 uct=- urt=-
+66.132.153.52 - - [21/Nov/2025:14:13:53 +0000] "PRI * HTTP/2.0" 400 150 "-" "-" rt=0.131 uct=- urt=-
+66.132.153.52 - - [21/Nov/2025:14:13:54 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.003 uct=0.001 urt=0.003
+66.132.153.52 - - [21/Nov/2025:14:13:55 +0000] "GET /assets/public/favicon_js.ico HTTP/1.1" 200 15086 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.002 uct=0.001 urt=0.002
+66.132.153.52 - - [21/Nov/2025:14:13:55 +0000] "GET /favicon.ico HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.008 uct=0.001 urt=0.007
+66.132.153.52 - - [21/Nov/2025:14:13:58 +0000] "\x16\x03\x01\x00\xEE\x01\x00\x00\xEA\x03\x03\xF5\xF4vO\x9F\x09b\xC1z\xFC\xFE\xD6Q\x82\x14\xCD\xE2Yz\x09_\x89\xA8\xB4\xA9j\xD6\xB4\xCB\x9B\x5CC \x03LH\xB9Zr>\xD2\xCE\x02!\xCD\x96\x99\xC6\xBE\xA1\xC4\x1Fl\xFF\x0Fd\x8D\x86\x05\xD0%y\xCFj\x02\x00&\xCC\xA8\xCC\xA9\xC0/\xC00\xC0+\xC0,\xC0\x13\xC0\x09\xC0\x14\xC0" 400 150 "-" "-" rt=5.004 uct=- urt=-
+66.132.153.52 - - [21/Nov/2025:14:14:05 +0000] "GET /robots.txt HTTP/1.1" 308 164 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.000 uct=- urt=-
+66.132.153.52 - - [21/Nov/2025:14:14:10 +0000] "\x16\x03\x01\x00\xEE\x01\x00\x00\xEA\x03\x03\x8AB\xF5\xEC\x80tC\xA3\xEBTF\x8F\xCF\x18Y\xDC>q\xC6T\xD2\x0C\x84\xF3\xB6\xE7\x9F\xED\xDFY\xFE\xA8 \xB03\xEB\xB1" 400 150 "-" "-" rt=5.005 uct=- urt=-
+185.91.127.107 - - [21/Nov/2025:14:14:53 +0000] "\x05\x01\x00" 400 150 "-" "-" rt=0.049 uct=- urt=-
+79.124.40.174 - - [21/Nov/2025:14:16:05 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.002 uct=0.001 urt=0.002
+79.124.40.174 - - [21/Nov/2025:14:21:31 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.002 uct=0.000 urt=0.002
+193.142.147.209 - - [21/Nov/2025:14:22:38 +0000] "GET / HTTP/1.1" 308 164 "-" "-" rt=0.000 uct=- urt=-
+79.124.40.174 - - [21/Nov/2025:14:26:06 +0000] "GET /actuator/gateway/routes HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.007 uct=0.000 urt=0.007
+3.131.215.38 - - [21/Nov/2025:14:26:10 +0000] "GET / HTTP/1.1" 308 164 "-" "cypex.ai/scanning Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36" rt=0.000 uct=- urt=-
+3.131.215.38 - - [21/Nov/2025:14:26:14 +0000] "GET / HTTP/1.1" 308 164 "-" "cypex.ai/scanning Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36" rt=0.000 uct=- urt=-
+3.131.215.38 - - [21/Nov/2025:14:26:15 +0000] "GET / HTTP/1.1" 200 75002 "http://51.250.111.212:8080/" "cypex.ai/scanning Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36" rt=0.002 uct=0.000 urt=0.002
+3.131.215.38 - - [21/Nov/2025:14:28:20 +0000] "" 400 0 "-" "-" rt=10.000 uct=- urt=-
+3.131.215.38 - - [21/Nov/2025:14:28:56 +0000] "\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x1D\xD9\xD0\x12\xF2b\xB4\xEAF\xA5\x17y\x9B\xD5\x1B\x17]:aW\x80\xD0\xA2\xA7\x19\xE44\xF5\x1A3\xFF>\x00\x00\x1A\xC0/\xC0+\xC0\x11\xC0\x07\xC0\x13\xC0\x09\xC0\x14\xC0" 400 150 "-" "-" rt=0.145 uct=- urt=-
+3.131.215.38 - - [21/Nov/2025:14:29:15 +0000] "SSH-2.0-Go" 400 150 "-" "-" rt=0.143 uct=- urt=-
+3.131.215.38 - - [21/Nov/2025:14:30:17 +0000] "\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\xAA\xF7u\x91\xCF|\xD4\x86[" 400 150 "-" "-" rt=0.140 uct=- urt=-
+79.124.40.174 - - [21/Nov/2025:14:34:42 +0000] "GET /geoserver HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.007 uct=0.001 urt=0.007
+79.124.40.174 - - [21/Nov/2025:14:38:39 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.002 uct=0.000 urt=0.002
+79.124.40.174 - - [21/Nov/2025:14:43:47 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" rt=0.002 uct=0.000 urt=0.002
+83.142.209.224 - - [21/Nov/2025:14:46:40 +0000] "GET / HTTP/1.1" 308 164 "-" "-" rt=0.000 uct=- urt=-
+45.38.44.221 - - [21/Nov/2025:15:11:53 +0000] "POST /goform/set_LimitClient_cfg HTTP/1.1" 308 164 "-" "Go-http-client/1.1" rt=0.000 uct=- urt=-
+83.142.209.224 - - [21/Nov/2025:15:18:58 +0000] "GET / HTTP/1.1" 308 164 "-" "-" rt=0.000 uct=- urt=-
+199.45.154.127 - - [21/Nov/2025:15:23:44 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.003 uct=0.001 urt=0.003
+199.45.154.127 - - [21/Nov/2025:15:23:48 +0000] "GET /assets/public/favicon_js.ico HTTP/1.1" 200 15086 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.002 uct=0.000 urt=0.002
+199.45.154.127 - - [21/Nov/2025:15:23:51 +0000] "GET /favicon.ico HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.008 uct=0.000 urt=0.008
+199.45.154.127 - - [21/Nov/2025:15:24:07 +0000] "GET /version HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.008 uct=0.000 urt=0.007
+199.45.154.127 - - [21/Nov/2025:15:24:09 +0000] "GET /version HTTP/1.1" 400 248 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.000 uct=- urt=-
+193.34.213.150 - - [21/Nov/2025:15:31:29 +0000] "GET / HTTP/1.1" 308 164 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" rt=0.000 uct=- urt=-
+54.196.157.167 - - [21/Nov/2025:15:48:12 +0000] "GET /favicon.ico HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" rt=0.007 uct=0.001 urt=0.007
+13.221.162.178 - - [21/Nov/2025:15:49:43 +0000] "GET /robots.txt HTTP/1.1" 200 28 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" rt=0.001 uct=0.001 urt=0.002
+13.221.92.241 - - [21/Nov/2025:15:49:51 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" rt=0.002 uct=0.000 urt=0.002
+3.83.254.71 - - [21/Nov/2025:15:50:14 +0000] "GET / HTTP/1.1" 308 164 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" rt=0.000 uct=- urt=-
+45.38.44.221 - - [21/Nov/2025:16:06:51 +0000] "GET /login HTTP/1.1" 308 164 "-" "Go-http-client/1.1" rt=0.000 uct=- urt=-
+176.65.149.159 - - [21/Nov/2025:16:32:10 +0000] "GET /index.htm HTTP/1.1" 400 248 "-" "Mozilla/5.0" rt=0.000 uct=- urt=-
+176.65.149.159 - - [21/Nov/2025:16:32:10 +0000] "GET / HTTP/1.1" 400 248 "-" "-" rt=0.000 uct=- urt=-
+176.65.149.159 - - [21/Nov/2025:16:32:11 +0000] "GET /index.htm HTTP/1.1" 200 75002 "-" "Mozilla/5.0" rt=0.007 uct=0.000 urt=0.007
+176.65.149.159 - - [21/Nov/2025:16:32:11 +0000] "1111\x0C\x01\x00\x00\x04\x00\x00\x01\x1B\x09\x00\x00\x02\x01\x00\x00\xFC\x00\x00\x00admin\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00queryBasicCfg\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00<?xml version=\x221.0\x22 encoding=\x22UTF-8\x22?>" 400 150 "-" "-" rt=0.086 uct=- urt=-
+176.65.149.159 - - [21/Nov/2025:16:32:12 +0000] "1111\x88\x00\x00\x00\x01\x01\x00\x00\x00%\xAD\x11>" 400 150 "-" "-" rt=0.999 uct=- urt=-
+45.38.44.221 - - [21/Nov/2025:16:36:08 +0000] "GET /login HTTP/1.1" 308 164 "-" "Go-http-client/1.1" rt=0.000 uct=- urt=-
+162.142.125.205 - - [21/Nov/2025:16:43:00 +0000] "GET / HTTP/1.1" 308 164 "-" "-" rt=0.000 uct=- urt=-
+162.142.125.205 - - [21/Nov/2025:16:43:04 +0000] "GET / HTTP/1.1" 308 164 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.000 uct=- urt=-
+162.142.125.205 - - [21/Nov/2025:16:43:05 +0000] "PRI * HTTP/2.0" 400 150 "-" "-" rt=0.145 uct=- urt=-
+162.142.125.205 - - [21/Nov/2025:16:43:05 +0000] "GET / HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.002 uct=0.001 urt=0.002
+162.142.125.205 - - [21/Nov/2025:16:43:09 +0000] "GET /assets/public/favicon_js.ico HTTP/1.1" 200 15086 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.002 uct=0.000 urt=0.002
+162.142.125.205 - - [21/Nov/2025:16:43:09 +0000] "\x16\x03\x01\x00\xEE\x01\x00\x00\xEA\x03\x03\xF5\xEC" 400 150 "-" "-" rt=5.003 uct=- urt=-
+162.142.125.205 - - [21/Nov/2025:16:43:09 +0000] "GET /favicon.ico HTTP/1.1" 200 75002 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.007 uct=0.000 urt=0.007
+162.142.125.205 - - [21/Nov/2025:16:43:34 +0000] "GET /sitemap.xml HTTP/1.1" 308 164 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)" rt=0.000 uct=- urt=-
+162.142.125.205 - - [21/Nov/2025:16:43:39 +0000] "\x16\x03\x01\x00\xEE\x01\x00\x00\xEA\x03\x03\xAD\xF7\xA7D4\xE0\xAD\xD9\x15\xD3\xACp\x02S\x8Dmzj\xD0Kh\x82\xDB\x0E\xF4&\xF9\xB2A\xCA\xDA\x8F )\xE0\x15\xA7\xA9\xE0nb'Q\x9D\xA5\xB54m\x84U\xA6\xB0q\xF7\xBF\xFF\xC39\xF3\xB6\xB9\xB2\xA0s!\x00&\xCC\xA8\xCC\xA9\xC0/\xC00\xC0+\xC0,\xC0\x13\xC0\x09\xC0\x14\xC0" 400 150 "-" "-" rt=5.005 uct=- urt=-
+149.50.96.133 - - [21/Nov/2025:16:52:44 +0000] "GET / HTTP/1.1" 308 164 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" rt=0.000 uct=- urt=-
