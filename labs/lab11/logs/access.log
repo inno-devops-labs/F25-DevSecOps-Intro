@@ -1,0 +1,20 @@
+172.20.0.1 - - [21/Nov/2025:13:51:09 +0000] "GET / HTTP/1.1" 308 164 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:51:21 +0000] "GET / HTTP/1.1" 308 164 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 OPR/123.0.0.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:52:11 +0000] "HEAD / HTTP/1.1" 308 0 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:52:26 +0000] "HEAD / HTTP/2.0" 200 0 "-" "curl/8.5.0" rt=0.016 uct=0.001 urt=0.016
+172.20.0.1 - - [21/Nov/2025:13:52:55 +0000] "GET / HTTP/1.1" 200 75002 "-" "TLS tester from https://testssl.sh/" rt=0.007 uct=0.000 urt=0.007
+172.20.0.1 - - [21/Nov/2025:13:53:27 +0000] "GET / HTTP/1.1" 200 75002 "-" "TLS tester from https://testssl.sh/" rt=0.004 uct=0.001 urt=0.004
+172.20.0.1 - - [21/Nov/2025:13:53:28 +0000] "GET / HTTP/1.1" 200 75002 "-" "TLS tester from https://testssl.sh/" rt=0.003 uct=0.001 urt=0.004
+172.20.0.1 - - [21/Nov/2025:13:53:34 +0000] "GET / HTTP/1.1" 200 75002 "https://google.com/" "TLS tester from https://testssl.sh/" rt=0.004 uct=0.000 urt=0.004
+172.20.0.1 - - [21/Nov/2025:13:54:03 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.074 uct=0.001 urt=0.073
+172.20.0.1 - - [21/Nov/2025:13:54:03 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.018 uct=0.001 urt=0.018
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.016 uct=0.001 urt=0.016
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.017 uct=0.000 urt=0.017
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.015 uct=0.001 urt=0.015
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 401 26 "-" "curl/8.5.0" rt=0.012 uct=0.000 urt=0.012
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.20.0.1 - - [21/Nov/2025:13:54:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
