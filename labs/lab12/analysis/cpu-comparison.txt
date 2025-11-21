@@ -1,0 +1,2 @@
+=== CPU Model Comparison ===
+Host CPU model: Kata VM CPU model: model name	: AMD EPYC
