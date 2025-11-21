@@ -1,0 +1,11 @@
+HTTP/1.1 302 Found
+Server: nginx/1.29.3
+Date: Fri, 21 Nov 2025 20:14:01 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 33
+Connection: keep-alive
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Location: /dashboard/
+Vary: Accept
+

@@ -1,0 +1,20 @@
+[1m
+#####################################################################[m
+  [1mtestssl.sh[m version [1m3.2.2[m from [1mhttps://testssl.sh/[m
+[1m
+  This program is free software. Distribution and modification under
+  GPLv2 permitted. USAGE w/o ANY WARRANTY. USE IT AT YOUR OWN RISK![m
+
+  Please file bugs @ [1mhttps://testssl.sh/bugs/[m
+[1m#####################################################################[m
+
+  Using [3mOpenSSL 1.0.2-bad (Mar 28 2025)[m  [~183 ciphers]
+  on docker-desktop:/home/testssl/bin/openssl.Linux.x86_64
+
+[7m Start 2025-11-21 20:26:10        -->> 127.0.0.1:8443 (localhost) <<--[m
+
+ A record via:           /etc/hosts 
+ rDNS (127.0.0.1):       --[0;35m Oops: TCP connect problem[m
+
+[0;35mUnable to open a socket to 127.0.0.1:8443. [m
+
