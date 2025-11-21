@@ -68,3 +68,101 @@ content-security-policy-report-only: default-src 'self'; img-src 'self' data:; s
 
 **CSP-Report-Only: default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'** - Content Security Policy in report-only mode monitors but doesn't block policy violations. This CSP restricts resource loading to same-origin sources with some exceptions for inline scripts/styles. While not enforcing yet, it helps identify potential XSS vectors and prepares for eventual enforcement without breaking application functionality.
 
+## Task 3
+
+### Testssl Summary:
+
+**TLS Protocol Support:**
+- SSLv2: Not offered (OK)
+- SSLv3: Not offered (OK)
+- TLS 1.0: Not offered
+- TLS 1.1: Not offered
+- TLS 1.2: Offered (OK)
+- TLS 1.3: Offered (OK)
+
+**Supported Cipher Suites:**
+
+*TLS 1.2:*
+- ECDHE-RSA-AES256-GCM-SHA384 (256-bit ECDH)
+- ECDHE-RSA-AES128-GCM-SHA256 (256-bit ECDH)
+
+*TLS 1.3:*
+- TLS_AES_256_GCM_SHA384 (253-bit ECDH)
+- TLS_CHACHA20_POLY1305_SHA256 (253-bit ECDH)
+- TLS_AES_128_GCM_SHA256 (253-bit ECDH)
+
+**Why TLS 1.2+ is Required (Prefer TLS 1.3):**
+TLS 1.2+ is required because older versions (TLS 1.0/1.1, SSL) have known vulnerabilities and weak cryptographic algorithms. TLS 1.3 is preferred because it:
+- Removes deprecated algorithms and cipher suites
+- Provides improved forward secrecy
+- Reduces handshake latency
+- Eliminates known attack vectors present in earlier versions
+- Supports only AEAD (Authenticated Encryption with Associated Data) ciphers
+
+**Warnings and Vulnerabilities from testssl:**
+- **Chain of trust:** NOT ok (self-signed) - Expected for development certificates
+- **OCSP:** NOT ok - Neither CRL nor OCSP URI provided - Expected for self-signed certs
+- **BREACH:** Potentially NOT ok due to gzip compression - Can be ignored for static pages
+- **Overall Grade:** T (capped due to self-signed certificate)
+
+All other vulnerability tests passed (Heartbleed, ROBOT, CRIME, POODLE, FREAK, DROWN, etc.)
+
+**HSTS Header Verification:**
+- **HTTP response (port 8080):** No HSTS header present (correct behavior)
+- **HTTPS response (port 8443):** HSTS header present: `strict-transport-security: max-age=31536000; includeSubDomains; preload`
+
+This confirms HSTS is correctly configured to appear only on HTTPS responses, preventing protocol downgrade attacks.
+
+### Rate Limiting & Timeouts:
+
+**Rate Limit Test Output:**
+```
+401
+401
+401
+401
+401
+401
+429
+429
+429
+429
+429
+429
+```
+
+**Analysis:** 6 requests returned HTTP 401 (authentication failed), followed by 6 requests returning HTTP 429 (rate limited). This shows the rate limiting is working as expected.
+
+**Rate Limit Configuration Analysis:**
+- `rate=10r/m` (10 requests per minute)
+- `burst=5` (allows up to 5 requests above the rate limit)
+
+These values balance security vs usability by:
+- **Security:** Preventing brute force attacks by limiting login attempts to a reasonable rate
+- **Usability:** Allowing legitimate users some burst capacity for normal usage patterns
+- **Recovery:** 1-minute window allows users to retry after brief lockout
+
+**Timeout Settings in nginx.conf:**
+
+- `client_body_timeout 30s`: Maximum time to read client request body
+- `client_header_timeout 30s`: Maximum time to read client request headers  
+- `proxy_read_timeout 60s`: Maximum time to receive response from upstream server
+- `proxy_send_timeout 60s`: Maximum time to transmit request to upstream server
+
+**Trade-offs:**
+- **Security Benefits:** Prevents slowloris attacks and resource exhaustion from slow clients
+- **Usability Considerations:** Values set high enough to accommodate legitimate slow connections and large uploads
+- **Resource Protection:** Ensures proxy doesn't hold connections indefinitely
+
+**Access Log 429 Responses:**
+```
+172.18.0.1 - - [21/Nov/2025:20:49:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:20:49:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:20:49:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:20:49:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:20:49:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+172.18.0.1 - - [21/Nov/2025:20:49:04 +0000] "POST /rest/user/login HTTP/2.0" 429 162 "-" "curl/8.5.0" rt=0.000 uct=- urt=-
+```
+
+The logs show rate limiting is actively blocking excessive requests with immediate response times (`rt=0.000`), demonstrating effective protection against brute force attacks.
+
